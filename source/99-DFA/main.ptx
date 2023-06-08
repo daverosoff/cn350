@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chapter xml:id="chapter-title" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Chapter title</title>
+    <!-- <xi:include href="outcomes/main.ptx" /> -->
+    <xi:include href="02.ptx" />
+    
+</chapter>

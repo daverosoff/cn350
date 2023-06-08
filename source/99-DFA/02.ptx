@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="DFA" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Deterministic finite automata</title>
+    <objectives>
+        <ul>
+            <li>
+                <!-- <xi:include href="outcomes/02.ptx" /> -->
+            </li>
+        </ul>
+    </objectives>
+    <subsection>
+        <title>Class Activities</title>
+        <activity>
+            <statement>
+                <p>
+                    Give diagrams or tables for DFAs accepting the following languages over the alphabet
+                    <m>\{0,1\}</m>. Make sure your answers include at least one table
+                    and one diagram.
+                </p>
+                <ol marker="A.">
+                    <li>The set of all strings ending in 00</li>
+                    <li>The set of all strings with three consecutive 0s (not necessarily at the end)</li>
+                    <li>The set of all strings with 011 as a substring.</li>
+                </ol>
+            </statement>
+        </activity>
+        <p>
+            In the reading, you have seen how a DFA is like a very simple computer,
+            modeled by walks on a directed graph. Each move in the walk is determined
+            by the transition function of the DFA as we <q>consume</q> the characters
+            in the input string one by one.
+        </p>
+        <activity>
+            <statement>
+                <p>
+                    (This example is due to HMU.) Consider the marble-rolling toy 
+                    pictured below.
+                </p>
+                <image source="marble.svg" width="90%">
+                    <description>A marble-rolling toy with two input chutes
+                    labeled A and B, and two output chutes labeled C and D.
+                    The path taken by the marble is determined by three
+                    levers. Lever 1 is immediately beneath A. If it points
+                    left, the marble rolls left and exits through output C. If
+                    Lever 1 points right, the marble rolls right and lands
+                    on Lever 2 (between A and B). If Lever 2 points left,
+                    the marble rolls left and exits through output C.
+                    If Lever 2 points rights, the marble rolls right and
+                    exits through output D. Finally, Lever 3 is beneath input
+                    B. If it points left, we go to Lever 2; otherwise, to output
+                    D.</description>
+                </image>
+                <p>
+                    This automaton is unusual for us in that it produces
+                    output (other than being in a state) that influences
+                    acceptance. Such automata are called <em>transducers</em>
+                    and are important in compiler design.
+                </p>
+                <ol>
+                    <li>Does the automaton accept <m>bab</m>?</li>
+                    <li>Does the automaton accept <m>aab</m>?</li>
+                    <li>
+                        <p>
+                            Label the words on <m>\{ A, B \}</m> accepted by the marble-rolling
+                            toy, assuming that a word is accepted if the last marble exits at D.
+                        </p>
+                        <ol marker="A." cols="2">
+                            <li><m>\varepsilon</m> (empty word)</li>
+                            <li><m>a</m></li>
+                            <li><m>b</m></li>
+                            <li><m>aa</m></li>
+                            <li><m>ab</m></li>
+                            <li><m>ba</m></li>
+                            <li><m>bb</m></li>
+                            <li><m>aaa</m></li>
+                            <li><m>aab</m></li>
+                            <li><m>aba</m></li>
+                            <li><m>abb</m></li>
+                            <li><m>baa</m></li>
+                            <li><m>bab</m></li>
+                            <li><m>bba</m></li>
+                            <li><m>bbb</m></li>
+                            <li><m>aaaa</m></li>
+                            <li><m>aaab</m></li>
+                            <li><m>aaba</m></li>
+                            <li><m>aabb</m></li>
+                            <li><m>abaa</m></li>
+                            <li><m>abab</m></li>
+                            <li><m>abba</m></li>
+                            <li><m>abbb</m></li>
+                            <li><m>baaa</m></li>
+                            <li><m>baab</m></li>
+                            <li><m>baba</m></li>
+                            <li><m>babb</m></li>
+                            <li><m>bbaa</m></li>
+                            <li><m>bbab</m></li>
+                            <li><m>bbba</m></li>
+                            <li><m>bbbb</m></li>
+                        </ol>
+                    </li>
+                    <li>Can you describe the language <m>L</m> accepted
+                    by the transducer?</li>
+                </ol>
+            </statement>
+        </activity>
+        <activity xml:id="act-extended-trans-induction">
+            <statement>
+                <p>
+                    Recall that if 
+                    <m>A = (Q, \Sigma, q_0, \delta, F)</m>
+                    is an automaton, we defined the 
+                    <em>extended transition function</em>
+                    inductively for a word <m>x = ya</m>
+                    (where 
+                    <m>\abs{y} \geq 0</m>
+                    ) by
+                    <me>
+                        \hat{\delta}(q, ya) = \begin{cases}
+                            q \amp \text{if $\abs{x} = 0$} \\
+                            \delta(\hat{\delta}(q, y), a) \amp
+                            \text{if $x = ya$}.
+                        \end{cases}
+                    </me>
+                    However, we think informally about 
+                    <m>\hat{\delta}</m>
+                    as describing what happens along a path with a certain
+                    string of labels. So it should not matter how we break
+                    the input string in the definition of 
+                    <m>\hat{\delta}</m>. That is, we should be able to
+                    use any factorization <m>x = yz</m>, not just one with
+                    <m>\abs{z} = 1</m>.
+                    Use induction on 
+                    <m>\abs{z}</m> 
+                    to prove that
+                    <me>
+                        \hat{\delta}(q, yz) = \hat{\delta}(\hat{\delta}(q, y), z)
+                    </me>.
+                </p>
+            </statement>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    Show that for any state <m>q</m>, string <m>x</m>,
+                    and input symbol <m>a</m>,
+                    <me>
+                        \hat{\delta}(q, ax) = \hat{\delta}(\delta(q, a), x)
+                    </me>.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    Use the result of 
+                    <xref ref="act-extended-trans-induction"/>.
+                </p>
+            </hint>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    Give DFAs accepting the following languages over the alphabet
+                    <m>\{0,1\}</m>:
+                </p>
+                <ol marker="A.">
+                    <li>The set of all strings such that each block of 5 consecutive
+                    symbols contains at least two 0s</li>
+                    <li>The set of all string whose tenth symbol from
+                    the right is a 1</li>
+                    <li>The set of strings that either begin or end
+                    (or both) with 01</li>
+                    <li>The set of strings such that the number of 0s
+                    is divisible by 5 and the number of 1s is divisible
+                    by 3</li>
+                </ol>
+            </statement>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    Give DFAs accepting the following languages over the alphabet
+                    <m>\{0,1\}</m>:
+                </p>
+                <ol marker="A.">
+                    <li>The set of all strings <m>x</m> beginning with a 1 such that, when
+                    <m>x</m> is interpreted as a binary integer, it is a multiple of 5. For example,
+                    strings 101, 1010, and 1111 are in the language, while
+                    0, 100, and 111 are not.</li>
+                    <li><p>The set of all such strings that, when interpreted <em>in reverse</em>
+                    as binary integers, are multiples of 5. Examples of strings in the
+                    language are 0, 10011, 1001100, and 0101. Observe there is no restriction 
+                    on the leading digit in this part.</p></li>
+                </ol>
+            </statement>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    Let <m>A</m> be a DFA and <m>q</m> a particular state of <m>A</m>,
+                    such that <m>\delta(q, a) = q</m> for all <m>a \in \Sigma</m>. Show by
+                    induction on <m>\abs{w}</m> that <m>\hat{\delta}(q, w) = q</m> for all
+                    input words <m>w</m>.
+                </p>
+            </statement>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    Let <m>A</m> be a DFA and <m>q</m> a particular state of <m>A</m>,
+                    such that <m>\delta(q, a) = q</m> for all <m>a \in \Sigma</m>.
+                </p>
+                <ol>
+                    <li>
+                        <p>
+                            Show by induction on <m>n</m> that for all <m>n \geq 0</m>,
+                            <m>\hat{\delta}(q, a^n) = q</m>, where <m>a^n</m> is the
+                            string consisting of <m>n</m> <m>a</m><rsq/>s.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Show that either <m>\{a\}^{\ast} \subseteq L(A)</m>
+                            or <m>\{a\}^{\ast} \cap L(A) = \varnothing</m>.
+                        </p>
+                    </li>
+                </ol>
+            </statement>
+        </activity>
+        <p>
+            We use the exponential notation for concatenation of words as well as individual
+            input symbols from <m>\Sigma^{\ast}</m>.
+        </p>
+        <activity>
+            <statement>
+                <p>
+                    Let <m>A = (Q, \Sigma, \delta, q_0, \{q_f\})</m>
+                    be a DFA, and suppose that for all <m>a \in \Sigma</m>
+                    we have
+                    <me>
+                        \delta(q_0, a) = \delta(q_f, a)
+                    </me>.
+                </p>
+                <ol marker="A.">
+                    <li>
+                        <p>
+                            Show that for all <m>w \ne \varepsilon</m>
+                            we have <m>\hat{\delta}(q_0, w) = \hat{\delta}(q_f, w)</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Show that if <m>x</m> is a nonempty string in <m>L(A)</m>,
+                            then for all <m>k > 0</m>, then <m>x^k</m>, the <m>k</m>-fold
+                            concatenation of <m>x</m>, is also in <m>L(A)</m>.
+                        </p>
+                    </li>
+                </ol>
+            </statement>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    Consider the DFA with the following transition table:
+                </p>
+                <tabular>
+                    <col align="right"/><col/><col/>
+                    <row header="yes">
+                        <cell></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                    </row>
+                    <row>
+                        <cell><m>\to A</m></cell>
+                        <cell><m>A</m></cell>
+                        <cell><m>B</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>\ast B</m></cell>
+                        <cell><m>B</m></cell>
+                        <cell><m>A</m></cell>
+                    </row>
+                </tabular>
+                <p>
+                    Informally describe the language accepted by this DFA,
+                    and prove by induction on the length of the input that
+                    your description is correct.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    When setting up the inductive hypothesis, it is wise
+                    to make a statement about what inputs get you to each state,
+                    no just what inputs get you to the accepting state.
+                </p>
+            </hint>
+        </activity>
+    </subsection>
+</section>

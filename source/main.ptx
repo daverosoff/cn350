@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+      \newcommand{\abs}[1]{\lvert #1 \rvert}
+    </macros>
+    <latex-image-preamble>
+      \usepackage{tikz}
+      \usepackage{amsmath}
+    </latex-image-preamble>
+  </docinfo>
+
+  <book xml:id="dwr-cn-350">
+    <title>Foundations of computation</title>
+    <subtitle>DRAFT EDITION</subtitle>
+
+    <xi:include href="meta/frontmatter.ptx" />
+    <xi:include href="99-DFA/main.ptx" />
+  </book>
+</pretext>
