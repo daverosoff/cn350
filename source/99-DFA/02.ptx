@@ -34,7 +34,22 @@
             <statement>
                 <p>
                     (This example is due to HMU.) Consider the marble-rolling toy 
-                    pictured below.
+                    pictured below. A marble enters at either <m>A</m> or <m>B</m>.
+                    The path taken by the marble is determined by three
+                    levers. Lever 1 is immediately beneath A. If it points
+                    left, the marble rolls left and exits through output C. If
+                    Lever 1 points right, the marble rolls right and lands
+                    on Lever 2 (between A and B). If Lever 2 points left,
+                    the marble rolls left and exits through output C.
+                    If Lever 2 points rights, the marble rolls right and
+                    exits through output D. Finally, Lever 3 is beneath input
+                    B. If it points left, we go to Lever 2; otherwise, to output
+                    D.
+                </p>
+                <p>
+                    Let us say that a word is accepted if, when we
+                    begin in the pictured starting configuration, rolling a marble
+                    for each symbol, the final marble exits at <m>D</m>.
                 </p>
                 <image source="marble.svg" width="90%">
                     <description>A marble-rolling toy with two input chutes
@@ -50,15 +65,19 @@
                     B. If it points left, we go to Lever 2; otherwise, to output
                     D.</description>
                 </image>
-                <p>
+                <!-- <p>
                     This automaton is unusual for us in that it produces
                     output (other than being in a state) that influences
                     acceptance. Such automata are called <em>transducers</em>
                     and are important in compiler design.
-                </p>
+                </p> -->
                 <ol>
-                    <li>Does the automaton accept <m>bab</m>?</li>
-                    <li>Does the automaton accept <m>aab</m>?</li>
+                    <li>Does the toy accept <m>a</m>?</li>
+                    <li>Does the toy accept <m>b</m>?</li>
+                    <li>Does the toy accept <m>ab</m>?</li>
+                    <li>Does the toy accept <m>ba</m>?</li>
+                    <li>Does the toy accept <m>aab</m>?</li>
+                    <li>Does the toy accept <m>bab</m>?</li>
                     <li>
                         <p>
                             Label the words on <m>\{ A, B \}</m> accepted by the marble-rolling
@@ -289,7 +308,7 @@
                 <p>
                     When setting up the inductive hypothesis, it is wise
                     to make a statement about what inputs get you to each state,
-                    no just what inputs get you to the accepting state.
+                    not just what inputs get you to the accepting state.
                 </p>
             </hint>
         </activity>
