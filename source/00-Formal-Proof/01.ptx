@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-section-title">
+    <title>Section Title</title>
+    <objectives>
+        <ul>
+            <li>
+                <!-- <xi:include href="outcomes/01.ptx" /> -->
+            </li>
+        </ul>
+    </objectives>
+    <subsection>
+        <title>Class Activities</title>
+        <!-- <reading-questions xml:id="rqs-1-3"> -->
+        <activity>
+            <webwork source="Library/SDSU/Discrete/Logic/formallogicA19.pg" />
+        </activity>
+        <activity>
+            <webwork source="Library/SDSU/Discrete/Logic/formallogicB20.pg"/>
+        </activity>
+        <activity>
+            <webwork source="Library/SDSU/Discrete/Logic/formallogicB24.pg"/>
+        </activity>
+        <activity>
+            <webwork source="Library/Westmont/EoDM3/Inquiry_1_1/iprob1_2.pg"/>
+        </activity>
+        <!-- </reading-questions> -->
+        <activity>
+            <statement>
+                <p>
+                    Which of the following are equivalent to
+                    <m>\not{\left(\or{A}{\not{B}}\right)}</m>? Select all that apply.
+                </p>
+                <ol marker="A.">
+                    <li><m>\or{\not{A}}{B}</m></li>
+                    <li><m>\and{\not{A}}{B}</m></li>
+                    <li><m>\or{A}{\not{B}}</m></li>
+                    <li><m>\and{A}{\not{B}}</m></li>
+                </ol>
+            </statement>
+            <statement>
+                <p>
+                    Which of the following are equivalent to the 
+                    contrapositive of the
+                    logical expression 
+                    <m>\and{A}{(\not{B})} \to \or{C}{\not{D}}</m>?
+                    Select all that apply.
+                </p>
+                <ol marker="A.">
+                    <li><m>\and{A}</m></li>
+                    <li><m></m></li>
+                    <li><m></m></li>
+                    <li><m></m></li>
+                </ol>
+            </statement>
+        </activity>
+    </subsection>
+</section>
