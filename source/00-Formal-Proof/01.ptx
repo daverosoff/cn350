@@ -217,6 +217,11 @@
                     induction framework.
                 </p>
             </statement>
+            <hint>
+                <p>
+                    I think you can do it without one!
+                </p>
+            </hint>
         </activity>
         <activity xml:id="subsec-unit-cube">
             <introduction>
