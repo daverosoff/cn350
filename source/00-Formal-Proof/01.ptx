@@ -8,50 +8,120 @@
             </li>
         </ul>
     </objectives>
+    
     <subsection>
         <title>Class Activities</title>
         <!-- <reading-questions xml:id="rqs-1-3"> -->
         <activity>
-            <webwork source="Library/SDSU/Discrete/Logic/formallogicA19.pg" />
-        </activity>
-        <activity>
             <webwork source="Library/SDSU/Discrete/Logic/formallogicB20.pg"/>
-        </activity>
-        <activity>
-            <webwork source="Library/SDSU/Discrete/Logic/formallogicB24.pg"/>
         </activity>
         <activity>
             <webwork source="Library/Westmont/EoDM3/Inquiry_1_1/iprob1_2.pg"/>
         </activity>
+        <activity>
+            <webwork source="Library/SDSU/Discrete/Logic/formallogicA19.pg" />
+        </activity>
+        <activity>
+            <webwork source="Library/SDSU/Discrete/Logic/formallogicB24.pg"/>
+        </activity>
+        
         <!-- </reading-questions> -->
         <activity>
             <statement>
                 <p>
                     Which of the following are equivalent to
-                    <m>\not{\left(\or{A}{\not{B}}\right)}</m>? Select all that apply.
+                    <m>\lsim(A \vee \lsim B)</m>? Select all that apply.
                 </p>
                 <ol marker="A.">
-                    <li><m>\or{\not{A}}{B}</m></li>
-                    <li><m>\and{\not{A}}{B}</m></li>
-                    <li><m>\or{A}{\not{B}}</m></li>
-                    <li><m>\and{A}{\not{B}}</m></li>
+                    <li><m>\lsim A \vee B</m></li>
+                    <li><m>\lsim A \wedge B</m></li>
+                    <li><m>A \vee \lsim B</m></li>
+                    <li><m>A \wedge \lsim B</m></li>
                 </ol>
             </statement>
+        </activity>
+        <activity>
             <statement>
                 <p>
                     Which of the following are equivalent to the 
                     contrapositive of the
                     logical expression 
-                    <m>\and{A}{(\not{B})} \to \or{C}{\not{D}}</m>?
+                    <m>A \vee \lsim B \to C \vee \lsim D</m>?
                     Select all that apply.
                 </p>
                 <ol marker="A.">
-                    <li><m>\and{A}</m></li>
-                    <li><m></m></li>
-                    <li><m></m></li>
-                    <li><m></m></li>
+                    <li><m>C \vee \lsim D \to A \wedge \lsim B</m></li>
+                    <li><m>\lsim(C \vee \lsim D) \to \lsim(A \wedge \lsim B)</m></li>
+                    <li><m>\lsim(A \vee \lsim B) \to \lsim(C \vee \lsim D)</m></li>
+                    <li><m>\lsim A \vee B \to \lsim C \wedge D</m></li>
                 </ol>
             </statement>
+        </activity>
+        <activity>
+            <introduction>
+                <p>
+                    We say a set <m>A</m> is <term>finite</term> if there is a nonnegative integer 
+                    <m>n</m>
+                    such that the proposition
+                    <men>A \text{ has $n$ elements}</men>
+                    is true. If <m>A</m> is a finite set, then <m>\abs{A}</m> denotes the size of 
+                    <m>A</m>, the number of its elements.
+                </p>
+                <p>
+                    A one-to-one correspondence or bijection is a function that can be reversed.
+                    Given a function <m>f \colon A \to B</m>, you can tell that <m>f</m> is a 
+                    bijection if it pairs each <q>input</q> (argument) to a <em>unique</em> output
+                    (value).
+                </p
+            </introduction>
+                <!-- <ol marker="1."> -->
+            <task>
+                <p>
+                    Let <m>A</m> be a finite set. How many functions are there with
+                    domain <m>A</m> and codomain <m>\mathbf{\overline{2}} = \{0,1\}</m>?
+                </p>
+                <hint>
+                    <p>
+                        Try listing all possibilities for <m>\abs{A} = 1, 2, 3</m>. A pattern should emerge.
+                        Once you think you see it, try to explain why that is the answer. The lists you
+                        made for the small examples should help you see the <q>general</q> case.
+                    </p>
+                </hint>
+            </task>
+            <task>
+                <p>
+                    Establish a one-to-one correspondence (i.e., a bijection)
+                    between the set of functions <m>A \to \mathbf{\overline{2}}</m> and the power
+                    set <m>2^A = \{ B : B \subseteq A \}</m>.
+                </p>
+                <hint>
+                    <p>
+                        The <q>inputs</q> of your bijection could be the functions <m>A \to \mathbf{\overline{2}}</m>
+                        and the <q>outputs</q> the elements of the set <m>2^A</m>.
+                </hint>
+                <solution>
+                    <p>
+                        Define a function <me>
+                            \mathrm{ev}_1 \colon 
+                            \{ f : f \text{is a function $A \to \mathbf{\overline{2}}$} \} \to 2^A
+                        </me>
+                        by the equation <m>\mathrm{ev}_1(f) = \{ x \in A : f(x) = 1 \}</m>.
+                    </p>
+                </solution>
+            </task>
+            <task>
+                <p>
+                    Conclude that <m>\abs{\{f \colon A \to \mathbf{\overline{2}}\}} = \abs{2^A}</m>,
+                    and identify the common value of these expressions. (Your answer will
+                    depend on <m>A</m>.)
+                </p>
+            </task>
+            <task>
+                <p>
+                    Establish the relation <me>\aster{\varnothing} = \{\eps\}</me>.
+                </p>
+            </task>
+                <!-- </ol> -->
         </activity>
     </subsection>
 </section>
