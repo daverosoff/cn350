@@ -5,6 +5,7 @@
   <docinfo>
     <macros>
       \newcommand{\R}{\mathbb R}
+      \newcommand{\N}{\mathbb N}
       \newcommand{\abs}[1]{\lvert #1 \rvert}
       \newcommand{\and}[2]{(#1) \, \mathtt{and} \, (#2)}
       \newcommand{\or}[2]{(#1) \, \mathtt{or} \, (#2)}
