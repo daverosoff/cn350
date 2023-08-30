@@ -6,9 +6,12 @@
     <macros>
       \newcommand{\R}{\mathbb R}
       \newcommand{\abs}[1]{\lvert #1 \rvert}
-      \newcommand{\and}[2]{#1 \, \mathtt{and} \, #2}
-      \newcommand{\or}[2]{#1 \, \mathtt{or} \, #2}
-      \newcommand{\not}[1]{\left(\mathtt{not} \, #1\right)}
+      \newcommand{\and}[2]{(#1) \, \mathtt{and} \, (#2)}
+      \newcommand{\or}[2]{(#1) \, \mathtt{or} \, (#2)}
+      \newcommand{\not}[1]{\mathtt{not} \, (#1)}
+      \newcommand{\aster}[1]{#1^{\ast}}
+      \newcommand{\eps}{\varepsilon}
+      \newcommand{\lsim}{\mathord{\sim}}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
