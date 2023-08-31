@@ -27,6 +27,6 @@
 
     <xi:include href="meta/frontmatter.ptx" />
     <xi:include href="00-Formal-Proof/main.ptx" />
-    <xi:include href="99-DFA/main.ptx" />
+    <xi:include href="01-DFA/main.ptx" />
   </book>
 </pretext>

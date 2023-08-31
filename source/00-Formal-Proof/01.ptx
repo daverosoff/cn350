@@ -8,7 +8,7 @@
             </li>
         </ul>
     </objectives>
-    
+
     <subsection>
         <title>Class Activities</title>
         <!-- <reading-questions xml:id="rqs-1-3"> -->
@@ -24,7 +24,7 @@
         <activity>
             <webwork source="Library/SDSU/Discrete/Logic/formallogicB24.pg"/>
         </activity>
-        
+
         <!-- </reading-questions> -->
         <activity>
             <statement>
@@ -43,9 +43,9 @@
         <activity>
             <statement>
                 <p>
-                    Which of the following are equivalent to the 
+                    Which of the following are equivalent to the
                     contrapositive of the
-                    logical expression 
+                    logical expression
                     <m>A \vee \lsim B \to C \vee \lsim D</m>?
                     Select all that apply.
                 </p>
@@ -60,16 +60,16 @@
         <activity>
             <introduction>
                 <p>
-                    We say a set <m>A</m> is <term>finite</term> if there is a nonnegative integer 
+                    We say a set <m>A</m> is <term>finite</term> if there is a nonnegative integer
                     <m>n</m>
                     such that the proposition
                     <men>A \text{ has $n$ elements}</men>
-                    is true. If <m>A</m> is a finite set, then <m>\abs{A}</m> denotes the size of 
+                    is true. If <m>A</m> is a finite set, then <m>\abs{A}</m> denotes the size of
                     <m>A</m>, the number of its elements.
                 </p>
                 <p>
                     A one-to-one correspondence or bijection is a function that can be reversed.
-                    Given a function <m>f \colon A \to B</m>, you can tell that <m>f</m> is a 
+                    Given a function <m>f \colon A \to B</m>, you can tell that <m>f</m> is a
                     bijection if it pairs each <q>input</q> (argument) to a <em>unique</em> output
                     (value).
                 </p>
@@ -103,7 +103,7 @@
                 <solution>
                     <p>
                         Define a function <me>
-                            \mathrm{ev}_1 \colon 
+                            \mathrm{ev}_1 \colon
                             \{ f : f \text{ is a function $A \to \mathbf{\overline{2}}$} \} \to 2^A
                         </me>
                         by the equation <m>\mathrm{ev}_1(f) = \{ x \in A : f(x) = 1 \}</m>. We will show that
@@ -113,7 +113,7 @@
                         <li>If <m>s \ne t</m> then <m>G(s) \ne G(t)</m> (no overlap/collision; at most one inbound arrow
                         for each codomain element)</li>
                         <li>For each <m>y</m> in the codomain, there is <m>x</m> in the domain such that
-                        <m>G(x) = y</m> (every codomain element <q>covered</q>; at least one inbound arrow for 
+                        <m>G(x) = y</m> (every codomain element <q>covered</q>; at least one inbound arrow for
                         each codomain element)</li>
                     </ol>
                     <p>
@@ -128,7 +128,7 @@
                     </p>
                     <p>
                         To obtain the second, let us choose an arbitrary element <m>S \in 2^A</m>. This <m>S</m> is just
-                        a subset of <m>A</m>. We must show that there exists a function <m>h</m> such that 
+                        a subset of <m>A</m>. We must show that there exists a function <m>h</m> such that
                         <m>\mathrm{ev}_1(h) = S</m>. We may of course define <me>
                             h(x) = \begin{cases}
                                 0 \amp \text{if $x \notin S$} \\
@@ -154,7 +154,7 @@
                         as well. Observe these combine to say <me>
                             \abs{2^A} = 2^{\abs{A}}
                         </me>
-                        for every finite set <m>A</m>. 
+                        for every finite set <m>A</m>.
                     </p>
                 </solution>
             </task>
@@ -171,7 +171,68 @@
                 </p>
             </statement>
         </theorem>
-        
+        <p>
+            We usually apply the induction theorem in a highly implicit way. It is only
+            invoked by name in introductory texts like this one. We have a sequence of
+            theorems we
+            wish to prove by induction. Usually we are too lazy to speak this way
+            and we say we are proving one theorem, but about every natural number
+            instead of a specific one (or about trees of arbitrary height instead of
+            trees of height <m>n</m>).
+            Each theorem in our sequence has a hypothesis <m>P_n</m> and a conclusion
+            <m>Q_n</m>. Often all of the <m>P_n</m> are the same, but it doesn't hurt
+            anything to let them be different. It happens even more often that
+            all of the <m>Q_n</m> are specializations
+            of a statement about integers to a specific integer. What
+            we do when we write a proof
+            by induction is to apply the induction theorem to the set <m>S</m> defined by
+            <me>
+                S = \{ n \in \N : P_n \implies Q_n \}
+            </me>,
+            that is, the set of natural numbers (or e.g. tree heights) for which our
+            theorem holds. If we can show the hypotheses of the induction theorem
+            apply to the set <m>S</m>, our proof is complete, because the conclusion
+            of the induction theorem then entails that <m>S = \N</m>.
+        </p>
+        <p>
+            This is what I meant in class when I spoke of an <q>argument machine</q>.
+            As stated above, none of this framework is ever explicitly mentioned
+            in practice. In undergraduate books, it is considered enough to mention
+            induction, prove a <q>base case</q> and an <q>inductive step</q> or
+            <q>induction case</q> (two phrases for the same thing), and voilà! The proof is
+            complete.
+        </p>
+        <p>
+            Thus, the <q>induction framework</q> consists of arranging your argument
+            so that the sequences <m>P_n</m> and <m>Q_n</m> are clear. We call the
+            theorem <q><m>P_0 \implies Q_0</m></q> the <q>base case</q>. This theorem
+            could also be stated as <q><m>0 \in S</m></q>.
+        </p>
+        <p>
+            The inductive case is always phrased as a conditional. <q><em>If</em>
+            <m>n</m> is a natural number that is in <m>S</m>, <em>then</em>
+            <m>n+1</m> is also in <m>S</m>.</q> If you recall the definition of
+            <m>S</m>, you will see that this conditional is equivalent to
+            <me>
+                \left( P_n \implies Q_n ) \implies \( P_{n+1} \implies Q_{n+1} \)
+            </me>.
+            So, we usually formulate our induction step in the latter way. My
+            <em>induction hypothesis</em> would be <q><m>P_n</m> implies <m>Q_n</m></q>.
+            From this hypothesis I would attempt to deduce the conclusion,
+            <q><m>P_{n+1}</m> implies <m>Q_{n+1}</m></q>.
+        </p>
+        <p>
+            As a final thought, I should tell you that in our real writing,
+            we <em>don't</em> usually assign values like <m>P_n</m> to
+            specific predicates like <q><m>6</m> divides <m>n^3 - n</m></q>. I have
+            done so here to aid in my clear speaking, but you should try to craft
+            your argument without using phrases like:
+            <ol>
+                <li><q>now let <m>k = n</m></q></li>
+                <li><q>assume <m>P_n</m></q></li>
+                <li><q>the theorem is true for <m>n</m></q></li>
+            </ol>
+        </p>
         <activity>
             <task>
                 <statement>
@@ -179,6 +240,14 @@
                         Show, using induction, that if <m>n</m> is a natural number, then
                         <m>3</m> divides <m>4^n - 1</m>.
                     </p>
+                    <aside>
+                        <p>
+                            Here <m>P_n</m> is the empty statement and <m>Q_n</m> is
+                            the statement <q><m>3</m> divides <m>4^n - 1</m></q>. The empty
+                            statement is indistinguishable from the logical constant
+                            <m>\textsf{True}</m>.
+                        </p>
+                    </aside>
                 </statement>
                 <solution>
                     <p>
@@ -195,7 +264,7 @@
                     </p>
                     <p>
                         Since <m>3</m> divides <m>4^n - 1</m>, the definition of divisibility
-                        tells us 
+                        tells us
                         there is <m>k</m> such that
                         <me>
                             3k = 4^n - 1.
@@ -205,7 +274,7 @@
                             12k + 3 = 4(4^n - 1) + 3 = 4^{n+1} - 4 + 3 = 4^{n+1} - 1.
                         </me>
                         Since <m>12k + 3 = 3(4k + 1)</m>, we have shown that <m>3 \cdot (4k + 1) = 4^{n+1} - 1</m>
-                        and the induction step is complete, as is the proof.                        
+                        and the induction step is complete, as is the proof.
                     </p>
                 </solution>
             </task>
@@ -271,7 +340,7 @@
         <activity>
             <statement>
                 <p>
-                    The Fibonacci numbers are defined by 
+                    The Fibonacci numbers are defined by
                     <md>
                         <mrow>F_0 \amp = 0</mrow>
                         <mrow>F_1 \amp = 1</mrow>
@@ -380,25 +449,25 @@
                     </statement>
                     <proof>
                         <p>
-                            It is enough to show that given a nonempty finite set of 
-                            cars, all of them are the same color. Since mine is blue, 
-                            the result will follow at once. Let us prove by induction 
-                            that every nonempty finite set of cars is monochromatic. 
-                            If the set has just one car, it is surely monochromatic. 
-                            Now let us suppose, by way of induction, that for some 
-                            positive integer <m>n</m> it has already been shown that every 
-                            set of <m>n</m> cars is monochromatic. 
+                            It is enough to show that given a nonempty finite set of
+                            cars, all of them are the same color. Since mine is blue,
+                            the result will follow at once. Let us prove by induction
+                            that every nonempty finite set of cars is monochromatic.
+                            If the set has just one car, it is surely monochromatic.
+                            Now let us suppose, by way of induction, that for some
+                            positive integer <m>n</m> it has already been shown that every
+                            set of <m>n</m> cars is monochromatic.
                         </p>
                         <p>
-                            Consider a set <m>X</m> of <m>n + 1</m> cars. We may form sets 
+                            Consider a set <m>X</m> of <m>n + 1</m> cars. We may form sets
                             <m>Y_1</m>, <m>Y_2, \ldots, Y_{n+1}</m> by deleting the <m>i</m>th car from <m>X</m> to form <m>Y_i</m>.
                             Applying the induction hypothesis to each of the sets <m>Y_i</m>
-                            we see that each of these sets is monochromatic. 
+                            we see that each of these sets is monochromatic.
                             But then <m>X</m> is monochromatic as well, and the proof is complete.
                         </p>
                     </proof>
                 </theorem>
-                
+
             </statement>
         </activity>
     </subsection>
