@@ -1,0 +1,5 @@
+/workspaces/cn350/source/main.ptx:14:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element biography, got colophon
+/workspaces/cn350/source/main.ptx:3:0:ERROR:RELAXNGV:RELAXNG_ERR_NOTELEM: Expecting an element got text
+/workspaces/cn350/source/main.ptx:2:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMWRONG: Did not expect element section there
+/workspaces/cn350/source/main.ptx:2:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element sidebyside, got section
+/workspaces/cn350/source/main.ptx:2:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element proof, got section
