@@ -3,5 +3,6 @@
     <title>Chapter title</title>
     <!-- <xi:include href="outcomes/main.ptx" /> -->
     <xi:include href="01.ptx" />
-    
+    <xi:include href="02.ptx" />
+
 </chapter>
