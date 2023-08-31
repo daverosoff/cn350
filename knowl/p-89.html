@@ -12,24 +12,7 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Recall that if <span class="process-math">\(A = (Q, \Sigma, q_0, \delta, F)\)</span> is an automaton, we defined the <em class="emphasis">extended transition function</em> inductively for a word <span class="process-math">\(x = ya\)</span> (where <span class="process-math">\(\abs{y} \geq 0\)</span> ) by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\delta}(q, ya) = \begin{cases}
-q \amp \text{if $\abs{x} = 0$} \\
-\delta(\hat{\delta}(q, y), a) \amp
-\text{if $x = ya$}.
-\end{cases}
-\end{equation*}
-</div>
-<div class="para">However, we think informally about <span class="process-math">\(\hat{\delta}\)</span> as describing what happens along a path with a certain string of labels. So it should not matter how we break the input string in the definition of <span class="process-math">\(\hat{\delta}\text{.}\)</span> That is, we should be able to use any factorization <span class="process-math">\(x = yz\text{,}\)</span> not just one with <span class="process-math">\(\abs{z} = 1\text{.}\)</span> Use induction on <span class="process-math">\(\abs{z}\)</span> to prove that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\delta}(q, yz) = \hat{\delta}(\hat{\delta}(q, y), z)\text{.}
-\end{equation*}
-</div>
-</div>
+<div class="para">(This example is due to HMU.) Consider the marble-rolling toy pictured below. A marble enters at either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\text{.}\)</span> The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points rights, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.</div>
 <span class="incontext"><a href="DFA.html#p-89" class="internal">in-context</a></span>
 </body>
 </html>
