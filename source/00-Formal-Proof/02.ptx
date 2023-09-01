@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="sec-induction">
-  <title>Induction</title>
-  <objectives></objectives>
-  <introduction>
-  <theorem xml:id="thm-induction">
-    <statement>
+    <title>Induction</title>
+    <objectives></objectives>
+    <introduction>
+        <theorem xml:id="thm-induction">
+            <statement>
+                <p>
+                    Let <m>A</m> be a nonempty subset of the natural numbers <m>\N</m> satisfying
+                    <ol>
+                        <li><m>0 \in A</m>; and</li>
+                        <li>If <m>n \in \N</m> and <m>n \in A</m>, then <m>n+1 \in A</m>.</li>
+                    </ol>
+                    Then <m>A = \N</m>.
+                </p>
+            </statement>
+        </theorem>
         <p>
-            Let <m>A</m> be a nonempty subset of the natural numbers <m>\N</m> satisfying
-            <ol>
-                <li><m>0 \in A</m>; and</li>
-                <li>If <m>n \in \N</m> and <m>n \in A</m>, then <m>n+1 \in A</m>.</li>
-            </ol>
-            Then <m>A = \N</m>.
+            We usually apply the induction theorem in a highly implicit way. It is only
+            invoked by name in introductory texts like this one. We have a sequence of
+            theorems we
+            wish to prove by induction. Usually we are too lazy to speak this way
+            and we say we are proving one theorem, but about every natural number
+            instead of a specific one (or about trees of arbitrary height instead of
+            trees of height <m>n</m>).
+            Each theorem in our sequence has a hypothesis <m>P_n</m> and a conclusion
+            <m>Q_n</m>. Often all of the <m>P_n</m> are the same, but it doesn't hurt
+            anything to let them be different. It happens even more often that
+            all of the <m>Q_n</m> are specializations
+            of a statement about integers to a specific integer. What
+            we do when we write a proof
+            by induction is to apply the induction theorem to the set <m>S</m> defined by
+            <me>
+                S = \{ n \in \N : P_n \implies Q_n \}
+            </me>,
+            that is, the set of natural numbers (or e.g. tree heights) for which our
+            theorem holds. If we can show the hypotheses of the induction theorem
+            apply to the set <m>S</m>, our proof is complete, because the conclusion
+            of the induction theorem then entails that <m>S = \N</m>.
         </p>
-    </statement>
-    </theorem>
-    <p>
-        We usually apply the induction theorem in a highly implicit way. It is only
-        invoked by name in introductory texts like this one. We have a sequence of
-        theorems we
-        wish to prove by induction. Usually we are too lazy to speak this way
-        and we say we are proving one theorem, but about every natural number
-        instead of a specific one (or about trees of arbitrary height instead of
-        trees of height <m>n</m>).
-        Each theorem in our sequence has a hypothesis <m>P_n</m> and a conclusion
-        <m>Q_n</m>. Often all of the <m>P_n</m> are the same, but it doesn't hurt
-        anything to let them be different. It happens even more often that
-        all of the <m>Q_n</m> are specializations
-        of a statement about integers to a specific integer. What
-        we do when we write a proof
-        by induction is to apply the induction theorem to the set <m>S</m> defined by
-        <me>
-            S = \{ n \in \N : P_n \implies Q_n \}
-        </me>,
-        that is, the set of natural numbers (or e.g. tree heights) for which our
-        theorem holds. If we can show the hypotheses of the induction theorem
-        apply to the set <m>S</m>, our proof is complete, because the conclusion
-        of the induction theorem then entails that <m>S = \N</m>.
-    </p>
-    <p>
-        This is what I meant in class when I spoke of an <q>argument machine</q>.
-        As stated above, none of this framework is ever explicitly mentioned
-        in practice. In undergraduate books, it is considered enough to mention
-        induction, prove a <q>base case</q> and an <q>inductive step</q> or
-        <q>induction case</q> (two phrases for the same thing), and voilà! The proof is
-        complete.
-    </p>
-    <p>
-        Thus, the <q>induction framework</q> consists of arranging your argument
-        so that the sequences <m>P_n</m> and <m>Q_n</m> are clear. We call the
-        theorem <q><m>P_0 \implies Q_0</m></q> the <q>base case</q>. This theorem
-        could also be stated as <q><m>0 \in S</m></q>.
-    </p>
-    <p>
-        The inductive case is always phrased as a conditional. <q><em>If</em>
-        <m>n</m> is a natural number that is in <m>S</m>, <em>then</em>
-        <m>n+1</m> is also in <m>S</m>.</q> If you recall the definition of
-        <m>S</m>, you will see that this conditional is equivalent to
-        <me>
-            \left( P_n \implies Q_n \right) \implies \left( P_{n+1} \implies Q_{n+1} \right)
-        </me>.
-        So, we usually formulate our induction step in the latter way. My
-        <em>induction hypothesis</em> would be <q><m>P_n</m> implies <m>Q_n</m></q>.
-        From this hypothesis I would attempt to deduce the conclusion,
-        <q><m>P_{n+1}</m> implies <m>Q_{n+1}</m></q>.
-    </p>
-    <p>
-        As a final thought, I should tell you that in our real writing,
-        we <em>don't</em> usually assign values like <m>P_n</m> to
-        specific predicates like <q><m>6</m> divides <m>n^3 - n</m></q>. I have
-        done so here to aid in my clear speaking, but you should try to craft
-        your argument without using phrases like:
-        <ol>
-            <li><q>now let <m>k = n</m></q></li>
-            <li><q>assume <m>P_n</m></q></li>
-            <li><q>the theorem is true for <m>n</m></q></li>
-        </ol>
-    </p>
-      </introduction>
+        <p>
+            This is what I meant in class when I spoke of an <q>argument machine</q>.
+            As stated above, none of this framework is ever explicitly mentioned
+            in practice. In undergraduate books, it is considered enough to mention
+            induction, prove a <q>base case</q> and an <q>induction step</q> or
+            <q>inductive case</q> (two phrases for the same thing), and voilà! The proof is
+            complete.
+        </p>
+        <p>
+            Thus, the <q>induction framework</q> consists of arranging your argument
+            so that the sequences <m>P_n</m> and <m>Q_n</m> are clear. We call the
+            theorem <q><m>P_0 \implies Q_0</m></q> the <q>base case</q>. This theorem
+            could also be stated as <q><m>0 \in S</m></q>.
+        </p>
+        <p>
+            The inductive case is always phrased as a conditional. <q><em>If</em>
+            <m>n</m> is a natural number that is in <m>S</m>, <em>then</em>
+            <m>n+1</m> is also in <m>S</m>.</q> If you recall the definition of
+            <m>S</m>, you will see that this conditional is equivalent to
+            <me>
+                \left( P_n \implies Q_n \right) \implies \left( P_{n+1} \implies Q_{n+1} \right)
+            </me>.
+            So, we usually formulate our induction step in the latter way. My
+            <em>induction hypothesis</em> would be <q><m>P_n</m> implies <m>Q_n</m></q>.
+            From this hypothesis I would attempt to deduce the conclusion,
+            <q><m>P_{n+1}</m> implies <m>Q_{n+1}</m></q>.
+        </p>
+        <p>
+            As a final thought, I should tell you that in our real writing,
+            we <em>don't</em> usually assign values like <m>P_n</m> to
+            specific predicates like <q><m>6</m> divides <m>n^3 - n</m></q>. I have
+            done so here to aid in my clear expression, but you should try to craft
+            your argument without using phrases like:
+            <ol>
+                <li><q>now let <m>k = n</m></q></li>
+                <li><q>assume <m>P_n</m></q></li>
+                <li><q>the theorem is true for <m>n</m></q></li>
+            </ol>
+        </p>
+    </introduction>
     <subsection xml:id="subsec-induction-activities">
       <title>Class activities</title>
       <activity>
@@ -221,11 +221,11 @@
                           \end{tikzpicture}
                       </latex-image>
                       <latex-image>
-                          \begin{tikzpicture}[scale=0.5]
-                          \draw (0, 0) grid (6, 2);
-                          % Define patterns for dominoes
-                          \definecolor{domino1}{RGB}{90,33,73}
-                          \definecolor{domino2}{RGB}{163,145,97}
+                            \begin{tikzpicture}[scale=0.5]
+                            \draw (0, 0) grid (6, 2);
+                            % Define patterns for dominoes
+                          \definecolor{domino1}{rgb}{0.33, 0.33, 0.33}
+                        \definecolor{domino2}{rgb}{0.67, 0.67, 0.67}
                           \fill[color=domino1] (0.1, 0.1) rectangle (1.9, 0.9);
                           \fill[color=domino2] (0.1, 1.1) rectangle (1.9, 1.9);
                           \fill[color=domino2] (2.1, 0.1) rectangle (3.9, 0.9);
@@ -241,8 +241,8 @@
                           <latex-image>
                               \begin{tikzpicture}[scale=0.5]
                                   \draw (0,0) grid (6,2);
-                                  \definecolor{domino1}{RGB}{90,33,73}
-                                  \definecolor{domino2}{RGB}{163,145,97}
+                                  \definecolor{domino1}{rgb}{0.33, 0.33, 0.33}
+                                  \definecolor{domino2}{rgb}{0.67, 0.67, 0.67}
                                   \fill[color=domino1] (0.1, 0.1) rectangle (1.9, 0.9);
                                   \fill[color=domino2] (0.1, 1.1) rectangle (1.9, 1.9);
                                   \fill[color=domino1] (2.1, 0.1) rectangle (2.9, 1.9);
@@ -254,8 +254,11 @@
                       </image>
                   </p>
                   <p>
-                      You can probably draw all 8 tilings of the <m>2 \times 6</m> grid quite easily. It turns out that 8 is also the value
-                      of <m>F_7</m>, the 7th Fibonacci number. This isn't a coincidence, as you're asked to show below.
+                      You can probably draw all 13
+                      tilings of the <m>2 \times 6</m> grid quite easily.
+                      It turns out that 13 is also the value
+                      of <m>F_7</m>, the 7th Fibonacci number.
+                      This isn't a coincidence, as you're asked to show below.
                   </p>
                   <p>
                       Using the recurrence relation above and the induction framework, show that there are <m>F_{n+1}</m>
