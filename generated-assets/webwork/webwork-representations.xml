@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='utf-8'?>
+<webwork-representations>
+  <webwork-reps version="2" ww_major_version="2" ww_minor_version="17" xml:id="extracted-webwork-1" ww-id="webwork-1">
+    <static seed="1" source="Library/SDSU/Discrete/Logic/formallogicB20.pg">
+      <statement><p>Negate the following statement:</p>
+<p><m>\text{Mike and Karen are tall.}</m></p>
+<p>Choose the correct statement:
+<var form="buttons">
+<li>
+<p>Mike is not tall, or Karen is not tall</p>
+</li>
+<li>
+<p>Mike is tall, or Karen is tall</p>
+</li>
+<li>
+<p>Mike is not tall, and Karen is not tall</p>
+</li>
+<li>
+<p>Mike is tall, and Karen is tall</p>
+</li>
+</var></p>
+</statement>
+      <solution><m>\text{Mike and Karen are tall.}</m> 
+
+ 
+
+
+Let <m>p</m> be the statement <m>\text{Mike is tall}</m> 
+
+
+Let <m>q</m> be the statement <m>\text{Karen is tall}</m>
+
+
+
+First, translate the statement into formal logic. 
+
+
+In this statement, <m>p</m> is true, and <m>q</m> is true. Therefore, the correct answer is <m>p</m> <alert> and </alert> <m>q</m>, or <m>p\wedge q</m>.
+
+
+
+Now, negate the statement. 
+
+
+<m>\mathbin{\sim} (p\wedge q)</m> 
+
+
+<m>\equiv ( \mathbin{\sim} p\vee \mathbin{\sim} q)</m> 
+
+
+Thus, the answer is 
+
+
+<m>\mathbin{\sim} p\vee \mathbin{\sim} q</m>
+
+
+
+Recall what <m>p</m> and <m>q</m> represent: 
+
+ 
+
+
+<m>\text{p: Mike is tall}</m> 
+
+
+<m>\text{q: Karen is tall}</m> 
+
+ 
+
+
+From <m>\mathbin{\sim} p\vee \mathbin{\sim} q</m>, we get 
+
+
+<m>\text{Mike is not tall, or Karen is not tall.}</m>
+
+
+</solution>
+    </static>
+    <server-data sourceFilePath="Library/SDSU/Discrete/Logic/formallogicB20.pg" domain="https://webwork-ptx.aimath.org" course-id="anonymous" user-id="anonymous" course-password="anonymous" language="en-US"/>
+    <pg source="Library/SDSU/Discrete/Logic/formallogicB20.pg"/>
+  </webwork-reps>
+  <webwork-reps version="2" ww_major_version="2" ww_minor_version="17" xml:id="extracted-webwork-2" ww-id="webwork-2">
+    <static seed="2" source="Library/Westmont/EoDM3/Inquiry_1_1/iprob1_2.pg">
+      <statement><p>Buttercup knows whether or not Westley is lying. She promises that if Westley
+is lying, she will give you a cookie. Buttercup always keeps her promises.</p>
+<p>Suppose she does not give you a cookie; what can you conclude?</p>
+<p><var form="popup" name="AnSwEr0001">
+<li>
+<p>?</p>
+</li>
+<li>
+<p>Westley is lying.</p>
+</li>
+<li>
+<p>Westley is not lying.</p>
+</li>
+<li>
+<p>Not enough information to determine.</p>
+</li>
+</var></p>
+<p>Suppose she gives you a cookie; what can you conclude?</p>
+<p><var form="popup" name="AnSwEr0002">
+<li>
+<p>?</p>
+</li>
+<li>
+<p>Westley is lying.</p>
+</li>
+<li>
+<p>Westley is not lying.</p>
+</li>
+<li>
+<p>Not enough information to determine.</p>
+</li>
+</var></p>
+</statement>
+      <answer>
+        <p>
+          <m>\text{Westley is not lying.}</m>
+        </p>
+      </answer>
+      <answer>
+        <p>
+          <m>\text{Not enough information to determine.}</m>
+        </p>
+      </answer>
+      <solution/>
+    </static>
+    <server-data sourceFilePath="Library/Westmont/EoDM3/Inquiry_1_1/iprob1_2.pg" domain="https://webwork-ptx.aimath.org" course-id="anonymous" user-id="anonymous" course-password="anonymous" language="en-US"/>
+    <pg source="Library/Westmont/EoDM3/Inquiry_1_1/iprob1_2.pg"/>
+  </webwork-reps>
+  <webwork-reps version="2" ww_major_version="2" ww_minor_version="17" xml:id="extracted-webwork-3" ww-id="webwork-3">
+    <static seed="3" source="Library/SDSU/Discrete/Logic/formallogicA19.pg">
+      <statement><p>Negate the following statement:</p>
+<p><m>\text{If Mary fails her classes, then she cannot graduate.}</m></p>
+<p><m>\text{p: Mary fails her classes}</m></p>
+<p><m>\text{q: Mary can graduate}</m></p>
+<p>Write the statement in formal logic:
+<var form="buttons">
+<li>
+<p><m>\mathbin{\sim} p\rightarrow q</m></p>
+</li>
+<li>
+<p><m>q\rightarrow p</m></p>
+</li>
+<li>
+<p><m>p\rightarrow \mathbin{\sim} q</m></p>
+</li>
+<li>
+<p><m>p\rightarrow q</m></p>
+</li>
+</var></p>
+<p>Negate the logic:
+<var form="buttons">
+<li>
+<p><m>\mathbin{\sim} p\wedge \mathbin{\sim} q</m></p>
+</li>
+<li>
+<p><m>\mathbin{\sim} p\wedge q</m></p>
+</li>
+<li>
+<p><m>p\wedge q</m></p>
+</li>
+<li>
+<p><m>\mathbin{\sim} p\vee \mathbin{\sim} q</m></p>
+</li>
+</var></p>
+<p>Rewrite the negated logic in English
+<var form="buttons">
+<li>
+<p>Mary does not fail her classes or she cannot graduate</p>
+</li>
+<li>
+<p>Mary does not fail her classes and she cannot graduate</p>
+</li>
+<li>
+<p>Mary does not fail her classes and she can graduate</p>
+</li>
+<li>
+<p>Mary fails her classes and she can graduate</p>
+</li>
+</var></p>
+</statement>
+      <solution><m>\text{If Mary fails her classes, then she cannot graduate.}</m> 
+
+ 
+
+
+<m>\text{p: Mary fails her classes}</m> 
+
+
+<m>\text{q: Mary can graduate}</m> 
+
+ 
+
+
+In this statement, if <m>p</m> is true, then <m>q</m> is false. This is an <m>implies</m> relationship. Thus, the answer is 
+
+
+<m>p\rightarrow \mathbin{\sim} q</m>
+
+
+
+Now, negate the statement. 
+
+
+In order to negate this statement, first translate it into an <m>or</m> statement to get rid of the <m>implies</m> operator. 
+
+
+<m>p\rightarrow \mathbin{\sim} q\equiv \mathbin{\sim} p\vee \mathbin{\sim} q</m> 
+
+
+<m>\mathbin{\sim} ( \mathbin{\sim} p\vee \mathbin{\sim} q)</m> 
+
+
+<m>\equiv p\wedge q</m> 
+
+
+Thus, the answer is <m>p\wedge q</m>
+
+
+
+Recall what <m>p</m> and <m>q</m> represent: 
+
+ 
+
+
+<m>\text{p: Mary fails her classes}</m> 
+
+
+<m>\text{q: Mary can graduate}</m> 
+
+ 
+
+
+From <m>p\wedge q</m>, we get 
+
+
+<m>\text{Mary fails her classes, and she can graduate.}</m>
+
+
+</solution>
+    </static>
+    <server-data sourceFilePath="Library/SDSU/Discrete/Logic/formallogicA19.pg" domain="https://webwork-ptx.aimath.org" course-id="anonymous" user-id="anonymous" course-password="anonymous" language="en-US"/>
+    <pg source="Library/SDSU/Discrete/Logic/formallogicA19.pg"/>
+  </webwork-reps>
+  <webwork-reps version="2" ww_major_version="2" ww_minor_version="17" xml:id="extracted-webwork-4" ww-id="webwork-4">
+    <static seed="4" source="Library/SDSU/Discrete/Logic/formallogicB24.pg">
+      <statement><p>Negate the following statement.</p>
+<p><m>\text{Billy and Bob are applying for the same job, but only one can succeed.}</m></p>
+<p><m>\text{p: Billy gets the job}</m></p>
+<p><m>\text{q: Bob gets the job}</m></p>
+<p>Choose the correct statement:
+<var form="buttons">
+<li>
+<p><m>\mathbin{\sim} (p\wedge q)</m></p>
+</li>
+<li>
+<p><m>\mathbin{\sim} (p\vee q)</m></p>
+</li>
+<li>
+<p><m>p\vee q</m></p>
+</li>
+<li>
+<p><m>p\wedge q</m></p>
+</li>
+</var></p>
+</statement>
+      <solution><m>\text{Billy and Bob are applying for the same job, but only one can succeed.}</m> 
+
+ 
+
+
+<m>\text{p: Billy gets the job}</m> 
+
+
+<m>\text{q: Bob gets the job}</m> 
+
+ 
+
+
+First, translate the statement into formal logic. 
+
+
+In this statement, <m>p</m> can be true, xor <m>q</m> can be true, or neither can be true. The key here is that while either one <alert> can </alert> succeed, there is no guarantee of success. The expression is then equal to 
+
+
+<m>\mathbin{\sim} (p\wedge q)</m>
+
+
+
+Now, negate the statement. 
+
+
+<m>\mathbin{\sim} ( \mathbin{\sim} (p\wedge q))</m> 
+
+
+<m>\equiv \mathbin{\sim} \mathbin{\sim} (p\wedge q)</m> 
+
+
+<m>\equiv p\wedge q</m> 
+
+
+The answer is then 
+
+
+<m>p\wedge q</m>
+
+
+
+As an extra exercise, what would this statement translate to in English?
+
+
+</solution>
+    </static>
+    <server-data sourceFilePath="Library/SDSU/Discrete/Logic/formallogicB24.pg" domain="https://webwork-ptx.aimath.org" course-id="anonymous" user-id="anonymous" course-password="anonymous" language="en-US"/>
+    <pg source="Library/SDSU/Discrete/Logic/formallogicB24.pg"/>
+  </webwork-reps>
+</webwork-representations>
