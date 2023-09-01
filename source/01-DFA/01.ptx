@@ -7,6 +7,99 @@
     <p>Some stuff</p>
   </subsection>
   <subsection xml:id="subsec-marble-toy">
-    <title></title>
+    <title>The marble-rolling toy</title>
+    <activity xml:id="act-marble-toy">
+      <statement>
+        <p>
+          (This example is due to HMU.) Consider the marble-rolling toy
+          pictured below. A marble enters at either <m>A</m> or <m>B</m>.
+          The path taken by the marble is determined by three
+          levers. Lever 1 is immediately beneath A. If it points
+          left, the marble rolls left and exits through output C. If
+          Lever 1 points right, the marble rolls right and lands
+          on Lever 2 (between A and B). If Lever 2 points left,
+          the marble rolls left and exits through output C.
+          If Lever 2 points rights, the marble rolls right and
+          exits through output D. Finally, Lever 3 is beneath input
+          B. If it points left, we go to Lever 2; otherwise, to output
+          D.
+        </p>
+        <p>
+          Let us say that a word is accepted if, when we
+          begin in the pictured starting configuration, rolling a marble
+          for each symbol, the final marble exits at <m>D</m>.
+        </p>
+        <image source="marble.svg" width="90%">
+          <description>A marble-rolling toy with two input chutes
+          labeled A and B, and two output chutes labeled C and D.
+          The path taken by the marble is determined by three
+          levers. Lever 1 is immediately beneath A. If it points
+          left, the marble rolls left and exits through output C. If
+          Lever 1 points right, the marble rolls right and lands
+          on Lever 2 (between A and B). If Lever 2 points left,
+          the marble rolls left and exits through output C.
+          If Lever 2 points right, the marble rolls right and
+          exits through output D. Finally, Lever 3 is beneath input
+          B. If it points left, we go to Lever 2; otherwise, to output
+          D.</description>
+        </image>
+        <!-- <p>
+          This automaton is unusual for us in that it produces
+          output (other than being in a state) that influences
+          acceptance. Such automata are called <em>transducers</em>
+          and are important in compiler design.
+        </p> -->
+        <ol>
+          <li>Does the toy accept <m>a</m>?</li>
+          <li>Does the toy accept <m>b</m>?</li>
+          <li>Does the toy accept <m>ab</m>?</li>
+          <li>Does the toy accept <m>ba</m>?</li>
+          <li>Does the toy accept <m>aab</m>?</li>
+          <li>Does the toy accept <m>bab</m>?</li>
+          <li>
+            <p>
+                Find all the words on <m>\{ A, B \}</m> of length
+                at most <m>4</m> accepted by the marble-rolling
+                toy, assuming that a word is accepted if the last marble exits at D.
+            </p>
+            <ol marker="A." cols="2">
+              <li><m>\varepsilon</m> (empty word)</li>
+              <li><m>a</m></li>
+              <li><m>b</m></li>
+              <li><m>aa</m></li>
+              <li><m>ab</m></li>
+              <li><m>ba</m></li>
+              <li><m>bb</m></li>
+              <li><m>aaa</m></li>
+              <li><m>aab</m></li>
+              <li><m>aba</m></li>
+              <li><m>abb</m></li>
+              <li><m>baa</m></li>
+              <li><m>bab</m></li>
+              <li><m>bba</m></li>
+              <li><m>bbb</m></li>
+              <li><m>aaaa</m></li>
+              <li><m>aaab</m></li>
+              <li><m>aaba</m></li>
+              <li><m>aabb</m></li>
+              <li><m>abaa</m></li>
+              <li><m>abab</m></li>
+              <li><m>abba</m></li>
+              <li><m>abbb</m></li>
+              <li><m>baaa</m></li>
+              <li><m>baab</m></li>
+              <li><m>baba</m></li>
+              <li><m>babb</m></li>
+              <li><m>bbaa</m></li>
+              <li><m>bbab</m></li>
+              <li><m>bbba</m></li>
+              <li><m>bbbb</m></li>
+            </ol>
+        </li>
+        <li>Can you describe the language <m>L</m> accepted
+        by the toy?</li>
+        </ol>
+      </statement>
+    </activity>
   </subsection>
 </section>
