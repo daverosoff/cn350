@@ -11,25 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Recall that if <span class="process-math">\(A = (Q, \Sigma, q_0, \delta, F)\)</span> is an automaton, we defined the <em class="emphasis">extended transition function</em> inductively for a word <span class="process-math">\(x = ya\)</span> (where <span class="process-math">\(\abs{y} \geq 0\)</span> ) by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\delta}(q, ya) = \begin{cases}
-q \amp \text{if $\abs{x} = 0$} \\
-\delta(\hat{\delta}(q, y), a) \amp
-\text{if $x = ya$}.
-\end{cases}
-\end{equation*}
-</div>
-<div class="para">However, we think informally about <span class="process-math">\(\hat{\delta}\)</span> as describing what happens along a path with a certain string of labels. So it should not matter how we break the input string in the definition of <span class="process-math">\(\hat{\delta}\text{.}\)</span> That is, we should be able to use any factorization <span class="process-math">\(x = yz\text{,}\)</span> not just one with <span class="process-math">\(\abs{z} = 1\text{.}\)</span> Use induction on <span class="process-math">\(\abs{z}\)</span> to prove that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\delta}(q, yz) = \hat{\delta}(\hat{\delta}(q, y), z)\text{.}
-\end{equation*}
-</div>
-</div>
-<span class="incontext"><a href="DFA.html#p-92" class="internal">in-context</a></span>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<div class="para">Consider a set <span class="process-math">\(X\)</span> of <span class="process-math">\(n + 1\)</span> cars. We may form sets <span class="process-math">\(Y_1\text{,}\)</span> <span class="process-math">\(Y_2, \ldots, Y_{n+1}\)</span> by deleting the <span class="process-math">\(i\)</span>th car from <span class="process-math">\(X\)</span> to form <span class="process-math">\(Y_i\text{.}\)</span> Applying the induction hypothesis to each of the sets <span class="process-math">\(Y_i\)</span> we see that each of these sets is monochromatic. But then <span class="process-math">\(X\)</span> is monochromatic as well, and the proof is complete.</div>
+<span class="incontext"><a href="sec-induction.html#p-92" class="internal">in-context</a></span>
 </body>
 </html>
