@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="DFA-intro" xmlns:xi="http://www.w3.org/2001/XInclude">
-
+  <objectives></objectives>
+  <title>Examples of finite state automata</title>
+  <subsection xml:id="subsec-bank-store-customer">
+    <title>The bank<mdash/>store<mdash/>customer model</title>
+    <p>Some stuff</p>
+  </subsection>
+  <subsection xml:id="subsec-marble-toy">
+    <title></title>
+  </subsection>
 </section>
