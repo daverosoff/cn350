@@ -131,13 +131,13 @@
         </p>
         <ol marker="A.">
           <li>
-            <p>Words on <m>\Sigma = \{a, b\}</m> </p>
+            <p>Words on <m>\Sigma = \{a, b\}</m> with an odd number of b.</p>
           </li>
           <li>
-            <p></p>
+            <p>Words on <m>\Sigma = \{0, 1\}</m> that start with 000.</p>
           </li>
           <li>
-            <p></p>
+            <p>Words on <m>\Sigma = \{0, 1\}</m> that end in 11.</p>
           </li>
         </ol>
       </statement>
@@ -150,21 +150,27 @@
         </p>
         <ol marker="A.">
           <li>The set of all strings <m>x</m> beginning with a 1 such that, when
-          <m>x</m> is interpreted as a binary integer, it is a multiple of 5. For example,
-          strings 101, 1010, and 1111 are in the language, while
-          0, 100, and 111 are not.</li>
+          <m>x</m> is interpreted as a binary integer, it is a multiple of 3. For example,
+          strings 0, 11, 110, and 1111 are in the language, while
+          10, 100, and 111 are not.</li>
           <li><p>The set of all such strings that, when interpreted <em>in reverse</em>
-          as binary integers, are multiples of 5. Examples of strings in the
-          language are 0, 10011, 1001100, and 0101. Observe there is no restriction
+          as binary integers, are multiples of 3. Examples of strings in the
+          language are 0, 00011, and 1001000. Observe there is no restriction
           on the leading digit in this part.</p></li>
         </ol>
       </statement>
+      <hint>
+        <p>
+          There is an interpretation with 3 states using ideas from modular arithmetic.
+        </p>
+      </hint>
     </activity>
     <activity>
       <statement>
         <p>
           Make a DFA that is equivalent to the marble-rolling toy
-          of <xref ref="act-marble-toy"/>. This will take some thought.
+          of <xref ref="act-marble-toy"/>. This will take some thought. I did it with
+          16 states originally, and 13 of them turned out to be accessible.
         </p>
       </statement>
       </activity>
