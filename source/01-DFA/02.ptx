@@ -65,8 +65,8 @@
           <latex-image>
             \begin{tikzpicture}[on grid, scale=0.5]
               \node[state, initial, initial where=above] (S) {$S$};
-              \node[state, below left=of S] (q1) {$q_1$};
-              \node[state, below right=of S] (r1) {$r_1$};
+              \node[state, accepting, below left=of S] (q1) {$q_1$};
+              \node[state, accepting, below right=of S] (r1) {$r_1$};
               \node[state, below=of q1] (q2) {$q_2$};
               \node[state, below=of r1] (r2) {$r_2$};
               \path[->]
@@ -129,7 +129,6 @@
           before you go on.
         </p>
         <ol marker="A.">
-          <li>The set of all strings with three consecutive 0s (not necessarily at the end)</li>
           <li>The set of all strings with 011 as a substring.</li>
           <li>
             <p>Words on <m>\Sigma = \{a, b\}</m> with an odd number of b</p>
@@ -140,6 +139,7 @@
           <li>
             <p>Words on <m>\Sigma = \{0, 1\}</m> that end in 11</p>
           </li>
+          <li>The set of all strings with three consecutive 0s (not necessarily at the end)</li>
         </ol>
       </statement>
     </activity>
