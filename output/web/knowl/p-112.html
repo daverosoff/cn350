@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">Recall that if <span class="process-math">\(A = (Q, \Sigma, q_0, \delta, F)\)</span> is an automaton, we defined the <em class="emphasis">extended transition function</em> inductively for a word <span class="process-math">\(x = ya\)</span> (where <span class="process-math">\(\abs{y} \geq 0\)</span> ) by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\hat{\delta}(q, x) = \begin{cases}
+q \amp \text{if $\abs{x} = 0$} \\
+\delta(\hat{\delta}(q, y), a) \amp
+\text{if $x = ya$}.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">However, we think informally about <span class="process-math">\(\hat{\delta}\)</span> as describing what happens along a path with a certain string of labels. So it should not matter how we break the input string in the definition of <span class="process-math">\(\hat{\delta}\text{.}\)</span> That is, we should be able to use any factorization <span class="process-math">\(x = yz\text{,}\)</span> not just one with <span class="process-math">\(\abs{z} = 1\text{.}\)</span> Use induction on <span class="process-math">\(\abs{z}\)</span> to prove that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\hat{\delta}(q, yz) = \hat{\delta}(\hat{\delta}(q, y), z)\text{.}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="DFA.html#p-112" class="internal">in-context</a></span>
+</body>
+</html>
