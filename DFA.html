@@ -274,47 +274,41 @@ window.MathJax = {
 <ul class="disc"><li id="li-86"><div class="para" id="p-derived-li-86"></div></li></ul></article><section class="subsection" id="subsection-5"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.2.1</span> <span class="title">Class Activities</span>
 </h3>
+<div class="para" id="p-97">Now you know that to specify a DFA, it is really enough to give the transition function <span class="process-math">\(\delta\text{.}\)</span> A transition table or transition diagram has enough information to specify the set <span class="process-math">\(Q\)</span> of states, the set <span class="process-math">\(\Sigma\)</span> of symbols, the start state, and the set <span class="process-math">\(F\)</span> of accepting states.</div>
+<div class="para" id="p-98">In the reading, you have seen how a DFA is like a very simple computer, modeled by walks on a directed graph. Each move in the walk is determined by the transition function of the DFA as we “consume” the characters in the input string one by one.</div>
 <article class="activity project-like" id="activity-14"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
-</h4>
-<div class="para" id="p-97">Give diagrams or tables for DFAs accepting the following languages over the alphabet <span class="process-math">\(\{0,1\}\text{.}\)</span> Make sure your answers include at least one table and one diagram.</div> <ol class="upper-alpha">
-<li id="li-87"><div class="para" id="p-derived-li-87">The set of all strings ending in 00</div></li>
-<li id="li-88"><div class="para" id="p-derived-li-88">The set of all strings with three consecutive 0s (not necessarily at the end)</div></li>
-<li id="li-89"><div class="para" id="p-derived-li-89">The set of all strings with 011 as a substring.</div></li>
-</ol></article><div class="para" id="p-98">In the reading, you have seen how a DFA is like a very simple computer, modeled by walks on a directed graph. Each move in the walk is determined by the transition function of the DFA as we “consume” the characters in the input string one by one.</div>
-<article class="activity project-like" id="activity-15"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
 </h4>
 <div class="introduction" id="introduction-4"><div class="para" id="p-99">For each pictured DFA, give a simple description of the language it accepts. Get the instructor to check before moving on.</div></div>
 <article class="task exercise-like" id="task-7"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/image-4.svg" role="img" class="contained"></div></article><article class="task exercise-like" id="task-8"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/image-5.svg" role="img" class="contained"></div></article><article class="task exercise-like" id="task-9"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/image-6.svg" role="img" class="contained"></div></article></article><div class="para" id="p-100">When designing a DFA or other automaton, it can be helpful to imagine yourself as the DFA and consider your cognition as you read the input word one symbol at a time. What must you remember about the string? How do you perform the DFA’s task? It helps when doing this to remember that the word might be very long, so long you can’t remember it all at once. You also don’t know when the string will end, so you must always be ready with the answer.</div>
-<div class="para" id="p-101">Suppose that the alphabet is <span class="process-math">\(\Sigma = \{0,1\}\)</span> and we wish to accept all words with an odd number of 1s. If you start going through a long input string of 0s and 1s, one symbol at a time, do you need to see the whole string? Do you need to remember any of it? No, you simply keep track of whether the number of 1s you have seen <em class="emphasis">so far</em> is even or odd.</div>
-<div class="para" id="p-102">This gives a clue to the design of the DFA. There are two states <span class="process-math">\(q_0\)</span> and <span class="process-math">\(q_1\text{,}\)</span> corresponding to having seen an even or odd number of 1s so far. We begin in state <span class="process-math">\(q_0\text{,}\)</span> since at the beginning, we haven’t “seen” any symbols and in particular have seen no 1s. Now the transitions should be clear: all transitions labeled with <span class="process-math">\(0\)</span> are self-loops, since the number of 1s does not change. Similarly, each transition labeled with <span class="process-math">\(1\)</span> changes state, because whenever we read a 1, the number of 1s seen so far changes parity.</div>
-<div class="para" id="p-103">There is just one accepting state, state <span class="process-math">\(q_1\text{,}\)</span> because that is the condition for having seen an odd number of 1s so far. If we are in state <span class="process-math">\(q_1\)</span> when the input ends, we win; otherwise, our string must be rejected.</div>
-<article class="activity project-like" id="activity-16"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+<div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/image-6.svg" role="img" class="contained"></div></article></article><article class="remark remark-like" id="par-design-dfa"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Designing DFA.</span>
+</h4> <div class="para" id="p-100">When designing a DFA or other automaton, it can be helpful to imagine yourself as the DFA and consider your cognition as you read the input word one symbol at a time. What must you remember about the string? How do you perform the DFA’s task? It helps when doing this to remember that the word might be very long, so long you can’t remember it all at once. You also don’t know when the string will end, so you must always be ready with the answer.</div> <div class="para" id="p-101">Suppose that the alphabet is <span class="process-math">\(\Sigma = \{0,1\}\)</span> and we wish to accept all words with an odd number of 1s. If you start going through a long input string of 0s and 1s, one symbol at a time, do you need to see the whole string? Do you need to remember any of it? No, you simply keep track of whether the number of 1s you have seen <em class="emphasis">so far</em> is even or odd.</div> <div class="para" id="p-102">This gives a clue to the design of the DFA. There are two states <span class="process-math">\(q_0\)</span> and <span class="process-math">\(q_1\text{,}\)</span> corresponding to having seen an even or odd number of 1s so far. We begin in state <span class="process-math">\(q_0\text{,}\)</span> since at the beginning, we haven’t “seen” any symbols and in particular have seen no 1s. Now the transitions should be clear: all transitions labeled with <span class="process-math">\(0\)</span> are self-loops, since the number of 1s does not change. Similarly, each transition labeled with <span class="process-math">\(1\)</span> changes state, because whenever we read a 1, the number of 1s seen so far changes parity.</div> <div class="para" id="p-103">There is just one accepting state, state <span class="process-math">\(q_1\text{,}\)</span> because that is the condition for having seen an odd number of 1s so far. If we are in state <span class="process-math">\(q_1\)</span> when the input ends, we win; otherwise, our string must be rejected.</div></article><article class="activity project-like" id="activity-15"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-104">Give a transition diagram and transition table for each language. Get the instructor to check before you go on.</div> <ol class="upper-alpha">
-<li id="li-90"><div class="para" id="p-105">Words on <span class="process-math">\(\Sigma = \{a, b\}\)</span> with an odd number of b.</div></li>
-<li id="li-91"><div class="para" id="p-106">Words on <span class="process-math">\(\Sigma = \{0, 1\}\)</span> that start with 000.</div></li>
-<li id="li-92"><div class="para" id="p-107">Words on <span class="process-math">\(\Sigma = \{0, 1\}\)</span> that end in 11.</div></li>
-</ol></article><article class="activity project-like" id="activity-17"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
+<div class="para" id="p-104">Give diagrams or tables for DFAs accepting the following languages over the alphabet <span class="process-math">\(\{0,1\}\text{.}\)</span> Make sure your answers include at least one table and one diagram. Get the instructor to check before you go on.</div> <ol class="upper-alpha">
+<li id="li-87"><div class="para" id="p-derived-li-87">The set of all strings with three consecutive 0s (not necessarily at the end)</div></li>
+<li id="li-88"><div class="para" id="p-derived-li-88">The set of all strings with 011 as a substring.</div></li>
+<li id="li-89"><div class="para" id="p-105">Words on <span class="process-math">\(\Sigma = \{a, b\}\)</span> with an odd number of b</div></li>
+<li id="li-90"><div class="para" id="p-106">Words on <span class="process-math">\(\Sigma = \{0, 1\}\)</span> that start with 000</div></li>
+<li id="li-91"><div class="para" id="p-107">Words on <span class="process-math">\(\Sigma = \{0, 1\}\)</span> that end in 11</div></li>
+</ol></article><article class="activity project-like" id="activity-16"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
 </h4>
 <div class="para" id="p-108">Give DFAs accepting the following languages over the alphabet <span class="process-math">\(\{0,1\}\text{:}\)</span>
 </div> <ol class="upper-alpha">
-<li id="li-93"><div class="para" id="p-derived-li-93">The set of all strings <span class="process-math">\(x\)</span> beginning with a 1 such that, when <span class="process-math">\(x\)</span> is interpreted as a binary integer, it is a multiple of 3. For example, strings 0, 11, 110, and 1111 are in the language, while 10, 100, and 111 are not.</div></li>
-<li id="li-94"><div class="para" id="p-109">The set of all such strings that, when interpreted <em class="emphasis">in reverse</em> as binary integers, are multiples of 3. Examples of strings in the language are 0, 00011, and 1001000. Observe there is no restriction on the leading digit in this part.</div></li>
+<li id="li-92"><div class="para" id="p-derived-li-92">The set of all strings <span class="process-math">\(x\)</span> beginning with a 1 such that, when <span class="process-math">\(x\)</span> is interpreted as a binary integer, it is a multiple of 3. For example, strings 11, 110, and 1111 are in the language, while 10, 100, and 111 are not.</div></li>
+<li id="li-93"><div class="para" id="p-109">The set of all such strings that, when interpreted <em class="emphasis">in reverse</em> as binary integers, are multiples of 3. Examples of strings in the language are 0, 00011, and 1001000. Observe there is no restriction on the leading digit in this part.</div></li>
 </ol>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-5" id="hint-5"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-5"><div class="hint solution-like"><div class="para" id="p-110">There is an interpretation with 3 states using ideas from modular arithmetic.</div></div></div>
-</div></article><article class="activity project-like" id="activity-18"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-5" id="hint-5"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-5"><div class="hint solution-like"><div class="para" id="p-110">There is an interpretation with 3 states using ideas from modular arithmetic, similar to <a href="" class="xref" data-knowl="./knowl/par-design-dfa.html" title="Remark 2.2.1: Designing DFA">Remark 2.2.1</a>.</div></div></div>
+</div></article><article class="activity project-like" id="activity-17"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
 </h4>
 <div class="para" id="p-111">Make a DFA that is equivalent to the marble-rolling toy of <a href="" class="xref" data-knowl="./knowl/act-marble-toy.html" title="Activity 2.1.1">Activity 2.1.1</a>. This will take some thought. I did it with 16 states originally, and 13 of them turned out to be accessible.</div></article><article class="activity project-like" id="act-extended-trans-induction"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
 </h4>
 <div class="para logical" id="p-112">
 <div class="para">Recall that if <span class="process-math">\(A = (Q, \Sigma, q_0, \delta, F)\)</span> is an automaton, we defined the <em class="emphasis">extended transition function</em> inductively for a word <span class="process-math">\(x = ya\)</span> (where <span class="process-math">\(\abs{y} \geq 0\)</span> ) by</div>
@@ -333,10 +327,13 @@ q \amp \text{if $\abs{x} = 0$} \\
 \hat{\delta}(q, yz) = \hat{\delta}(\hat{\delta}(q, y), z)\text{.}
 \end{equation*}
 </div>
-</div></article><article class="activity project-like" id="activity-20"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-6" id="hint-6"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-6"><div class="hint solution-like"><div class="para" id="p-113">Use the induction framework elaborated in <a href="sec-induction.html" class="internal" title="Section 1.2: Induction">Section 1.2</a>, particularly in <a href="" class="xref" data-knowl="./knowl/rem-induction-framework.html" title="Remark 1.2.2">Remark 1.2.2</a>.</div></div></div>
+</div></article><article class="activity project-like" id="activity-19"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-113">
+<div class="para logical" id="p-114">
 <div class="para">Show that for any state <span class="process-math">\(q\text{,}\)</span> string <span class="process-math">\(x\text{,}\)</span> and input symbol <span class="process-math">\(a\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -346,34 +343,34 @@ q \amp \text{if $\abs{x} = 0$} \\
 </div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-6" id="hint-6"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-6"><div class="hint solution-like"><div class="para" id="p-114">Use the result of <a href="" class="xref" data-knowl="./knowl/act-extended-trans-induction.html" title="Activity 2.2.6">Activity 2.2.6</a>.</div></div></div>
-</div></article><article class="activity project-like" id="activity-21"><h4 class="heading">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-7" id="hint-7"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-7"><div class="hint solution-like"><div class="para" id="p-115">Use the result of <a href="" class="xref" data-knowl="./knowl/act-extended-trans-induction.html" title="Activity 2.2.5">Activity 2.2.5</a>.</div></div></div>
+</div></article><article class="activity project-like" id="activity-20"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-116">Give DFAs accepting the following languages over the alphabet <span class="process-math">\(\{0,1\}\text{:}\)</span>
+</div> <ol class="upper-alpha">
+<li id="li-94"><div class="para" id="p-derived-li-94">The set of all strings such that each block of 5 consecutive symbols contains at least two 0s</div></li>
+<li id="li-95"><div class="para" id="p-derived-li-95">The set of all string whose tenth symbol from the right is a 1</div></li>
+<li id="li-96"><div class="para" id="p-derived-li-96">The set of strings that either begin or end (or both) with 01</div></li>
+<li id="li-97"><div class="para" id="p-derived-li-97">The set of strings such that the number of 0s is divisible by 5 and the number of 1s is divisible by 3</div></li>
+</ol></article><article class="activity project-like" id="activity-21"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-115">Give DFAs accepting the following languages over the alphabet <span class="process-math">\(\{0,1\}\text{:}\)</span>
-</div> <ol class="upper-alpha">
-<li id="li-95"><div class="para" id="p-derived-li-95">The set of all strings such that each block of 5 consecutive symbols contains at least two 0s</div></li>
-<li id="li-96"><div class="para" id="p-derived-li-96">The set of all string whose tenth symbol from the right is a 1</div></li>
-<li id="li-97"><div class="para" id="p-derived-li-97">The set of strings that either begin or end (or both) with 01</div></li>
-<li id="li-98"><div class="para" id="p-derived-li-98">The set of strings such that the number of 0s is divisible by 5 and the number of 1s is divisible by 3</div></li>
-</ol></article><article class="activity project-like" id="activity-22"><h4 class="heading">
+<div class="para" id="p-117">Let <span class="process-math">\(A\)</span> be a DFA and <span class="process-math">\(q\)</span> a particular state of <span class="process-math">\(A\text{,}\)</span> such that <span class="process-math">\(\delta(q, a) = q\)</span> for all <span class="process-math">\(a \in \Sigma\text{.}\)</span> Show by induction on <span class="process-math">\(\abs{w}\)</span> that <span class="process-math">\(\hat{\delta}(q, w) = q\)</span> for all input words <span class="process-math">\(w\text{.}\)</span>
+</div></article><article class="activity project-like" id="activity-22"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-116">Let <span class="process-math">\(A\)</span> be a DFA and <span class="process-math">\(q\)</span> a particular state of <span class="process-math">\(A\text{,}\)</span> such that <span class="process-math">\(\delta(q, a) = q\)</span> for all <span class="process-math">\(a \in \Sigma\text{.}\)</span> Show by induction on <span class="process-math">\(\abs{w}\)</span> that <span class="process-math">\(\hat{\delta}(q, w) = q\)</span> for all input words <span class="process-math">\(w\text{.}\)</span>
-</div></article><article class="activity project-like" id="activity-23"><h4 class="heading">
+<div class="para" id="p-118">Let <span class="process-math">\(A\)</span> be a DFA and <span class="process-math">\(q\)</span> a particular state of <span class="process-math">\(A\text{,}\)</span> such that <span class="process-math">\(\delta(q, a) = q\)</span> for all <span class="process-math">\(a \in \Sigma\text{.}\)</span>
+</div> <ol class="decimal">
+<li id="li-98"><div class="para" id="p-119">Show by induction on <span class="process-math">\(n\)</span> that for all <span class="process-math">\(n \geq 0\text{,}\)</span> <span class="process-math">\(\hat{\delta}(q, a^n) = q\text{,}\)</span> where <span class="process-math">\(a^n\)</span> is the string consisting of <span class="process-math">\(n\)</span> <span class="process-math">\(a\)</span>’s.</div></li>
+<li id="li-99"><div class="para" id="p-120">Show that either <span class="process-math">\(\{a\}^{\ast} \subseteq L(A)\)</span> or <span class="process-math">\(\{a\}^{\ast} \cap L(A) = \varnothing\text{.}\)</span>
+</div></li>
+</ol></article><div class="para" id="p-121">We use the exponential notation for concatenation of words as well as individual input symbols from <span class="process-math">\(\Sigma^{\ast}\text{.}\)</span>
+</div>
+<article class="activity project-like" id="activity-23"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.10</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-117">Let <span class="process-math">\(A\)</span> be a DFA and <span class="process-math">\(q\)</span> a particular state of <span class="process-math">\(A\text{,}\)</span> such that <span class="process-math">\(\delta(q, a) = q\)</span> for all <span class="process-math">\(a \in \Sigma\text{.}\)</span>
-</div> <ol class="decimal">
-<li id="li-99"><div class="para" id="p-118">Show by induction on <span class="process-math">\(n\)</span> that for all <span class="process-math">\(n \geq 0\text{,}\)</span> <span class="process-math">\(\hat{\delta}(q, a^n) = q\text{,}\)</span> where <span class="process-math">\(a^n\)</span> is the string consisting of <span class="process-math">\(n\)</span> <span class="process-math">\(a\)</span>’s.</div></li>
-<li id="li-100"><div class="para" id="p-119">Show that either <span class="process-math">\(\{a\}^{\ast} \subseteq L(A)\)</span> or <span class="process-math">\(\{a\}^{\ast} \cap L(A) = \varnothing\text{.}\)</span>
-</div></li>
-</ol></article><div class="para" id="p-120">We use the exponential notation for concatenation of words as well as individual input symbols from <span class="process-math">\(\Sigma^{\ast}\text{.}\)</span>
-</div>
-<article class="activity project-like" id="activity-24"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span>
-</h4>
-<div class="para logical" id="p-121">
+<div class="para logical" id="p-122">
 <div class="para">Let <span class="process-math">\(A = (Q, \Sigma, \delta, q_0, \{q_f\})\)</span> be a DFA, and suppose that for all <span class="process-math">\(a \in \Sigma\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -381,14 +378,14 @@ q \amp \text{if $\abs{x} = 0$} \\
 \end{equation*}
 </div>
 </div> <ol class="upper-alpha">
-<li id="li-101"><div class="para" id="p-122">Show that for all <span class="process-math">\(w \ne \varepsilon\)</span> we have <span class="process-math">\(\hat{\delta}(q_0, w) = \hat{\delta}(q_f, w)\text{.}\)</span>
+<li id="li-100"><div class="para" id="p-123">Show that for all <span class="process-math">\(w \ne \varepsilon\)</span> we have <span class="process-math">\(\hat{\delta}(q_0, w) = \hat{\delta}(q_f, w)\text{.}\)</span>
 </div></li>
-<li id="li-102"><div class="para" id="p-123">Show that if <span class="process-math">\(x\)</span> is a nonempty string in <span class="process-math">\(L(A)\text{,}\)</span> then for all <span class="process-math">\(k &gt; 0\text{,}\)</span> then <span class="process-math">\(x^k\text{,}\)</span> the <span class="process-math">\(k\)</span>-fold concatenation of <span class="process-math">\(x\text{,}\)</span> is also in <span class="process-math">\(L(A)\text{.}\)</span>
+<li id="li-101"><div class="para" id="p-124">Show that if <span class="process-math">\(x\)</span> is a nonempty string in <span class="process-math">\(L(A)\text{,}\)</span> then for all <span class="process-math">\(k &gt; 0\text{,}\)</span> then <span class="process-math">\(x^k\text{,}\)</span> the <span class="process-math">\(k\)</span>-fold concatenation of <span class="process-math">\(x\text{,}\)</span> is also in <span class="process-math">\(L(A)\text{.}\)</span>
 </div></li>
-</ol></article><article class="activity project-like" id="activity-25"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.12</span><span class="period">.</span>
+</ol></article><article class="activity project-like" id="activity-24"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-124">Consider the DFA with the following transition table:</div> <div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="p-125">Consider the DFA with the following transition table:</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines">0</th>
@@ -404,9 +401,9 @@ q \amp \text{if $\abs{x} = 0$} \\
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(B\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(A\)</span></td>
 </tr>
-</table></div> <div class="para" id="p-125">Informally describe the language accepted by this DFA, and prove by induction on the length of the input that your description is correct.</div>
+</table></div> <div class="para" id="p-126">Informally describe the language accepted by this DFA, and prove by induction on the length of the input that your description is correct.</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-7" id="hint-7"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-7"><div class="hint solution-like"><div class="para" id="p-126">When setting up the inductive hypothesis, it is wise to make a statement about what inputs get you to each state, not just what inputs get you to the accepting state.</div></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-8" id="hint-8"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-8"><div class="hint solution-like"><div class="para" id="p-127">When setting up the inductive hypothesis, it is wise to make a statement about what inputs get you to each state, not just what inputs get you to the accepting state.</div></div></div>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="DFA-intro.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
