@@ -31,6 +31,136 @@
       in the input string one by one.
     </p>
     <activity>
+      <introduction>
+        <p>
+          For each pictured DFA, give a simple description of the language it accepts.
+          Get the instructor to check before moving on.
+        </p>
+      </introduction>
+      <task>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}[on grid, scale=0.5]
+              \node[state, initial] (q1) {$q_1$};
+              \node[state, accepting, right=of q1] (q2) {$q_2$};
+              \path[->]
+                (q1) edge[loop above] node {0} (q1)
+                    edge[bend left] node {1} (q2)
+                (q2) edge[loop above] node {1} (q2)
+                    edge[bend left] node {0} (q1);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </task>
+      <task>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}[on grid, scale=0.5]
+              \node[state, initial, accepting] (q1) {$q_1$};
+              \node[state, right=of q1] (q2) {$q_2$};
+              \path[->]
+                (q1) edge[loop above] node {0} (q1)
+                    edge[bend left] node {1} (q2)
+                (q2) edge[loop above] node {1} (q2)
+                    edge[bend left] node {0} (q1);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </task>
+      <task>
+        <image width="70%">
+          <latex-image>
+            \begin{tikzpicture}[on grid, scale=0.5]
+              \node[state, initial, initial where=above] (S) {$S$};
+              \node[state, below left=of S] (q1) {$q_1$};
+              \node[state, below right=of S] (r1) {$r_1$};
+              \node[state, below=of q1] (q2) {$q_2$};
+              \node[state, below=of r1] (r2) {$r_2$};
+              \path[->]
+                (S) edge[auto=above] node {\texttt{a}} (q1)
+                edge node {\texttt{b}} (r1)
+                (q1) edge[loop left] node {\texttt{a}} (q1)
+                edge[left, bend right] node {\texttt{b}} (q2)
+                (q2) edge[loop left] node {\texttt{b}} (q2)
+                edge[right, bend right] node {\texttt{a}} (q1)
+                (r1) edge[loop right] node {\tt b} (r1)
+                edge[left, bend right] node {\tt a} (r2)
+                (r2) edge[loop right] node {\tt a} (r2)
+                edge[right, bend right] node {\tt b} (r1);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </task>
+    </activity>
+    <p>
+      When designing a DFA or other automaton, it can be helpful to imagine yourself as the
+      DFA and consider your cognition as you read the input word one symbol at a time.
+      What must you remember about the string? How do you perform the DFA's task? It helps
+      when doing this to remember that the word might be very long, so long you can't remember it all
+      at once. You also don't know when the string will end, so you must always be ready with the
+      answer.
+    </p>
+    <p>
+      Suppose that the alphabet is <m>\Sigma = \{0,1\}</m> and we wish to
+      accept all words with an odd number of 1s. If you start going through a
+      long input string of 0s and 1s, one symbol at a time, do you need to see
+      the whole string? Do you need to remember any of it? No, you simply keep
+      track of whether the number of 1s you have seen <em>so far</em> is even
+      or odd.
+    </p>
+    <p>
+      This gives a clue to the design of the DFA. There are two states
+      <m>q_0</m> and <m>q_1</m>, corresponding to having seen an even or odd
+      number of 1s so far. We begin in state <m>q_0</m>, since at the
+      beginning, we haven't <q>seen</q> any symbols and in particular have seen
+      no 1s. Now the transitions should be clear: all transitions labeled with
+      <m>0</m> are self-loops, since the number of 1s does not change. Similarly,
+      each transition labeled with <m>1</m> changes state, because whenever we
+      read a 1, the number of 1s seen so far changes parity.
+    </p>
+    <p>
+      There is just one accepting state, state <m>q_1</m>, because that is the
+      condition for having seen an odd number of 1s so far. If we are in state
+      <m>q_1</m> when the input ends, we win; otherwise, our string must be
+      rejected.
+    </p>
+    <activity>
+      <statement>
+        <p>Give a transition diagram and transition table for each language. Get the instructor to check
+          before you go on.
+        </p>
+        <ol marker="A.">
+          <li>
+            <p>Words on <m>\Sigma = \{a, b\}</m> </p>
+          </li>
+          <li>
+            <p></p>
+          </li>
+          <li>
+            <p></p>
+          </li>
+        </ol>
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Give DFAs accepting the following languages over the alphabet
+          <m>\{0,1\}</m>:
+        </p>
+        <ol marker="A.">
+          <li>The set of all strings <m>x</m> beginning with a 1 such that, when
+          <m>x</m> is interpreted as a binary integer, it is a multiple of 5. For example,
+          strings 101, 1010, and 1111 are in the language, while
+          0, 100, and 111 are not.</li>
+          <li><p>The set of all such strings that, when interpreted <em>in reverse</em>
+          as binary integers, are multiples of 5. Examples of strings in the
+          language are 0, 10011, 1001100, and 0101. Observe there is no restriction
+          on the leading digit in this part.</p></li>
+        </ol>
+      </statement>
+    </activity>
+    <activity>
       <statement>
         <p>
           Make a DFA that is equivalent to the marble-rolling toy
@@ -50,7 +180,7 @@
           <m>\abs{y} \geq 0</m>
           ) by
           <me>
-            \hat{\delta}(q, ya) = \begin{cases}
+            \hat{\delta}(q, x) = \begin{cases}
               q \amp \text{if $\abs{x} = 0$} \\
               \delta(\hat{\delta}(q, y), a) \amp
               \text{if $x = ya$}.
@@ -109,24 +239,7 @@
         </ol>
       </statement>
     </activity>
-    <activity>
-      <statement>
-        <p>
-          Give DFAs accepting the following languages over the alphabet
-          <m>\{0,1\}</m>:
-        </p>
-        <ol marker="A.">
-          <li>The set of all strings <m>x</m> beginning with a 1 such that, when
-          <m>x</m> is interpreted as a binary integer, it is a multiple of 5. For example,
-          strings 101, 1010, and 1111 are in the language, while
-          0, 100, and 111 are not.</li>
-          <li><p>The set of all such strings that, when interpreted <em>in reverse</em>
-          as binary integers, are multiples of 5. Examples of strings in the
-          language are 0, 10011, 1001100, and 0101. Observe there is no restriction
-          on the leading digit in this part.</p></li>
-        </ol>
-      </statement>
-    </activity>
+
     <activity>
       <statement>
         <p>
