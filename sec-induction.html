@@ -252,10 +252,19 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="chapter-99-title.html" class="internal"><span class="codenumber">2</span> <span class="title">Chapter title</span></a></div>
-<ul class="structural"><li>
-<div class="toc-item"><a href="DFA.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Deterministic finite automata</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="DFA.html#subsection-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Class Activities</span></a></div></li></ul>
-</li></ul>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="DFA-intro.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Examples of finite state automata</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="DFA-intro.html#subsec-bank-store-customer" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The bank—store—customer model</span></a></div></li>
+<li><div class="toc-item"><a href="DFA-intro.html#subsec-marble-toy" class="internal"><span class="codenumber">2.1.2</span> <span class="title">The marble-rolling toy</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="DFA.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Deterministic finite automata</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="DFA.html#subsection-5" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Class Activities</span></a></div></li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-induction"><h2 class="heading hide-type">
@@ -283,7 +292,7 @@ S = \{ n \in \N : P_n \implies Q_n \}\text{,}
 </div>
 <div class="para">that is, the set of natural numbers (or e.g. tree heights) for which our theorem holds. If we can show the hypotheses of the induction theorem apply to the set <span class="process-math">\(S\text{,}\)</span> our proof is complete, because the conclusion of the induction theorem then entails that <span class="process-math">\(S = \N\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-64">This is what I meant in class when I spoke of an “argument machine”. As stated above, none of this framework is ever explicitly mentioned in practice. In undergraduate books, it is considered enough to mention induction, prove a “base case” and an “inductive step” or “induction case” (two phrases for the same thing), and voilà! The proof is complete.</div> <div class="para" id="p-65">Thus, the “induction framework” consists of arranging your argument so that the sequences <span class="process-math">\(P_n\)</span> and <span class="process-math">\(Q_n\)</span> are clear. We call the theorem “<span class="process-math">\(P_0 \implies Q_0\)</span>” the “base case”. This theorem could also be stated as “<span class="process-math">\(0 \in S\)</span>”.</div> <div class="para logical" id="p-66">
+</div> <div class="para" id="p-64">This is what I meant in class when I spoke of an “argument machine”. As stated above, none of this framework is ever explicitly mentioned in practice. In undergraduate books, it is considered enough to mention induction, prove a “base case” and an “induction step” or “inductive case” (two phrases for the same thing), and voilà! The proof is complete.</div> <div class="para" id="p-65">Thus, the “induction framework” consists of arranging your argument so that the sequences <span class="process-math">\(P_n\)</span> and <span class="process-math">\(Q_n\)</span> are clear. We call the theorem “<span class="process-math">\(P_0 \implies Q_0\)</span>” the “base case”. This theorem could also be stated as “<span class="process-math">\(0 \in S\)</span>”.</div> <div class="para logical" id="p-66">
 <div class="para">The inductive case is always phrased as a conditional. “<em class="emphasis">If</em> <span class="process-math">\(n\)</span> is a natural number that is in <span class="process-math">\(S\text{,}\)</span> <em class="emphasis">then</em> <span class="process-math">\(n+1\)</span> is also in <span class="process-math">\(S\text{.}\)</span>” If you recall the definition of <span class="process-math">\(S\text{,}\)</span> you will see that this conditional is equivalent to</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -292,7 +301,7 @@ S = \{ n \in \N : P_n \implies Q_n \}\text{,}
 </div>
 <div class="para">So, we usually formulate our induction step in the latter way. My <em class="emphasis">induction hypothesis</em> would be “<span class="process-math">\(P_n\)</span> implies <span class="process-math">\(Q_n\)</span>”. From this hypothesis I would attempt to deduce the conclusion, “<span class="process-math">\(P_{n+1}\)</span> implies <span class="process-math">\(Q_{n+1}\)</span>”.</div>
 </div> <div class="para logical" id="p-67">
-<div class="para">As a final thought, I should tell you that in our real writing, we <em class="emphasis">don’t</em> usually assign values like <span class="process-math">\(P_n\)</span> to specific predicates like “<span class="process-math">\(6\)</span> divides <span class="process-math">\(n^3 - n\)</span>”. I have done so here to aid in my clear speaking, but you should try to craft your argument without using phrases like:</div>
+<div class="para">As a final thought, I should tell you that in our real writing, we <em class="emphasis">don’t</em> usually assign values like <span class="process-math">\(P_n\)</span> to specific predicates like “<span class="process-math">\(6\)</span> divides <span class="process-math">\(n^3 - n\)</span>”. I have done so here to aid in my clear expression, but you should try to craft your argument without using phrases like:</div>
 <ol class="decimal">
 <li id="li-40"><div class="para" id="p-derived-li-40">“now let <span class="process-math">\(k = n\)</span>”</div></li>
 <li id="li-41"><div class="para" id="p-derived-li-41">“assume <span class="process-math">\(P_n\)</span>”</div></li>
@@ -366,7 +375,7 @@ I^n = \{ (x_1, \ldots, x_n) \colon 0 \leq x_i \leq 1 \text{ for all $i$} \}.
 </h4>
 <article class="task exercise-like" id="task-6"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="p-82">Consider a rectangular <span class="process-math">\(2 \times n\)</span> array of squares, and the problem of determining the number of ways it may be tiled by <span class="process-math">\(n\)</span> dominoes. Each domino must cover exactly 2 adjacent squares, without overlaps. So, one way is to use all parallel dominoes. If <span class="process-math">\(n\)</span> happens to be even, all horizontal dominoes will work as well.</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/image-1.svg" role="img" class="contained"></div> <div class="para" id="p-83">Of course, other tilings are also possible. <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/image-2.svg" role="img" class="contained"></div>
-</div> <div class="para" id="p-84">You can probably draw all 8 tilings of the <span class="process-math">\(2 \times 6\)</span> grid quite easily. It turns out that 8 is also the value of <span class="process-math">\(F_7\text{,}\)</span> the 7th Fibonacci number. This isn’t a coincidence, as you’re asked to show below.</div> <div class="para" id="p-85">Using the recurrence relation above and the induction framework, show that there are <span class="process-math">\(F_{n+1}\)</span> such tilings of the <span class="process-math">\(2 \times n\)</span> array by dominoes, for all <span class="process-math">\(n \geq 0\text{.}\)</span>
+</div> <div class="para" id="p-84">You can probably draw all 13 tilings of the <span class="process-math">\(2 \times 6\)</span> grid quite easily. It turns out that 13 is also the value of <span class="process-math">\(F_7\text{,}\)</span> the 7th Fibonacci number. This isn’t a coincidence, as you’re asked to show below.</div> <div class="para" id="p-85">Using the recurrence relation above and the induction framework, show that there are <span class="process-math">\(F_{n+1}\)</span> such tilings of the <span class="process-math">\(2 \times n\)</span> array by dominoes, for all <span class="process-math">\(n \geq 0\text{.}\)</span>
 </div> <div class="para" id="p-86">
 <em class="emphasis">Note.</em> For <span class="process-math">\(n = 0\text{,}\)</span> we say that there is one way to tile an empty array with no dominoes. There would be zero ways to do it with more dominoes, and zero ways to tile a nonempty array with no dominoes.</div>
 <div class="solutions">
