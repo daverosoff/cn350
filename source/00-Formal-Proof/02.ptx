@@ -15,43 +15,45 @@
                 </p>
             </statement>
         </theorem>
-        <p>
-            We usually apply the induction theorem in a highly implicit way. It is only
-            invoked by name in introductory texts like this one. We have a sequence of
-            theorems we
-            wish to prove by induction. Usually we are too lazy to speak this way
-            and we say we are proving one theorem, but about every natural number
-            instead of a specific one (or about trees of arbitrary height instead of
-            trees of height <m>n</m>).
-            Each theorem in our sequence has a hypothesis <m>P_n</m> and a conclusion
-            <m>Q_n</m>. Often all of the <m>P_n</m> are the same, but it doesn't hurt
-            anything to let them be different. It happens even more often that
-            all of the <m>Q_n</m> are specializations
-            of a statement about integers to a specific integer. What
-            we do when we write a proof
-            by induction is to apply the induction theorem to the set <m>S</m> defined by
-            <me>
-                S = \{ n \in \N : P_n \implies Q_n \}
-            </me>,
-            that is, the set of natural numbers (or e.g. tree heights) for which our
-            theorem holds. If we can show the hypotheses of the induction theorem
-            apply to the set <m>S</m>, our proof is complete, because the conclusion
-            of the induction theorem then entails that <m>S = \N</m>.
-        </p>
-        <p>
-            This is what I meant in class when I spoke of an <q>argument machine</q>.
-            As stated above, none of this framework is ever explicitly mentioned
-            in practice. In undergraduate books, it is considered enough to mention
-            induction, prove a <q>base case</q> and an <q>induction step</q> or
-            <q>inductive case</q> (two phrases for the same thing), and voilà! The proof is
-            complete.
-        </p>
-        <p>
-            Thus, the <q>induction framework</q> consists of arranging your argument
-            so that the sequences <m>P_n</m> and <m>Q_n</m> are clear. We call the
-            theorem <q><m>P_0 \implies Q_0</m></q> the <q>base case</q>. This theorem
-            could also be stated as <q><m>0 \in S</m></q>.
-        </p>
+        <remark xml:id="rem-induction-framework">
+            <p>
+                We usually apply the induction theorem in a highly implicit way. It is only
+                invoked by name in introductory texts like this one. We have a sequence of
+                theorems we
+                wish to prove by induction. Usually we are too lazy to speak this way
+                and we say we are proving one theorem, but about every natural number
+                instead of a specific one (or about trees of arbitrary height instead of
+                trees of height <m>n</m>).
+                Each theorem in our sequence has a hypothesis <m>P_n</m> and a conclusion
+                <m>Q_n</m>. Often all of the <m>P_n</m> are the same, but it doesn't hurt
+                anything to let them be different. It happens even more often that
+                all of the <m>Q_n</m> are specializations
+                of a statement about integers to a specific integer. What
+                we do when we write a proof
+                by induction is to apply the induction theorem to the set <m>S</m> defined by
+                <me>
+                    S = \{ n \in \N : P_n \implies Q_n \}
+                </me>,
+                that is, the set of natural numbers (or e.g. tree heights) for which our
+                theorem holds. If we can show the hypotheses of the induction theorem
+                apply to the set <m>S</m>, our proof is complete, because the conclusion
+                of the induction theorem then entails that <m>S = \N</m>.
+            </p>
+            <p>
+                This is what I meant in class when I spoke of an <q>argument machine</q>.
+                As stated above, none of this framework is ever explicitly mentioned
+                in practice. In undergraduate books, it is considered enough to mention
+                induction, prove a <q>base case</q> and an <q>induction step</q> or
+                <q>inductive case</q> (two phrases for the same thing), and voilà! The proof is
+                complete.
+            </p>
+            <p>
+                Thus, the <q>induction framework</q> consists of arranging your argument
+                so that the sequences <m>P_n</m> and <m>Q_n</m> are clear. We call the
+                theorem <q><m>P_0 \implies Q_0</m></q> the <q>base case</q>. This theorem
+                could also be stated as <q><m>0 \in S</m></q>.
+            </p>
+        </remark>
         <p>
             The inductive case is always phrased as a conditional. <q><em>If</em>
             <m>n</m> is a natural number that is in <m>S</m>, <em>then</em>
