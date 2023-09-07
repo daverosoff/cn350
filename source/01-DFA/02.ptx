@@ -175,7 +175,7 @@
           16 states originally, and 13 of them turned out to be accessible.
         </p>
       </statement>
-      </activity>
+    </activity>
     <activity xml:id="act-extended-trans-induction">
       <statement>
         <p>
@@ -243,7 +243,7 @@
         <ol marker="A.">
           <li>The set of all strings such that each block of 5 consecutive
           symbols contains at least two 0s</li>
-          <li>The set of all string whose tenth symbol from
+          <li>The set of all string whose fourth symbol from
           the right is a 1</li>
           <li>The set of strings that either begin or end
           (or both) with 01</li>
@@ -288,8 +288,11 @@
       </statement>
     </activity>
     <p>
-      We use the exponential notation for concatenation of words as well as individual
-      input symbols from <m>\Sigma^{\ast}</m>.
+      We use the exponential notation for self-concatenation of words as well as individual
+      input symbols from <m>\Sigma^{\ast}</m>. For example, if <m>x = ab</m> then 
+      <me>
+        x^3 = ababab
+      </me>.
     </p>
     <activity>
       <statement>

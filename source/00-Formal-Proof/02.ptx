@@ -6,10 +6,10 @@
         <theorem xml:id="thm-induction">
             <statement>
                 <p>
-                    Let <m>A</m> be a nonempty subset of the natural numbers <m>\N</m> satisfying
+                    Let <m>A</m> be a subset of the natural numbers <m>\N</m> satisfying
                     <ol>
                         <li><m>0 \in A</m>; and</li>
-                        <li>If <m>n \in \N</m> and <m>n \in A</m>, then <m>n+1 \in A</m>.</li>
+                        <li>If <m>n \in A</m>, then <m>n+1 \in A</m>.</li>
                     </ol>
                     Then <m>A = \N</m>.
                 </p>
