@@ -323,6 +323,60 @@ var ptx_lunr_docs = [
   "number": "2.2.11",
   "title": "",
   "body": "  Consider the DFA with the following transition table:      0  1              Informally describe the language accepted by this DFA, and prove by induction on the length of the input that your description is correct.    When setting up the inductive hypothesis, it is wise to make a statement about what inputs get you to each state, not just what inputs get you to the accepting state.   "
+},
+{
+  "id": "sec-hw1",
+  "level": "1",
+  "url": "sec-hw1.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Homework 1",
+  "body": " Homework 1  This assignment covers 2.1 and 2.2 in HMU. Each problem will be worth 10 points. Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible.    The following are the transition diagrams of two DFAs and . Answer the following questions about each one.   What is the start state?  What is the set of accepting states?  What sequence of states does the machine go through on input aabb ?  Does the machine accept the string aabb ?  Does the machine accept the string ?              .      Translate the transition diagram in into a formal specification. Carefully list the components ( , , ).    The formal description of a DFA is given by the following table. Use the table to give a transition diagram for this machine.                                      If is a language (a subset of ) then its complement is the language .  Show that if is a DFA that accepts language , then swapping the accept and nonaccept states in yields a DFA that accepts .   This is not an induction proof. There is no way to divide this into a sequence of ordered cases . Instead, you will suppose (your hypothesis) that has been given, and it accepts . Use this assumption and what you have learned about DFA to argue that when the states are swapped, the resulting machine accepts all words not in and rejects all words in . Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions.     For any word , its reverse  is defined to be , so the symbols appear in the reverse order. Recall that a language is regular if it is accepted by some DFA. Show that if is a regular language, so is the language , where .   Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions. There are two things to prove: first, that contains all words where , and second, that does not contain any word that isn't the reverse of a word in .     "
+},
+{
+  "id": "exercise-1",
+  "level": "2",
+  "url": "sec-hw1.html#exercise-1",
+  "type": "Exercise",
+  "number": "3.1.1",
+  "title": "",
+  "body": " The following are the transition diagrams of two DFAs and . Answer the following questions about each one.   What is the start state?  What is the set of accepting states?  What sequence of states does the machine go through on input aabb ?  Does the machine accept the string aabb ?  Does the machine accept the string ?              .    "
+},
+{
+  "id": "exercise-2",
+  "level": "2",
+  "url": "sec-hw1.html#exercise-2",
+  "type": "Exercise",
+  "number": "3.1.2",
+  "title": "",
+  "body": " Translate the transition diagram in into a formal specification. Carefully list the components ( , , ).  "
+},
+{
+  "id": "exercise-3",
+  "level": "2",
+  "url": "sec-hw1.html#exercise-3",
+  "type": "Exercise",
+  "number": "3.1.3",
+  "title": "",
+  "body": " The formal description of a DFA is given by the following table. Use the table to give a transition diagram for this machine.                                    "
+},
+{
+  "id": "exercise-4",
+  "level": "2",
+  "url": "sec-hw1.html#exercise-4",
+  "type": "Exercise",
+  "number": "3.1.4",
+  "title": "",
+  "body": " If is a language (a subset of ) then its complement is the language .  Show that if is a DFA that accepts language , then swapping the accept and nonaccept states in yields a DFA that accepts .   This is not an induction proof. There is no way to divide this into a sequence of ordered cases . Instead, you will suppose (your hypothesis) that has been given, and it accepts . Use this assumption and what you have learned about DFA to argue that when the states are swapped, the resulting machine accepts all words not in and rejects all words in . Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions.   "
+},
+{
+  "id": "exercise-5",
+  "level": "2",
+  "url": "sec-hw1.html#exercise-5",
+  "type": "Exercise",
+  "number": "3.1.5",
+  "title": "",
+  "body": " For any word , its reverse  is defined to be , so the symbols appear in the reverse order. Recall that a language is regular if it is accepted by some DFA. Show that if is a regular language, so is the language , where .   Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions. There are two things to prove: first, that contains all words where , and second, that does not contain any word that isn't the reverse of a word in .   "
 }
 ]
 
