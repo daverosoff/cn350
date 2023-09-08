@@ -13,6 +13,7 @@
       \newcommand{\aster}[1]{#1^{\ast}}
       \newcommand{\eps}{\varepsilon}
       \newcommand{\lsim}{\mathord{\sim}}
+      \let\epsilon\varepsilon
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -29,7 +30,7 @@
         ->,>=stealth', % Makes edges directed with bold arrowheads
         auto,
         semithick}}
-        \let\epsilon\varepsilon
+      \let\epsilon\varepsilon
       \usepackage{amsmath}
     </latex-image-preamble>
   </docinfo>
@@ -41,6 +42,6 @@
     <xi:include href="meta/frontmatter.ptx" />
     <xi:include href="00-Formal-Proof/main.ptx" />
     <xi:include href="01-DFA/main.ptx" />
-    <!-- <xi:include href="99-Assignments/main.ptx" /> -->
+    <xi:include href="99-Assignments/main.ptx" />
   </book>
 </pretext>
