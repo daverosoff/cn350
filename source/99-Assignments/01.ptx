@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="sec-hw1" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Homework 1</title>
-  <p>This assignment covers 2.1 and 2.2 in HMU. Each problem will be worth 10 points. Your answers
+  <p>This assignment covers 2.1 and 2.2 in HMU. Each problem will be worth 3 checks. Your answers
     should be like little essays, made only of complete sentences. Formulas should never stand
     on their own, but should be parts of otherwise complete sentences. You should be able to read
-    your answer aloud from beginning to end and have it sound sensible.
+    your answer aloud from beginning to end and have it sound sensible. If your solution is
+    more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.
   </p>
   <exercises>
     <exercise>
