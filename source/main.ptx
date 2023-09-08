@@ -13,6 +13,7 @@
       \newcommand{\aster}[1]{#1^{\ast}}
       \newcommand{\eps}{\varepsilon}
       \newcommand{\lsim}{\mathord{\sim}}
+      \let\epsilon\varepsilon
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -29,7 +30,7 @@
         ->,>=stealth', % Makes edges directed with bold arrowheads
         auto,
         semithick}}
-        \let\epsilon\varepsilon
+      \let\epsilon\varepsilon
       \usepackage{amsmath}
     </latex-image-preamble>
   </docinfo>
