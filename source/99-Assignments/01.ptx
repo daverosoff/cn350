@@ -8,8 +8,8 @@
       <exercise>
         <statement>
           <p>
-            The following are the state diagrams of two DFAs <m>M_1</m> and <m>M_2</m>. Answer the following
-            questions about each one.
+            The following are the transition diagrams of two DFAs <m>M_1</m>
+            and <m>M_2</m>. Answer the following questions about each one.
           </p>
           <ol>
             <li>What is the start state?</li>
@@ -18,38 +18,48 @@
             <li>Does the machine accept the string <c>aabb</c>?</li>
             <li>Does the machine accept the string <m>\epsilon</m>?</li>
           </ol>
-          <image width="70%">
-            <latex-image>
-              \begin{tikzpicture}[on grid, scale=0.5]
-              \node[state, initial, initial where=up] (q1) {$q_1$};
-              \node[state, accepting, right=of q1] (q2) {$q_2$};
-              \node[state, below right=of q1] (q3) {$q_3$};
-              \path[->]
-                (q1) edge[loop left] node {\tt b} (q1)
-                edge[bend left] node {\tt a} (q2)
-                (q2) edge[bend left] node {\tt a, b} (q3)
-                (q3) edge[bend left] node {\tt a} (q2)
-                edge[bend left] node {\tt b} (q1);
-            \end{tikzpicture}
-            </latex-image>
-            <latex-image>
-              \begin{tikzpicture}[on grid, scale=0.5]
-              \node[state, initial, initial where=up, accepting] (q1) {$q_1$};
-              \node[state, right=of q1] (q2) {$q_2$};
-              \node[state, below=of q1] (q3) {$q_3$};
-              \node[state, accepting, below=of q2] (q4) {$q_4$};
-              \path[->]
-                (q1) edge[loop left] node {\tt a} (q1)
-                edge[bend left] node {\tt b} (q2)
-                (q2) edge[left, bend right] node {\tt a} (q3)
-                edge[bend left] node {\tt b} (q4)
-                (q3) edge[right, bend right] node {\tt a} (q2)
-                edge[bend left] node {\tt b} (q1)
-                (q4) edge[bend left] node {\tt a} (q3)
-                edge[loop right] node {\tt b} (q3);
-            \end{tikzpicture}
-            </latex-image>
-          </image>
+          <figure>
+            <sidebyside>
+              <image width="70%">
+                <latex-image>
+                  \begin{tikzpicture}[on grid, scale=0.5]
+                  \node[state, initial, initial where=up] (q1) {$q_1$};
+                  \node[state, accepting, right=of q1] (q2) {$q_2$};
+                  \node[state, below right=of q1] (q3) {$q_3$};
+                  \path[->]
+                    (q1) edge[loop left] node {\tt b} (q1)
+                    edge[bend left] node {\tt a} (q2)
+                    (q2) edge[bend left] node {\tt a, b} (q3)
+                    (q3) edge[bend left] node {\tt a} (q2)
+                    edge[bend left] node {\tt b} (q1);
+                  \end{tikzpicture}
+                </latex-image>
+                <latex-image>
+                  \begin{tikzpicture}[on grid, scale=0.5]
+                  \node[state, initial, initial where=up, accepting] (q1) {$q_1$};
+                  \node[state, right=of q1] (q2) {$q_2$};
+                  \node[state, below=of q1] (q3) {$q_3$};
+                  \node[state, accepting, below=of q2] (q4) {$q_4$};
+                  \path[->]
+                    (q1) edge[loop left] node {\tt a} (q1)
+                    edge[bend left] node {\tt b} (q2)
+                    (q2) edge[left, bend right] node {\tt a} (q3)
+                    edge[bend left] node {\tt b} (q4)
+                    (q3) edge[right, bend right] node {\tt a} (q2)
+                    edge[bend left] node {\tt b} (q1)
+                    (q4) edge[bend left] node {\tt a} (q3)
+                    edge[loop right] node {\tt b} (q3);
+                  \end{tikzpicture}
+                </latex-image>
+              </image>
+            </sidebyside>
+            <caption>The transition diagrams for <m>M_1</m> (left) and <m>M_2</m>.</caption>
+          </figure>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>Translate the transition diagram</p>
         </statement>
       </exercise>
     </exercises>
