@@ -11,8 +11,19 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">(This example is due to HMU.) Consider the marble-rolling toy pictured below. A marble enters at either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\text{.}\)</span> The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points rights, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.</div>
-<span class="incontext"><a href="DFA-intro.html#p-94" class="internal">in-context</a></span>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<div class="para logical">
+<div class="para">Now it is clear that each tiling that resembles the figure on the left is obtained from a unique <span class="process-math">\((n - 1) \times 2\)</span> tiling by adding a single vertical domino. Similarly, each tiling that resembles the figure on the right is obtained from a unique <span class="process-math">\(n
+\times 2\)</span> tiling by adding two horizontal dominoes. Since each tiling of the <span class="process-math">\((n+1) \times 2 \)</span> grid is obtained from exactly one smaller tiling, we have shown (writing <span class="process-math">\(T_n\)</span> for the number of tilings):</div>
+<div class="displaymath process-math">
+\begin{align*}
+T_0 \amp = 1\\
+T_1 \amp = 1\\
+T_{n+1} \amp = T_{n-1} + T_{n}\text{.}
+\end{align*}
+</div>
+<div class="para">It follows at once that <span class="process-math">\(T_n = F_{n+1}\text{,}\)</span> since they obey the same recurrence relations.</div>
+</div>
+<span class="incontext"><a href="sec-induction.html#p-94" class="internal">in-context</a></span>
 </body>
 </html>

@@ -103,7 +103,7 @@ window.MathJax = {
 <link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.7/style_oscarlevin.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.7/colors_blue_green.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_darkmartiansands.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext book ignore-math">
@@ -391,14 +391,51 @@ I^n = \{ (x_1, \ldots, x_n) \colon 0 \leq x_i \leq 1 \text{ for all $i$} \}.
 <em class="emphasis">Note.</em> For <span class="process-math">\(n = 0\text{,}\)</span> we say that there is one way to tile an empty array with no dominoes. There would be zero ways to do it with more dominoes, and zero ways to tile a nonempty array with no dominoes.</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-4" id="hint-4"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-4"><div class="hint solution-like"><div class="para" id="p-87">Consider the ways in which a tiling of a <span class="process-math">\(2 \times (n + 2)\)</span> array can arise from a smaller tiling. Remember, you need to show that the number of <span class="process-math">\((n+2)\)</span>-tilings is the sum of the number of <span class="process-math">\(n\)</span>-tilings and the number of <span class="process-math">\((n+1)\)</span>-tilings.</div></div></div>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><div class="para" id="p-88">If we look at the last two columns of an <span class="process-math">\((n+2)\)</span>-tiling, they have to either be both horizontal dominoes or both vertical. If they are both horizontal, removing both dominoes yields an <span class="process-math">\(n\)</span>-tiling. If they are both vertical, removing the last one only yields an <span class="process-math">\((n+1)\)</span>-tiling.</div></div></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><div class="para" id="p-88">If we look at the last column of an <span class="process-math">\((n+2)\)</span>-tiling, it must be either a single vertical domino or the two ends of two horizontal ones. If the former, removing it yields an <span class="process-math">\((n+1)\)</span>-tiling. If the latter, removing both dominoes yields an <span class="process-math">\(n\)</span>-tiling.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
+<div class="para logical" id="p-89">
+<div class="para">We will use the induction framework to prove the following claim: <em class="emphasis">For each <span class="process-math">\(n \in \N\text{,}\)</span> the number of tilings of an <span class="process-math">\(n \times
+2\)</span> grid by dominoes is equal to <span class="process-math">\(F_{n+1}\text{.}\)</span></em> Recall first the recurrence relation for the Fibonacci numbers:</div>
+<div class="displaymath process-math" id="md-2">
+\begin{align*}
+F_1 \amp = 1\\
+F_2 \amp = 1\\
+F_{n+1} \amp = F_n + F_{n-1} \quad \text{for all $n \in \N$}\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-90">
+<div class="para">The base cases are:</div>
+<ol class="decimal">
+<li id="li-47"><div class="para" id="p-91">There is 1 way to tile a <span class="process-math">\(0 \times 2\)</span> grid by 0 dominoes. There is nothing to prove.</div></li>
+<li id="li-48"><div class="para" id="p-92">There is 1 way to tile a <span class="process-math">\(1 \times 2\)</span> grid by 1 domino. Again, this is evident, and there is nothing to prove.</div></li>
+</ol>
+</div> <div class="para" id="p-93">For the induction step, let us suppose that, for some <span class="process-math">\(n \in
+\N\text{,}\)</span> we already know that there are <span class="process-math">\(F_n\)</span> tilings of the <span class="process-math">\((n-1) \times 2\)</span> grid and <span class="process-math">\(F_{n+1}\)</span> tilings of the <span class="process-math">\(n
+\times 2\)</span> grid. Consider, then, a tiling of the <span class="process-math">\((n+1) \times
+2\)</span> grid. The rightmost column of this tiling has to look like one of the figures below.</div> <figure class="figure figure-like" id="fig-fib-dominos-induction"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel middle" style="width:37.5%;"><img src="generated/latex-image/image-3.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:37.5%;"><img src="generated/latex-image/image-4.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.3<span class="period">.</span></span><span class="space"> </span>The two ways the last column of the tiling can look.</figcaption></figure> <div class="para logical" id="p-94">
+<div class="para">Now it is clear that each tiling that resembles the figure on the left is obtained from a unique <span class="process-math">\((n - 1) \times 2\)</span> tiling by adding a single vertical domino. Similarly, each tiling that resembles the figure on the right is obtained from a unique <span class="process-math">\(n
+\times 2\)</span> tiling by adding two horizontal dominoes. Since each tiling of the <span class="process-math">\((n+1) \times 2 \)</span> grid is obtained from exactly one smaller tiling, we have shown (writing <span class="process-math">\(T_n\)</span> for the number of tilings):</div>
+<div class="displaymath process-math" id="md-3">
+\begin{align*}
+T_0 \amp = 1\\
+T_1 \amp = 1\\
+T_{n+1} \amp = T_{n-1} + T_{n}\text{.}
+\end{align*}
+</div>
+<div class="para">It follows at once that <span class="process-math">\(T_n = F_{n+1}\text{,}\)</span> since they obey the same recurrence relations.</div>
+</div>
+</div></div>
 </div></article></article><article class="activity project-like" id="activity-12"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-89">What is wrong with the following argument?</div> <article class="theorem theorem-like" id="thm-fake"><h5 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">(Alleged theorem).</span>
+<div class="para" id="p-95">What is wrong with the following argument?</div> <article class="theorem theorem-like" id="thm-fake"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">(Alleged theorem).</span>
 </h5>
-<div class="para" id="p-90">All cars are blue.</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para" id="p-91">It is enough to show that given a nonempty finite set of cars, all of them are the same color. Since mine is blue, the result will follow at once. Let us prove by induction that every nonempty finite set of cars is monochromatic. If the set has just one car, it is surely monochromatic. Now let us suppose, by way of induction, that for some positive integer <span class="process-math">\(n\)</span> it has already been shown that every set of <span class="process-math">\(n\)</span> cars is monochromatic.</div> <div class="para" id="p-92">Consider a set <span class="process-math">\(X\)</span> of <span class="process-math">\(n + 1\)</span> cars. We may form sets <span class="process-math">\(Y_1\text{,}\)</span> <span class="process-math">\(Y_2, \ldots, Y_{n+1}\)</span> by deleting the <span class="process-math">\(i\)</span>th car from <span class="process-math">\(X\)</span> to form <span class="process-math">\(Y_i\text{.}\)</span> Applying the induction hypothesis to each of the sets <span class="process-math">\(Y_i\)</span> we see that each of these sets is monochromatic. But then <span class="process-math">\(X\)</span> is monochromatic as well, and the proof is complete.</div></article></div></article></section></section></div>
+<div class="para" id="p-96">All cars are blue.</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para" id="p-97">It is enough to show that given a nonempty finite set of cars, all of them are the same color. Since mine is blue, the result will follow at once. Let us prove by induction that every nonempty finite set of cars is monochromatic. If the set has just one car, it is surely monochromatic. Now let us suppose, by way of induction, that for some positive integer <span class="process-math">\(n\)</span> it has already been shown that every set of <span class="process-math">\(n\)</span> cars is monochromatic.</div> <div class="para" id="p-98">Consider a set <span class="process-math">\(X\)</span> of <span class="process-math">\(n + 1\)</span> cars. We may form sets <span class="process-math">\(Y_1\text{,}\)</span> <span class="process-math">\(Y_2, \ldots, Y_{n+1}\)</span> by deleting the <span class="process-math">\(i\)</span>th car from <span class="process-math">\(X\)</span> to form <span class="process-math">\(Y_i\text{.}\)</span> Applying the induction hypothesis to each of the sets <span class="process-math">\(Y_i\)</span> we see that each of these sets is monochromatic. But then <span class="process-math">\(X\)</span> is monochromatic as well, and the proof is complete.</div></article></div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-proofs.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="chapter-99-title.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

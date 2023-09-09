@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We will use the induction framework to prove the following claim: <em class="emphasis">For each <span class="process-math">\(n \in \N\text{,}\)</span> the number of tilings of an <span class="process-math">\(n \times
+2\)</span> grid by dominoes is equal to <span class="process-math">\(F_{n+1}\text{.}\)</span></em> Recall first the recurrence relation for the Fibonacci numbers:</div>
+<div class="displaymath process-math">
+\begin{align*}
+F_1 \amp = 1\\
+F_2 \amp = 1\\
+F_{n+1} \amp = F_n + F_{n-1} \quad \text{for all $n \in \N$}\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">The base cases are:</div>
+<ol class="decimal">
+<li><div class="para">There is 1 way to tile a <span class="process-math">\(0 \times 2\)</span> grid by 0 dominoes. There is nothing to prove.</div></li>
+<li><div class="para">There is 1 way to tile a <span class="process-math">\(1 \times 2\)</span> grid by 1 domino. Again, this is evident, and there is nothing to prove.</div></li>
+</ol>
+</div> <div class="para">For the induction step, let us suppose that, for some <span class="process-math">\(n \in
+\N\text{,}\)</span> we already know that there are <span class="process-math">\(F_n\)</span> tilings of the <span class="process-math">\((n-1) \times 2\)</span> grid and <span class="process-math">\(F_{n+1}\)</span> tilings of the <span class="process-math">\(n
+\times 2\)</span> grid. Consider, then, a tiling of the <span class="process-math">\((n+1) \times
+2\)</span> grid. The rightmost column of this tiling has to look like one of the figures below.</div> <figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel middle" style="width:37.5%;"><img src="generated/latex-image/image-3.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:37.5%;"><img src="generated/latex-image/image-4.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.3<span class="period">.</span></span><span class="space"> </span>The two ways the last column of the tiling can look.</figcaption></figure> <div class="para logical">
+<div class="para">Now it is clear that each tiling that resembles the figure on the left is obtained from a unique <span class="process-math">\((n - 1) \times 2\)</span> tiling by adding a single vertical domino. Similarly, each tiling that resembles the figure on the right is obtained from a unique <span class="process-math">\(n
+\times 2\)</span> tiling by adding two horizontal dominoes. Since each tiling of the <span class="process-math">\((n+1) \times 2 \)</span> grid is obtained from exactly one smaller tiling, we have shown (writing <span class="process-math">\(T_n\)</span> for the number of tilings):</div>
+<div class="displaymath process-math">
+\begin{align*}
+T_0 \amp = 1\\
+T_1 \amp = 1\\
+T_{n+1} \amp = T_{n-1} + T_{n}\text{.}
+\end{align*}
+</div>
+<div class="para">It follows at once that <span class="process-math">\(T_n = F_{n+1}\text{,}\)</span> since they obey the same recurrence relations.</div>
+</div>
+</div></body>
+</html>
