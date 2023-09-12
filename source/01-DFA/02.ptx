@@ -176,32 +176,36 @@
         </p>
       </statement>
     </activity>
+    <definition xml:id="def-deltahat">
+      <p>
+        Recall that if
+        <m>A = (Q, \Sigma, q_0, \delta, F)</m>
+        is an automaton, we defined the
+        <em>extended transition function</em>
+        inductively for a word <m>x = ya</m>
+        (where
+        <m>\abs{y} \geq 0</m>
+        ) by
+        <me>
+          \hat{\delta}(q, x) = \begin{cases}
+            q \amp \text{if $\abs{x} = 0$} \\
+            \delta(\hat{\delta}(q, y), a) \amp
+            \text{if $x = ya$}.
+          \end{cases}
+        </me>
+        However, we think informally about
+        <m>\hat{\delta}</m>
+        as describing what happens along a path with a certain
+        string of labels. So it should not matter how we break
+        the input string in the definition of
+        <m>\hat{\delta}</m>. That is, we should be able to
+        use any factorization <m>x = yz</m>, not just one with
+        <m>\abs{z} = 1</m>.
+      </p>
+    </definition>
     <activity xml:id="act-extended-trans-induction">
       <statement>
         <p>
-          Recall that if
-          <m>A = (Q, \Sigma, q_0, \delta, F)</m>
-          is an automaton, we defined the
-          <em>extended transition function</em>
-          inductively for a word <m>x = ya</m>
-          (where
-          <m>\abs{y} \geq 0</m>
-          ) by
-          <me>
-            \hat{\delta}(q, x) = \begin{cases}
-              q \amp \text{if $\abs{x} = 0$} \\
-              \delta(\hat{\delta}(q, y), a) \amp
-              \text{if $x = ya$}.
-            \end{cases}
-          </me>
-          However, we think informally about
-          <m>\hat{\delta}</m>
-          as describing what happens along a path with a certain
-          string of labels. So it should not matter how we break
-          the input string in the definition of
-          <m>\hat{\delta}</m>. That is, we should be able to
-          use any factorization <m>x = yz</m>, not just one with
-          <m>\abs{z} = 1</m>.
           Use induction on
           <m>\abs{z}</m>
           to prove that
@@ -216,7 +220,57 @@
           particularly in <xref ref="rem-induction-framework"/>.
         </p>
       </hint>
+      <solution>
+        <p>
+          We will prove the theorem by induction on <m>\abs{z}</m>. The base case,
+          which is <m>\abs{z} = 0</m>, then looks like <me>
+            \hat{\delta}(q, y\varepsilon) = \hat{\delta}(\hat{\delta}(q, y), \varepsilon)
+          </me>.
+        </p>
+        <p>
+          We compute <mdn>
+            <mrow xml:id="eq-deltahat-base-1">\hat{\delta}(q, y \varepsilon) \amp = \hat{\delta}(q, y)</mrow>
+            <mrow xml:id="eq-deltahat-base-2"> \amp = \hat{\delta}(\hat{\delta}(q, y), \varepsilon)</mrow>
+          </mdn>. Here <xref ref="eq-deltahat-base-1"/> follows by the definition of concatenation, and
+          <xref ref="eq-deltahat-base-2"/> follows by <xref ref="def-deltahat"/>. This completes
+          the proof that our theorem is true when <m>\abs{z} = 0</m>.
+        </p>
+        <p>
+          For the inductive step, let us first clearly state the induction hypothesis.
+          It is that, for some <m>z \in \aster{\Sigma}</m>, we have <me>
+            \hat{\delta}(q, yz) = \hat{\delta}(\hat{\delta}(q, y), z)
+          </me>, for all <m>y \in \aster{\Sigma}</m>. Now let <m>n</m> be the
+          length of <m>z</m>. It plays no role whatsoever in the proof, and really
+          doesn't even need a name, but you might feel more comfortable seeing it
+          in the cast list.
+        </p>
+        <p>
+          If <m>a</m> is a symbol from <m>\Sigma</m>, then <m>w = za</m> has length
+          <m>n + 1</m>. Let us compute:
+          <mdn>
+            <mrow xml:id="eq-deltahat-1">\hat{\delta}(q, yw) \amp = \hat{\delta}(q, yza)</mrow>
+            <mrow xml:id="eq-deltahat-2">\amp = \delta(\hat{\delta}(q, yz), a)</mrow>
+            <mrow xml:id="eq-deltahat-3">\amp = \delta(\hat{\delta}(\hat{\delta}(q, y), z), a)</mrow>
+            <mrow xml:id="eq-deltahat-4">\amp = \hat{\delta}(\hat{\delta}(q, y), za)</mrow>
+            <mrow xml:id="eq-deltahat-5">\amp = \hat{\delta}(\hat{\delta}(q, y), w)</mrow>
+          </mdn>. 
+          Above, <xref ref="eq-deltahat-1"/> follows by substitution, <xref ref="eq-deltahat-2"/>
+          by <xref ref="def-deltahat"/>, <xref ref="eq-deltahat-3"/> by the induction hypothesis,
+          <xref ref="eq-deltahat-4"/> by <xref ref="def-deltahat"/> again, and
+          <xref ref="eq-deltahat-5"/> by substitution again. This completes
+          the inductive step.
+        </p>
+        <p>
+          Since every word in <m>\aster{\Sigma}</m> is either empty or obtained by concatenation
+          of a letter to the end of a shorter word, the proof by induction is complete.
+        </p>
+      </solution>
     </activity>
+    <p>
+      You should make sure you see and meditate on a solution to 
+      <xref ref="act-extended-trans-induction"/>. It is an illustrative example for
+      many similar induction proofs to follow.
+    </p>
     <activity>
       <statement>
         <p>
@@ -289,7 +343,7 @@
     </activity>
     <p>
       We use the exponential notation for self-concatenation of words as well as individual
-      input symbols from <m>\Sigma^{\ast}</m>. For example, if <m>x = ab</m> then 
+      input symbols from <m>\aster{\Sigma}</m>. For example, if <m>x = ab</m> then
       <me>
         x^3 = ababab
       </me>.

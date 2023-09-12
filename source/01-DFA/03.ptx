@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="NFA" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Nondeterministic finite automata</title>
+  <p>
+    In this section we have learned that NFAs are much like
+    DFAs, but with more flexibility about the transitions.
+    Recall that DFA are required to have a transition function
+    with the signature <m>Q \times \Sigma \to Q</m>. The
+    definition of <term>function</term> means that there is thus
+    <em>exactly one outbound transition for each symbol and state</em>.
+  </p>
+  <p>
+    With an NFA, this restriction is removed. A given state and symbol
+    may yield 0, 1, or many outbound transitions. When there are 0, the
+    computation can go no further, but when there are many, the automaton
+    follows them all to their ends, by the mechanism of the redesigned
+    transition function.
+  </p>
+  <p>
+    The transition function for NFA has a different signature. It is a
+    function <m>\delta \colon Q \times \Sigma \to 2^Q</m>, where as before
+    the exponentiated set is a power set. The meaning is simple: the value
+    of <m>\delta(q, a)</m> is
+    <em>the set of states that can be reached from <m>q</m> by following
+    edges labeled <m>a</m></em>. That's it!
+  </p>
+  <activity>
+    <statement>
+      <p>Consider the following NFA:</p>
+      <figure xml:id="fig-nfa-01">
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}[on grid, scale=0.5]
+            \node[state, initial] (q0) {$q_0$};
+            \node[state, right=of q0] (q1) {$q_1$};
+            \node[state, accepting, right=of q1] (q2) {$q_2$};
+            \path[->]
+              (q0) edge[loop above] node {$0$, $1$} (q0)
+              edge node {$0$} (q1)
+              (q1) edge node {$1$} (q2);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <caption>An NFA that accepts all words ending in <m>{\tt 01}</m>.</caption>
+      </figure>
+      <p>
+        Evidently it accepts all words ending in <m>01</m>. Give its
+        formal components <m>Q</m>, <m>\Sigma</m>, <m>q_0</m>,
+        <m>F</m>, and <m>\delta</m>.
+      </p>
+      <answer>
+        <p>The first four are<md>
+          <mrow>Q \amp = \{ q_0, q_1, q_2 \}</mrow>,
+          <mrow>\Sigma \amp = \{ 0, 1 \}</mrow>,
+          <mrow>s \amp = q_0</mrow>,
+          <mrow>F \amp = \{ q_2 \}</mrow>
+        </md>, and <m>\delta</m> is given by the table below.</p>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell right="minor"></cell>
+            <cell>0</cell>
+            <cell>1</cell>
+          </row>
+          <row>
+            <cell right="minor"><m>\to q_0</m></cell>
+            <cell><m>\{ q_0, q_1 \}</m></cell>
+            <cell><m>\{ q_0 \}</m></cell>
+          </row>
+          <row>
+            <cell right="minor"><m>q_1</m></cell>
+            <cell><m>\varnothing</m></cell>
+            <cell><m>\{ q_2 \}</m></cell>
+          </row>
+          <row>
+            <cell right="minor"><m>\ast q_2</m></cell>
+            <cell><m>\varnothing</m></cell>
+            <cell><m>\varnothing</m></cell>
+          </row>
+        </tabular>
+        <p>
+          Notice how the table looks quite similar to those of
+          <xref ref="DFA"/>. The only difference is that the function
+          values are sets of states rather than individual states.
+        </p>
+      </answer>
+    </statement>
+  </activity>
+  <p>
+    We defined the language <m>L(M)</m> of a DFA <m>M</m> using the
+    extended transition function (defined in <xref ref="def-deltahat"/>) as follows: <me>
+      L(M) = \{ x \in \aster{\Sigma} : \hat{\delta}(s, x) \in F \}
+    </me>,
+    where <m>s</m> is the start state of <m>M</m> and <m>F</m> is the
+    set of accepting states. In order to define such a thing for NFA,
+    we will probably need such an extended version of its
+    transition function. This is also provided for us.
+  </p>
+  <p>
+    We defined the extended transition function <m>\hat{\delta}</m> by
+    <me>
+      \hat{\delta}(q, w) = \begin{cases}
+        \{q\} \amp \text{if $w = \varepsilon$} \\
+        \displaystyle \bigcup_{i=1}^k \delta(p_i, a) \amp \text{if $w = xa$ with $a \in \Sigma$}. \\
+      \end{cases}
+    </me>
+    To interpret this we must know what the states <m>p_1</m>, <m>p_2, \ldots p_k</m> are. These are
+    all the states we can reach by following the symbols in the prefix <m>x</m> from the state
+    <m>q</m>. Remember, this is a recursive/inductive definition, so we learn how to do an
+    <m>n</m>-symbol word from how to do an <m>(n-1)</m>-symbol one. The second case in the
+    definition says, follow the <m>a</m>-transitions from every state <m>p_i</m>, <m>i = 1</m>,
+    <m>2, \ldots, k</m>, and the states you get in this way are all members of
+    <m>\hat{\delta}(q, w)</m>.
+  </p>
+  <example>
+    <p>
+      Let us compute <m>\hat{\delta}(q_0, {\tt 00101})</m> using the inductive definition. It is
+      not so easy to do the computation in the intuitive way, starting with the long string
+      and working down to the empty string. The reason is simple: we don't know the <m>p_i</m>!
+      But, we know from experience by now that we will end up evaluating <m>\hat{\delta}(q_0, x)</m>
+      for every prefix <m>x</m> of <m>{\tt 00101}</m>. It will make our job simpler if we start with
+      <m>\varepsilon</m> and work up from there.
+    </p>
+    <ol>
+      <li>
+        <p>
+          <m>\hat{\delta}(q_0, \varepsilon) = \{q_0\}</m>, by definition. Since we can only
+          reach the single state <m>q_0</m> <q>so far</q>, it is the only <m>p_i</m> for the
+          next step.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\hat{\delta}(q_0, 0) = \delta(q_0, 0) = \{ q_0, q_1 \}</m>. Here there is
+          only one <m>p_i</m><mdash/><m>q_0</m> from above<mdash/>and
+          only one symbol, so the union is just the set <m>\{q_0, q_1\}</m>. These
+          are the <m>p_i</m> for the next step.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\hat{\delta}(q_0, 00) = \delta(q_0, 0) \cup \delta(q_1, 0) =
+            \{ q_0, q_1 \} \cup \varnothing = \{ q_0, q_1 \}</m>. Here there are two states
+            <m>p_1</m> and <m>p_2</m>, so two things in the union, but one of them is empty
+            and we get nothing new yet.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\hat{\delta}(q_0, 001) = \delta(q_0, 1) \cup \delta(q_1, 1) =
+            \{ q_0 \} \cup \{ q_2 \} = \{ q_0 , q_2 \}.</m> This time, both things
+            in the union are nonempty.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\hat{\delta}(q_0, 0010) = \delta(q_0, 0) \cup \delta(q_2, 0) =
+            \{ q_0, q_1 \} \cup \varnothing = \{q_0, q_1\}.
+          </m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\hat{\delta}(q_0, 00101) = \delta(q_0, 1) \cup \delta(q_1, 1) =
+            \{ q_0 \} \cup \{ q_2 \} = \{ q_0, q_2 \}.
+          </m>
+        </p>
+      </li>
+    </ol>
+    <p>
+      Later we will see that this means the word <m>{\tt 00101}</m> is accepted
+      by this machine, because <m>\hat{\delta}(q_0, 00101)</m> contains a state of
+      <m>F</m>.
+    </p>
+  </example>
+  <p>
+    Equipped with the extended transition function, we can define the language of an NFA.
+  </p>
+  <definition xml:id="def-nfa-deltahat">
+    If <m>M</m> is our NFA, we define <me>
+      L(M) = \{ w \in \aster{\Sigma}: \hat{\delta}(q_0, w) \cap F \ne \varnothing \}
+    </me>.
+  </definition>
+  <example>
+    <p>
+      Let us prove that <m>M</m>, the NFA of <xref ref="fig-nfa-01"/>, accepts the language
+      <m>L = \{ w : w = y01 \}</m>. That is, we wish to prove that
+      <me>
+        L(M) = L,
+      </me>
+      where
+      <me>
+        L(M) = \{ w \in \{0,1\}^{\ast} : q_2 \in \hat{\delta}(q_0, w) \}
+      </me>. Make sure you see why the defining property
+      <m>\hat{\delta}(q_0, w) \cap F \ne \varnothing</m> from
+      <xref ref="def-nfa-deltahat"/> becomes
+      <m>q_2 \in \hat{\delta}(q_0, w)</m> with our choice of <m>M</m>.
+    </p>
+    <p>
+      We will use induction, but of the <q>mutual</q> variety. Here are
+      the three statements we will prove by induction:
+      <ol>
+        <li>
+          <p><m>\hat{\delta}(q_0, w)</m> contains <m>q_0</m> for every word <m>w</m>.</p>
+        </li>
+        <li>
+          <p><m>\hat{\delta}(q_0, w)</m> contains <m>q_1</m> if and only if <m>w</m> ends in <m>0</m>.</p>
+        </li>
+        <li xml:id="ex-nfa-language-important">
+          <p><m>\hat{\delta}(q_0, w)</m> contains <m>q_2</m> if and only if <m>w</m> ends in <m>01</m>.</p>
+        </li>
+      </ol>
+      Observe before continuing that only statement <xref ref="ex-nfa-language-important"/> is really
+      required by the theorem, but to make the induction go, we need to assume something about the
+      other states too. This is typical of inductive proofs for DFA and NFA.
+    </p>
+    <p>
+      The induction begins with a base case, <m>\abs{w} = 0</m>. We verify the three statements. All
+      are obvious, since <m>\varepsilon</m> doesn't end in anything and <m>\hat{\delta}(q_0, \varepsilon) = \{q_0\}</m>
+      by <xref ref="def-nfa-deltahat"/>.
+    </p>
+    <p>
+      Next let us proceed to the inductive step. Consider a word <m>w = xa</m> (remember that
+      <m>x \in \aster{\Sigma}</m> and <m>a \in \Sigma</m>). Then the length of <m>w</m> is one more
+      than the length of <m>x</m>. In symbols, <m>\abs{w} = \abs{x} + 1</m>. We will assume that
+      all three statements are true of the shorter word <m>x</m>, and deduce them for the longer
+      word <m>w</m>.
+    </p>
+    <p>
+      To see that statement 1 holds for <m>w</m>, we observe that by the induction hypothesis,
+      <m>q_0 \in \hat{\delta}(q_0, x)</m>. Since <m>w = x0</m> or <m>w = x1</m>, and there are
+      loop transitions from <m>q_0</m> labeled with both <m>0</m> and <m>1</m>, we see that
+      <m>q_0 \in \hat{\delta}(q_0, w)</m>, as required.
+    </p>
+    <p>
+      For statement 2, we need to prove both <q>directions</q> of the <q>if and only if</q> statement.
+      It is a bit confusing if you have not seen it before. We say <q><m>P</m> if and only if <m>Q</m></q>
+      when we wish to assert simultaneously that <m>P \implies Q</m> and <m>Q \implies P</m>. The
+      <q>forward</q> implication is <m>P \implies Q</m>, which confusingly is the <q>only if</q> part
+      of the proof. The <q>reverse</q> implication is <m>Q \implies P</m>, which is the <q>if</q> part.
+      In this case, the forward implication is <me>
+        q_1 \in \hat{\delta}(q_0, w) \implies w \text{ ends in } 0
+      </me> and the reverse implication is <me>
+        w \text{ ends in } 0 \implies q_1 \in \hat{\delta}(q_0, w)
+      </me>.
+    </p>
+    <p>
+      To prove the forward implication, we observe that only <m>q_0</m> has a transition to <m>q_1</m>,
+      and that transition is labeled <m>0</m>. So the last letter of <m>w</m> must be <m>0</m>. For the
+      reverse implication, suppose that <m>w</m> ends in <m>0</m>. Because we have assumed statement 1
+      for the prefix <m>x</m>, we know that <m>\hat{\delta}(q_0, x) \ni q_0</m>. Because there is a
+      transition from <m>q_0</m> to <m>q_1</m> labeled <m>0</m>, it follows that <me>
+        q_1 \in \hat{\delta}(q_0, w)
+      </me>, which is what we wanted to prove.
+    </p>
+  </example>
+
+</section>

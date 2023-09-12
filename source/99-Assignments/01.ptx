@@ -114,15 +114,15 @@
     <exercise>
       <statement>
         <p>
-          If <m>L</m> is a language (a subset of <m>\Sigma^{\ast}</m>) then
+          If <m>L</m> is a language (a subset of <m>\aster{\Sigma}</m>) then
           its <term>complement</term> is the language <me>
-            \Sigma^{\ast} - L = \{ x \in \Sigma^{\ast} : x \notin L \}
+            \aster{\Sigma} - L = \{ x \in \aster{\Sigma} : x \notin L \}
           </me>.
         </p>
         <p>
           Show that if <m>M</m> is a DFA that accepts language <m>B</m>,
           then swapping the accept and nonaccept states in <m>M</m>
-          yields a DFA that accepts <m>\Sigma^{\ast} - B</m>.
+          yields a DFA that accepts <m>\aster{\Sigma} - B</m>.
         </p>
         <hint>
           <p>
