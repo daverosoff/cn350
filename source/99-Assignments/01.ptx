@@ -68,14 +68,15 @@
     <exercise>
       <statement>
         <p>Translate the transition diagram in <xref ref="fig-m2"/> into a formal
-        specification. Carefully list the components (<m>Q</m>, <m>\Sigma</m>, <etc/>).</p>
+        specification. Carefully list all of the components (<m>Q</m>, <m>\Sigma</m>, <etc/>).</p>
       </statement>
     </exercise>
     <exercise>
       <statement>
-        <p>The formal description of a DFA <m>M</m> is given by the following table. Use the table
+        <p>The transition function of a DFA <m>M</m> is given by the following table. Use the table
         to give a transition diagram for this machine.</p>
-        <tabular >
+        <p><alert>NOTE.</alert> This problem was updated. Make sure you inspect the table carefully.</p>
+        <tabular>
           <row header="yes" bottom="minor">
             <cell right="minor"></cell>
             <cell><m>{\tt u}</m></cell>
@@ -84,12 +85,12 @@
             </cell>
           </row>
           <row>
-            <cell right="minor"><m>q_1</m></cell>
+            <cell right="minor"><m>\to \ast q_1</m></cell>
             <cell><m>q_1</m></cell>
             <cell><m>q_2</m></cell>
           </row>
           <row>
-            <cell right="minor"><m>q_2</m></cell>
+            <cell right="minor"><m>\ast q_2</m></cell>
             <cell><m>q_1</m></cell>
             <cell><m>q_3</m></cell>
           </row>
@@ -126,14 +127,22 @@
         </p>
         <hint>
           <p>
-            This is not an induction proof. There is no way to divide this
-            into a sequence of ordered <q>cases</q>. Instead, you will suppose
-            (your hypothesis) that <m>M</m> has been given, and it accepts <m>B</m>.
-            Use this assumption and what you have learned about DFA to argue that
+            Start by supposing
+            (your hypothesis) that a DFA <m>M</m> has been given, and it accepts <m>B</m>.
+            That is to say, suppose <m>M</m> is a DFA such that <m>L(M) = B</m>.
+            Use this assumption and what you have learned about DFA to argue
+            persuasively and in detail that
             when the states are swapped, the resulting machine accepts all words
             not in <m>B</m> and rejects all words in <m>B</m>. Since you don't
             have a transition diagram to fall back on, you'll need to use the
             formal description of the DFA in terms of sets and functions.
+          </p>
+          <p>
+            An earlier version of this Hint said that this isn't an induction proof.
+            That was a little overeager. It is very possible to give a persuasive proof
+            that doesn't use it, but I shouldn't have said you <em>can't</em>. In this
+            particular case, though, I don't think the inductive argument is simpler or
+            more convenient.
           </p>
         </hint>
       </statement>
@@ -150,6 +159,12 @@
           </me>.
         </p>
         <hint>
+          <p>
+            In the previous problem, a modification to the DFA was suggested: 
+            swap the accepting and non-accepting states. In this one, you will need
+            to concoct the modification yourself, and give some of the details of why
+            the resulting thing is a DFA.
+          </p>
           <p>
             Since you don't have a transition diagram to fall back on, you'll need to use the
             formal description of the DFA in terms of sets and functions. There are two things to
