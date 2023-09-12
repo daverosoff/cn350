@@ -14,10 +14,7 @@
     <colophon>
 
         <website>
-            <name>
-                <c>example.org</c>
-            </name>
-            <address>https://example.org</address>
+            <url>https://example.org</url>
         </website>
 
         <copyright>
