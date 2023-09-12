@@ -12,7 +12,18 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Let <span class="process-math">\(A\)</span> be a DFA and <span class="process-math">\(q\)</span> a particular state of <span class="process-math">\(A\text{,}\)</span> such that <span class="process-math">\(\delta(q, a) = q\)</span> for all <span class="process-math">\(a \in \Sigma\text{.}\)</span>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(a\)</span> is a symbol from <span class="process-math">\(\Sigma\text{,}\)</span> then <span class="process-math">\(w = za\)</span> has length <span class="process-math">\(n + 1\text{.}\)</span> Let us compute:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-deltahat-1.html ./knowl/eq-deltahat-2.html ./knowl/def-deltahat.html ./knowl/eq-deltahat-3.html ./knowl/eq-deltahat-4.html ./knowl/def-deltahat.html ./knowl/eq-deltahat-5.html">
+\begin{align}
+\hat{\delta}(q, yw) \amp = \hat{\delta}(q, yza)\tag{2.2.3}\\
+\amp = \delta(\hat{\delta}(q, yz), a)\tag{2.2.4}\\
+\amp = \delta(\hat{\delta}(\hat{\delta}(q, y), z), a)\tag{2.2.5}\\
+\amp = \hat{\delta}(\hat{\delta}(q, y), za)\tag{2.2.6}\\
+\amp = \hat{\delta}(\hat{\delta}(q, y), w)\text{.}\tag{2.2.7}
+\end{align}
+</div>
+<div class="para">Above, <a href="" class="xref" data-knowl="./knowl/eq-deltahat-1.html" title="Equation 2.2.3">(2.2.3)</a> follows by substitution, <a href="" class="xref" data-knowl="./knowl/eq-deltahat-2.html" title="Equation 2.2.4">(2.2.4)</a> by <a href="" class="xref" data-knowl="./knowl/def-deltahat.html" title="Definition 2.2.2">Definition 2.2.2</a>, <a href="" class="xref" data-knowl="./knowl/eq-deltahat-3.html" title="Equation 2.2.5">(2.2.5)</a> by the induction hypothesis, <a href="" class="xref" data-knowl="./knowl/eq-deltahat-4.html" title="Equation 2.2.6">(2.2.6)</a> by <a href="" class="xref" data-knowl="./knowl/def-deltahat.html" title="Definition 2.2.2">Definition 2.2.2</a> again, and <a href="" class="xref" data-knowl="./knowl/eq-deltahat-5.html" title="Equation 2.2.7">(2.2.7)</a> by substitution again. This completes the inductive step.</div>
 </div>
 <span class="incontext"><a href="DFA.html#p-124" class="internal">in-context</a></span>
 </body>
