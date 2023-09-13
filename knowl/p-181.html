@@ -16,7 +16,11 @@
 <div class="para">Let <span class="process-math">\(M\)</span> be a pseudo-NFA. Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
-L(M) = \{ w \in \aster{\Sigma} : \hat{\delta}(S, w) \cap F \ne \varnothing \}\text{.}
+\hat{\delta}(U, w) = \begin{cases}
+U \amp \text{if $w = \varepsilon$} \\
+\displaystyle \bigcup_{q \in \hat{\delta}(U, x)} \hat{\delta}(q, a) \amp
+\text{if $w = xa$.} \\
+\end{cases}
 \end{equation*}
 </div>
 </div>
