@@ -127,20 +127,21 @@
           <m>\{0,1\}</m>. Make sure your answers include at least one table
           and one diagram. Get the instructor to check
           before you go on.
+        <!-- </p> -->
+          <ol marker="A.">
+            <li>The set of all strings with 011 as a substring.</li>
+            <li>
+              <p>Words on <m>\Sigma = \{a, b\}</m> with an odd number of b</p>
+            </li>
+            <li>
+              <p>Words on <m>\Sigma = \{0, 1\}</m> that start with 000</p>
+            </li>
+            <li>
+              <p>Words on <m>\Sigma = \{0, 1\}</m> that end in 11</p>
+            </li>
+            <li>The set of all strings with three consecutive 0s (not necessarily at the end)</li>
+          </ol>
         </p>
-        <ol marker="A.">
-          <li>The set of all strings with 011 as a substring.</li>
-          <li>
-            <p>Words on <m>\Sigma = \{a, b\}</m> with an odd number of b</p>
-          </li>
-          <li>
-            <p>Words on <m>\Sigma = \{0, 1\}</m> that start with 000</p>
-          </li>
-          <li>
-            <p>Words on <m>\Sigma = \{0, 1\}</m> that end in 11</p>
-          </li>
-          <li>The set of all strings with three consecutive 0s (not necessarily at the end)</li>
-        </ol>
       </statement>
     </activity>
     <activity>
@@ -148,17 +149,18 @@
         <p>
           Give DFAs accepting the following languages over the alphabet
           <m>\{0,1\}</m>:
+        <!-- </p> -->
+          <ol marker="A.">
+            <li>The set of all strings <m>x</m> beginning with a 1 such that, when
+            <m>x</m> is interpreted as a binary integer, it is a multiple of 3. For example,
+            strings 11, 110, and 1111 are in the language, while
+            10, 100, and 111 are not.</li>
+            <li><p>The set of all such strings that, when interpreted <em>in reverse</em>
+            as binary integers, are multiples of 3. Examples of strings in the
+            language are 0, 00011, and 1001000. Observe there is no restriction
+            on the leading digit in this part.</p></li>
+          </ol>
         </p>
-        <ol marker="A.">
-          <li>The set of all strings <m>x</m> beginning with a 1 such that, when
-          <m>x</m> is interpreted as a binary integer, it is a multiple of 3. For example,
-          strings 11, 110, and 1111 are in the language, while
-          10, 100, and 111 are not.</li>
-          <li><p>The set of all such strings that, when interpreted <em>in reverse</em>
-          as binary integers, are multiples of 3. Examples of strings in the
-          language are 0, 00011, and 1001000. Observe there is no restriction
-          on the leading digit in this part.</p></li>
-        </ol>
       </statement>
       <hint>
         <p>
@@ -177,31 +179,33 @@
       </statement>
     </activity>
     <definition xml:id="def-deltahat">
-      <p>
-        Recall that if
-        <m>A = (Q, \Sigma, q_0, \delta, F)</m>
-        is an automaton, we defined the
-        <em>extended transition function</em>
-        inductively for a word <m>x = ya</m>
-        (where
-        <m>\abs{y} \geq 0</m>
-        ) by
-        <me>
-          \hat{\delta}(q, x) = \begin{cases}
-            q \amp \text{if $\abs{x} = 0$} \\
-            \delta(\hat{\delta}(q, y), a) \amp
-            \text{if $x = ya$}.
-          \end{cases}
-        </me>
-        However, we think informally about
-        <m>\hat{\delta}</m>
-        as describing what happens along a path with a certain
-        string of labels. So it should not matter how we break
-        the input string in the definition of
-        <m>\hat{\delta}</m>. That is, we should be able to
-        use any factorization <m>x = yz</m>, not just one with
-        <m>\abs{z} = 1</m>.
-      </p>
+      <statement>
+        <p>
+          Recall that if
+          <m>A = (Q, \Sigma, q_0, \delta, F)</m>
+          is an automaton, we defined the
+          <em>extended transition function</em>
+          inductively for a word <m>x = ya</m>
+          (where
+          <m>\abs{y} \geq 0</m>
+          ) by
+          <me>
+            \hat{\delta}(q, x) = \begin{cases}
+              q \amp \text{if $\abs{x} = 0$} \
+              \delta(\hat{\delta}(q, y), a) \amp
+              \text{if $x = ya$}.
+            \end{cases}
+          </me>
+          However, we think informally about
+          <m>\hat{\delta}</m>
+          as describing what happens along a path with a certain
+          string of labels. So it should not matter how we break
+          the input string in the definition of
+          <m>\hat{\delta}</m>. That is, we should be able to
+          use any factorization <m>x = yz</m>, not just one with
+          <m>\abs{z} = 1</m>.
+        </p>
+      </statement>
     </definition>
     <activity xml:id="act-extended-trans-induction">
       <statement>
@@ -253,7 +257,7 @@
             <mrow xml:id="eq-deltahat-3">\amp = \delta(\hat{\delta}(\hat{\delta}(q, y), z), a)</mrow>
             <mrow xml:id="eq-deltahat-4">\amp = \hat{\delta}(\hat{\delta}(q, y), za)</mrow>
             <mrow xml:id="eq-deltahat-5">\amp = \hat{\delta}(\hat{\delta}(q, y), w)</mrow>
-          </mdn>. 
+          </mdn>.
           Above, <xref ref="eq-deltahat-1"/> follows by substitution, <xref ref="eq-deltahat-2"/>
           by <xref ref="def-deltahat"/>, <xref ref="eq-deltahat-3"/> by the induction hypothesis,
           <xref ref="eq-deltahat-4"/> by <xref ref="def-deltahat"/> again, and
@@ -267,7 +271,7 @@
       </solution>
     </activity>
     <p>
-      You should make sure you see and meditate on a solution to 
+      You should make sure you see and meditate on a solution to
       <xref ref="act-extended-trans-induction"/>. It is an illustrative example for
       many similar induction proofs to follow.
     </p>
@@ -293,18 +297,19 @@
         <p>
           Give DFAs accepting the following languages over the alphabet
           <m>\{0,1\}</m>:
+        <!-- </p> -->
+          <ol marker="A.">
+            <li>The set of all strings such that each block of 5 consecutive
+            symbols contains at least two 0s</li>
+            <li>The set of all strings whose third symbol from
+            the right is a 1</li>
+            <li>The set of strings that either begin or end
+            (or both) with 01</li>
+            <li>The set of strings such that the number of 0s
+            is divisible by 5 and the number of 1s is divisible
+            by 3</li>
+          </ol>
         </p>
-        <ol marker="A.">
-          <li>The set of all strings such that each block of 5 consecutive
-          symbols contains at least two 0s</li>
-          <li>The set of all strings whose third symbol from
-          the right is a 1</li>
-          <li>The set of strings that either begin or end
-          (or both) with 01</li>
-          <li>The set of strings such that the number of 0s
-          is divisible by 5 and the number of 1s is divisible
-          by 3</li>
-        </ol>
       </statement>
     </activity>
 
@@ -323,22 +328,23 @@
         <p>
           Let <m>A</m> be a DFA and <m>q</m> a particular state of <m>A</m>,
           such that <m>\delta(q, a) = q</m> for all <m>a \in \Sigma</m>.
+        <!-- </p> -->
+          <ol>
+            <li>
+              <p>
+                Show by induction on <m>n</m> that for all <m>n \geq 0</m>,
+                <m>\hat{\delta}(q, a^n) = q</m>, where <m>a^n</m> is the
+                string consisting of <m>n</m> <m>a</m><rsq/>s.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that either <m>\{a\}^{\ast} \subseteq L(A)</m>
+                or <m>\{a\}^{\ast} \cap L(A) = \varnothing</m>.
+              </p>
+            </li>
+          </ol>
         </p>
-        <ol>
-          <li>
-            <p>
-              Show by induction on <m>n</m> that for all <m>n \geq 0</m>,
-              <m>\hat{\delta}(q, a^n) = q</m>, where <m>a^n</m> is the
-              string consisting of <m>n</m> <m>a</m><rsq/>s.
-            </p>
-          </li>
-          <li>
-            <p>
-              Show that either <m>\{a\}^{\ast} \subseteq L(A)</m>
-              or <m>\{a\}^{\ast} \cap L(A) = \varnothing</m>.
-            </p>
-          </li>
-        </ol>
       </statement>
     </activity>
     <p>
@@ -357,22 +363,23 @@
           <me>
             \delta(q_0, a) = \delta(q_f, a)
           </me>.
+        <!-- </p> -->
+          <ol marker="A.">
+            <li>
+              <p>
+                Show that for all <m>w \ne \varepsilon</m>
+                we have <m>\hat{\delta}(q_0, w) = \hat{\delta}(q_f, w)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that if <m>x</m> is a nonempty string in <m>L(A)</m>,
+                then for all <m>k > 0</m>, then <m>x^k</m>, the <m>k</m>-fold
+                concatenation of <m>x</m>, is also in <m>L(A)</m>.
+              </p>
+            </li>
+          </ol>
         </p>
-        <ol marker="A.">
-          <li>
-            <p>
-              Show that for all <m>w \ne \varepsilon</m>
-              we have <m>\hat{\delta}(q_0, w) = \hat{\delta}(q_f, w)</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Show that if <m>x</m> is a nonempty string in <m>L(A)</m>,
-              then for all <m>k > 0</m>, then <m>x^k</m>, the <m>k</m>-fold
-              concatenation of <m>x</m>, is also in <m>L(A)</m>.
-            </p>
-          </li>
-        </ol>
       </statement>
     </activity>
     <activity>
@@ -381,7 +388,7 @@
           Consider the DFA with the following transition table:
         </p>
         <tabular>
-          <col align="right"/><col/><col/>
+          <col halign="right"/><col/><col/>
           <row header="yes">
             <cell></cell>
             <cell>0</cell>

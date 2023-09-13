@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <section xml:id="NFA" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Nondeterministic finite automata</title>
-  <subsection>
+  <subsection xml:id="subsec-nfa-intro">
+    <title>Introduction</title>
     <p>
       In this section we have learned that NFAs are much like
       DFAs, but with more flexibility about the transitions.
@@ -29,6 +30,7 @@
       <statement>
         <p>Consider the following NFA:</p>
         <figure xml:id="fig-nfa-01">
+          <caption>An NFA that accepts all words ending in <m>{\tt 01}</m>.</caption>
           <image width="50%">
             <latex-image>
               \begin{tikzpicture}[on grid, scale=0.5]
@@ -42,49 +44,48 @@
               \end{tikzpicture}
             </latex-image>
           </image>
-          <caption>An NFA that accepts all words ending in <m>{\tt 01}</m>.</caption>
         </figure>
         <p>
           Evidently it accepts all words ending in <m>01</m>. Give its
           formal components <m>Q</m>, <m>\Sigma</m>, <m>q_0</m>,
           <m>F</m>, and <m>\delta</m>.
         </p>
-        <answer>
-          <p>The first four are<md>
-            <mrow>Q \amp = \{ q_0, q_1, q_2 \}</mrow>,
-            <mrow>\Sigma \amp = \{ 0, 1 \}</mrow>,
-            <mrow>s \amp = q_0</mrow>,
-            <mrow>F \amp = \{ q_2 \}</mrow>
-          </md>, and <m>\delta</m> is given by the table below.</p>
-          <tabular>
-            <row header="yes" bottom="minor">
-              <cell right="minor"></cell>
-              <cell>0</cell>
-              <cell>1</cell>
-            </row>
-            <row>
-              <cell right="minor"><m>\to q_0</m></cell>
-              <cell><m>\{ q_0, q_1 \}</m></cell>
-              <cell><m>\{ q_0 \}</m></cell>
-            </row>
-            <row>
-              <cell right="minor"><m>q_1</m></cell>
-              <cell><m>\varnothing</m></cell>
-              <cell><m>\{ q_2 \}</m></cell>
-            </row>
-            <row>
-              <cell right="minor"><m>\ast q_2</m></cell>
-              <cell><m>\varnothing</m></cell>
-              <cell><m>\varnothing</m></cell>
-            </row>
-          </tabular>
-          <p>
-            Notice how the table looks quite similar to those of
-            <xref ref="DFA"/>. The only difference is that the function
-            values are sets of states rather than individual states.
-          </p>
-        </answer>
       </statement>
+      <answer>
+        <p>The first four are<md>
+          <mrow>Q \amp = \{ q_0, q_1, q_2 \}</mrow>
+          <mrow>\Sigma \amp = \{ 0, 1 \}</mrow>
+          <mrow>s \amp = q_0</mrow>
+          <mrow>F \amp = \{ q_2 \}</mrow>
+        </md>, and <m>\delta</m> is given by the table below.</p>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell right="minor"></cell>
+            <cell>0</cell>
+            <cell>1</cell>
+          </row>
+          <row>
+            <cell right="minor"><m>\to q_0</m></cell>
+            <cell><m>\{ q_0, q_1 \}</m></cell>
+            <cell><m>\{ q_0 \}</m></cell>
+          </row>
+          <row>
+            <cell right="minor"><m>q_1</m></cell>
+            <cell><m>\varnothing</m></cell>
+            <cell><m>\{ q_2 \}</m></cell>
+          </row>
+          <row>
+            <cell right="minor"><m>\ast q_2</m></cell>
+            <cell><m>\varnothing</m></cell>
+            <cell><m>\varnothing</m></cell>
+          </row>
+        </tabular>
+        <p>
+          Notice how the table looks quite similar to those of
+          <xref ref="DFA"/>. The only difference is that the function
+          values are sets of states rather than individual states.
+        </p>
+      </answer>
     </activity>
     <p>
       We defined the language <m>L(M)</m> of a DFA <m>M</m> using the
@@ -120,54 +121,53 @@
         But, we know from experience by now that we will end up evaluating <m>\hat{\delta}(q_0, x)</m>
         for every prefix <m>x</m> of <m>{\tt 00101}</m>. It will make our job simpler if we start with
         <m>\varepsilon</m> and work up from there.
-      </p>
-      <ol>
-        <li>
-          <p>
-            <m>\hat{\delta}(q_0, \varepsilon) = \{q_0\}</m>, by definition. Since we can only
-            reach the single state <m>q_0</m> <q>so far</q>, it is the only <m>p_i</m> for the
-            next step.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\hat{\delta}(q_0, 0) = \delta(q_0, 0) = \{ q_0, q_1 \}</m>. Here there is
-            only one <m>p_i</m><mdash/><m>q_0</m> from above<mdash/>and
-            only one symbol, so the union is just the set <m>\{q_0, q_1\}</m>. These
-            are the <m>p_i</m> for the next step.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\hat{\delta}(q_0, 00) = \delta(q_0, 0) \cup \delta(q_1, 0) =
-              \{ q_0, q_1 \} \cup \varnothing = \{ q_0, q_1 \}</m>. Here there are two states
-              <m>p_1</m> and <m>p_2</m>, so two things in the union, but one of them is empty
-              and we get nothing new yet.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\hat{\delta}(q_0, 001) = \delta(q_0, 1) \cup \delta(q_1, 1) =
-              \{ q_0 \} \cup \{ q_2 \} = \{ q_0 , q_2 \}.</m> This time, both things
-              in the union are nonempty.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\hat{\delta}(q_0, 0010) = \delta(q_0, 0) \cup \delta(q_2, 0) =
-              \{ q_0, q_1 \} \cup \varnothing = \{q_0, q_1\}.
-            </m>
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\hat{\delta}(q_0, 00101) = \delta(q_0, 1) \cup \delta(q_1, 1) =
-              \{ q_0 \} \cup \{ q_2 \} = \{ q_0, q_2 \}.
-            </m>
-          </p>
-        </li>
-      </ol>
-      <p>
+      <!-- </p> -->
+        <ol>
+          <li>
+            <p>
+              <m>\hat{\delta}(q_0, \varepsilon) = \{q_0\}</m>, by definition. Since we can only
+              reach the single state <m>q_0</m> <q>so far</q>, it is the only <m>p_i</m> for the
+              next step.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\hat{\delta}(q_0, 0) = \delta(q_0, 0) = \{ q_0, q_1 \}</m>. Here there is
+              only one <m>p_i</m><mdash/><m>q_0</m> from above<mdash/>and
+              only one symbol, so the union is just the set <m>\{q_0, q_1\}</m>. These
+              are the <m>p_i</m> for the next step.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\hat{\delta}(q_0, 00) = \delta(q_0, 0) \cup \delta(q_1, 0) =
+                \{ q_0, q_1 \} \cup \varnothing = \{ q_0, q_1 \}</m>. Here there are two states
+                <m>p_1</m> and <m>p_2</m>, so two things in the union, but one of them is empty
+                and we get nothing new yet.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\hat{\delta}(q_0, 001) = \delta(q_0, 1) \cup \delta(q_1, 1) =
+                \{ q_0 \} \cup \{ q_2 \} = \{ q_0 , q_2 \}.</m> This time, both things
+                in the union are nonempty.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\hat{\delta}(q_0, 0010) = \delta(q_0, 0) \cup \delta(q_2, 0) =
+                \{ q_0, q_1 \} \cup \varnothing = \{q_0, q_1\}.
+              </m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\hat{\delta}(q_0, 00101) = \delta(q_0, 1) \cup \delta(q_1, 1) =
+                \{ q_0 \} \cup \{ q_2 \} = \{ q_0, q_2 \}.
+              </m>
+            </p>
+          </li>
+        </ol>
         Later we will see that this means the word <m>{\tt 00101}</m> is accepted
         by this machine, because <m>\hat{\delta}(q_0, 00101)</m> contains a state of
         <m>F</m>.
@@ -177,9 +177,13 @@
       Equipped with the extended transition function, we can define the language of an NFA.
     </p>
     <definition xml:id="def-nfa-deltahat">
-      If <m>M</m> is our NFA, we define <me>
-        L(M) = \{ w \in \aster{\Sigma}: \hat{\delta}(q_0, w) \cap F \ne \varnothing \}
-      </me>.
+      <statement>
+        <p>
+          If <m>M</m> is our NFA, we define <me>
+            L(M) = \{ w \in \aster{\Sigma}: \hat{\delta}(q_0, w) \cap F \ne \varnothing }
+          </me>.
+        </p>
+      </statement>
     </definition>
     <example>
       <p>
@@ -340,5 +344,91 @@
       </proof> -->
     </theorem>
     <p>For the proof of <xref ref="thm-dfa-nfa-equiv"/>, see the proof of Theorem 2.11 in HMU.</p>
+  </subsection>
+  <subsection xml:id="subsec-nfa-multiple-start">
+    <title>Pseudo-NFAs</title>
+    <p>
+      In this section we introduce the concept of a <term>pseudo-NFA</term>, which is a
+      machine that is almost an NFA, but not quite. The difference is that a pseudo-NFA
+      may have more than one start state. This is not allowed for NFA according to
+      the definition we have given, but it is allowed for pseudo-NFA.
+    </p>
+    <p>
+      We introduce pseudo-NFA merely to show that they are just as sensible as
+      NFA (indeed some authors only consider pseudo-NFAs). In particular, we show
+      in <xref provisional="thm-pseudo-nfa-subset"/> that the subset construction
+      may be applied to a pseudo-NFA to produce a DFA that accepts the same language.
+    </p>
+    <definition xml:id="def-pseudo-nfa">
+      <statement>
+        <p>
+          A <term>pseudo-NFA</term> is a 5-tuple <m>M = (Q, \Sigma, S, F, \delta)</m>,
+          where <m>Q</m>, <m>\Sigma</m>, and <m>F</m> are the same as for an NFA, but
+          <m>S</m> is a <em>set</em> of start states, and <m>\delta</m> is a function
+          <m>\delta \colon Q \times \Sigma \to 2^Q</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We can extend the definition of <m>\hat{\delta}</m> to pseudo-NFA in a nice way.
+      We need to be able to cope with a whole set of start states.
+      The idea of <m>\hat{\delta}</m> is that it gives the set of possible
+      <q>next positions</q>.
+      If <m>U</m> is a set of states, we can define<me>
+        \hat{\delta}(U, w) = \begin{cases}
+          U \amp \text{if $w = \varepsilon$} \\
+          \bigcup_{q \in \hat{\delta}(S, x)} \hat{\delta}(q, a) \amp
+            \text{if $w = xa$,} \\
+        \end{cases}
+      </me>
+      capturing this idea. If we apply it to a proper NFA rather than a
+      pseudo-NFA, we obtain almost the same function as before, except that
+      it operates on singleton sets rather than individual states.
+    </p>
+    <definition xml:id="def-transition-function-pnfa">
+      <statement>
+        <p>
+          Let <m>M</m> be a pseudo-NFA. Then <me>
+            \hat{\delta}(U, w) = \begin{cases}
+              U \amp \text{if $w = \varepsilon$} \\
+              \displaystyle \bigcup_{q \in \hat{\delta}(U, x)} \hat{\delta}(q, a) \amp
+              \text{if $w = xa$.} \\
+            \end{cases}
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <definition xml:id="def-language-pnfa">
+      <statement>
+        <p>
+          Let <m>M</m> be a pseudo-NFA. Then <me>
+            L(M) = \{ w \in \aster{\Sigma} : \hat{\delta}(S, w) \cap F \ne \varnothing \}
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <lemma>
+      <statement>
+        <p>
+          If <m>M</m> is an NFA, then the two definitions of <m>L(M)</m> are equivalent.
+        </p>
+      </statement>
+    </lemma>
+    <theorem xml:id="thm-pseudo-nfa-subset">
+      <statement>
+        <p>
+          Let <m>M</m> be a pseudo-NFA. Then there is a DFA <m>M'</m> such that
+          <m>L(M) = L(M')</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        The proof is the same as that of <xref ref="thm-dfa-nfa-equiv"/>, except that
+        we use the extended transition function <m>\hat{\delta}</m> defined in
+        <xref ref="def-transition-function-pnfa"/> rather than the one defined in
+        <xref ref="def-deltahat"/>. The proof is left as an exercise.
+      </p>
+    </proof>
   </subsection>
 </section>
