@@ -123,7 +123,7 @@
     <activity>
       <statement>
         <p>
-          Give diagrams or tables for DFAs accepting the following languages over the alphabet
+          Give diagrams or tables for DFA accepting the following languages over the alphabet
           <m>\{0,1\}</m>. Make sure your answers include at least one table
           and one diagram. Get the instructor to check
           before you go on.
@@ -147,7 +147,7 @@
     <activity>
       <statement>
         <p>
-          Give DFAs accepting the following languages over the alphabet
+          Give DFA accepting the following languages over the alphabet
           <m>\{0,1\}</m>:
         <!-- </p> -->
           <ol marker="A.">
@@ -295,7 +295,7 @@
     <activity>
       <statement>
         <p>
-          Give DFAs accepting the following languages over the alphabet
+          Give DFA accepting the following languages over the alphabet
           <m>\{0,1\}</m>:
         <!-- </p> -->
           <ol marker="A.">

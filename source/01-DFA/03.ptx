@@ -4,8 +4,8 @@
   <subsection xml:id="subsec-nfa-intro">
     <title>Introduction</title>
     <p>
-      In this section we have learned that NFAs are much like
-      DFAs, but with more flexibility about the transitions.
+      In this section we have learned that NFA are much like
+      DFA, but with more flexibility about the transitions.
       Recall that DFA are required to have a transition function
       with the signature <m>Q \times \Sigma \to Q</m>. The
       definition of <term>function</term> means that there is thus
@@ -346,7 +346,7 @@
     <p>For the proof of <xref ref="thm-dfa-nfa-equiv"/>, see the proof of Theorem 2.11 in HMU.</p>
   </subsection>
   <subsection xml:id="subsec-nfa-multiple-start">
-    <title>Pseudo-NFAs</title>
+    <title>Pseudo-NFA</title>
     <p>
       In this section we introduce the concept of a <term>pseudo-NFA</term>, which is a
       machine that is almost an NFA, but not quite. The difference is that a pseudo-NFA
@@ -354,10 +354,13 @@
       the definition we have given, but it is allowed for pseudo-NFA.
     </p>
     <p>
-      We introduce pseudo-NFA merely to show that they are just as sensible as
-      NFA (indeed some authors only consider pseudo-NFAs). In particular, we show
-      in <xref provisional="thm-pseudo-nfa-subset"/> that the subset construction
+      We introduce pseudo-NFA in part to show that they are just as sensible as
+      NFA (indeed some authors only consider pseudo-NFA). In particular, we show
+      in <xref ref="thm-pseudo-nfa-subset"/> that the subset construction
       may be applied to a pseudo-NFA to produce a DFA that accepts the same language.
+      This means that, to show a language is regular, it is enough to give a pseudo-NFA
+      that accepts it. It also means that even pseudo-NFA are still not more computationally
+      powerful than DFA.
     </p>
     <definition xml:id="def-pseudo-nfa">
       <statement>
@@ -431,7 +434,7 @@
       </p>
     </proof>
     <p>
-      The pseudo-NFAs are convenient for proving results like the following.
+      The pseudo-NFA are convenient for proving results like the following.
     </p>
     <theorem xml:id="thm-regular-closed-union">
       <statement>
@@ -443,7 +446,7 @@
     <proof>
       <p>
         Since <m>B_1</m> and <m>B_2</m> are regular, there are
-        DFAs <m>M_1</m> and <m>M_2</m> such that <m>L(M_1) = B_1</m>
+        DFA <m>M_1</m> and <m>M_2</m> such that <m>L(M_1) = B_1</m>
         and <m>L(M_2) = B_2</m>. We will construct a DFA <m>M</m>
         such that <m>L(M) = B_1 \cup B_2</m>. Let the state sets
         and transition functions of <m>M_1</m> and <m>M_2</m> be

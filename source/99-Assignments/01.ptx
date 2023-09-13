@@ -11,7 +11,7 @@
     <exercise>
       <statement>
         <p>
-          The following are the transition diagrams of two DFAs <m>M_1</m>
+          The following are the transition diagrams of two DFA <m>M_1</m>
           and <m>M_2</m>. Answer the following questions about each one.
         </p>
         <ol>
@@ -160,7 +160,7 @@
         </p>
         <hint>
           <p>
-            In the previous problem, a modification to the DFA was suggested: 
+            In the previous problem, a modification to the DFA was suggested:
             swap the accepting and non-accepting states. In this one, you will need
             to concoct the modification yourself, and give some of the details of why
             the resulting thing is a DFA.
