@@ -220,7 +220,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="chapter-99-title.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter-99-title.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="DFA.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="dwr-fa.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="dwr-fa.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="DFA.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -252,7 +252,7 @@ window.MathJax = {
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chapter-99-title.html" class="internal"><span class="codenumber">2</span> <span class="title">Finite automata</span></a></div>
+<div class="toc-item"><a href="dwr-fa.html" class="internal"><span class="codenumber">2</span> <span class="title">Finite automata</span></a></div>
 <ul class="structural">
 <li class="active">
 <div class="toc-item"><a href="DFA-intro.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Examples of finite state automata</span></a></div>
@@ -265,7 +265,15 @@ window.MathJax = {
 <div class="toc-item"><a href="DFA.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Deterministic finite automata</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="DFA.html#subsection-5" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Class Activities</span></a></div></li></ul>
 </li>
-<li><div class="toc-item"><a href="NFA.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Nondeterministic finite automata</span></a></div></li>
+<li>
+<div class="toc-item"><a href="NFA.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Nondeterministic finite automata</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="NFA.html#subsec-nfa-intro" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="NFA.html#subsec-subset-const" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The subset construction</span></a></div></li>
+<li><div class="toc-item"><a href="NFA.html#subsec-nfa-multiple-start" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Pseudo-NFA</span></a></div></li>
+<li><div class="toc-item"><a href="NFA.html#subsection-9" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Class Activities</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -289,7 +297,7 @@ window.MathJax = {
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
 </h4>
 <div class="para" id="p-100">(This example is due to HMU.) Consider the marble-rolling toy pictured below. A marble enters at either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\text{.}\)</span> The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points rights, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.</div> <div class="para" id="p-101">Let us say that a word is accepted if, when we begin in the pictured starting configuration, rolling a marble for each symbol, the final marble exits at <span class="process-math">\(D\text{.}\)</span>
-</div> <div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/marble.svg" class="contained" alt="A marble-rolling toy with two input chutes labeled A and B, and two output chutes labeled C and D. The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points right, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D."></div>  <ol class="decimal">
+</div> <div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/marble.svg" class="contained" alt="A marble-rolling toy with two input chutes labeled A and B, and two output chutes labeled C and D. The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points right, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D."></div>  <div class="para logical" id="p-102"><ol class="decimal">
 <li id="li-49"><div class="para" id="p-derived-li-49">Does the toy accept <span class="process-math">\(a\text{?}\)</span>
 </div></li>
 <li id="li-50"><div class="para" id="p-derived-li-50">Does the toy accept <span class="process-math">\(b\text{?}\)</span>
@@ -302,8 +310,8 @@ window.MathJax = {
 </div></li>
 <li id="li-54"><div class="para" id="p-derived-li-54">Does the toy accept <span class="process-math">\(bab\text{?}\)</span>
 </div></li>
-<li id="li-55">
-<div class="para" id="p-102">Find all the words on <span class="process-math">\(\{ a,b \}\)</span> of length at most <span class="process-math">\(4\)</span> accepted by the marble-rolling toy, assuming that a word is accepted if the last marble exits at D.</div>
+<li id="li-55"><div class="para logical" id="p-103">
+<div class="para">Find all the words on <span class="process-math">\(\{ a,b }\)</span> of length at most <span class="process-math">\(4\)</span> accepted by the marble-rolling toy, assuming that a word is accepted if the last marble exits at D. </div>
 <ol class="upper-alpha cols2">
 <li id="li-56"><div class="para" id="p-derived-li-56">
 <span class="process-math">\(\varepsilon\)</span> (empty word)</div></li>
@@ -338,11 +346,11 @@ window.MathJax = {
 <li id="li-85"><div class="para" id="p-derived-li-85"><span class="process-math">\(\displaystyle bbba\)</span></div></li>
 <li id="li-86"><div class="para" id="p-derived-li-86"><span class="process-math">\(\displaystyle bbbb\)</span></div></li>
 </ol>
-</li>
+</div></li>
 <li id="li-87"><div class="para" id="p-derived-li-87">Can you describe the language <span class="process-math">\(L\)</span> accepted by the toy?</div></li>
-</ol></article></section></section></div>
+</ol></div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="chapter-99-title.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="DFA.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="dwr-fa.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="DFA.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">Since <span class="process-math">\(B_1\)</span> and <span class="process-math">\(B_2\)</span> are regular, there are DFA <span class="process-math">\(M_1\)</span> and <span class="process-math">\(M_2\)</span> such that <span class="process-math">\(L(M_1) = B_1\)</span> and <span class="process-math">\(L(M_2) = B_2\text{.}\)</span> We will construct a DFA <span class="process-math">\(M\)</span> such that <span class="process-math">\(L(M) = B_1 \cup B_2\text{.}\)</span> Let the state sets and transition functions of <span class="process-math">\(M_1\)</span> and <span class="process-math">\(M_2\)</span> be <span class="process-math">\(Q_1\text{,}\)</span> <span class="process-math">\(\delta_1\)</span> and <span class="process-math">\(Q_2\text{,}\)</span> <span class="process-math">\(\delta_2\text{,}\)</span> respectively. Without loss of generality, we may assume that <span class="process-math">\(Q_1\)</span> and <span class="process-math">\(Q_2\)</span> are disjoint. If they are not, we can rename the states of one of them.</div> <div class="para logical">
+<div class="para">The state set <span class="process-math">\(Q = Q_1 \cup Q_2\)</span> of <span class="process-math">\(M\)</span> will be the union of the states of <span class="process-math">\(M_1\)</span> and <span class="process-math">\(M_2\text{.}\)</span> Both the start states of <span class="process-math">\(M_1\)</span> and <span class="process-math">\(M_2\)</span> will be start states of <span class="process-math">\(M\text{.}\)</span> The accepting states of <span class="process-math">\(M\)</span> will be the union of the accepting states of <span class="process-math">\(M_1\)</span> and <span class="process-math">\(M_2\text{.}\)</span> The transition function of <span class="process-math">\(M\)</span> will be defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta(q, a) = \begin{cases}
+\delta_1(q, a) \amp \text{if $q \in Q_1$} \\
+\delta_2(q, a) \amp \text{if $q \in Q_2$.} \\
+\end{cases}
+\end{equation*}
+</div>
+</div> <div class="para">First, we observe that <span class="process-math">\(L(M) = L(M_1) \cup L(M_2) = B_1 \cup B_2\text{.}\)</span> To see this, first note that <span class="process-math">\(L(M_1) \subseteq L(M)\)</span> and <span class="process-math">\(L(M_2) \subseteq L(M)\text{.}\)</span> Therefore <span class="process-math">\(L(M_1) \cup L(M_2) \subseteq L(M)\text{.}\)</span> To see the reverse inclusion, let <span class="process-math">\(w \in L(M)\text{.}\)</span> Then <span class="process-math">\(w \in L(M_1)\)</span> or <span class="process-math">\(w \in L(M_2)\text{.}\)</span> This shows that the <span class="process-math">\(L(M) = L(M_1) \cup L(M_2)\text{,}\)</span> as required.</div> <div class="para">It is evident that <span class="process-math">\(M\)</span> so constructed is a pseudo-NFA. By <a href="" class="xref" data-knowl="./knowl/thm-pseudo-nfa-subset.html" title="Theorem 2.3.10">Theorem 2.3.10</a>, there is a DFA <span class="process-math">\(M'\)</span> such that <span class="process-math">\(L(M) = L(M')\text{.}\)</span> But <span class="process-math">\(L(M) = B_1 \cup B_2\text{,}\)</span> so we are done.</div></article></body>
+</html>

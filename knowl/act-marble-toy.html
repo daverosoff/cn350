@@ -15,7 +15,7 @@
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
 </h4>
 <div class="para">(This example is due to HMU.) Consider the marble-rolling toy pictured below. A marble enters at either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\text{.}\)</span> The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points rights, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.</div> <div class="para">Let us say that a word is accepted if, when we begin in the pictured starting configuration, rolling a marble for each symbol, the final marble exits at <span class="process-math">\(D\text{.}\)</span>
-</div> <div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/marble.svg" class="contained" alt="A marble-rolling toy with two input chutes labeled A and B, and two output chutes labeled C and D. The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points right, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D."></div>  <ol class="decimal">
+</div> <div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/marble.svg" class="contained" alt="A marble-rolling toy with two input chutes labeled A and B, and two output chutes labeled C and D. The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points right, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D."></div>  <div class="para logical"><ol class="decimal">
 <li><div class="para">Does the toy accept <span class="process-math">\(a\text{?}\)</span>
 </div></li>
 <li><div class="para">Does the toy accept <span class="process-math">\(b\text{?}\)</span>
@@ -28,8 +28,8 @@
 </div></li>
 <li><div class="para">Does the toy accept <span class="process-math">\(bab\text{?}\)</span>
 </div></li>
-<li>
-<div class="para">Find all the words on <span class="process-math">\(\{ a,b \}\)</span> of length at most <span class="process-math">\(4\)</span> accepted by the marble-rolling toy, assuming that a word is accepted if the last marble exits at D.</div>
+<li><div class="para logical">
+<div class="para">Find all the words on <span class="process-math">\(\{ a,b }\)</span> of length at most <span class="process-math">\(4\)</span> accepted by the marble-rolling toy, assuming that a word is accepted if the last marble exits at D. </div>
 <ol class="upper-alpha cols2">
 <li><div class="para">
 <span class="process-math">\(\varepsilon\)</span> (empty word)</div></li>
@@ -64,8 +64,8 @@
 <li><div class="para"><span class="process-math">\(\displaystyle bbba\)</span></div></li>
 <li><div class="para"><span class="process-math">\(\displaystyle bbbb\)</span></div></li>
 </ol>
-</li>
+</div></li>
 <li><div class="para">Can you describe the language <span class="process-math">\(L\)</span> accepted by the toy?</div></li>
-</ol></article><span class="incontext"><a href="DFA-intro.html#act-marble-toy" class="internal">in-context</a></span>
+</ol></div></article><span class="incontext"><a href="DFA-intro.html#act-marble-toy" class="internal">in-context</a></span>
 </body>
 </html>

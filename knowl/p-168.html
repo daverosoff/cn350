@@ -11,15 +11,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">To prove the forward implication, we observe that only <span class="process-math">\(q_0\)</span> has a transition to <span class="process-math">\(q_1\text{,}\)</span> and that transition is labeled <span class="process-math">\(0\text{.}\)</span> So the last letter of <span class="process-math">\(w\)</span> must be <span class="process-math">\(0\text{.}\)</span> For the reverse implication, suppose that <span class="process-math">\(w\)</span> ends in <span class="process-math">\(0\text{.}\)</span> Because we have assumed statement 1 for the prefix <span class="process-math">\(x\text{,}\)</span> we know that <span class="process-math">\(\hat{\delta}(q_0, x) \ni q_0\text{.}\)</span> Because there is a transition from <span class="process-math">\(q_0\)</span> to <span class="process-math">\(q_1\)</span> labeled <span class="process-math">\(0\text{,}\)</span> it follows that</div>
+<div class="para">For statement 2, we need to prove both “directions” of the “if and only if” statement. It is a bit confusing if you have not seen it before. We say “<span class="process-math">\(P\)</span> if and only if <span class="process-math">\(Q\)</span>” when we wish to assert simultaneously that <span class="process-math">\(P \implies Q\)</span> and <span class="process-math">\(Q \implies P\text{.}\)</span> The “forward” implication is <span class="process-math">\(P \implies Q\text{,}\)</span> which confusingly is the “only if” part of the proof. The “reverse” implication is <span class="process-math">\(Q \implies P\text{,}\)</span> which is the “if” part. In this case, the forward implication is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-q_1 \in \hat{\delta}(q_0, w)\text{,}
+q_1 \in \hat{\delta}(q_0, w) \implies w \text{ ends in } 0
 \end{equation*}
 </div>
-<div class="para">which is what we wanted to prove.</div>
+<div class="para">and the reverse implication is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w \text{ ends in } 0 \implies q_1 \in \hat{\delta}(q_0, w)\text{.}
+\end{equation*}
+</div>
 </div>
 <span class="incontext"><a href="NFA.html#p-168" class="internal">in-context</a></span>
 </body>

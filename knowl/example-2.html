@@ -11,9 +11,9 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="example example-like"><h3 class="heading">
+<article class="example example-like"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.4</span><span class="period">.</span>
-</h3>
+</h4>
 <div class="para logical">
 <div class="para">Let us prove that <span class="process-math">\(M\text{,}\)</span> the NFA of <a href="" class="xref" data-knowl="./knowl/fig-nfa-01.html" title="Figure 2.3.1">Figure 2.3.1</a>, accepts the language <span class="process-math">\(L = \{ w : w = y01 \}\text{.}\)</span> That is, we wish to prove that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-nfa-01.html ./knowl/def-nfa-deltahat.html">
@@ -58,7 +58,7 @@ w \text{ ends in } 0 \implies q_1 \in \hat{\delta}(q_0, w)\text{.}
 \end{equation*}
 </div>
 </div> <div class="para logical">
-<div class="para">To prove the forward implication, we observe that only <span class="process-math">\(q_0\)</span> has a transition to <span class="process-math">\(q_1\text{,}\)</span> and that transition is labeled <span class="process-math">\(0\text{.}\)</span> So the last letter of <span class="process-math">\(w\)</span> must be <span class="process-math">\(0\text{.}\)</span> For the reverse implication, suppose that <span class="process-math">\(w\)</span> ends in <span class="process-math">\(0\text{.}\)</span> Because we have assumed statement 1 for the prefix <span class="process-math">\(x\text{,}\)</span> we know that <span class="process-math">\(\hat{\delta}(q_0, x) \ni q_0\text{.}\)</span> Because there is a transition from <span class="process-math">\(q_0\)</span> to <span class="process-math">\(q_1\)</span> labeled <span class="process-math">\(0\text{,}\)</span> it follows that</div>
+<div class="para">To prove the forward implication, we observe that only <span class="process-math">\(q_0\)</span> has a transition to <span class="process-math">\(q_1\text{,}\)</span> and that transition is labeled <span class="process-math">\(0\text{.}\)</span> So the last letter of <span class="process-math">\(w\)</span> must be <span class="process-math">\(0\text{.}\)</span> For the reverse implication, suppose that <span class="process-math">\(w\)</span> ends in <span class="process-math">\(0\text{.}\)</span> Because we have assumed statement 1 for the prefix <span class="process-math">\(x\text{,}\)</span> we know that <span class="process-math">\(\hat{\delta}(q_0, x) \ni q_1\text{.}\)</span> Because there is a transition from <span class="process-math">\(q_0\)</span> to <span class="process-math">\(q_1\)</span> labeled <span class="process-math">\(0\text{,}\)</span> it follows that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 q_1 \in \hat{\delta}(q_0, w)\text{,}

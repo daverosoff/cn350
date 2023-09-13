@@ -13,13 +13,15 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">For the inductive step, let us first clearly state the induction hypothesis. It is that, for some <span class="process-math">\(z \in \aster{\Sigma}\text{,}\)</span> we have</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\delta}(q, yz) = \hat{\delta}(\hat{\delta}(q, y), z)\text{,}
-\end{equation*}
+<div class="para">We compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-deltahat-base-1.html ./knowl/eq-deltahat-base-2.html ./knowl/def-deltahat.html">
+\begin{align}
+\hat{\delta}(q, y \varepsilon) \amp = \hat{\delta}(q, y)\tag{2.2.1}\\
+\amp = \hat{\delta}(\hat{\delta}(q, y), \varepsilon)\text{.}\tag{2.2.2}
+\end{align}
 </div>
-<div class="para">for all <span class="process-math">\(y \in \aster{\Sigma}\text{.}\)</span> Now let <span class="process-math">\(n\)</span> be the length of <span class="process-math">\(z\text{.}\)</span> It plays no role whatsoever in the proof, and really doesn’t even need a name, but you might feel more comfortable seeing it in the cast list.</div>
+<div class="para">Here <a href="" class="xref" data-knowl="./knowl/eq-deltahat-base-1.html" title="Equation 2.2.1">(2.2.1)</a> follows by the definition of concatenation, and <a href="" class="xref" data-knowl="./knowl/eq-deltahat-base-2.html" title="Equation 2.2.2">(2.2.2)</a> follows by <a href="" class="xref" data-knowl="./knowl/def-deltahat.html" title="Definition 2.2.2">Definition 2.2.2</a>. This completes the proof that our theorem is true when <span class="process-math">\(\abs{z} = 0\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="DFA.html#p-123" class="internal">in-context</a></span>
 </body>

@@ -11,10 +11,12 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="example example-like"><h3 class="heading">
+<article class="example example-like"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
-</h3>
-<div class="para">Let us compute <span class="process-math">\(\hat{\delta}(q_0, {\tt 00101})\)</span> using the inductive definition. It is not so easy to do the computation in the intuitive way, starting with the long string and working down to the empty string. The reason is simple: we don’t know the <span class="process-math">\(p_i\text{!}\)</span> But, we know from experience by now that we will end up evaluating <span class="process-math">\(\hat{\delta}(q_0, x)\)</span> for every prefix <span class="process-math">\(x\)</span> of <span class="process-math">\({\tt 00101}\text{.}\)</span> It will make our job simpler if we start with <span class="process-math">\(\varepsilon\)</span> and work up from there.</div> <ol class="decimal">
+</h4>
+<div class="para logical">
+<div class="para">Let us compute <span class="process-math">\(\hat{\delta}(q_0, {\tt 00101})\)</span> using the inductive definition. It is not so easy to do the computation in the intuitive way, starting with the long string and working down to the empty string. The reason is simple: we don’t know the <span class="process-math">\(p_i\text{!}\)</span> But, we know from experience by now that we will end up evaluating <span class="process-math">\(\hat{\delta}(q_0, x)\)</span> for every prefix <span class="process-math">\(x\)</span> of <span class="process-math">\({\tt 00101}\text{.}\)</span> It will make our job simpler if we start with <span class="process-math">\(\varepsilon\)</span> and work up from there. </div>
+<ol class="decimal">
 <li><div class="para">
 <span class="process-math">\(\hat{\delta}(q_0, \varepsilon) = \{q_0\}\text{,}\)</span> by definition. Since we can only reach the single state <span class="process-math">\(q_0\)</span> “so far”, it is the only <span class="process-math">\(p_i\)</span> for the next step.</div></li>
 <li><div class="para">
@@ -29,7 +31,9 @@
 \{ q_0, q_1 \} \cup \varnothing = \{q_0, q_1\}.\)</span></div></li>
 <li><div class="para"><span class="process-math">\(\displaystyle \hat{\delta}(q_0, 00101) = \delta(q_0, 1) \cup \delta(q_1, 1) =
 \{ q_0 \} \cup \{ q_2 \} = \{ q_0, q_2 \}.\)</span></div></li>
-</ol> <div class="para">Later we will see that this means the word <span class="process-math">\({\tt 00101}\)</span> is accepted by this machine, because <span class="process-math">\(\hat{\delta}(q_0, 00101)\)</span> contains a state of <span class="process-math">\(F\text{.}\)</span>
+</ol>
+<div class="para">Later we will see that this means the word <span class="process-math">\({\tt 00101}\)</span> is accepted by this machine, because <span class="process-math">\(\hat{\delta}(q_0, 00101)\)</span> contains a state of <span class="process-math">\(F\text{.}\)</span>
+</div>
 </div></article><span class="incontext"><a href="NFA.html#example-1" class="internal">in-context</a></span>
 </body>
 </html>

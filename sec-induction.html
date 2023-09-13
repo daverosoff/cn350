@@ -220,7 +220,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-proofs.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter-00-title.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="chapter-99-title.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-proofs.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter-00-title.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="dwr-fa.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -252,7 +252,7 @@ window.MathJax = {
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chapter-99-title.html" class="internal"><span class="codenumber">2</span> <span class="title">Finite automata</span></a></div>
+<div class="toc-item"><a href="dwr-fa.html" class="internal"><span class="codenumber">2</span> <span class="title">Finite automata</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="DFA-intro.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Examples of finite state automata</span></a></div>
@@ -265,7 +265,15 @@ window.MathJax = {
 <div class="toc-item"><a href="DFA.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Deterministic finite automata</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="DFA.html#subsection-5" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Class Activities</span></a></div></li></ul>
 </li>
-<li><div class="toc-item"><a href="NFA.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Nondeterministic finite automata</span></a></div></li>
+<li>
+<div class="toc-item"><a href="NFA.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Nondeterministic finite automata</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="NFA.html#subsec-nfa-intro" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="NFA.html#subsec-subset-const" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The subset construction</span></a></div></li>
+<li><div class="toc-item"><a href="NFA.html#subsec-nfa-multiple-start" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Pseudo-NFA</span></a></div></li>
+<li><div class="toc-item"><a href="NFA.html#subsection-9" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Class Activities</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -438,7 +446,7 @@ T_{n+1} \amp = T_{n-1} + T_{n}\text{.}
 </h5>
 <div class="para" id="p-96">All cars are blue.</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para" id="p-97">It is enough to show that given a nonempty finite set of cars, all of them are the same color. Since mine is blue, the result will follow at once. Let us prove by induction that every nonempty finite set of cars is monochromatic. If the set has just one car, it is surely monochromatic. Now let us suppose, by way of induction, that for some positive integer <span class="process-math">\(n\)</span> it has already been shown that every set of <span class="process-math">\(n\)</span> cars is monochromatic.</div> <div class="para" id="p-98">Consider a set <span class="process-math">\(X\)</span> of <span class="process-math">\(n + 1\)</span> cars. We may form sets <span class="process-math">\(Y_1\text{,}\)</span> <span class="process-math">\(Y_2, \ldots, Y_{n+1}\)</span> by deleting the <span class="process-math">\(i\)</span>th car from <span class="process-math">\(X\)</span> to form <span class="process-math">\(Y_i\text{.}\)</span> Applying the induction hypothesis to each of the sets <span class="process-math">\(Y_i\)</span> we see that each of these sets is monochromatic. But then <span class="process-math">\(X\)</span> is monochromatic as well, and the proof is complete.</div></article></div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-proofs.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="chapter-99-title.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="sec-proofs.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="dwr-fa.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
