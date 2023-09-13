@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<chapter xml:id="chapter-99-title" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="dwr-fa" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Finite automata</title>
     <!-- <xi:include href="outcomes/main.ptx" /> -->
     <xi:include href="01.ptx" />

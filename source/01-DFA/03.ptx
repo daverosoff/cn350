@@ -19,7 +19,7 @@
       transition function.
     </p>
     <p>
-      The transition function for NFA has a different signature. It is a
+      The transition function for NFA has a abcferent sabd. It is a
       function <m>\delta \colon Q \times \Sigma \to 2^Q</m>, where as before
       the exponentiated set is a power set. The meaning is simple: the value
       of <m>\delta(q, a)</m> is
@@ -430,5 +430,91 @@
         <xref ref="def-deltahat"/>. The proof is left as an exercise.
       </p>
     </proof>
+    <p>
+      The pseudo-NFAs are convenient for proving results like the following.
+    </p>
+    <theorem xml:id="thm-regular-closed-union">
+      <statement>
+        <p>
+          If <m>B_1</m> and <m>B_2</m> are regular languages, then so is <m>B_1 \cup B_2</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Since <m>B_1</m> and <m>B_2</m> are regular, there are
+        DFAs <m>M_1</m> and <m>M_2</m> such that <m>L(M_1) = B_1</m>
+        and <m>L(M_2) = B_2</m>. We will construct a DFA <m>M</m>
+        such that <m>L(M) = B_1 \cup B_2</m>. Let the state sets
+        and transition functions of <m>M_1</m> and <m>M_2</m> be
+        <m>Q_1</m>, <m>\delta_1</m> and <m>Q_2</m>, <m>\delta_2</m>,
+        respectively. Without loss of generality, we may assume that
+        <m>Q_1</m> and <m>Q_2</m> are disjoint. If they are not, we
+        can rename the states of one of them.
+      </p>
+      <p>
+        The state set <m>Q = Q_1 \cup Q_2</m> of <m>M</m> will be the
+        union of the states of
+        <m>M_1</m> and <m>M_2</m>. Both the start states of
+        <m>M_1</m> and <m>M_2</m> will be start states of <m>M</m>. The accepting
+        states of <m>M</m> will be the union of the accepting states of <m>M_1</m>
+        and <m>M_2</m>. The transition function of <m>M</m> will be defined by
+        <me>
+          \delta(q, a) = \begin{cases}
+            \delta_1(q, a) \amp \text{if $q \in Q_1$} \\
+            \delta_2(q, a) \amp \text{if $q \in Q_2$.} \\
+          \end{cases}
+        </me>
+      </p>
+      <p>
+        First, we observe that <m>L(M) = L(M_1) \cup L(M_2) = B_1 \cup B_2</m>.
+        To see this, first note that <m>L(M_1) \subseteq L(M)</m> and
+        <m>L(M_2) \subseteq L(M)</m>. Therefore
+        <m>L(M_1) \cup L(M_2) \subseteq L(M)</m>. To see the reverse inclusion,
+        let <m>w \in L(M)</m>. Then <m>w \in L(M_1)</m> or <m>w \in L(M_2)</m>.
+        This shows that the <m>L(M) = L(M_1) \cup L(M_2)</m>, as required.
+      </p>
+      <p>
+        It is evident that <m>M</m> so constructed is a pseudo-NFA. By
+        <xref ref="thm-pseudo-nfa-subset"/>, there is a DFA <m>M'</m> such that
+        <m>L(M) = L(M')</m>. But <m>L(M) = B_1 \cup B_2</m>, so we are done.
+      </p>
+    </proof>
+  </subsection>
+  <subsection>
+    <title>Class Activities</title>
+    <activity xml:id="act-design-nfa">
+      <statement>
+        <p>
+          Design NFA to recognize the following sets of keywords. Draw pictures on the whiteboard.
+          <ol>
+            <li>
+              <p>
+                <m>{\tt abc}</m>, <m>{\tt abd}</m>, and <m>{\tt aacd}</m>. Assume
+                the alphabet is <m>\{a, b, c, d\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>0101</m>, <m>101</m>, and <m>011</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\tt ab}</m>, <m>{\tt bc}</m>, and <m>{\tt ca}</m>. Assume
+                the alphabet is <m>\{a, b, c\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>Convert each of your NFA from <xref ref="act-design-nfa"/>
+          to a DFA using the subset construction. Draw pictures on the whiteboard.
+        </p>
+      </statement>
+    </activity>
   </subsection>
 </section>

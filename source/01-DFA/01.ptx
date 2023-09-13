@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="DFA-intro" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <objectives></objectives>
   <title>Examples of finite state automata</title>
+  <objectives></objectives>
   <subsection xml:id="subsec-bank-store-customer">
     <title>The bank<mdash/>store<mdash/>customer model</title>
     <p>Some stuff</p>
@@ -49,56 +49,59 @@
           acceptance. Such automata are called <em>transducers</em>
           and are important in compiler design.
         </p> -->
-        <ol>
-          <li>Does the toy accept <m>a</m>?</li>
-          <li>Does the toy accept <m>b</m>?</li>
-          <li>Does the toy accept <m>ab</m>?</li>
-          <li>Does the toy accept <m>ba</m>?</li>
-          <li>Does the toy accept <m>aab</m>?</li>
-          <li>Does the toy accept <m>bab</m>?</li>
-          <li>
-            <p>
-                Find all the words on <m>\{ a,b \}</m> of length
-                at most <m>4</m> accepted by the marble-rolling
-                toy, assuming that a word is accepted if the last marble exits at D.
+        <p>
+          <ol>
+            <li>Does the toy accept <m>a</m>?</li>
+            <li>Does the toy accept <m>b</m>?</li>
+            <li>Does the toy accept <m>ab</m>?</li>
+            <li>Does the toy accept <m>ba</m>?</li>
+            <li>Does the toy accept <m>aab</m>?</li>
+            <li>Does the toy accept <m>bab</m>?</li>
+            <li>
+              <p>
+              Find all the words on <m>\{ a,b }</m> of length
+              at most <m>4</m> accepted by the marble-rolling
+              toy, assuming that a word is accepted if the last marble exits at D.
+          <!-- </p> -->
+              <ol marker="A." cols="2">
+                <li><m>\varepsilon</m> (empty word)</li>
+                <li><m>a</m></li>
+                <li><m>b</m></li>
+                <li><m>aa</m></li>
+                <li><m>ab</m></li>
+                <li><m>ba</m></li>
+                <li><m>bb</m></li>
+                <li><m>aaa</m></li>
+                <li><m>aab</m></li>
+                <li><m>aba</m></li>
+                <li><m>abb</m></li>
+                <li><m>baa</m></li>
+                <li><m>bab</m></li>
+                <li><m>bba</m></li>
+                <li><m>bbb</m></li>
+                <li><m>aaaa</m></li>
+                <li><m>aaab</m></li>
+                <li><m>aaba</m></li>
+                <li><m>aabb</m></li>
+                <li><m>abaa</m></li>
+                <li><m>abab</m></li>
+                <li><m>abba</m></li>
+                <li><m>abbb</m></li>
+                <li><m>baaa</m></li>
+                <li><m>baab</m></li>
+                <li><m>baba</m></li>
+                <li><m>babb</m></li>
+                <li><m>bbaa</m></li>
+                <li><m>bbab</m></li>
+                <li><m>bbba</m></li>
+                <li><m>bbbb</m></li>
+              </ol>
             </p>
-            <ol marker="A." cols="2">
-              <li><m>\varepsilon</m> (empty word)</li>
-              <li><m>a</m></li>
-              <li><m>b</m></li>
-              <li><m>aa</m></li>
-              <li><m>ab</m></li>
-              <li><m>ba</m></li>
-              <li><m>bb</m></li>
-              <li><m>aaa</m></li>
-              <li><m>aab</m></li>
-              <li><m>aba</m></li>
-              <li><m>abb</m></li>
-              <li><m>baa</m></li>
-              <li><m>bab</m></li>
-              <li><m>bba</m></li>
-              <li><m>bbb</m></li>
-              <li><m>aaaa</m></li>
-              <li><m>aaab</m></li>
-              <li><m>aaba</m></li>
-              <li><m>aabb</m></li>
-              <li><m>abaa</m></li>
-              <li><m>abab</m></li>
-              <li><m>abba</m></li>
-              <li><m>abbb</m></li>
-              <li><m>baaa</m></li>
-              <li><m>baab</m></li>
-              <li><m>baba</m></li>
-              <li><m>babb</m></li>
-              <li><m>bbaa</m></li>
-              <li><m>bbab</m></li>
-              <li><m>bbba</m></li>
-              <li><m>bbbb</m></li>
-            </ol>
-        </li>
-        <li>Can you describe the language <m>L</m> accepted
-        by the toy?</li>
-        </ol>
+          </li>
+          <li>Can you describe the language <m>L</m> accepted
+          by the toy?</li>
+          </ol>
+        </p>
       </statement>
     </activity>
   </subsection>
