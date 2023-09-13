@@ -180,7 +180,7 @@
       <statement>
         <p>
           If <m>M</m> is our NFA, we define <me>
-            L(M) = \{ w \in \aster{\Sigma}: \hat{\delta}(q_0, w) \cap F \ne \varnothing }
+            L(M) = \{ w \in \aster{\Sigma}: \hat{\delta}(q_0, w) \cap F \ne \varnothing \}
           </me>.
         </p>
       </statement>
