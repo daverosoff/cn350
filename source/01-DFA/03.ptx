@@ -522,4 +522,16 @@
       </statement>
     </activity>
   </subsection>
+  <conclusion>
+    <title>A relevant video</title>
+    <p>
+      It probably doesn't belong here, but let's put it here anyway. I intended
+      to show this video in class after we practiced the subset construction,
+      but there wasn't time.
+    </p>
+    <figure>
+      <caption>Professor Brailsford explains the Chomsky hierarchy.</caption>
+      <video width="100%" preview="default" youtube="224plb3bCog"/>
+    </figure>
+  </conclusion>
 </section>
