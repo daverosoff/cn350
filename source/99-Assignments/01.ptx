@@ -23,6 +23,7 @@
         </ol>
         <sidebyside>
           <figure>
+            <caption><m>M_1.</m></caption>
             <image width="30%">
               <latex-image>
                 \begin{tikzpicture}[on grid, scale=0.5]
@@ -38,9 +39,9 @@
                 \end{tikzpicture}
               </latex-image>
             </image>
-            <caption><m>M_1.</m></caption>
           </figure>
           <figure xml:id="fig-m2">
+            <caption><m>M_2</m>.</caption>
             <image width="30%">
               <latex-image>
                 \begin{tikzpicture}[on grid, scale=0.5]
@@ -60,7 +61,6 @@
                 \end{tikzpicture}
               </latex-image>
             </image>
-            <caption><m>M_2</m>.</caption>
           </figure>
         </sidebyside>
       </statement>
@@ -125,27 +125,27 @@
           then swapping the accept and nonaccept states in <m>M</m>
           yields a DFA that accepts <m>\aster{\Sigma} - B</m>.
         </p>
-        <hint>
-          <p>
-            Start by supposing
-            (your hypothesis) that a DFA <m>M</m> has been given, and it accepts <m>B</m>.
-            That is to say, suppose <m>M</m> is a DFA such that <m>L(M) = B</m>.
-            Use this assumption and what you have learned about DFA to argue
-            persuasively and in detail that
-            when the states are swapped, the resulting machine accepts all words
-            not in <m>B</m> and rejects all words in <m>B</m>. Since you don't
-            have a transition diagram to fall back on, you'll need to use the
-            formal description of the DFA in terms of sets and functions.
-          </p>
-          <p>
-            An earlier version of this Hint said that this isn't an induction proof.
-            That was a little overeager. It is very possible to give a persuasive proof
-            that doesn't use it, but I shouldn't have said you <em>can't</em>. In this
-            particular case, though, I don't think the inductive argument is simpler or
-            more convenient.
-          </p>
-        </hint>
       </statement>
+      <hint>
+        <p>
+          Start by supposing
+          (your hypothesis) that a DFA <m>M</m> has been given, and it accepts <m>B</m>.
+          That is to say, suppose <m>M</m> is a DFA such that <m>L(M) = B</m>.
+          Use this assumption and what you have learned about DFA to argue
+          persuasively and in detail that
+          when the states are swapped, the resulting machine accepts all words
+          not in <m>B</m> and rejects all words in <m>B</m>. Since you don't
+          have a transition diagram to fall back on, you'll need to use the
+          formal description of the DFA in terms of sets and functions.
+        </p>
+        <p>
+          An earlier version of this Hint said that this isn't an induction proof.
+          That was a little overeager. It is very possible to give a persuasive proof
+          that doesn't use it, but I shouldn't have said you <em>can't</em>. In this
+          particular case, though, I don't think the inductive argument is simpler or
+          more convenient.
+        </p>
+      </hint>
     </exercise>
     <exercise>
       <statement>
@@ -158,22 +158,22 @@
             B^R = \{ w^R : w \in B \}
           </me>.
         </p>
-        <hint>
-          <p>
-            In the previous problem, a modification to the DFA was suggested:
-            swap the accepting and non-accepting states. In this one, you will need
-            to concoct the modification yourself, and give some of the details of why
-            the resulting thing is a DFA.
-          </p>
-          <p>
-            Since you don't have a transition diagram to fall back on, you'll need to use the
-            formal description of the DFA in terms of sets and functions. There are two things to
-            prove: first, that <m>B^R</m> contains all words <m>w^R</m> where <m>w \in B</m>,
-            and second, that <m>B^R</m> does not contain any word that isn't the reverse of a word in
-            <m>B</m>.
-          </p>
-        </hint>
       </statement>
+      <hint>
+        <p>
+          In the previous problem, a modification to the DFA was suggested:
+          swap the accepting and non-accepting states. In this one, you will need
+          to concoct the modification yourself, and give some of the details of why
+          the resulting thing is a DFA.
+        </p>
+        <p>
+          Since you don't have a transition diagram to fall back on, you'll need to use the
+          formal description of the DFA in terms of sets and functions. There are two things to
+          prove: first, that <m>B^R</m> contains all words <m>w^R</m> where <m>w \in B</m>,
+          and second, that <m>B^R</m> does not contain any word that isn't the reverse of a word in
+          <m>B</m>.
+        </p>
+      </hint>
     </exercise>
   </exercises>
 </section>
