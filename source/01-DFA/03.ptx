@@ -19,7 +19,7 @@
       transition function.
     </p>
     <p>
-      The transition function for NFA has a abcferent sabd. It is a
+      The transition function for NFA has a different signature. It is a
       function <m>\delta \colon Q \times \Sigma \to 2^Q</m>, where as before
       the exponentiated set is a power set. The meaning is simple: the value
       of <m>\delta(q, a)</m> is
@@ -180,7 +180,7 @@
       <statement>
         <p>
           If <m>M</m> is our NFA, we define <me>
-            L(M) = \{ w \in \aster{\Sigma}: \hat{\delta}(q_0, w) \cap F \ne \varnothing }
+            L(M) = \{ w \in \aster{\Sigma}: \hat{\delta}(q_0, w) \cap F \ne \varnothing \}
           </me>.
         </p>
       </statement>
@@ -214,7 +214,8 @@
             <p><m>\hat{\delta}(q_0, w)</m> contains <m>q_2</m> if and only if <m>w</m> ends in <m>01</m>.</p>
           </li>
         </ol>
-        Observe before continuing that only statement <xref ref="ex-nfa-language-important"/> is really
+        Observe before continuing that only statement
+        <xref text="local" ref="ex-nfa-language-important"/> is really
         required by the theorem, but to make the induction go, we need to assume something about the
         other states too. This is typical of inductive proofs for DFA and NFA.
       </p>
@@ -257,6 +258,7 @@
           q_1 \in \hat{\delta}(q_0, w)
         </me>, which is what we wanted to prove.
       </p>
+      <p>The proof of statement 3 is left as an exercise.</p>
     </example>
   </subsection>
   <subsection xml:id="subsec-subset-const">
@@ -351,7 +353,7 @@
       In this section we introduce the concept of a <term>pseudo-NFA</term>, which is a
       machine that is almost an NFA, but not quite. The difference is that a pseudo-NFA
       may have more than one start state. This is not allowed for NFA according to
-      the definition we have given, but it is allowed for pseudo-NFA.
+      HMU, but it is allowed for pseudo-NFA.
     </p>
     <p>
       We introduce pseudo-NFA in part to show that they are just as sensible as
