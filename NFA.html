@@ -274,6 +274,7 @@ window.MathJax = {
 <li><div class="toc-item"><a href="NFA.html#subsec-subset-const" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The subset construction</span></a></div></li>
 <li><div class="toc-item"><a href="NFA.html#subsec-nfa-multiple-start" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Pseudo-NFA</span></a></div></li>
 <li><div class="toc-item"><a href="NFA.html#subsection-9" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Class Activities</span></a></div></li>
+<li><div class="toc-item"><a href="NFA.html#sec-nfa-eps-trans" class="internal"><span class="codenumber">2.3.5</span> <span class="title">NFA with <span class="process-math">\(\varepsilon\)</span>-transitions</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -554,9 +555,149 @@ L(M) = \{ w \in \aster{\Sigma} : \hat{\delta}(S, w) \cap F \ne \varnothing \}\te
 </div></article><article class="activity project-like" id="activity-27"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-196">Convert each of your NFA from <a href="" class="xref" data-knowl="./knowl/act-design-nfa.html" title="Activity 2.3.2">Activity 2.3.2</a> to a DFA using the subset construction. Draw pictures on the whiteboard.</div></article></section><section class="conclusion" id="conclusion-1"><h3 class="heading">A relevant video.<span></span>
-</h3> <div class="para" id="p-197">It probably doesn’t belong here, but let’s put it here anyway. I intended to show this video in class after we practiced the subset construction, but there wasn’t time.</div> <figure class="figure figure-like" id="figure-3"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/224plb3bCog?&amp;modestbranding=1&amp;rel=0"></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.3.12<span class="period">.</span></span><span class="space"> </span>Professor Brailsford explains the Chomsky hierarchy.</figcaption></figure></section></section></div>
+<div class="para" id="p-196">Convert each of your NFA from <a href="" class="xref" data-knowl="./knowl/act-design-nfa.html" title="Activity 2.3.2">Activity 2.3.2</a> to a DFA using the subset construction. Draw pictures on the whiteboard.</div></article></section><section class="subsection" id="sec-nfa-eps-trans"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.5</span><span class="space"> </span><span class="title">NFA with <span class="process-math">\(\varepsilon\)</span>-transitions</span>
+</h3>
+<div class="para" id="p-197">In this section we introduce a new kind of NFA, which is allowed to have <span class="process-math">\(\varepsilon\)</span>-transitions. These are transitions that can be taken without consuming any input. The purpose of such transitions is to allow the machine to “jump” from one place to another regardless of what symbol is next in the input. This is useful for making the machine smaller and easier to read. Like nondeterminism itself, <span class="process-math">\(\varepsilon\)</span>-transitions do not increase the computational power of the machine.</div>
+<div class="para" id="p-198">In our transition diagrams, all we need to do is add a new kind of arrow, labeled with <span class="process-math">\(\varepsilon\text{.}\)</span> In the transition tables, we write a new column for <span class="process-math">\(\varepsilon\)</span> and specify all <span class="process-math">\(\varepsilon\)</span>-transitions in that column.</div>
+<article class="example example-like" id="ex-eps-transitions-diagram"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.12</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-199">Consider the <span class="process-math">\(\varepsilon\)</span>-NFA shown below.</div> <figure class="figure figure-like" id="figure-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/image-10.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.3.13<span class="period">.</span></span><span class="space"> </span>An NFA with <span class="process-math">\(\varepsilon\)</span>-transitions.</figcaption></figure> <div class="para" id="p-200">This NFA accepts the language of possibly signed decimal numbers, including integers and numbers with a decimal point. The numbers don’t have to have a sign, so there is an <span class="process-math">\(\varepsilon\)</span>-transition from <span class="process-math">\(q_0\)</span> to <span class="process-math">\(q_1\text{.}\)</span> Similarly, it is cleaner to have an <span class="process-math">\(\varepsilon\)</span>-transition from <span class="process-math">\(q_3\)</span> to <span class="process-math">\(q_5\)</span> to end the input than another transition with the same <span class="process-math">\(0, 1, \ldots, 9\)</span> label.</div> <div class="para" id="p-201">The transition table for this machine is shown below.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l0 t0 lines"></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\varepsilon\)</span></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(-\)</span></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0, 1, \ldots, 9\)</span></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(.\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(q_0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_1\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_1\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_1\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(q_1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_1,q_4\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_2\}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(q_2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_3\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(q_3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_5\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_3\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(q_4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q_3\}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(q_5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+</tr>
+</table></div></article><div class="para" id="p-202">We need a formal mechanism to describe the acceptance of words by the <span class="process-math">\(\varepsilon\)</span>-NFA. The idea is that the machine can take any number of <span class="process-math">\(\varepsilon\)</span>-transitions whenever they are allowed, possibly in sequence, before it must read the next symbol of the input. This is captured by the definition of <dfn class="terminology"><span class="process-math">\(\varepsilon\)</span>-closure</dfn> below.</div>
+<article class="definition definition-like" id="def-eps-closure"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.14</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-203">
+<div class="para">Let <span class="process-math">\(q\)</span> be a state in an <span class="process-math">\(\varepsilon\)</span>-NFA. The <dfn class="terminology"><span class="process-math">\(\varepsilon\)</span>-closure</dfn> of <span class="process-math">\(q\text{,}\)</span> written <span class="process-math">\(\textrm{eclose}(q)\text{,}\)</span> is a set of states in the NFA defined inductively as follows.</div>
+<ol class="decimal">
+<li id="li-118"><div class="para" id="p-204">The state <span class="process-math">\(q\)</span> is in <span class="process-math">\(\textrm{eclose}(q)\text{.}\)</span>
+</div></li>
+<li id="li-119"><div class="para" id="p-205">If state <span class="process-math">\(p\)</span> is in <span class="process-math">\(\textrm{eclose}(q)\text{,}\)</span> and there is an <span class="process-math">\(\varepsilon\)</span>-transition from <span class="process-math">\(p\)</span> to <span class="process-math">\(r\text{,}\)</span> then <span class="process-math">\(r\)</span> is in <span class="process-math">\(\textrm{eclose}(q)\text{.}\)</span>
+</div></li>
+</ol>
+</div></article><div class="para" id="p-206">The <span class="process-math">\(\varepsilon\)</span>-closure of a set of states is needed in order that we may define the extended transition function of a <span class="process-math">\(\varepsilon\)</span>-NFA. The definition follows.</div>
+<article class="definition definition-like" id="def-eps-nfa-deltahat"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.15</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-207">
+<div class="para">Let <span class="process-math">\(M\)</span> be an <span class="process-math">\(\varepsilon\)</span>-NFA. Then the <dfn class="terminology">extended transition function</dfn> of <span class="process-math">\(M\text{,}\)</span> written <span class="process-math">\(\hat{\delta}\text{,}\)</span> is a function <span class="process-math">\(\hat{\delta} \colon Q \times \aster{\Sigma} \to 2^Q\)</span> defined as follows.</div>
+<ol class="decimal">
+<li id="li-120"><div class="para" id="p-208">
+<span class="process-math">\(\hat{\delta}(q, \varepsilon) = \textrm{eclose}(q)\)</span> for each state <span class="process-math">\(q\text{.}\)</span>
+</div></li>
+<li id="li-121"><div class="para logical" id="p-209">
+<div class="para">
+<span class="process-math">\(\hat{\delta}(q, xa)\)</span> is defined as follows. First let <span class="process-math">\(p_1, \ldots, p_k\)</span> be the members of the set <span class="process-math">\(\hat{\delta}(q, x)\text{.}\)</span> Then let <span class="process-math">\(r_1, \ldots, r_m\)</span> be the members of the set</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bigcup_{i=1}^k \hat{\delta}(p_i, a)\text{.}
+\end{equation*}
+</div>
+<div class="para">Then we define <span class="process-math">\(\hat{\delta}(q, xa)\)</span> to be the set</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\textrm{eclose}(\{r_1, \ldots, r_m\})\text{.}
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div></article><div class="para" id="p-210">Like ordinary and pseudo-NFA, <span class="process-math">\(\varepsilon\)</span>-NFA can be converted to DFA using a jazzed-up subset construction. The idea is to incorporate <span class="process-math">\(\varepsilon\)</span>-closure into construction. The details may be found in HMU section 2.5.5.</div>
+<article class="activity project-like" id="activity-28"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.3.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-211">Consider the following <span class="process-math">\(\varepsilon\)</span>-NFA.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l0 t0 lines"></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\varepsilon\)</span></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(a\)</span></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(b\)</span></th>
+<th scope="col" class="l m b1 r0 l0 t0 lines"><span class="process-math">\(c\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(\to p\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{p\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{r\}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{p\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{r\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(\ast r\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{q\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{r\}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\varnothing\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\{p\}\)</span></td>
+</tr>
+</table></div> <div class="para logical" id="p-212"><ol class="upper-alpha">
+<li id="li-122"><div class="para" id="p-213">Compute the <span class="process-math">\(\varepsilon\)</span>-closure of each state.</div></li>
+<li id="li-123"><div class="para" id="p-214">Give all the strings of length 3 or less computed by the automaton.</div></li>
+</ol></div></article></section><section class="conclusion" id="conclusion-1"><h3 class="heading">A relevant video.<span></span>
+</h3> <div class="para" id="p-215">It probably doesn’t belong here, but let’s put it here anyway. I intended to show this video in class after we practiced the subset construction, but there wasn’t time.</div> <figure class="figure figure-like" id="figure-4"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/224plb3bCog?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.3.16<span class="period">.</span></span><span class="space"> </span>Professor Brailsford explains the Chomsky hierarchy.</figcaption></figure></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="DFA.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-assignments.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

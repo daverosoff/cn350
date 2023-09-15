@@ -13,19 +13,28 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">For any word <span class="process-math">\(w = a_1 a_2 \ldots a_n\text{,}\)</span> its <dfn class="terminology">reverse</dfn> <span class="process-math">\(w^R\)</span> is defined to be</div>
+<div class="para">Let <span class="process-math">\(M\)</span> be an <span class="process-math">\(\varepsilon\)</span>-NFA. Then the <dfn class="terminology">extended transition function</dfn> of <span class="process-math">\(M\text{,}\)</span> written <span class="process-math">\(\hat{\delta}\text{,}\)</span> is a function <span class="process-math">\(\hat{\delta} \colon Q \times \aster{\Sigma} \to 2^Q\)</span> defined as follows.</div>
+<ol class="decimal">
+<li><div class="para">
+<span class="process-math">\(\hat{\delta}(q, \varepsilon) = \textrm{eclose}(q)\)</span> for each state <span class="process-math">\(q\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">
+<span class="process-math">\(\hat{\delta}(q, xa)\)</span> is defined as follows. First let <span class="process-math">\(p_1, \ldots, p_k\)</span> be the members of the set <span class="process-math">\(\hat{\delta}(q, x)\text{.}\)</span> Then let <span class="process-math">\(r_1, \ldots, r_m\)</span> be the members of the set</div>
 <div class="displaymath process-math">
 \begin{equation*}
-w^R = a_n \ldots a_2 a_1\text{,}
+\bigcup_{i=1}^k \hat{\delta}(p_i, a)\text{.}
 \end{equation*}
 </div>
-<div class="para">so the symbols appear in the reverse order. Recall that a language is <dfn class="terminology">regular</dfn> if it is accepted by some DFA. Show that if <span class="process-math">\(B\)</span> is a regular language, so is the language <span class="process-math">\(B^R\text{,}\)</span> where</div>
+<div class="para">Then we define <span class="process-math">\(\hat{\delta}(q, xa)\)</span> to be the set</div>
 <div class="displaymath process-math">
 \begin{equation*}
-B^R = \{ w^R : w \in B \}\text{.}
+\textrm{eclose}(\{r_1, \ldots, r_m\})\text{.}
 \end{equation*}
 </div>
+</div></li>
+</ol>
 </div>
-<span class="incontext"><a href="sec-hw1.html#p-207" class="internal">in-context</a></span>
+<span class="incontext"><a href="NFA.html#p-207" class="internal">in-context</a></span>
 </body>
 </html>
