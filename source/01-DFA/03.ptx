@@ -522,6 +522,249 @@
       </statement>
     </activity>
   </subsection>
+  <subsection xml:id="sec-nfa-eps-trans">
+    <title>NFA with <m>\varepsilon</m>-transitions</title>
+    <p>
+
+      In this section we introduce a new kind of NFA, which is allowed to have
+      <m>\varepsilon</m>-transitions. These are transitions that can be taken
+      without consuming any input. The purpose of such transitions is to allow
+      the machine to <q>jump</q> from one place to another regardless of what
+      symbol is next in the input. This is useful for making the machine
+      smaller and easier to read. Like nondeterminism itself,
+      <m>\varepsilon</m>-transitions do not increase the computational
+      power of the machine.
+
+    </p>
+    <p>
+
+      In our transition diagrams, all we need to do is add a new kind of
+      arrow, labeled with <m>\varepsilon</m>. In the transition tables,
+      we write a new column for <m>\varepsilon</m> and specify all
+      <m>\varepsilon</m>-transitions in that column.
+
+    </p>
+    <example xml:id="ex-eps-transitions-diagram">
+      <p>Consider the <m>\varepsilon</m>-NFA shown below.</p>
+      <figure>
+        <caption>An NFA with <m>\varepsilon</m>-transitions.</caption>
+        <image>
+          <latex-image>
+            \begin{tikzpicture}[on grid, scale=0.5]
+              \node[state, initial] (q0) {$q_0$};
+              \node[state, right=of q0] (q1) {$q_1$};
+              \node[state, right=of q1] (q2) {$q_2$};
+              \node[state, right=of q2] (q3) {$q_3$};
+              \node[state, below=of q2] (q4) {$q_4$};
+              \node[state, accepting, right=of q3] (q5) {$q_5$};
+              \path[->]
+                (q0) edge node {$\varepsilon$, $+$, $-$} (q1)
+                (q1) edge[loop above] node {$0, 1, \ldots, 9$} (q1)
+                  edge[above] node {$.$} (q2)
+                  edge[below] node {$0, 1, \ldots, 9$} (q4)
+                (q2) edge[above] node {$0, 1, \ldots, 9$} (q3)
+                (q3) edge[loop above] node {$0, 1, \ldots, 9$} (q3)
+                  edge[above] node {$\varepsilon$} (q5)
+                (q4) edge[right] node {$.$} (q3);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
+      <p>
+        This NFA accepts the language of possibly signed
+        decimal numbers, including integers
+        and numbers with a decimal point. The numbers don't have
+        to have a sign, so there is an <m>\varepsilon</m>-transition
+        from <m>q_0</m> to <m>q_1</m>. Similarly, it is cleaner to
+        have an <m>\varepsilon</m>-transition from <m>q_3</m> to <m>q_5</m>
+        to end the input than another transition with the same
+        <m>0, 1, \ldots, 9</m> label.
+      </p>
+      <p>
+        The transition table for this machine is shown below.
+      </p>
+      <tabular>
+        <row header="yes" bottom="minor">
+          <cell right="minor"></cell>
+          <cell><m>\varepsilon</m></cell>
+          <cell><m>+</m></cell>
+          <cell><m>-</m></cell>
+          <cell><m>0, 1, \ldots, 9</m></cell>
+          <cell><m>.</m></cell>
+        </row>
+        <row>
+          <cell right="minor"><m>q_0</m></cell>
+          <cell><m>\{q_1\}</m></cell>
+          <cell><m>\{q_1\}</m></cell>
+          <cell><m>\{q_1\}</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+        </row>
+        <row>
+          <cell right="minor"><m>q_1</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\{q_1,q_4\}</m></cell>
+          <cell><m>\{q_2\}</m></cell>
+        </row>
+        <row>
+          <cell right="minor"><m>q_2</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\{q_3\}</m></cell>
+          <cell><m>\varnothing</m></cell>
+        </row>
+        <row>
+          <cell right="minor"><m>q_3</m></cell>
+          <cell><m>\{q_5\}</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\{q_3\}</m></cell>
+          <cell><m>\varnothing</m></cell>
+        </row>
+        <row>
+          <cell right="minor"><m>q_4</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\{q_3\}</m></cell>
+        </row>
+        <row>
+          <cell right="minor"><m>q_5</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+          <cell><m>\varnothing</m></cell>
+        </row>
+      </tabular>
+    </example>
+    <p>
+      We need a formal mechanism to describe the acceptance of words
+      by the <m>\varepsilon</m>-NFA. The idea is that the machine
+      can take any number of <m>\varepsilon</m>-transitions whenever
+      they are allowed, possibly in sequence, before it must read
+      the next symbol of the input. This is captured by the
+      definition of <term><m>\varepsilon</m>-closure</term> below.
+    </p>
+    <definition xml:id="def-eps-closure">
+      <statement>
+        <p>
+          Let <m>q</m> be a state in an <m>\varepsilon</m>-NFA. The
+          <term><m>\varepsilon</m>-closure</term> of <m>q</m>, written
+          <m>\textrm{eclose}(q)</m>, is a set of states in the NFA
+          defined inductively as follows.
+          <ol>
+            <li>
+              <p>The state <m>q</m> is in <m>\textrm{eclose}(q)</m>.</p>
+            </li>
+            <li>
+              <p>
+                If state <m>p</m> is in <m>\textrm{eclose}(q)</m>, and
+                there is an <m>\varepsilon</m>-transition from <m>p</m>
+                to <m>r</m>, then <m>r</m> is in <m>\textrm{eclose}(q)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The <m>\varepsilon</m>-closure of a set of states is needed in order
+      that we may define the extended transition function of a
+      <m>\varepsilon</m>-NFA. The definition follows.
+    </p>
+    <definition xml:id="def-eps-nfa-deltahat">
+      <statement>
+        <p>
+          Let <m>M</m> be an <m>\varepsilon</m>-NFA. Then the
+          <term>extended transition function</term> of <m>M</m>,
+          written <m>\hat{\delta}</m>, is a function
+          <m>\hat{\delta} \colon Q \times \aster{\Sigma} \to 2^Q</m>
+          defined as follows.
+          <ol>
+            <li>
+              <p>
+                <m>\hat{\delta}(q, \varepsilon) = \textrm{eclose}(q)</m>
+                for each state <m>q</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\hat{\delta}(q, xa)</m> is defined as follows. First
+                let <m>p_1, \ldots, p_k</m> be the members of the set
+                <m>\hat{\delta}(q, x)</m>. Then let <m>r_1, \ldots, r_m</m>
+                be the members of the set <me>
+                  \bigcup_{i=1}^k \hat{\delta}(p_i, a)
+                </me>.
+                Then we define <m>\hat{\delta}(q, xa)</m> to be the
+                set <me>
+                  \textrm{eclose}(\{r_1, \ldots, r_m\})
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Like ordinary and pseudo-NFA, <m>\varepsilon</m>-NFA can be
+      converted to DFA using a jazzed-up subset construction. The idea
+      is to incorporate <m>\varepsilon</m>-closure into construction.
+      The details may be found in HMU section 2.5.5.
+    </p>
+    <activity>
+      <statement>
+        <p>
+          Consider the following <m>\varepsilon</m>-NFA.
+        </p>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell right="minor"></cell>
+            <cell><m>\varepsilon</m></cell>
+            <cell><m>a</m></cell>
+            <cell><m>b</m></cell>
+            <cell><m>c</m></cell>
+          </row>
+          <row>
+            <cell right="minor"><m>\to p</m></cell>
+            <cell><m>\varnothing</m></cell>
+            <cell><m>\{p\}</m></cell>
+            <cell><m>\{q\}</m></cell>
+            <cell><m>\{r\}</m></cell>
+          </row>
+          <row>
+            <cell right="minor"><m>q</m></cell>
+            <cell><m>\{p\}</m></cell>
+            <cell><m>\{q\}</m></cell>
+            <cell><m>\{r\}</m></cell>
+            <cell><m>\varnothing</m></cell>
+          </row><row>
+            <cell right="minor"><m>\ast r</m></cell>
+            <cell><m>\{q\}</m></cell>
+            <cell><m>\{r\}</m></cell>
+            <cell><m>\varnothing</m></cell>
+            <cell><m>\{p\}</m></cell>
+          </row>
+        </tabular>
+        <p>
+          <ol marker="A.">
+            <li>
+              <p>Compute the <m>\varepsilon</m>-closure of each state.</p>
+            </li>
+            <li>
+              <p>Give all the strings of length 3 or less computed by the
+                automaton.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </activity>
+  </subsection>
   <conclusion>
     <title>A relevant video</title>
     <p>
