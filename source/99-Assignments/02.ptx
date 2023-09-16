@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-hw2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Homework 02</title>
+  <p>
+
+    This assignment covers sections 2.3 through 2.5 in HMU. Each problem will
+    be worth 3 checks. Your answers should be like little essays, made only of
+    complete sentences. Formulas should never stand on their own, but should be
+    parts of otherwise complete sentences. You should be able to read your
+    answer aloud from beginning to end and have it sound sensible. If your
+    solution is more like a pile of equations, with little or no connecting
+    narration, you'll max out at 2 checks.
+
+  </p>
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+          Each of the following languages is the complement of a simpler language. In each
+          part, construct a DFA for the simpler language, then use it to give the state diagram
+          of a DFA for the language given. In all parts, <m>\Sigma = \{a,b\}</m>.
+        </p>
+        <ol>
+          <li><m>\{w : w \text{ does not contain the substring $ab$}\}</m></li>
+          <li><m>\{w : w \text{ does not contain the substring $baba$}\}</m></li>
+          <li><m>\{w : w \text{ contains neither the substrings $ab$ nor $ba$}\}</m></li>
+          <li><m>\{w : w \text{ is any string that doesn't contain exactly two $a$'s}\}</m></li>
+          <li><m>\{w : w \text{ is any string except $a$ and $b$}\}</m></li>
+        </ol>
+      </statement>
+      <hint>
+        <p>Refer to <xref ref="sec-hw1"/> for an idea on how to handle
+        the complementation.</p>
+      </hint>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Each of the languages below is the <term>concatenation</term> of two
+          simpler languages. The concatenation of languages <m>B</m> and <m>C</m>
+          is the language <m>BC = \{xy : x \in B \text{ and } y \in C\}</m>.
+          For each language, give a single <m>\varepsilon</m>-NFA that accepts it.
+          The language is always <m>\Sigma = \{a, b\}</m>.
+        </p>
+        <ol>
+          <li>Zero or more <m>a</m> followed by zero or more <m>b</m></li>
+          <li>A string of odd length followed by an </li>
+          <li>Any string except a single <m>a</m> or <m>b</m></li>
+          <li></li>
+          <li></li>
+        </ol>
+      </statement>
+      <hint>
+        <p>
+          Solve two simpler problems first, then use an <m>\varepsilon</m>
+          to connect them.
+        </p>
+      </hint>
+    </exercise>
+
+  </exercises>
+</section>
