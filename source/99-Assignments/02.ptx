@@ -83,12 +83,12 @@
         <p>
           For each of the following regular expressions,
           give two strings that match and two that do not
-          match.
+          match. The alphabet is <m>\Sigma = \{a, b\}</m>.
         </p>
         <ol marker="A.">
           <li><m>{\tt \aster{a} \aster{b}}</m></li>
           <li><m>{\tt a \aster{(ba)} b}</m></li>
-          <li><m>{\tt \aster{a} \cup \aster{b}}</m></li>
+          <li><m>{\tt \aster{a} + \aster{b}}</m></li>
           <li><m>{\tt \aster{(aaa)}}</m></li>
         </ol>
       </statement>

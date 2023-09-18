@@ -196,8 +196,24 @@
         </p>
       </statement>
     </definition>
-    <p>
-
-    </p>
+    <activity>
+      <statement>
+        <p>
+          Write regular expressions for the following languages.
+        </p>
+        <ol marker="A.">
+          <li>
+            <p>
+              The set of strings over <m>\{a, b, c\}</m> containing at least one <m>a</m> and one <m>b</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              The set of strings of <m>0</m>s and <m>1</m>s with at most one pair of consecutive <m>1</m>s.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </activity>
   </subsection>
 </section>
