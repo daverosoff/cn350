@@ -550,6 +550,51 @@ var ptx_lunr_docs = [
   "body": " Professor Brailsford explains the Chomsky hierarchy.   "
 },
 {
+  "id": "regex",
+  "level": "1",
+  "url": "regex.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Regular expressions",
+  "body": " Regular expressions   Regular expressions are yet another way of describing the class of regular languages. We build them up from simpler ones using operations. It is more algebraic in feel than the state diagrams and automata.  Regular expressions find wide use throughout computing in text matching applications. My standard zoo of examples includes the venerable UNIX\/Linux utilities grep , sed , and awk . These are all based on regular expressions. They are also provided in every modern code editor and IDE, usually with extensions that go beyond the regular languages. Regular expressions find their way into these tools because their algebraic representation makes them easy to manipulate and combine and type into a terminal.  Alumni of CSC-235 will perhaps recognize regular expressions from the homework we did involving flex and bison . It is typical for the lexing phase of a compiler to be implemented using regular expressions.    Operators and examples  Regular expressions denote languages. For example, denotes the language whose words are strings of any number of followed by a or strings of any number of followed by a single . All the operators and rules for interpreting regular expressions are explained below and more exhaustively in HMU 3.1. The operators are listed below, in order of decreasing precedence, in . The description refers to languages, not regular expressions, but the operators and their meanings and notations will be the same.   Operators for languages    Union  The union of the languages and is written . It contains all the words that are in either or .    Concatenation  The concatenation of two languages consists of the words where matches and matches . Notice that only one such decomposition is required to exist: if it's possible to decompose this way, it is in . As you see, the concatenation operator is usually not represented by an explicit symbol, but by juxtaposition. We frequently use powers to stand for self-concatenation. So, would be the same as , and would be the same as , and so on. Using this convention, we have and for all languages .    Star  The star operator represents the set of words formed from zero or more concatenations of the language to which it is applied. For example, denotes the set of strings obtaining by pasting zero or more strings from together. Another way to say it is: where the powers represent self-concatenation.      Example 3.1 in HMU is worth consulting. For a given language , it is not always so obvious what is.   In the algebra of regular expressions, we use the same operators to combine simpler expressions. Each regular expression has a language that it represents . The language of a regular expression is denoted , just like for automata.    The definition is inductive. Let the alphabet of symbols be some set . Then    The constants and are regular expressions. We define and .    If , then is a regular expression and .    A variable, usually capitalized like , is a regular expression. Such a variable represents a whole language.    If and are regular expressions, then so is their union . The language it represents is .    If and are regular expressions, then so is their concatenation . The language it represents is .    If is a regular expression, then so is its star . The language it represents is .    Finally, if is a regular expression, then so is its parenthesization . The language it represents is .    It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define to be . This is the set of strings that can be formed by concatenating one or more strings from (not zero or more).  Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.       "
+},
+{
+  "id": "list-regex-ops",
+  "level": "2",
+  "url": "regex.html#list-regex-ops",
+  "type": "List",
+  "number": "2.4.1",
+  "title": "Operators for languages",
+  "body": " Operators for languages    Union  The union of the languages and is written . It contains all the words that are in either or .    Concatenation  The concatenation of two languages consists of the words where matches and matches . Notice that only one such decomposition is required to exist: if it's possible to decompose this way, it is in . As you see, the concatenation operator is usually not represented by an explicit symbol, but by juxtaposition. We frequently use powers to stand for self-concatenation. So, would be the same as , and would be the same as , and so on. Using this convention, we have and for all languages .    Star  The star operator represents the set of words formed from zero or more concatenations of the language to which it is applied. For example, denotes the set of strings obtaining by pasting zero or more strings from together. Another way to say it is: where the powers represent self-concatenation.    "
+},
+{
+  "id": "ex-kleene-star",
+  "level": "2",
+  "url": "regex.html#ex-kleene-star",
+  "type": "Example",
+  "number": "2.4.2",
+  "title": "",
+  "body": " Example 3.1 in HMU is worth consulting. For a given language , it is not always so obvious what is.  "
+},
+{
+  "id": "p-224",
+  "level": "2",
+  "url": "regex.html#p-224",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "represents "
+},
+{
+  "id": "def-regex",
+  "level": "2",
+  "url": "regex.html#def-regex",
+  "type": "Definition",
+  "number": "2.4.3",
+  "title": "",
+  "body": "  The definition is inductive. Let the alphabet of symbols be some set . Then    The constants and are regular expressions. We define and .    If , then is a regular expression and .    A variable, usually capitalized like , is a regular expression. Such a variable represents a whole language.    If and are regular expressions, then so is their union . The language it represents is .    If and are regular expressions, then so is their concatenation . The language it represents is .    If is a regular expression, then so is its star . The language it represents is .    Finally, if is a regular expression, then so is its parenthesization . The language it represents is .    It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define to be . This is the set of strings that can be formed by concatenating one or more strings from (not zero or more).  Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.   "
+},
+{
   "id": "sec-hw1",
   "level": "1",
   "url": "sec-hw1.html",
