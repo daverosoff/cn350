@@ -62,7 +62,7 @@
           (even the inaccessible ones) and a state diagram showing only
           the accessible states. The alphabet is <m>\Sigma = \{a, b\}</m>.
         </p>
-        <image width="50%">
+        <image width="50%" label="hw2-nfa-fix">
           <latex-image>
             \begin{tikzpicture}[on grid, scale=0.5]
               \node[state, initial] (q0) {$q_0$};
