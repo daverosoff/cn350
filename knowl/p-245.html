@@ -12,20 +12,7 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">For any word <span class="process-math">\(w = a_1 a_2 \ldots a_n\text{,}\)</span> its <dfn class="terminology">reverse</dfn> <span class="process-math">\(w^R\)</span> is defined to be</div>
-<div class="displaymath process-math">
-\begin{equation*}
-w^R = a_n \ldots a_2 a_1\text{,}
-\end{equation*}
-</div>
-<div class="para">so the symbols appear in the reverse order. Recall that a language is <dfn class="terminology">regular</dfn> if it is accepted by some DFA. Show that if <span class="process-math">\(B\)</span> is a regular language, so is the language <span class="process-math">\(B^R\text{,}\)</span> where</div>
-<div class="displaymath process-math">
-\begin{equation*}
-B^R = \{ w^R : w \in B \}\text{.}
-\end{equation*}
-</div>
-</div>
+<div class="para">Start by supposing (your hypothesis) that a DFA <span class="process-math">\(M\)</span> has been given, and it accepts <span class="process-math">\(B\text{.}\)</span> That is to say, suppose <span class="process-math">\(M\)</span> is a DFA such that <span class="process-math">\(L(M) = B\text{.}\)</span> Use this assumption and what you have learned about DFA to argue persuasively and in detail that when the states are swapped, the resulting machine accepts all words not in <span class="process-math">\(B\)</span> and rejects all words in <span class="process-math">\(B\text{.}\)</span> Since you don’t have a transition diagram to fall back on, you’ll need to use the formal description of the DFA in terms of sets and functions.</div>
 <span class="incontext"><a href="sec-hw1.html#p-245" class="internal">in-context</a></span>
 </body>
 </html>
