@@ -555,8 +555,8 @@ var ptx_lunr_docs = [
   "url": "sec-hw1.html",
   "type": "Section",
   "number": "3.1",
-  "title": "Homework 1",
-  "body": " Homework 1  This assignment covers 2.1 and 2.2 in HMU. Each problem will be worth 3 checks. Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible. If your solution is more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.    The following are the transition diagrams of two DFA and . Answer the following questions about each one.   What is the start state?  What is the set of accepting states?  What sequence of states does the machine go through on input aabb ?  Does the machine accept the string aabb ?  Does the machine accept the string ?           .         Translate the transition diagram in into a formal specification. Carefully list all of the components ( , , ).    The transition function of a DFA is given by the following table. Use the table to give a transition diagram for this machine.  NOTE. This problem was updated. Make sure you inspect the table carefully.                                      If is a language (a subset of ) then its complement is the language .  Show that if is a DFA that accepts language , then swapping the accept and nonaccept states in yields a DFA that accepts .   Start by supposing (your hypothesis) that a DFA has been given, and it accepts . That is to say, suppose is a DFA such that . Use this assumption and what you have learned about DFA to argue persuasively and in detail that when the states are swapped, the resulting machine accepts all words not in and rejects all words in . Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions.  An earlier version of this Hint said that this isn't an induction proof. That was a little overeager. It is very possible to give a persuasive proof that doesn't use it, but I shouldn't have said you can't . In this particular case, though, I don't think the inductive argument is simpler or more convenient.    For any word , its reverse  is defined to be , so the symbols appear in the reverse order. Recall that a language is regular if it is accepted by some DFA. Show that if is a regular language, so is the language , where .   In the previous problem, a modification to the DFA was suggested: swap the accepting and non-accepting states. In this one, you will need to concoct the modification yourself, and give some of the details of why the resulting thing is a DFA.  Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions. There are two things to prove: first, that contains all words where , and second, that does not contain any word that isn't the reverse of a word in .    "
+  "title": "Homework 01",
+  "body": " Homework 01  This assignment covers 2.1 and 2.2 in HMU. Each problem will be worth 3 checks. Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible. If your solution is more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.    The following are the transition diagrams of two DFA and . Answer the following questions about each one.   What is the start state?  What is the set of accepting states?  What sequence of states does the machine go through on input aabb ?  Does the machine accept the string aabb ?  Does the machine accept the string ?           .         Translate the transition diagram in into a formal specification. Carefully list all of the components ( , , ).    The transition function of a DFA is given by the following table. Use the table to give a transition diagram for this machine.  NOTE. This problem was updated. Make sure you inspect the table carefully.                                      If is a language (a subset of ) then its complement is the language .  Show that if is a DFA that accepts language , then swapping the accept and nonaccept states in yields a DFA that accepts .   Start by supposing (your hypothesis) that a DFA has been given, and it accepts . That is to say, suppose is a DFA such that . Use this assumption and what you have learned about DFA to argue persuasively and in detail that when the states are swapped, the resulting machine accepts all words not in and rejects all words in . Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions.  An earlier version of this Hint said that this isn't an induction proof. That was a little overeager. It is very possible to give a persuasive proof that doesn't use it, but I shouldn't have said you can't . In this particular case, though, I don't think the inductive argument is simpler or more convenient.    For any word , its reverse  is defined to be , so the symbols appear in the reverse order. Recall that a language is regular if it is accepted by some DFA. Show that if is a regular language, so is the language , where .   In the previous problem, a modification to the DFA was suggested: swap the accepting and non-accepting states. In this one, you will need to concoct the modification yourself, and give some of the details of why the resulting thing is a DFA.  Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions. There are two things to prove: first, that contains all words where , and second, that does not contain any word that isn't the reverse of a word in .    "
 },
 {
   "id": "exercise-1",
@@ -602,6 +602,60 @@ var ptx_lunr_docs = [
   "number": "3.1.5",
   "title": "",
   "body": " For any word , its reverse  is defined to be , so the symbols appear in the reverse order. Recall that a language is regular if it is accepted by some DFA. Show that if is a regular language, so is the language , where .   In the previous problem, a modification to the DFA was suggested: swap the accepting and non-accepting states. In this one, you will need to concoct the modification yourself, and give some of the details of why the resulting thing is a DFA.  Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions. There are two things to prove: first, that contains all words where , and second, that does not contain any word that isn't the reverse of a word in .  "
+},
+{
+  "id": "sec-hw2",
+  "level": "1",
+  "url": "sec-hw2.html",
+  "type": "Section",
+  "number": "3.2",
+  "title": "Homework 02",
+  "body": " Homework 02  This assignment covers sections 2.3 through 2.5 in HMU. Each problem will be worth 3 checks. Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible. If your solution is more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.    Each of the following languages is the complement of a simpler language. In each part, construct an NFA for the simpler language, then use it to give the state diagram of an NFA for the language given. In all parts, .          Refer to for an idea on how to handle the complementation.    Each of the languages below is the concatenation of two simpler languages. The concatenation of languages and is the language . For each language, give a single -NFA that accepts it. The language is always .   Zero or more followed by zero or more  A string of odd length followed by a string ending in  Any string except a single or    Solve two simpler problems first, then use an to connect them.    Use the subset construction to convert the NFA below into a DFA. Give both a transition table including all the states (even the inaccessible ones) and a state diagram showing only the accessible states. The alphabet is .       For each of the following regular expressions, give two strings that match and two that do not match.          Give NFA that accept the languages that match the regular expressions.        "
+},
+{
+  "id": "exercise-6",
+  "level": "2",
+  "url": "sec-hw2.html#exercise-6",
+  "type": "Exercise",
+  "number": "3.2.1",
+  "title": "",
+  "body": " Each of the following languages is the complement of a simpler language. In each part, construct an NFA for the simpler language, then use it to give the state diagram of an NFA for the language given. In all parts, .          Refer to for an idea on how to handle the complementation.  "
+},
+{
+  "id": "exercise-7",
+  "level": "2",
+  "url": "sec-hw2.html#exercise-7",
+  "type": "Exercise",
+  "number": "3.2.2",
+  "title": "",
+  "body": " Each of the languages below is the concatenation of two simpler languages. The concatenation of languages and is the language . For each language, give a single -NFA that accepts it. The language is always .   Zero or more followed by zero or more  A string of odd length followed by a string ending in  Any string except a single or    Solve two simpler problems first, then use an to connect them.  "
+},
+{
+  "id": "exercise-8",
+  "level": "2",
+  "url": "sec-hw2.html#exercise-8",
+  "type": "Exercise",
+  "number": "3.2.3",
+  "title": "",
+  "body": " Use the subset construction to convert the NFA below into a DFA. Give both a transition table including all the states (even the inaccessible ones) and a state diagram showing only the accessible states. The alphabet is .     "
+},
+{
+  "id": "exercise-9",
+  "level": "2",
+  "url": "sec-hw2.html#exercise-9",
+  "type": "Exercise",
+  "number": "3.2.4",
+  "title": "",
+  "body": " For each of the following regular expressions, give two strings that match and two that do not match.        "
+},
+{
+  "id": "exercise-10",
+  "level": "2",
+  "url": "sec-hw2.html#exercise-10",
+  "type": "Exercise",
+  "number": "3.2.5",
+  "title": "",
+  "body": " Give NFA that accept the languages that match the regular expressions.      "
 }
 ]
 
