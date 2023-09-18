@@ -66,13 +66,14 @@
           <latex-image>
             \begin{tikzpicture}[on grid, scale=0.5]
               \node[state, initial] (q0) {$q_0$};
-              \node[state, accepting, right=of q0] (q1) {$q_1$};
               \node[state, below right=of q0] (q2) {$q_2$};
+              \node[state, accepting, above right=of q2] (q1) {$q_1$};
               \path[->]
                 (q0) edge[bend left] node {$\varepsilon$} (q1)
-                edge node {$a$} (q2)
+                edge[left] node {$a$} (q2)
                 (q1) edge[bend left] node {$a$} (q0)
-                (q2) edge[loop right] node {$b$} (q2);
+                (q2) edge[loop right] node {$b$} (q2)
+                edge[right] node {$a$, $b$} (q1);
             \end{tikzpicture}
           </latex-image>
         </image>
