@@ -17,8 +17,8 @@
       <statement>
         <p>
           Each of the following languages is the complement of a simpler language. In each
-          part, construct a DFA for the simpler language, then use it to give the state diagram
-          of a DFA for the language given. In all parts, <m>\Sigma = \{a,b\}</m>.
+          part, construct an NFA for the simpler language, then use it to give the state diagram
+          of an NFA for the language given. In all parts, <m>\Sigma = \{a,b\}</m>.
         </p>
         <ol>
           <li><m>\{w : w \text{ does not contain the substring $ab$}\}</m></li>
@@ -44,10 +44,8 @@
         </p>
         <ol>
           <li>Zero or more <m>a</m> followed by zero or more <m>b</m></li>
-          <li>A string of odd length followed by an </li>
+          <li>A string of odd length followed by a string ending in <m>aab</m></li>
           <li>Any string except a single <m>a</m> or <m>b</m></li>
-          <li></li>
-          <li></li>
         </ol>
       </statement>
       <hint>
@@ -57,6 +55,54 @@
         </p>
       </hint>
     </exercise>
-
+    <exercise>
+      <statement>
+        <p>Use the subset construction to convert the NFA below into
+          a DFA. Give both a transition table including all the states
+          (even the inaccessible ones) and a state diagram showing only
+          the accessible states. The alphabet is <m>\Sigma = \{a, b\}</m>.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}[on grid, scale=0.5]
+              \node[state, initial] (q0) {$q_0$};
+              \node[state, accepting, right=of q0] (q1) {$q_1$};
+              \node[state, below right=of q0] (q2) {$q_2$};
+              \path[->]
+                (q0) edge[bend left] node {$\varepsilon$} (q1)
+                edge node {$a$} (q2)
+                (q1) edge[bend left] node {$a$} (q0)
+                (q2) edge[loop right] node {$b$} (q2);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          For each of the following regular expressions,
+          give two strings that match and two that do not
+          match.
+        </p>
+        <ol marker="A.">
+          <li><m>{\tt \aster{a} \aster{b}}</m></li>
+          <li><m>{\tt a \aster{(ba)} b}</m></li>
+          <li><m>{\tt \aster{a} \cup \aster{b}}</m></li>
+          <li><m>{\tt \aster{(aaa)}}</m></li>
+        </ol>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Give NFA that accept the languages that match
+          the regular expressions.
+        </p>
+        <ol marker="A.">
+          <li><m>{\tt \aster{0}\aster{1}0^+}</m></li>
+          <li><m>{\tt \aster{1}\aster{(001^+)}}</m></li>
+        </ol>
+      </statement>
+    </exercise>
   </exercises>
 </section>
