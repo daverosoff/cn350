@@ -197,23 +197,50 @@
       </statement>
     </definition>
     <activity>
-      <statement>
+      <prelude>
         <p>
-          Write regular expressions for the following languages.
+          Write regular expressions for each language.
         </p>
-        <ol marker="A.">
-          <li>
-            <p>
-              The set of strings over <m>\{a, b, c\}</m> containing at least one <m>a</m> and one <m>b</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              The set of strings of <m>0</m>s and <m>1</m>s with at most one pair of consecutive <m>1</m>s.
-            </p>
-          </li>
-        </ol>
-      </statement>
+      </prelude>
+      <task>
+        <statement>
+          <p>
+            The set of strings over <m>\{a, b, c}</m> containing at least one <m>a</m> and one <m>b</m>
+          </p>
+        </statement>
+        <answer>
+          One that works is <me>
+            (a + b + c)^* a (a + b + c)^* b (a + b + c)^*
+              + (a + b + c)^* b (a + b + c)^* a (a + b + c)^*
+          </me>.
+        </answer>
+      </task>
+      <task>
+        <statement>
+          <p>
+            The set of strings of <m>0</m>s and <m>1</m>s with no consecutive <m>1</m>s.
+          </p>
+        </statement>
+        <answer>
+          <p>
+            <me>
+              (0 + \varepsilon) (0 + 10)^* (0 + \varepsilon)
+            </me>
+          </p>
+        </answer>
+      </task>
+      <task>
+        <statement>
+          <p>
+
+          </p>
+        </statement>
+        <answer>
+          <p>
+
+          </p>
+        </answer>
+      </task>
     </activity>
   </subsection>
 </section>
