@@ -112,72 +112,71 @@
 
           The definition is inductive. Let the alphabet of symbols be some set
           <m>\Sigma</m>. Then
+          <ol>
+            <li>
+              <p>
 
+                The constants <m>\varepsilon</m> and <m>\varnothing</m> are
+                regular expressions. We define <m>L(\varepsilon) = \{\varepsilon\}</m>
+                and <m>L(\varnothing) = \varnothing</m>.
+
+              </p>
+            </li>
+            <li>
+              <p>
+
+                If <m>a \in \Sigma</m>, then <m>a</m> is a regular expression
+                and <m>L(a) = \{a\}</m>.
+
+              </p>
+            </li>
+            <li>
+              <p>
+
+                A variable, usually capitalized like <m>B</m>, is a
+                regular expression. Such a variable represents a whole
+                language.
+
+              </p>
+            </li>
+            <li>
+              <p>
+
+                If <m>E</m> and <m>F</m> are regular expressions, then
+                so is their union <m>E + F</m>. The language it
+                represents is <m>L(E) + L(F)</m>.
+
+              </p>
+            </li>
+            <li>
+              <p>
+
+                If <m>E</m> and <m>F</m> are regular expressions, then
+                so is their concatenation <m>E F</m>. The language it
+                represents is <m>L(E) L(F)</m>.
+
+              </p>
+            </li>
+            <li>
+              <p>
+
+                If <m>E</m> is a regular expression, then
+                so is its star <m>\aster{E}</m>. The language it
+                represents is <m>\aster{L(E)}</m>.
+
+              </p>
+            </li>
+            <li>
+              <p>
+
+                Finally, if <m>E</m> is a regular expression, then
+                so is its parenthesization <m>(E)</m>. The language it
+                represents is <m>L(E)</m>.
+
+              </p>
+            </li>
+          </ol>
         </p>
-        <ol>
-          <li>
-            <p>
-
-              The constants <m>\varepsilon</m> and <m>\varnothing</m> are
-              regular expressions. We define <m>L(\varepsilon) = \{\varepsilon\}</m>
-              and <m>L(\varnothing) = \varnothing</m>.
-
-            </p>
-          </li>
-          <li>
-            <p>
-
-              If <m>a \in \Sigma</m>, then <m>a</m> is a regular expression
-              and <m>L(a) = \{a\}</m>.
-
-            </p>
-          </li>
-          <li>
-            <p>
-
-              A variable, usually capitalized like <m>B</m>, is a
-              regular expression. Such a variable represents a whole
-              language.
-
-            </p>
-          </li>
-          <li>
-            <p>
-
-              If <m>E</m> and <m>F</m> are regular expressions, then
-              so is their union <m>E + F</m>. The language it
-              represents is <m>L(E) + L(F)</m>.
-
-            </p>
-          </li>
-          <li>
-            <p>
-
-              If <m>E</m> and <m>F</m> are regular expressions, then
-              so is their concatenation <m>E F</m>. The language it
-              represents is <m>L(E) L(F)</m>.
-
-            </p>
-          </li>
-          <li>
-            <p>
-
-              If <m>E</m> is a regular expression, then
-              so is its star <m>\aster{E}</m>. The language it
-              represents is <m>\aster{L(E)}</m>.
-
-            </p>
-          </li>
-          <li>
-            <p>
-
-              Finally, if <m>E</m> is a regular expression, then
-              so is its parenthesization <m>(E)</m>. The language it
-              represents is <m>L(E)</m>.
-
-            </p>
-          </li>
-        </ol>
         <p>
 
           It is typical to also include the unary plus operator for regular
@@ -205,14 +204,16 @@
       <task>
         <statement>
           <p>
-            The set of strings over <m>\{a, b, c}</m> containing at least one <m>a</m> and one <m>b</m>
+            The set of strings over <m>\{a, b, c\}</m> containing at least one <m>a</m> and one <m>b</m>
           </p>
         </statement>
         <answer>
-          One that works is <me>
-            (a + b + c)^* a (a + b + c)^* b (a + b + c)^*
-              + (a + b + c)^* b (a + b + c)^* a (a + b + c)^*
-          </me>.
+          <p>
+            One that works is <me>
+              \aster{(a + b + c)} a \aster{(a + b + c)} b \aster{(a + b + c)}
+                + \aster{(a + b + c)} b \aster{(a + b + c)} a \aster{(a + b + c)}
+            </me>.
+          </p>
         </answer>
       </task>
       <task>
@@ -224,12 +225,12 @@
         <answer>
           <p>
             <me>
-              (0 + \varepsilon) (0 + 10)^* (0 + \varepsilon)
+              \aster{(0 + 10)} (1 + \varepsilon)
             </me>
           </p>
         </answer>
       </task>
-      <task>
+      <!-- <task>
         <statement>
           <p>
 
@@ -240,7 +241,169 @@
 
           </p>
         </answer>
-      </task>
+      </task> -->
+    </activity>
+  </subsection>
+  <subsection xml:id="subsec-nfa-and-regex">
+    <title>NFA and regular expressions</title>
+    <activity xml:id="act-regex-ops-as-nfa">
+      <statement>
+        <p>
+
+          Draw an NFA for each regular expression over the alphabet <m>\Sigma = \{a, b, c, d\}</m>.
+          Remember that star has the highest precedence (must be evaluated first) and union (<m>+</m>)
+          the lowest. These are not trick questions.
+          <ol marker="A.">
+            <li>
+              <p><m>a</m></p>
+            </li>
+            <li>
+              <p><m>ac</m></p>
+            </li>
+            <li>
+              <p><m>a \aster{b} c</m></p>
+            </li>
+            <li>
+              <p><m>a \aster{b} c + d</m></p>
+            </li>
+          </ol>
+
+        </p>
+      </statement>
+    </activity>
+    <p>
+
+      Observe how your answers to <xref ref="act-regex-ops-as-nfa"/> correspond
+      to the operators on regular expressions: star (closure, per HMU),
+      concatenation, and union.
+
+    </p>
+    <activity>
+      <statement>
+        <p>
+
+          In this exercise, use <m>\varepsilon</m>-transitions as needed, but
+          make sure your NFA have <ul>
+            <li>a single start state with no incoming transitions</li>
+            <li>a single accept state with no outgoing transitions.</li>
+          </ul>
+
+        </p>
+        <p>
+          <ol marker="A">
+            <li>
+              <p><m>0\aster{1}</m></p>
+            </li>
+            <li>
+              <p><m>(0 + 1)01</m></p>
+            </li>
+            <li>
+              <p><m>00\aster{(0+1)}</m></p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+
+          Draw an NFA whose language is the same as the language matched by the
+          regular expression. Don't try to do it all at once: Instead, proceed
+          inductively, making simple NFA and then combining them as in <xref
+          ref="act-regex-ops-as-nfa"/>.
+          <ol marker="A.">
+            <li><m>\aster{(00\aster{0} + 11\aster{1})}</m></li>
+            <li><m>(01 + 10)(01 + 10)(01 + 10)</m></li>
+            <li><m>\aster{(0 + 1\aster{(0\aster{1}0)}1)}</m></li>
+          </ol>
+        </p>
+
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Suppose you are given NFA <m>M_1</m> and <m>M_2</m> each having
+          <ol>
+            <li>a single start state with no incoming transitions</li>
+            <li>a single accept state with no outgoing transitions.</li>
+          </ol>
+          Explain how you would combine these into a new NFA <m>M</m>
+          satisfying <m>L(M) = L(M_1) + L(M_2)</m>. <m>M</m> should
+          also satisfy conditions 1 and 2 above. You
+          are allowed to use <m>\varepsilon</m>-transitions and to respecify
+          the start and accepting states.
+        </p>
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Suppose you are given NFA <m>M_1</m> and <m>M_2</m> each having
+          <ol>
+            <li>a single start state with no incoming transitions</li>
+            <li>a single accept state with no outgoing transitions.</li>
+          </ol>
+          Explain how you would combine these into a new NFA <m>M</m>
+          satisfying <m>L(M) = L(M_1) L(M_2)</m>. <m>M</m> should
+          also satisfy conditions 1 and 2 above. You
+          are allowed to use <m>\varepsilon</m>-transitions and to respecify
+          the start and accepting states.
+        </p>
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Suppose you are given an NFA <m>N</m> having
+          <ol>
+            <li>a single start state with no incoming transitions</li>
+            <li>a single accept state with no outgoing transitions.</li>
+          </ol>
+          Explain how you would use <m>N</m> to build a new NFA <m>N</m>
+          satisfying <m>L(M) = \aster{L(N)}</m>. <m>M</m> should
+          also satisfy conditions 1 and 2 above. You
+          are allowed to use <m>\varepsilon</m>-transitions and to respecify
+          the start and accepting states.
+        </p>
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+
+          <ol marker="A.">
+            <li>
+              <p>
+                Suppose we have an NFA with multiple accept states, some of which
+                might have outgoing transitions. Explain how to use an
+                <m>\varepsilon</m>-transition and a new accept state to
+                convert it to an equivalent NFA with a single accept state and no
+                outgoing transitions from the accept state.
+              </p>
+            </li>
+            <li>
+              <p>Suppose we have a pseudo-NFA (multiple start states), some
+                of which might have incoming transitions. Explain how to use
+                an <m>\varepsilon</m>-transition and a new start state to
+                convert it to an equivalent NFA with a single start state and no
+                incoming transitions to the start state.
+              </p>
+            </li>
+          </ol>
+
+        </p>
+      </statement>
+    </activity>
+    <activity>
+      <statement>
+        <p>Use your answers to the previous activities to devise a proof
+          that every regular expression can be simulated by an NFA.
+          The definition of regular expression is inductive, so an inductive
+          proof suggests itself.
+        </p>
+      </statement>
     </activity>
   </subsection>
 </section>
