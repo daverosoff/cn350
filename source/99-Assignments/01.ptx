@@ -174,6 +174,30 @@
           <m>B</m>.
         </p>
       </hint>
+      <solution>
+        <p>
+          Let a DFA accepting <m>B</m> be denoted <m>M</m>, and then we may also write
+          <me>
+            M = (Q, \Sigma, \delta, s, F)
+          </me>.
+          We define a pseudo-NFA <m>N = (Q, \Sigma, \eta, F, \{s\})</m>. Here the transition
+          function <m>\eta \colon Q \times \Sigma \to 2^Q</m> is given by <me>
+            \eta(q, a) = \{ r \in Q : \delta(r, a) = q \}
+          </me>.
+        </p>
+        <p>
+          It is clear that <m>N</m> is a pseudo-NFA, because we have given it a set of start
+          states, a set of accepting states, and a transition function of the required shape.
+          We also know that the subset construction will produce a DFA <m>N'</m> with
+          <m>L(N') = L(N)</m>. Thus, it is enough to show that, for all
+          <m>w \in \aster{\Sigma}</m>, we have
+          <me>
+            w \in B^R \implies \hat{\eta}(w, F) \owns s \quad \text{and} \quad
+            w \notin B^R \implies \hat{\eta}(w, F) \not\ni s
+          </me>.
+
+        </p>
+      </solution>
     </exercise>
   </exercises>
 </section>
