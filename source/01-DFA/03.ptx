@@ -98,13 +98,23 @@
       transition function. This is also provided for us.
     </p>
     <p>
-      We defined the extended transition function <m>\hat{\delta}</m> by
-      <me>
-        \hat{\delta}(q, w) = \begin{cases}
-          \{q\} \amp \text{if $w = \varepsilon$} \\
-          \displaystyle \bigcup_{i=1}^k \delta(p_i, a) \amp \text{if $w = xa$ with $a \in \Sigma$}. \\
-        \end{cases}
-      </me>
+      We defined the extended transition function <m>\hat{\delta}</m> as follows.
+    </p>
+    <definition xml:id="def-nfa-deltahat">
+      <statement>
+        <p>
+          The extended transition function of an NFA <m>M = (Q, \Sigma, s, F, \delta)</m>
+          is defined as follows. For any state <m>q</m> and word <m>w \in \aster{\Sigma}</m>,
+          <me>
+            \hat{\delta}(q, w) = \begin{cases}
+              \{q\} \amp \text{if $w = \varepsilon$} \\
+              \displaystyle \bigcup_{i=1}^k \delta(p_i, a) \amp \text{if $w = xa$ with $a \in \Sigma$}.
+            \end{cases}
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
       To interpret this we must know what the states <m>p_1</m>, <m>p_2, \ldots p_k</m> are. These are
       all the states we can reach by following the symbols in the prefix <m>x</m> from the state
       <m>q</m>. Remember, this is a recursive/inductive definition, so we learn how to do an
@@ -176,7 +186,7 @@
     <p>
       Equipped with the extended transition function, we can define the language of an NFA.
     </p>
-    <definition xml:id="def-nfa-deltahat">
+    <definition xml:id="def-nfa-language">
       <statement>
         <p>
           If <m>M</m> is our NFA, we define <me>
@@ -197,7 +207,7 @@
           L(M) = \{ w \in \{0,1\}^{\ast} : q_2 \in \hat{\delta}(q_0, w) \}
         </me>. Make sure you see why the defining property
         <m>\hat{\delta}(q_0, w) \cap F \ne \varnothing</m> from
-        <xref ref="def-nfa-deltahat"/> becomes
+        <xref ref="def-nfa-language"/> becomes
         <m>q_2 \in \hat{\delta}(q_0, w)</m> with our choice of <m>M</m>.
       </p>
       <p>
