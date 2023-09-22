@@ -279,7 +279,11 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="regex.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Regular expressions</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="regex.html#regex-basics" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Operators and examples</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="regex.html#regex-basics" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Operators and examples</span></a></div></li>
+<li><div class="toc-item"><a href="regex.html#subsec-nfa-and-regex" class="internal"><span class="codenumber">2.4.2</span> <span class="title">NFA and regular expressions</span></a></div></li>
+<li><div class="toc-item"><a href="regex.html#references-1" class="internal"><span class="codenumber">2.4.3</span> <span class="title">References</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -294,13 +298,18 @@ window.MathJax = {
 <div class="toc-item"><a href="sec-hw2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Homework 02</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="sec-hw2.html#exercises-2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
+<li>
+<div class="toc-item"><a href="sec-hw3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Homework 03</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-hw3.html#exercises-3" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
 </ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="DFA-intro"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">Examples of finite state automata</span>
 </h2>
-<article class="objectives goal-like" id="objectives-3"><h3 class="heading"><span class="type">Objectives</span></h3></article><section class="subsection" id="subsec-bank-store-customer"><h3 class="heading hide-type">
+<article class="objectives goal-like" id="objectives-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal"><li id="li-49"><div class="para" id="p-derived-li-49">Learn stuff</div></li></ol></article><section class="subsection" id="subsec-bank-store-customer"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="space"> </span><span class="title">The bank—store—customer model</span>
 </h3>
 <div class="para" id="p-99">Some stuff</div></section><section class="subsection" id="subsec-marble-toy"><h3 class="heading hide-type">
@@ -311,56 +320,56 @@ window.MathJax = {
 </h4>
 <div class="para" id="p-100">(This example is due to HMU.) Consider the marble-rolling toy pictured below. A marble enters at either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\text{.}\)</span> The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points rights, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.</div> <div class="para" id="p-101">Let us say that a word is accepted if, when we begin in the pictured starting configuration, rolling a marble for each symbol, the final marble exits at <span class="process-math">\(D\text{.}\)</span>
 </div> <div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/marble.svg" class="contained" alt="A marble-rolling toy with two input chutes labeled A and B, and two output chutes labeled C and D. The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points right, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D."></div>  <div class="para logical" id="p-102"><ol class="decimal">
-<li id="li-49"><div class="para" id="p-derived-li-49">Does the toy accept <span class="process-math">\(a\text{?}\)</span>
+<li id="li-50"><div class="para" id="p-derived-li-50">Does the toy accept <span class="process-math">\(a\text{?}\)</span>
 </div></li>
-<li id="li-50"><div class="para" id="p-derived-li-50">Does the toy accept <span class="process-math">\(b\text{?}\)</span>
+<li id="li-51"><div class="para" id="p-derived-li-51">Does the toy accept <span class="process-math">\(b\text{?}\)</span>
 </div></li>
-<li id="li-51"><div class="para" id="p-derived-li-51">Does the toy accept <span class="process-math">\(ab\text{?}\)</span>
+<li id="li-52"><div class="para" id="p-derived-li-52">Does the toy accept <span class="process-math">\(ab\text{?}\)</span>
 </div></li>
-<li id="li-52"><div class="para" id="p-derived-li-52">Does the toy accept <span class="process-math">\(ba\text{?}\)</span>
+<li id="li-53"><div class="para" id="p-derived-li-53">Does the toy accept <span class="process-math">\(ba\text{?}\)</span>
 </div></li>
-<li id="li-53"><div class="para" id="p-derived-li-53">Does the toy accept <span class="process-math">\(aab\text{?}\)</span>
+<li id="li-54"><div class="para" id="p-derived-li-54">Does the toy accept <span class="process-math">\(aab\text{?}\)</span>
 </div></li>
-<li id="li-54"><div class="para" id="p-derived-li-54">Does the toy accept <span class="process-math">\(bab\text{?}\)</span>
+<li id="li-55"><div class="para" id="p-derived-li-55">Does the toy accept <span class="process-math">\(bab\text{?}\)</span>
 </div></li>
-<li id="li-55"><div class="para logical" id="p-103">
+<li id="li-56"><div class="para logical" id="p-103">
 <div class="para">Find all the words on <span class="process-math">\(\{ a,b }\)</span> of length at most <span class="process-math">\(4\)</span> accepted by the marble-rolling toy, assuming that a word is accepted if the last marble exits at D. </div>
 <ol class="upper-alpha cols2">
-<li id="li-56"><div class="para" id="p-derived-li-56">
+<li id="li-57"><div class="para" id="p-derived-li-57">
 <span class="process-math">\(\varepsilon\)</span> (empty word)</div></li>
-<li id="li-57"><div class="para" id="p-derived-li-57"><span class="process-math">\(\displaystyle a\)</span></div></li>
-<li id="li-58"><div class="para" id="p-derived-li-58"><span class="process-math">\(\displaystyle b\)</span></div></li>
-<li id="li-59"><div class="para" id="p-derived-li-59"><span class="process-math">\(\displaystyle aa\)</span></div></li>
-<li id="li-60"><div class="para" id="p-derived-li-60"><span class="process-math">\(\displaystyle ab\)</span></div></li>
-<li id="li-61"><div class="para" id="p-derived-li-61"><span class="process-math">\(\displaystyle ba\)</span></div></li>
-<li id="li-62"><div class="para" id="p-derived-li-62"><span class="process-math">\(\displaystyle bb\)</span></div></li>
-<li id="li-63"><div class="para" id="p-derived-li-63"><span class="process-math">\(\displaystyle aaa\)</span></div></li>
-<li id="li-64"><div class="para" id="p-derived-li-64"><span class="process-math">\(\displaystyle aab\)</span></div></li>
-<li id="li-65"><div class="para" id="p-derived-li-65"><span class="process-math">\(\displaystyle aba\)</span></div></li>
-<li id="li-66"><div class="para" id="p-derived-li-66"><span class="process-math">\(\displaystyle abb\)</span></div></li>
-<li id="li-67"><div class="para" id="p-derived-li-67"><span class="process-math">\(\displaystyle baa\)</span></div></li>
-<li id="li-68"><div class="para" id="p-derived-li-68"><span class="process-math">\(\displaystyle bab\)</span></div></li>
-<li id="li-69"><div class="para" id="p-derived-li-69"><span class="process-math">\(\displaystyle bba\)</span></div></li>
-<li id="li-70"><div class="para" id="p-derived-li-70"><span class="process-math">\(\displaystyle bbb\)</span></div></li>
-<li id="li-71"><div class="para" id="p-derived-li-71"><span class="process-math">\(\displaystyle aaaa\)</span></div></li>
-<li id="li-72"><div class="para" id="p-derived-li-72"><span class="process-math">\(\displaystyle aaab\)</span></div></li>
-<li id="li-73"><div class="para" id="p-derived-li-73"><span class="process-math">\(\displaystyle aaba\)</span></div></li>
-<li id="li-74"><div class="para" id="p-derived-li-74"><span class="process-math">\(\displaystyle aabb\)</span></div></li>
-<li id="li-75"><div class="para" id="p-derived-li-75"><span class="process-math">\(\displaystyle abaa\)</span></div></li>
-<li id="li-76"><div class="para" id="p-derived-li-76"><span class="process-math">\(\displaystyle abab\)</span></div></li>
-<li id="li-77"><div class="para" id="p-derived-li-77"><span class="process-math">\(\displaystyle abba\)</span></div></li>
-<li id="li-78"><div class="para" id="p-derived-li-78"><span class="process-math">\(\displaystyle abbb\)</span></div></li>
-<li id="li-79"><div class="para" id="p-derived-li-79"><span class="process-math">\(\displaystyle baaa\)</span></div></li>
-<li id="li-80"><div class="para" id="p-derived-li-80"><span class="process-math">\(\displaystyle baab\)</span></div></li>
-<li id="li-81"><div class="para" id="p-derived-li-81"><span class="process-math">\(\displaystyle baba\)</span></div></li>
-<li id="li-82"><div class="para" id="p-derived-li-82"><span class="process-math">\(\displaystyle babb\)</span></div></li>
-<li id="li-83"><div class="para" id="p-derived-li-83"><span class="process-math">\(\displaystyle bbaa\)</span></div></li>
-<li id="li-84"><div class="para" id="p-derived-li-84"><span class="process-math">\(\displaystyle bbab\)</span></div></li>
-<li id="li-85"><div class="para" id="p-derived-li-85"><span class="process-math">\(\displaystyle bbba\)</span></div></li>
-<li id="li-86"><div class="para" id="p-derived-li-86"><span class="process-math">\(\displaystyle bbbb\)</span></div></li>
+<li id="li-58"><div class="para" id="p-derived-li-58"><span class="process-math">\(\displaystyle a\)</span></div></li>
+<li id="li-59"><div class="para" id="p-derived-li-59"><span class="process-math">\(\displaystyle b\)</span></div></li>
+<li id="li-60"><div class="para" id="p-derived-li-60"><span class="process-math">\(\displaystyle aa\)</span></div></li>
+<li id="li-61"><div class="para" id="p-derived-li-61"><span class="process-math">\(\displaystyle ab\)</span></div></li>
+<li id="li-62"><div class="para" id="p-derived-li-62"><span class="process-math">\(\displaystyle ba\)</span></div></li>
+<li id="li-63"><div class="para" id="p-derived-li-63"><span class="process-math">\(\displaystyle bb\)</span></div></li>
+<li id="li-64"><div class="para" id="p-derived-li-64"><span class="process-math">\(\displaystyle aaa\)</span></div></li>
+<li id="li-65"><div class="para" id="p-derived-li-65"><span class="process-math">\(\displaystyle aab\)</span></div></li>
+<li id="li-66"><div class="para" id="p-derived-li-66"><span class="process-math">\(\displaystyle aba\)</span></div></li>
+<li id="li-67"><div class="para" id="p-derived-li-67"><span class="process-math">\(\displaystyle abb\)</span></div></li>
+<li id="li-68"><div class="para" id="p-derived-li-68"><span class="process-math">\(\displaystyle baa\)</span></div></li>
+<li id="li-69"><div class="para" id="p-derived-li-69"><span class="process-math">\(\displaystyle bab\)</span></div></li>
+<li id="li-70"><div class="para" id="p-derived-li-70"><span class="process-math">\(\displaystyle bba\)</span></div></li>
+<li id="li-71"><div class="para" id="p-derived-li-71"><span class="process-math">\(\displaystyle bbb\)</span></div></li>
+<li id="li-72"><div class="para" id="p-derived-li-72"><span class="process-math">\(\displaystyle aaaa\)</span></div></li>
+<li id="li-73"><div class="para" id="p-derived-li-73"><span class="process-math">\(\displaystyle aaab\)</span></div></li>
+<li id="li-74"><div class="para" id="p-derived-li-74"><span class="process-math">\(\displaystyle aaba\)</span></div></li>
+<li id="li-75"><div class="para" id="p-derived-li-75"><span class="process-math">\(\displaystyle aabb\)</span></div></li>
+<li id="li-76"><div class="para" id="p-derived-li-76"><span class="process-math">\(\displaystyle abaa\)</span></div></li>
+<li id="li-77"><div class="para" id="p-derived-li-77"><span class="process-math">\(\displaystyle abab\)</span></div></li>
+<li id="li-78"><div class="para" id="p-derived-li-78"><span class="process-math">\(\displaystyle abba\)</span></div></li>
+<li id="li-79"><div class="para" id="p-derived-li-79"><span class="process-math">\(\displaystyle abbb\)</span></div></li>
+<li id="li-80"><div class="para" id="p-derived-li-80"><span class="process-math">\(\displaystyle baaa\)</span></div></li>
+<li id="li-81"><div class="para" id="p-derived-li-81"><span class="process-math">\(\displaystyle baab\)</span></div></li>
+<li id="li-82"><div class="para" id="p-derived-li-82"><span class="process-math">\(\displaystyle baba\)</span></div></li>
+<li id="li-83"><div class="para" id="p-derived-li-83"><span class="process-math">\(\displaystyle babb\)</span></div></li>
+<li id="li-84"><div class="para" id="p-derived-li-84"><span class="process-math">\(\displaystyle bbaa\)</span></div></li>
+<li id="li-85"><div class="para" id="p-derived-li-85"><span class="process-math">\(\displaystyle bbab\)</span></div></li>
+<li id="li-86"><div class="para" id="p-derived-li-86"><span class="process-math">\(\displaystyle bbba\)</span></div></li>
+<li id="li-87"><div class="para" id="p-derived-li-87"><span class="process-math">\(\displaystyle bbbb\)</span></div></li>
 </ol>
 </div></li>
-<li id="li-87"><div class="para" id="p-derived-li-87">Can you describe the language <span class="process-math">\(L\)</span> accepted by the toy?</div></li>
+<li id="li-88"><div class="para" id="p-derived-li-88">Can you describe the language <span class="process-math">\(L\)</span> accepted by the toy?</div></li>
 </ol></div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="dwr-fa.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="DFA.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

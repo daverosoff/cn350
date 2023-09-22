@@ -178,7 +178,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Examples of finite state automata",
-  "body": " Examples of finite state automata    The bank store customer model  Some stuff    The marble-rolling toy    (This example is due to HMU.) Consider the marble-rolling toy pictured below. A marble enters at either or . The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points rights, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.  Let us say that a word is accepted if, when we begin in the pictured starting configuration, rolling a marble for each symbol, the final marble exits at .   A marble-rolling toy with two input chutes labeled A and B, and two output chutes labeled C and D. The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points right, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.      Does the toy accept ?  Does the toy accept ?  Does the toy accept ?  Does the toy accept ?  Does the toy accept ?  Does the toy accept ?   Find all the words on of length at most accepted by the marble-rolling toy, assuming that a word is accepted if the last marble exits at D.   (empty word)                                   Can you describe the language accepted by the toy?       "
+  "body": " Examples of finite state automata    Learn stuff     The bank store customer model  Some stuff    The marble-rolling toy    (This example is due to HMU.) Consider the marble-rolling toy pictured below. A marble enters at either or . The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points rights, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.  Let us say that a word is accepted if, when we begin in the pictured starting configuration, rolling a marble for each symbol, the final marble exits at .   A marble-rolling toy with two input chutes labeled A and B, and two output chutes labeled C and D. The path taken by the marble is determined by three levers. Lever 1 is immediately beneath A. If it points left, the marble rolls left and exits through output C. If Lever 1 points right, the marble rolls right and lands on Lever 2 (between A and B). If Lever 2 points left, the marble rolls left and exits through output C. If Lever 2 points right, the marble rolls right and exits through output D. Finally, Lever 3 is beneath input B. If it points left, we go to Lever 2; otherwise, to output D.      Does the toy accept ?  Does the toy accept ?  Does the toy accept ?  Does the toy accept ?  Does the toy accept ?  Does the toy accept ?   Find all the words on of length at most accepted by the marble-rolling toy, assuming that a word is accepted if the last marble exits at D.   (empty word)                                   Can you describe the language accepted by the toy?       "
 },
 {
   "id": "objectives-3",
@@ -187,7 +187,7 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.1",
   "title": "",
-  "body": ""
+  "body": "  Learn stuff   "
 },
 {
   "id": "act-marble-toy",
@@ -340,7 +340,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.3",
   "title": "Nondeterministic finite automata",
-  "body": " Nondeterministic finite automata   Introduction  In this section we have learned that NFA are much like DFA, but with more flexibility about the transitions. Recall that DFA are required to have a transition function with the signature . The definition of function means that there is thus exactly one outbound transition for each symbol and state .  With an NFA, this restriction is removed. A given state and symbol may yield 0, 1, or many outbound transitions. When there are 0, the computation can go no further, but when there are many, the automaton follows them all to their ends, by the mechanism of the redesigned transition function.  The transition function for NFA has a different signature. It is a function , where as before the exponentiated set is a power set. The meaning is simple: the value of is the set of states that can be reached from by following edges labeled . That's it!    Consider the following NFA:   An NFA that accepts all words ending in .      Evidently it accepts all words ending in . Give its formal components , , , , and .    The first four are , and is given by the table below.     0  1                   Notice how the table looks quite similar to those of . The only difference is that the function values are sets of states rather than individual states.    We defined the language of a DFA using the extended transition function (defined in ) as follows: , where is the start state of and is the set of accepting states. In order to define such a thing for NFA, we will probably need such an extended version of its transition function. This is also provided for us.  We defined the extended transition function by To interpret this we must know what the states , are. These are all the states we can reach by following the symbols in the prefix from the state . Remember, this is a recursive\/inductive definition, so we learn how to do an -symbol word from how to do an -symbol one. The second case in the definition says, follow the -transitions from every state , , , and the states you get in this way are all members of .   Let us compute using the inductive definition. It is not so easy to do the computation in the intuitive way, starting with the long string and working down to the empty string. The reason is simple: we don't know the ! But, we know from experience by now that we will end up evaluating for every prefix of . It will make our job simpler if we start with and work up from there.     , by definition. Since we can only reach the single state  so far , it is the only for the next step.     . Here there is only one from above and only one symbol, so the union is just the set . These are the for the next step.     . Here there are two states and , so two things in the union, but one of them is empty and we get nothing new yet.     This time, both things in the union are nonempty.             Later we will see that this means the word is accepted by this machine, because contains a state of .   Equipped with the extended transition function, we can define the language of an NFA.    If is our NFA, we define .     Let us prove that , the NFA of , accepts the language . That is, we wish to prove that where . Make sure you see why the defining property from becomes with our choice of .  We will use induction, but of the mutual variety. Here are the three statements we will prove by induction:   contains for every word .    contains if and only if ends in .    contains if and only if ends in .   Observe before continuing that only statement is really required by the theorem, but to make the induction go, we need to assume something about the other states too. This is typical of inductive proofs for DFA and NFA.  The induction begins with a base case, . We verify the three statements. All are obvious, since doesn't end in anything and by .  Next let us proceed to the inductive step. Consider a word (remember that and ). Then the length of is one more than the length of . In symbols, . We will assume that all three statements are true of the shorter word , and deduce them for the longer word .  To see that statement 1 holds for , we observe that by the induction hypothesis, . Since or , and there are loop transitions from labeled with both and , we see that , as required.  For statement 2, we need to prove both directions of the if and only if statement. It is a bit confusing if you have not seen it before. We say if and only if when we wish to assert simultaneously that and . The forward implication is , which confusingly is the only if part of the proof. The reverse implication is , which is the if part. In this case, the forward implication is and the reverse implication is .  To prove the forward implication, we observe that only has a transition to , and that transition is labeled . So the last letter of must be . For the reverse implication, suppose that ends in . Because we have assumed statement 1 for the prefix , we know that . Because there is a transition from to labeled , it follows that , which is what we wanted to prove.  The proof of statement 3 is left as an exercise.     The subset construction  Recall that there are a few differences between DFA and NFA:   DFA must have exactly one outbound transition from each state with each symbol, but NFA may have zero, one, or many such transitions.    The transition function for DFA looks like , but for NFA, it looks like .     It may seem that NFA are more powerful than DFA, but if you think back, we've given DFA to recognize every language we've seen an NFA for. The NFA are sometimes easier to read, very often easier to write, and in nice cases they are smaller than the DFA. But, as we'll see below, they aren't more powerful.    Let be an NFA. Then is regular, that is, there is a DFA such that .     For the proof of , see the proof of Theorem 2.11 in HMU.    Pseudo-NFA  In this section we introduce the concept of a pseudo-NFA , which is a machine that is almost an NFA, but not quite. The difference is that a pseudo-NFA may have more than one start state. This is not allowed for NFA according to HMU, but it is allowed for pseudo-NFA.  We introduce pseudo-NFA in part to show that they are just as sensible as NFA (indeed some authors only consider pseudo-NFA). In particular, we show in that the subset construction may be applied to a pseudo-NFA to produce a DFA that accepts the same language. This means that, to show a language is regular, it is enough to give a pseudo-NFA that accepts it. It also means that even pseudo-NFA are still not more computationally powerful than DFA.    A pseudo-NFA is a 5-tuple , where , , and are the same as for an NFA, but is a set of start states, and is a function .    We can extend the definition of to pseudo-NFA in a nice way. We need to be able to cope with a whole set of start states. The idea of is that it gives the set of possible next positions . If is a set of states, we can define capturing this idea. If we apply it to a proper NFA rather than a pseudo-NFA, we obtain almost the same function as before, except that it operates on singleton sets rather than individual states.    Let be a pseudo-NFA. Then       Let be a pseudo-NFA. Then .      If is an NFA, then the two definitions of are equivalent.      Let be a pseudo-NFA. Then there is a DFA such that .     The proof is the same as that of , except that we use the extended transition function defined in rather than the one defined in . The proof is left as an exercise.   The pseudo-NFA are convenient for proving results like the following.    If and are regular languages, then so is .     Since and are regular, there are DFA and such that and . We will construct a DFA such that . Let the state sets and transition functions of and be , and , , respectively. Without loss of generality, we may assume that and are disjoint. If they are not, we can rename the states of one of them.  The state set of will be the union of the states of and . Both the start states of and will be start states of . The accepting states of will be the union of the accepting states of and . The transition function of will be defined by   First, we observe that . To see this, first note that and . Therefore . To see the reverse inclusion, let . Then or . This shows that the , as required.  It is evident that so constructed is a pseudo-NFA. By , there is a DFA such that . But , so we are done.     Class Activities    Design NFA to recognize the following sets of keywords. Draw pictures on the whiteboard.    , , and . Assume the alphabet is .     , , and .     , , and . Assume the alphabet is .         Convert each of your NFA from to a DFA using the subset construction. Draw pictures on the whiteboard.      NFA with -transitions  In this section we introduce a new kind of NFA, which is allowed to have -transitions. These are transitions that can be taken without consuming any input. The purpose of such transitions is to allow the machine to jump from one place to another regardless of what symbol is next in the input. This is useful for making the machine smaller and easier to read. Like nondeterminism itself, -transitions do not increase the computational power of the machine.  In our transition diagrams, all we need to do is add a new kind of arrow, labeled with . In the transition tables, we write a new column for and specify all -transitions in that column.   Consider the -NFA shown below.   An NFA with -transitions.      This NFA accepts the language of possibly signed decimal numbers, including integers and numbers with a decimal point. The numbers don't have to have a sign, so there is an -transition from to . Similarly, it is cleaner to have an -transition from to to end the input than another transition with the same label.  The transition table for this machine is shown below.                                                             We need a formal mechanism to describe the acceptance of words by the -NFA. The idea is that the machine can take any number of -transitions whenever they are allowed, possibly in sequence, before it must read the next symbol of the input. This is captured by the definition of -closure below.    Let be a state in an -NFA. The -closure of , written , is a set of states in the NFA defined inductively as follows.   The state is in .    If state is in , and there is an -transition from to , then is in .       The -closure of a set of states is needed in order that we may define the extended transition function of a -NFA. The definition follows.    Let be an -NFA. Then the extended transition function of , written , is a function defined as follows.    for each state .     is defined as follows. First let be the members of the set . Then let be the members of the set . Then we define to be the set .       Like ordinary and pseudo-NFA, -NFA can be converted to DFA using a jazzed-up subset construction. The idea is to incorporate -closure into construction. The details may be found in HMU section 2.5.5.    Consider the following -NFA.                                  Compute the -closure of each state.    Give all the strings of length 3 or less computed by the automaton.         A relevant video  It probably doesn't belong here, but let's put it here anyway. I intended to show this video in class after we practiced the subset construction, but there wasn't time.   Professor Brailsford explains the Chomsky hierarchy.     "
+  "body": " Nondeterministic finite automata   Introduction  In this section we have learned that NFA are much like DFA, but with more flexibility about the transitions. Recall that DFA are required to have a transition function with the signature . The definition of function means that there is thus exactly one outbound transition for each symbol and state .  With an NFA, this restriction is removed. A given state and symbol may yield 0, 1, or many outbound transitions. When there are 0, the computation can go no further, but when there are many, the automaton follows them all to their ends, by the mechanism of the redesigned transition function.  The transition function for NFA has a different signature. It is a function , where as before the exponentiated set is a power set. The meaning is simple: the value of is the set of states that can be reached from by following edges labeled . That's it!    Consider the following NFA:   An NFA that accepts all words ending in .      Evidently it accepts all words ending in . Give its formal components , , , , and .    The first four are , and is given by the table below.     0  1                   Notice how the table looks quite similar to those of . The only difference is that the function values are sets of states rather than individual states.    We defined the language of a DFA using the extended transition function (defined in ) as follows: , where is the start state of and is the set of accepting states. In order to define such a thing for NFA, we will probably need such an extended version of its transition function. This is also provided for us.  We defined the extended transition function as follows.    The extended transition function of an NFA is defined as follows. For any state and word ,     To interpret this we must know what the states , are. These are all the states we can reach by following the symbols in the prefix from the state . Remember, this is a recursive\/inductive definition, so we learn how to do an -symbol word from how to do an -symbol one. The second case in the definition says, follow the -transitions from every state , , , and the states you get in this way are all members of .   Let us compute using the inductive definition. It is not so easy to do the computation in the intuitive way, starting with the long string and working down to the empty string. The reason is simple: we don't know the ! But, we know from experience by now that we will end up evaluating for every prefix of . It will make our job simpler if we start with and work up from there.     , by definition. Since we can only reach the single state  so far , it is the only for the next step.     . Here there is only one from above and only one symbol, so the union is just the set . These are the for the next step.     . Here there are two states and , so two things in the union, but one of them is empty and we get nothing new yet.     This time, both things in the union are nonempty.             Later we will see that this means the word is accepted by this machine, because contains a state of .   Equipped with the extended transition function, we can define the language of an NFA.    If is our NFA, we define .     Let us prove that , the NFA of , accepts the language . That is, we wish to prove that where . Make sure you see why the defining property from becomes with our choice of .  We will use induction, but of the mutual variety. Here are the three statements we will prove by induction:   contains for every word .    contains if and only if ends in .    contains if and only if ends in .   Observe before continuing that only statement is really required by the theorem, but to make the induction go, we need to assume something about the other states too. This is typical of inductive proofs for DFA and NFA.  The induction begins with a base case, . We verify the three statements. All are obvious, since doesn't end in anything and by .  Next let us proceed to the inductive step. Consider a word (remember that and ). Then the length of is one more than the length of . In symbols, . We will assume that all three statements are true of the shorter word , and deduce them for the longer word .  To see that statement 1 holds for , we observe that by the induction hypothesis, . Since or , and there are loop transitions from labeled with both and , we see that , as required.  For statement 2, we need to prove both directions of the if and only if statement. It is a bit confusing if you have not seen it before. We say if and only if when we wish to assert simultaneously that and . The forward implication is , which confusingly is the only if part of the proof. The reverse implication is , which is the if part. In this case, the forward implication is and the reverse implication is .  To prove the forward implication, we observe that only has a transition to , and that transition is labeled . So the last letter of must be . For the reverse implication, suppose that ends in . Because we have assumed statement 1 for the prefix , we know that . Because there is a transition from to labeled , it follows that , which is what we wanted to prove.  The proof of statement 3 is left as an exercise.     The subset construction  Recall that there are a few differences between DFA and NFA:   DFA must have exactly one outbound transition from each state with each symbol, but NFA may have zero, one, or many such transitions.    The transition function for DFA looks like , but for NFA, it looks like .     It may seem that NFA are more powerful than DFA, but if you think back, we've given DFA to recognize every language we've seen an NFA for. The NFA are sometimes easier to read, very often easier to write, and in nice cases they are smaller than the DFA. But, as we'll see below, they aren't more powerful.    Let be an NFA. Then is regular, that is, there is a DFA such that .     For the proof of , see the proof of Theorem 2.11 in HMU.    Pseudo-NFA  In this section we introduce the concept of a pseudo-NFA , which is a machine that is almost an NFA, but not quite. The difference is that a pseudo-NFA may have more than one start state. This is not allowed for NFA according to HMU, but it is allowed for pseudo-NFA.  We introduce pseudo-NFA in part to show that they are just as sensible as NFA (indeed some authors only consider pseudo-NFA). In particular, we show in that the subset construction may be applied to a pseudo-NFA to produce a DFA that accepts the same language. This means that, to show a language is regular, it is enough to give a pseudo-NFA that accepts it. It also means that even pseudo-NFA are still not more computationally powerful than DFA.    A pseudo-NFA is a 5-tuple , where , , and are the same as for an NFA, but is a set of start states, and is a function .    We can extend the definition of to pseudo-NFA in a nice way. We need to be able to cope with a whole set of start states. The idea of is that it gives the set of possible next positions . If is a set of states, we can define capturing this idea. If we apply it to a proper NFA rather than a pseudo-NFA, we obtain almost the same function as before, except that it operates on singleton sets rather than individual states.    Let be a pseudo-NFA. Then       Let be a pseudo-NFA. Then .      If is an NFA, then the two definitions of are equivalent.      Let be a pseudo-NFA. Then there is a DFA such that .     The proof is the same as that of , except that we use the extended transition function defined in rather than the one defined in . The proof is left as an exercise.   The pseudo-NFA are convenient for proving results like the following.    If and are regular languages, then so is .     Since and are regular, there are DFA and such that and . We will construct a DFA such that . Let the state sets and transition functions of and be , and , , respectively. Without loss of generality, we may assume that and are disjoint. If they are not, we can rename the states of one of them.  The state set of will be the union of the states of and . Both the start states of and will be start states of . The accepting states of will be the union of the accepting states of and . The transition function of will be defined by   First, we observe that . To see this, first note that and . Therefore . To see the reverse inclusion, let . Then or . This shows that the , as required.  It is evident that so constructed is a pseudo-NFA. By , there is a DFA such that . But , so we are done.     Class Activities    Design NFA to recognize the following sets of keywords. Draw pictures on the whiteboard.    , , and . Assume the alphabet is .     , , and .     , , and . Assume the alphabet is .         Convert each of your NFA from to a DFA using the subset construction. Draw pictures on the whiteboard.      NFA with -transitions  In this section we introduce a new kind of NFA, which is allowed to have -transitions. These are transitions that can be taken without consuming any input. The purpose of such transitions is to allow the machine to jump from one place to another regardless of what symbol is next in the input. This is useful for making the machine smaller and easier to read. Like nondeterminism itself, -transitions do not increase the computational power of the machine.  In our transition diagrams, all we need to do is add a new kind of arrow, labeled with . In the transition tables, we write a new column for and specify all -transitions in that column.   Consider the -NFA shown below.   An NFA with -transitions.      This NFA accepts the language of possibly signed decimal numbers, including integers and numbers with a decimal point. The numbers don't have to have a sign, so there is an -transition from to . Similarly, it is cleaner to have an -transition from to to end the input than another transition with the same label.  The transition table for this machine is shown below.                                                             We need a formal mechanism to describe the acceptance of words by the -NFA. The idea is that the machine can take any number of -transitions whenever they are allowed, possibly in sequence, before it must read the next symbol of the input. This is captured by the definition of -closure below.    Let be a state in an -NFA. The -closure of , written , is a set of states in the NFA defined inductively as follows.   The state is in .    If state is in , and there is an -transition from to , then is in .       The -closure of a set of states is needed in order that we may define the extended transition function of a -NFA. The definition follows.    Let be an -NFA. Then the extended transition function of , written , is a function defined as follows.    for each state .     is defined as follows. First let be the members of the set . Then let be the members of the set . Then we define to be the set .       Like ordinary and pseudo-NFA, -NFA can be converted to DFA using a jazzed-up subset construction. The idea is to incorporate -closure into construction. The details may be found in HMU section 2.5.5.    Consider the following -NFA.                                  Compute the -closure of each state.    Give all the strings of length 3 or less computed by the automaton.         A relevant video  It probably doesn't belong here, but let's put it here anyway. I intended to show this video in class after we practiced the subset construction, but there wasn't time.   Professor Brailsford explains the Chomsky hierarchy.     "
 },
 {
   "id": "p-142",
@@ -361,20 +361,29 @@ var ptx_lunr_docs = [
   "body": "  Consider the following NFA:   An NFA that accepts all words ending in .      Evidently it accepts all words ending in . Give its formal components , , , , and .    The first four are , and is given by the table below.     0  1                   Notice how the table looks quite similar to those of . The only difference is that the function values are sets of states rather than individual states.   "
 },
 {
-  "id": "example-1",
-  "level": "2",
-  "url": "NFA.html#example-1",
-  "type": "Example",
-  "number": "2.3.2",
-  "title": "",
-  "body": " Let us compute using the inductive definition. It is not so easy to do the computation in the intuitive way, starting with the long string and working down to the empty string. The reason is simple: we don't know the ! But, we know from experience by now that we will end up evaluating for every prefix of . It will make our job simpler if we start with and work up from there.     , by definition. Since we can only reach the single state  so far , it is the only for the next step.     . Here there is only one from above and only one symbol, so the union is just the set . These are the for the next step.     . Here there are two states and , so two things in the union, but one of them is empty and we get nothing new yet.     This time, both things in the union are nonempty.             Later we will see that this means the word is accepted by this machine, because contains a state of .  "
-},
-{
   "id": "def-nfa-deltahat",
   "level": "2",
   "url": "NFA.html#def-nfa-deltahat",
   "type": "Definition",
+  "number": "2.3.2",
+  "title": "",
+  "body": "  The extended transition function of an NFA is defined as follows. For any state and word ,    "
+},
+{
+  "id": "example-1",
+  "level": "2",
+  "url": "NFA.html#example-1",
+  "type": "Example",
   "number": "2.3.3",
+  "title": "",
+  "body": " Let us compute using the inductive definition. It is not so easy to do the computation in the intuitive way, starting with the long string and working down to the empty string. The reason is simple: we don't know the ! But, we know from experience by now that we will end up evaluating for every prefix of . It will make our job simpler if we start with and work up from there.     , by definition. Since we can only reach the single state  so far , it is the only for the next step.     . Here there is only one from above and only one symbol, so the union is just the set . These are the for the next step.     . Here there are two states and , so two things in the union, but one of them is empty and we get nothing new yet.     This time, both things in the union are nonempty.             Later we will see that this means the word is accepted by this machine, because contains a state of .  "
+},
+{
+  "id": "def-nfa-language",
+  "level": "2",
+  "url": "NFA.html#def-nfa-language",
+  "type": "Definition",
+  "number": "2.3.4",
   "title": "",
   "body": "  If is our NFA, we define .   "
 },
@@ -383,7 +392,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#example-2",
   "type": "Example",
-  "number": "2.3.4",
+  "number": "2.3.5",
   "title": "",
   "body": " Let us prove that , the NFA of , accepts the language . That is, we wish to prove that where . Make sure you see why the defining property from becomes with our choice of .  We will use induction, but of the mutual variety. Here are the three statements we will prove by induction:   contains for every word .    contains if and only if ends in .    contains if and only if ends in .   Observe before continuing that only statement is really required by the theorem, but to make the induction go, we need to assume something about the other states too. This is typical of inductive proofs for DFA and NFA.  The induction begins with a base case, . We verify the three statements. All are obvious, since doesn't end in anything and by .  Next let us proceed to the inductive step. Consider a word (remember that and ). Then the length of is one more than the length of . In symbols, . We will assume that all three statements are true of the shorter word , and deduce them for the longer word .  To see that statement 1 holds for , we observe that by the induction hypothesis, . Since or , and there are loop transitions from labeled with both and , we see that , as required.  For statement 2, we need to prove both directions of the if and only if statement. It is a bit confusing if you have not seen it before. We say if and only if when we wish to assert simultaneously that and . The forward implication is , which confusingly is the only if part of the proof. The reverse implication is , which is the if part. In this case, the forward implication is and the reverse implication is .  To prove the forward implication, we observe that only has a transition to , and that transition is labeled . So the last letter of must be . For the reverse implication, suppose that ends in . Because we have assumed statement 1 for the prefix , we know that . Because there is a transition from to labeled , it follows that , which is what we wanted to prove.  The proof of statement 3 is left as an exercise.  "
 },
@@ -392,14 +401,14 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#thm-dfa-nfa-equiv",
   "type": "Theorem",
-  "number": "2.3.5",
+  "number": "2.3.6",
   "title": "",
   "body": "  Let be an NFA. Then is regular, that is, there is a DFA such that .    "
 },
 {
-  "id": "p-177",
+  "id": "p-179",
   "level": "2",
-  "url": "NFA.html#p-177",
+  "url": "NFA.html#p-179",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -410,7 +419,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#def-pseudo-nfa",
   "type": "Definition",
-  "number": "2.3.6",
+  "number": "2.3.7",
   "title": "",
   "body": "  A pseudo-NFA is a 5-tuple , where , , and are the same as for an NFA, but is a set of start states, and is a function .   "
 },
@@ -419,7 +428,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#def-transition-function-pnfa",
   "type": "Definition",
-  "number": "2.3.7",
+  "number": "2.3.8",
   "title": "",
   "body": "  Let be a pseudo-NFA. Then    "
 },
@@ -428,7 +437,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#def-language-pnfa",
   "type": "Definition",
-  "number": "2.3.8",
+  "number": "2.3.9",
   "title": "",
   "body": "  Let be a pseudo-NFA. Then .   "
 },
@@ -437,7 +446,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#lemma-1",
   "type": "Lemma",
-  "number": "2.3.9",
+  "number": "2.3.10",
   "title": "",
   "body": "  If is an NFA, then the two definitions of are equivalent.   "
 },
@@ -446,7 +455,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#thm-pseudo-nfa-subset",
   "type": "Theorem",
-  "number": "2.3.10",
+  "number": "2.3.11",
   "title": "",
   "body": "  Let be a pseudo-NFA. Then there is a DFA such that .   "
 },
@@ -464,7 +473,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#thm-regular-closed-union",
   "type": "Theorem",
-  "number": "2.3.11",
+  "number": "2.3.12",
   "title": "",
   "body": "  If and are regular languages, then so is .   "
 },
@@ -500,14 +509,14 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#ex-eps-transitions-diagram",
   "type": "Example",
-  "number": "2.3.12",
+  "number": "2.3.13",
   "title": "",
   "body": " Consider the -NFA shown below.   An NFA with -transitions.      This NFA accepts the language of possibly signed decimal numbers, including integers and numbers with a decimal point. The numbers don't have to have a sign, so there is an -transition from to . Similarly, it is cleaner to have an -transition from to to end the input than another transition with the same label.  The transition table for this machine is shown below.                                                            "
 },
 {
-  "id": "p-202",
+  "id": "p-204",
   "level": "2",
-  "url": "NFA.html#p-202",
+  "url": "NFA.html#p-204",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -518,7 +527,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#def-eps-closure",
   "type": "Definition",
-  "number": "2.3.14",
+  "number": "2.3.15",
   "title": "",
   "body": "  Let be a state in an -NFA. The -closure of , written , is a set of states in the NFA defined inductively as follows.   The state is in .    If state is in , and there is an -transition from to , then is in .      "
 },
@@ -527,7 +536,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#def-eps-nfa-deltahat",
   "type": "Definition",
-  "number": "2.3.15",
+  "number": "2.3.16",
   "title": "",
   "body": "  Let be an -NFA. Then the extended transition function of , written , is a function defined as follows.    for each state .     is defined as follows. First let be the members of the set . Then let be the members of the set . Then we define to be the set .      "
 },
@@ -545,7 +554,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "NFA.html#figure-4",
   "type": "Figure",
-  "number": "2.3.16",
+  "number": "2.3.17",
   "title": "",
   "body": " Professor Brailsford explains the Chomsky hierarchy.   "
 },
@@ -556,7 +565,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.4",
   "title": "Regular expressions",
-  "body": " Regular expressions   Regular expressions are yet another way of describing the class of regular languages. We build them up from simpler ones using operations. It is more algebraic in feel than the state diagrams and automata.  Regular expressions find wide use throughout computing in text matching applications. My standard zoo of examples includes the venerable UNIX\/Linux utilities grep , sed , and awk . These are all based on regular expressions. They are also provided in every modern code editor and IDE, usually with extensions that go beyond the regular languages. Regular expressions find their way into these tools because their algebraic representation makes them easy to manipulate and combine and type into a terminal.  Alumni of CSC-235 will perhaps recognize regular expressions from the homework we did involving flex and bison . It is typical for the lexing phase of a compiler to be implemented using regular expressions.    Operators and examples  Regular expressions denote languages. For example, denotes the language whose words are strings of any number of followed by a or strings of any number of followed by a single . All the operators and rules for interpreting regular expressions are explained below and more exhaustively in HMU 3.1. The operators are listed below, in order of decreasing precedence, in . The description refers to languages, not regular expressions, but the operators and their meanings and notations will be the same.   Operators for languages    Union  The union of the languages and is written . It contains all the words that are in either or .    Concatenation  The concatenation of two languages consists of the words where matches and matches . Notice that only one such decomposition is required to exist: if it's possible to decompose this way, it is in . As you see, the concatenation operator is usually not represented by an explicit symbol, but by juxtaposition. We frequently use powers to stand for self-concatenation. So, would be the same as , and would be the same as , and so on. Using this convention, we have and for all languages .    Star  The star operator represents the set of words formed from zero or more concatenations of the language to which it is applied. For example, denotes the set of strings obtaining by pasting zero or more strings from together. Another way to say it is: where the powers represent self-concatenation.      Example 3.1 in HMU is worth consulting. For a given language , it is not always so obvious what is.   In the algebra of regular expressions, we use the same operators to combine simpler expressions. Each regular expression has a language that it represents . The language of a regular expression is denoted , just like for automata.    The definition is inductive. Let the alphabet of symbols be some set . Then    The constants and are regular expressions. We define and .    If , then is a regular expression and .    A variable, usually capitalized like , is a regular expression. Such a variable represents a whole language.    If and are regular expressions, then so is their union . The language it represents is .    If and are regular expressions, then so is their concatenation . The language it represents is .    If is a regular expression, then so is its star . The language it represents is .    Finally, if is a regular expression, then so is its parenthesization . The language it represents is .    It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define to be . This is the set of strings that can be formed by concatenating one or more strings from (not zero or more).  Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.      Write regular expressions for each language.    The set of strings over containing at least one and one   One that works is .   The set of strings of s and s with no consecutive s.                "
+  "body": " Regular expressions   Regular expressions are yet another way of describing the class of regular languages. We build them up from simpler ones using operations. It is more algebraic in feel than the state diagrams and automata.  Regular expressions find wide use throughout computing in text matching applications. My standard zoo of examples includes the venerable UNIX\/Linux utilities grep , sed , and awk . These are all based on regular expressions. They are also provided in every modern code editor and IDE, usually with extensions that go beyond the regular languages. Regular expressions find their way into these tools because their algebraic representation makes them easy to manipulate and combine and type into a terminal.  Alumni of CSC-235 will perhaps recognize regular expressions from the homework we did involving flex and bison . It is typical for the lexing phase of a compiler to be implemented using regular expressions.  The regular expressions that IDEs or editors provide are typically extended in ways that make them strictly more powerful than NFAs. There are also usually quality-of-life extensions, like character classes, that make regular expressions easier to read and write without making them more expressive. Of course, these extended regular expressions cannot be implemented via conversion to DFA as is often suggested. They must be handled in other ways, which are inevitably slower (some of the extensions, while fast in typical use cases, have running time in the worst case).  See the article for an excellent and readable comparison of the two approaches and learn how you can earn a one million dollar prize.    Operators and examples  Regular expressions denote languages. For example, denotes the language whose words are strings of any number of followed by a or strings of any number of followed by a single . All the operators and rules for interpreting regular expressions are explained below and more exhaustively in HMU 3.1. The operators are listed below, in order of decreasing precedence, in . The description refers to languages, not regular expressions, but the operators and their meanings and notations will be the same.   Operators for languages    Union  The union of the languages and is written . It contains all the words that are in either or .    Concatenation  The concatenation of two languages consists of the words where matches and matches . Notice that only one such decomposition is required to exist: if it's possible to decompose this way, it is in . As you see, the concatenation operator is usually not represented by an explicit symbol, but by juxtaposition. We frequently use powers to stand for self-concatenation. So, would be the same as , and would be the same as , and so on. Using this convention, we have and for all languages .    Star  The star operator represents the set of words formed from zero or more concatenations of the language to which it is applied. For example, denotes the set of strings obtaining by pasting zero or more strings from together. Another way to say it is: where the powers represent self-concatenation.      Example 3.1 in HMU is worth consulting. For a given language , it is not always so obvious what is.   In the algebra of regular expressions, we use the same operators to combine simpler expressions. Each regular expression has a language that it represents . The language of a regular expression is denoted , just like for automata.    The definition is inductive. Let the alphabet of symbols be some set . Then   The constants and are regular expressions. We define and .    If , then is a regular expression and .    A variable, usually capitalized like , is a regular expression. Such a variable represents a whole language.    If and are regular expressions, then so is their union . The language it represents is .    If and are regular expressions, then so is their concatenation . The language it represents is .    If is a regular expression, then so is its star . The language it represents is .    Finally, if is a regular expression, then so is its parenthesization . The language it represents is .     It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define to be . This is the set of strings that can be formed by concatenating one or more strings from (not zero or more).  Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.      Write regular expressions for each language.    The set of strings over containing at least one and one    One that works is .    The set of strings of s and s with no consecutive s.           NFA and regular expressions    Draw an NFA for each regular expression over the alphabet . Remember that star has the highest precedence (must be evaluated first) and union ( ) the lowest. These are not trick questions.                  Observe how your answers to correspond to the operators on regular expressions: star (closure, per HMU), concatenation, and union.    In this exercise, use -transitions as needed, but make sure your NFA have  a single start state with no incoming transitions  a single accept state with no outgoing transitions.                     Draw an NFA whose language is the same as the language matched by the regular expression. Don't try to do it all at once: Instead, proceed inductively, making simple NFA and then combining them as in .           Suppose you are given NFA and each having  a single start state with no incoming transitions  a single accept state with no outgoing transitions.  Explain how you would combine these into a new NFA satisfying . should also satisfy conditions 1 and 2 above. You are allowed to use -transitions and to respecify the start and accepting states.      Suppose you are given NFA and each having  a single start state with no incoming transitions  a single accept state with no outgoing transitions.  Explain how you would combine these into a new NFA satisfying . should also satisfy conditions 1 and 2 above. You are allowed to use -transitions and to respecify the start and accepting states.      Suppose you are given an NFA having  a single start state with no incoming transitions  a single accept state with no outgoing transitions.  Explain how you would use to build a new NFA satisfying . should also satisfy conditions 1 and 2 above. You are allowed to use -transitions and to respecify the start and accepting states.         Suppose we have an NFA with multiple accept states, some of which might have outgoing transitions. Explain how to use an -transition and a new accept state to convert it to an equivalent NFA with a single accept state and no outgoing transitions from the accept state.    Suppose we have a pseudo-NFA (multiple start states), some of which might have incoming transitions. Explain how to use an -transition and a new start state to convert it to an equivalent NFA with a single start state and no incoming transitions to the start state.         Use your answers to the previous activities to devise a proof that every regular expression can be simulated by an NFA. The definition of regular expression is inductive, so an inductive proof suggests itself.      Russ Cox, Regular expression matching can be simple and fast (but is slow in Java, Perl, PHP, Python, Ruby, etc.)  https:\/\/swtch.com\/~rsc\/regexp\/regexp1.html   "
 },
 {
   "id": "list-regex-ops",
@@ -577,9 +586,9 @@ var ptx_lunr_docs = [
   "body": " Example 3.1 in HMU is worth consulting. For a given language , it is not always so obvious what is.  "
 },
 {
-  "id": "p-224",
+  "id": "p-228",
   "level": "2",
-  "url": "regex.html#p-224",
+  "url": "regex.html#p-228",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -592,7 +601,7 @@ var ptx_lunr_docs = [
   "type": "Definition",
   "number": "2.4.3",
   "title": "",
-  "body": "  The definition is inductive. Let the alphabet of symbols be some set . Then    The constants and are regular expressions. We define and .    If , then is a regular expression and .    A variable, usually capitalized like , is a regular expression. Such a variable represents a whole language.    If and are regular expressions, then so is their union . The language it represents is .    If and are regular expressions, then so is their concatenation . The language it represents is .    If is a regular expression, then so is its star . The language it represents is .    Finally, if is a regular expression, then so is its parenthesization . The language it represents is .    It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define to be . This is the set of strings that can be formed by concatenating one or more strings from (not zero or more).  Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.   "
+  "body": "  The definition is inductive. Let the alphabet of symbols be some set . Then   The constants and are regular expressions. We define and .    If , then is a regular expression and .    A variable, usually capitalized like , is a regular expression. Such a variable represents a whole language.    If and are regular expressions, then so is their union . The language it represents is .    If and are regular expressions, then so is their concatenation . The language it represents is .    If is a regular expression, then so is its star . The language it represents is .    Finally, if is a regular expression, then so is its parenthesization . The language it represents is .     It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define to be . This is the set of strings that can be formed by concatenating one or more strings from (not zero or more).  Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.   "
 },
 {
   "id": "activity-29",
@@ -601,7 +610,79 @@ var ptx_lunr_docs = [
   "type": "Activity",
   "number": "2.4.1",
   "title": "",
-  "body": "  Write regular expressions for each language.    The set of strings over containing at least one and one   One that works is .   The set of strings of s and s with no consecutive s.              "
+  "body": "  Write regular expressions for each language.    The set of strings over containing at least one and one    One that works is .    The set of strings of s and s with no consecutive s.        "
+},
+{
+  "id": "act-regex-ops-as-nfa",
+  "level": "2",
+  "url": "regex.html#act-regex-ops-as-nfa",
+  "type": "Activity",
+  "number": "2.4.2",
+  "title": "",
+  "body": "  Draw an NFA for each regular expression over the alphabet . Remember that star has the highest precedence (must be evaluated first) and union ( ) the lowest. These are not trick questions.                 "
+},
+{
+  "id": "activity-31",
+  "level": "2",
+  "url": "regex.html#activity-31",
+  "type": "Activity",
+  "number": "2.4.3",
+  "title": "",
+  "body": "  In this exercise, use -transitions as needed, but make sure your NFA have  a single start state with no incoming transitions  a single accept state with no outgoing transitions.                  "
+},
+{
+  "id": "activity-32",
+  "level": "2",
+  "url": "regex.html#activity-32",
+  "type": "Activity",
+  "number": "2.4.4",
+  "title": "",
+  "body": "  Draw an NFA whose language is the same as the language matched by the regular expression. Don't try to do it all at once: Instead, proceed inductively, making simple NFA and then combining them as in .        "
+},
+{
+  "id": "activity-33",
+  "level": "2",
+  "url": "regex.html#activity-33",
+  "type": "Activity",
+  "number": "2.4.5",
+  "title": "",
+  "body": "  Suppose you are given NFA and each having  a single start state with no incoming transitions  a single accept state with no outgoing transitions.  Explain how you would combine these into a new NFA satisfying . should also satisfy conditions 1 and 2 above. You are allowed to use -transitions and to respecify the start and accepting states.   "
+},
+{
+  "id": "activity-34",
+  "level": "2",
+  "url": "regex.html#activity-34",
+  "type": "Activity",
+  "number": "2.4.6",
+  "title": "",
+  "body": "  Suppose you are given NFA and each having  a single start state with no incoming transitions  a single accept state with no outgoing transitions.  Explain how you would combine these into a new NFA satisfying . should also satisfy conditions 1 and 2 above. You are allowed to use -transitions and to respecify the start and accepting states.   "
+},
+{
+  "id": "activity-35",
+  "level": "2",
+  "url": "regex.html#activity-35",
+  "type": "Activity",
+  "number": "2.4.7",
+  "title": "",
+  "body": "  Suppose you are given an NFA having  a single start state with no incoming transitions  a single accept state with no outgoing transitions.  Explain how you would use to build a new NFA satisfying . should also satisfy conditions 1 and 2 above. You are allowed to use -transitions and to respecify the start and accepting states.   "
+},
+{
+  "id": "activity-36",
+  "level": "2",
+  "url": "regex.html#activity-36",
+  "type": "Activity",
+  "number": "2.4.8",
+  "title": "",
+  "body": "     Suppose we have an NFA with multiple accept states, some of which might have outgoing transitions. Explain how to use an -transition and a new accept state to convert it to an equivalent NFA with a single accept state and no outgoing transitions from the accept state.    Suppose we have a pseudo-NFA (multiple start states), some of which might have incoming transitions. Explain how to use an -transition and a new start state to convert it to an equivalent NFA with a single start state and no incoming transitions to the start state.      "
+},
+{
+  "id": "activity-37",
+  "level": "2",
+  "url": "regex.html#activity-37",
+  "type": "Activity",
+  "number": "2.4.9",
+  "title": "",
+  "body": "  Use your answers to the previous activities to devise a proof that every regular expression can be simulated by an NFA. The definition of regular expression is inductive, so an inductive proof suggests itself.   "
 },
 {
   "id": "sec-hw1",
@@ -710,6 +791,24 @@ var ptx_lunr_docs = [
   "number": "3.2.5",
   "title": "",
   "body": " Give NFA that accept the languages that match the regular expressions.      "
+},
+{
+  "id": "sec-hw3",
+  "level": "1",
+  "url": "sec-hw3.html",
+  "type": "Section",
+  "number": "3.3",
+  "title": "Homework 03",
+  "body": " Homework 03  This assignment covers sections 2.5 through 3.2 in HMU. Each problem will be worth 3 checks. Your code should be like floating little poems. Use comments wisely: don't explain the routine things, but the clever ones. Make your code transparent so that it is easy to read and understand.  The assignment is worth 15 checks.    Write a single Python file dfa.py that implements the classes specified below with the indicated behavior. You may use any Python features you like, but you may not use any other modules (imports). You are explicitly instructed not to search for a solution to this problem. Obviously it will be very easy to find. Instead, use what you know from class and your existing programming skills. All the code you submit should be your own. Please also refrain from the use of any type of programming assistant (turn off AI gizmos like GitHub Copilot, IntelliSense, ).  Keep the following philosophy in mind as you code. The intuitive, diagram-based idea of a DFA is not something easy to code. However, you also have access to the formal specification and much surrounding apparatus. I would suggest implementing DFA in terms of the formal specification: use it as your inspiration for how the class's fields should look.   The class DFA . This class should have the following methods:  a constructor that returns a usable DFA object  a __repr__() method that dumps the current formal specification of the DFA to the output  a run() method that simulates the action of the extended transition function (see ). This method should return a bool whose value indicates acceptance or rejection.  I have not specified the parameters. These are all instance methods of the class, so must take at least the parameter self . The DFA is nothing more than its formal specification, so you can start there.   Use the data type set for , , and . Think about Python's types carefully before you choose how to implement .   The class NFA . This class should have the following methods. My remarks above about the parameters apply here as well.  a constructor that returns a usable NFA object  a __repr__() method that dumps the current formal specification of the NFA to the output  a helper method do_delta() that simulates the (non-extended) transition function . This method should handle missing transitions gracefully, since it is for an NFA.  a run() method that simulates the action of the extended transition function (see ). This method should call the do_delta() method. It should return a bool whose value indicates acceptance or rejection.     Add another method to your DFA class. The method NFA() takes a DFA object as parameter and should return an instance of your NFA class that is equivalent to the passed DFA.  Also add a method DFA() to your NFA class. This method will perform the subset construction on the passed NFA, and return a DFA instance representing the DFA so constructed.   Obviously, the real difficulty here is the transition function. Be sure you are familiar with the available methods that belong to the classes you have chosen.    "
+},
+{
+  "id": "ex-implement-dfa",
+  "level": "2",
+  "url": "sec-hw3.html#ex-implement-dfa",
+  "type": "Exercise",
+  "number": "3.3.1",
+  "title": "",
+  "body": " Write a single Python file dfa.py that implements the classes specified below with the indicated behavior. You may use any Python features you like, but you may not use any other modules (imports). You are explicitly instructed not to search for a solution to this problem. Obviously it will be very easy to find. Instead, use what you know from class and your existing programming skills. All the code you submit should be your own. Please also refrain from the use of any type of programming assistant (turn off AI gizmos like GitHub Copilot, IntelliSense, ).  Keep the following philosophy in mind as you code. The intuitive, diagram-based idea of a DFA is not something easy to code. However, you also have access to the formal specification and much surrounding apparatus. I would suggest implementing DFA in terms of the formal specification: use it as your inspiration for how the class's fields should look.   The class DFA . This class should have the following methods:  a constructor that returns a usable DFA object  a __repr__() method that dumps the current formal specification of the DFA to the output  a run() method that simulates the action of the extended transition function (see ). This method should return a bool whose value indicates acceptance or rejection.  I have not specified the parameters. These are all instance methods of the class, so must take at least the parameter self . The DFA is nothing more than its formal specification, so you can start there.   Use the data type set for , , and . Think about Python's types carefully before you choose how to implement .   The class NFA . This class should have the following methods. My remarks above about the parameters apply here as well.  a constructor that returns a usable NFA object  a __repr__() method that dumps the current formal specification of the NFA to the output  a helper method do_delta() that simulates the (non-extended) transition function . This method should handle missing transitions gracefully, since it is for an NFA.  a run() method that simulates the action of the extended transition function (see ). This method should call the do_delta() method. It should return a bool whose value indicates acceptance or rejection.     Add another method to your DFA class. The method NFA() takes a DFA object as parameter and should return an instance of your NFA class that is equivalent to the passed DFA.  Also add a method DFA() to your NFA class. This method will perform the subset construction on the passed NFA, and return a DFA instance representing the DFA so constructed.   Obviously, the real difficulty here is the transition function. Be sure you are familiar with the available methods that belong to the classes you have chosen.  "
 }
 ]
 

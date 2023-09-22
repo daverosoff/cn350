@@ -11,14 +11,19 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Let <span class="process-math">\(M\)</span> be a pseudo-NFA. Then</div>
+<div class="para">We can extend the definition of <span class="process-math">\(\hat{\delta}\)</span> to pseudo-NFA in a nice way. We need to be able to cope with a whole set of start states. The idea of <span class="process-math">\(\hat{\delta}\)</span> is that it gives the set of possible “next positions”. If <span class="process-math">\(U\)</span> is a set of states, we can define</div>
 <div class="displaymath process-math">
 \begin{equation*}
-L(M) = \{ w \in \aster{\Sigma} : \hat{\delta}(S, w) \cap F \ne \varnothing \}\text{.}
+\hat{\delta}(U, w) = \begin{cases}
+U \amp \text{if $w = \varepsilon$} \\
+\bigcup_{q \in \hat{\delta}(S, x)} \hat{\delta}(q, a) \amp
+\text{if $w = xa$,} \\
+\end{cases}
 \end{equation*}
 </div>
+<div class="para">capturing this idea. If we apply it to a proper NFA rather than a pseudo-NFA, we obtain almost the same function as before, except that it operates on singleton sets rather than individual states.</div>
 </div>
 <span class="incontext"><a href="NFA.html#p-182" class="internal">in-context</a></span>
 </body>

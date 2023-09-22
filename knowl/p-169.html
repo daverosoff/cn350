@@ -12,15 +12,7 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">To prove the forward implication, we observe that only <span class="process-math">\(q_0\)</span> has a transition to <span class="process-math">\(q_1\text{,}\)</span> and that transition is labeled <span class="process-math">\(0\text{.}\)</span> So the last letter of <span class="process-math">\(w\)</span> must be <span class="process-math">\(0\text{.}\)</span> For the reverse implication, suppose that <span class="process-math">\(w\)</span> ends in <span class="process-math">\(0\text{.}\)</span> Because we have assumed statement 1 for the prefix <span class="process-math">\(x\text{,}\)</span> we know that <span class="process-math">\(\hat{\delta}(q_0, x) \ni q_1\text{.}\)</span> Because there is a transition from <span class="process-math">\(q_0\)</span> to <span class="process-math">\(q_1\)</span> labeled <span class="process-math">\(0\text{,}\)</span> it follows that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-q_1 \in \hat{\delta}(q_0, w)\text{,}
-\end{equation*}
-</div>
-<div class="para">which is what we wanted to prove.</div>
-</div>
+<div class="para">To see that statement 1 holds for <span class="process-math">\(w\text{,}\)</span> we observe that by the induction hypothesis, <span class="process-math">\(q_0 \in \hat{\delta}(q_0, x)\text{.}\)</span> Since <span class="process-math">\(w = x0\)</span> or <span class="process-math">\(w = x1\text{,}\)</span> and there are loop transitions from <span class="process-math">\(q_0\)</span> labeled with both <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> we see that <span class="process-math">\(q_0 \in \hat{\delta}(q_0, w)\text{,}\)</span> as required.</div>
 <span class="incontext"><a href="NFA.html#p-169" class="internal">in-context</a></span>
 </body>
 </html>

@@ -11,14 +11,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Recall that there are a few differences between DFA and NFA:</div>
-<ol class="decimal">
-<li><div class="para">DFA must have exactly one outbound transition from each state with each symbol, but NFA may have zero, one, or many such transitions.</div></li>
-<li><div class="para">The transition function for DFA looks like <span class="process-math">\(\delta \colon Q \times \Sigma \to Q\text{,}\)</span> but for NFA, it looks like <span class="process-math">\(\delta \colon Q \times \Sigma \to 2^{Q}\text{.}\)</span>
-</div></li>
-</ol>
+<div class="para">To prove the forward implication, we observe that only <span class="process-math">\(q_0\)</span> has a transition to <span class="process-math">\(q_1\text{,}\)</span> and that transition is labeled <span class="process-math">\(0\text{.}\)</span> So the last letter of <span class="process-math">\(w\)</span> must be <span class="process-math">\(0\text{.}\)</span> For the reverse implication, suppose that <span class="process-math">\(w\)</span> ends in <span class="process-math">\(0\text{.}\)</span> Because we have assumed statement 1 for the prefix <span class="process-math">\(x\text{,}\)</span> we know that <span class="process-math">\(\hat{\delta}(q_0, x) \ni q_1\text{.}\)</span> Because there is a transition from <span class="process-math">\(q_0\)</span> to <span class="process-math">\(q_1\)</span> labeled <span class="process-math">\(0\text{,}\)</span> it follows that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+q_1 \in \hat{\delta}(q_0, w)\text{,}
+\end{equation*}
+</div>
+<div class="para">which is what we wanted to prove.</div>
 </div>
 <span class="incontext"><a href="NFA.html#p-171" class="internal">in-context</a></span>
 </body>

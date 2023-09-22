@@ -12,17 +12,7 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Let <span class="process-math">\(M\)</span> be a pseudo-NFA. Then</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\hat{\delta}(U, w) = \begin{cases}
-U \amp \text{if $w = \varepsilon$} \\
-\displaystyle \bigcup_{q \in \hat{\delta}(U, x)} \hat{\delta}(q, a) \amp
-\text{if $w = xa$.} \\
-\end{cases}
-\end{equation*}
-</div>
+<div class="para">A <dfn class="terminology">pseudo-NFA</dfn> is a 5-tuple <span class="process-math">\(M = (Q, \Sigma, S, F, \delta)\text{,}\)</span> where <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(\Sigma\text{,}\)</span> and <span class="process-math">\(F\)</span> are the same as for an NFA, but <span class="process-math">\(S\)</span> is a <em class="emphasis">set</em> of start states, and <span class="process-math">\(\delta\)</span> is a function <span class="process-math">\(\delta \colon Q \times \Sigma \to 2^Q\text{.}\)</span>
 </div>
 <span class="incontext"><a href="NFA.html#p-181" class="internal">in-context</a></span>
 </body>

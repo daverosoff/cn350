@@ -279,7 +279,11 @@ window.MathJax = {
 </li>
 <li class="active">
 <div class="toc-item"><a href="regex.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Regular expressions</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="regex.html#regex-basics" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Operators and examples</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="regex.html#regex-basics" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Operators and examples</span></a></div></li>
+<li><div class="toc-item"><a href="regex.html#subsec-nfa-and-regex" class="internal"><span class="codenumber">2.4.2</span> <span class="title">NFA and regular expressions</span></a></div></li>
+<li><div class="toc-item"><a href="regex.html#references-1" class="internal"><span class="codenumber">2.4.3</span> <span class="title">References</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -294,26 +298,31 @@ window.MathJax = {
 <div class="toc-item"><a href="sec-hw2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Homework 02</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="sec-hw2.html#exercises-2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
+<li>
+<div class="toc-item"><a href="sec-hw3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Homework 03</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-hw3.html#exercises-3" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="regex"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="regex"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.4</span><span class="space"> </span><span class="title">Regular expressions</span>
 </h2>
-<section class="introduction" id="introduction-5"><div class="para" id="p-216">Regular expressions are yet another way of describing the class of regular languages. We build them up from simpler ones using operations. It is more algebraic in feel than the state diagrams and automata.</div> <div class="para" id="p-217">Regular expressions find wide use throughout computing in text matching applications. My standard zoo of examples includes the venerable UNIX/Linux utilities <code class="code-inline tex2jax_ignore">grep</code>, <code class="code-inline tex2jax_ignore">sed</code>, and <code class="code-inline tex2jax_ignore">awk</code>. These are all based on regular expressions. They are also provided in every modern code editor and IDE, usually with extensions that go beyond the regular languages. Regular expressions find their way into these tools because their algebraic representation makes them easy to manipulate and combine and type into a terminal.</div> <div class="para" id="p-218">Alumni of CSC-235 will perhaps recognize regular expressions from the homework we did involving <code class="code-inline tex2jax_ignore">flex</code> and <code class="code-inline tex2jax_ignore">bison</code>. It is typical for the lexing phase of a compiler to be implemented using regular expressions.</div></section><section class="subsection" id="regex-basics"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-5"><div class="para" id="p-218">Regular expressions are yet another way of describing the class of regular languages. We build them up from simpler ones using operations. It is more algebraic in feel than the state diagrams and automata.</div> <div class="para" id="p-219">Regular expressions find wide use throughout computing in text matching applications. My standard zoo of examples includes the venerable UNIX/Linux utilities <code class="code-inline tex2jax_ignore">grep</code>, <code class="code-inline tex2jax_ignore">sed</code>, and <code class="code-inline tex2jax_ignore">awk</code>. These are all based on regular expressions. They are also provided in every modern code editor and IDE, usually with extensions that go beyond the regular languages. Regular expressions find their way into these tools because their algebraic representation makes them easy to manipulate and combine and type into a terminal.</div> <div class="para" id="p-220">Alumni of CSC-235 will perhaps recognize regular expressions from the homework we did involving <code class="code-inline tex2jax_ignore">flex</code> and <code class="code-inline tex2jax_ignore">bison</code>. It is typical for the lexing phase of a compiler to be implemented using regular expressions.</div> <div class="para" id="p-221">The regular expressions that IDEs or editors provide are typically extended in ways that make them strictly more powerful than NFAs. There are also usually quality-of-life extensions, like character classes, that make regular expressions easier to read and write without making them more expressive. Of course, these extended regular expressions cannot be implemented via conversion to DFA as is often suggested. They must be handled in other ways, which are inevitably slower (some of the extensions, while fast in typical use cases, have <span class="process-math">\(O(2^n)\)</span> running time in the worst case).</div> <div class="para" id="p-222">See the article <a href="" class="xref" data-knowl="./knowl/biblio-cox-regex-matching.html" title="Bibliographic Entry 2.4.3.1: Regular expression matching can be simple and fast (but is slow in Java, Perl, PHP, Python, Ruby, etc.)">[2.4.3.1]</a> for an excellent and readable comparison of the two approaches and learn how you can earn a one million dollar prize.</div></section><section class="subsection" id="regex-basics"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="space"> </span><span class="title">Operators and examples</span>
 </h3>
-<div class="para" id="p-219">Regular expressions denote languages. For example, <span class="process-math">\(0\aster{1} +
+<div class="para" id="p-223">Regular expressions denote languages. For example, <span class="process-math">\(0\aster{1} +
 1\aster{0}\)</span> denotes the language whose words are strings of any number of <span class="process-math">\(0\)</span> followed by a <span class="process-math">\(1\)</span> or strings of any number of <span class="process-math">\(1\)</span> followed by a single <span class="process-math">\(0\text{.}\)</span> All the operators and rules for interpreting regular expressions are explained below and more exhaustively in HMU 3.1. The operators are listed below, in order of decreasing precedence, in <a href="" class="xref" data-knowl="./knowl/list-regex-ops.html" title="List 2.4.1: Operators for languages">List 2.4.1</a>. The description refers to languages, not regular expressions, but the operators and their meanings and notations will be the same.</div>
 <figure class="list table-like" id="list-regex-ops"><figcaption><span class="type">List</span><span class="space"> </span><span class="codenumber">2.4.1<span class="period">.</span></span><span class="space"> </span>Operators for languages</figcaption><div class="named-list-content"><dl class="description-list">
-<dt id="li-124">Union</dt>
-<dd><div class="para" id="p-220">The union of the languages <span class="process-math">\(L_1\)</span> and <span class="process-math">\(L_2\)</span> is written <span class="process-math">\(L_1 + L_2\text{.}\)</span> It contains all the words that are in either <span class="process-math">\(L_1\)</span> or <span class="process-math">\(L_2\text{.}\)</span>
+<dt id="li-125">Union</dt>
+<dd><div class="para" id="p-224">The union of the languages <span class="process-math">\(L_1\)</span> and <span class="process-math">\(L_2\)</span> is written <span class="process-math">\(L_1 + L_2\text{.}\)</span> It contains all the words that are in either <span class="process-math">\(L_1\)</span> or <span class="process-math">\(L_2\text{.}\)</span>
 </div></dd>
-<dt id="li-125">Concatenation</dt>
-<dd><div class="para" id="p-221">The concatenation <span class="process-math">\(L_1 L_2\)</span> of two languages consists of the words <span class="process-math">\(w = xy\)</span> where <span class="process-math">\(x\)</span> matches <span class="process-math">\(L_1\)</span> and <span class="process-math">\(y\)</span> matches <span class="process-math">\(L_2\text{.}\)</span> Notice that only one such decomposition is required to exist: if it’s possible to decompose <span class="process-math">\(w\)</span> this way, it is in <span class="process-math">\(L_1 L_2\text{.}\)</span> As you see, the concatenation operator is usually not represented by an explicit symbol, but by juxtaposition. We frequently use powers to stand for self-concatenation. So, <span class="process-math">\(L^2\)</span> would be the same as <span class="process-math">\(L L\text{,}\)</span> and <span class="process-math">\(L^3\)</span> would be the same as <span class="process-math">\(L L L = L^2 L = L L^2\text{,}\)</span> and so on. Using this convention, we have <span class="process-math">\(L^0 = \{\epsilon\}\)</span> and <span class="process-math">\(L^1 = L\)</span> for all languages <span class="process-math">\(L\text{.}\)</span>
+<dt id="li-126">Concatenation</dt>
+<dd><div class="para" id="p-225">The concatenation <span class="process-math">\(L_1 L_2\)</span> of two languages consists of the words <span class="process-math">\(w = xy\)</span> where <span class="process-math">\(x\)</span> matches <span class="process-math">\(L_1\)</span> and <span class="process-math">\(y\)</span> matches <span class="process-math">\(L_2\text{.}\)</span> Notice that only one such decomposition is required to exist: if it’s possible to decompose <span class="process-math">\(w\)</span> this way, it is in <span class="process-math">\(L_1 L_2\text{.}\)</span> As you see, the concatenation operator is usually not represented by an explicit symbol, but by juxtaposition. We frequently use powers to stand for self-concatenation. So, <span class="process-math">\(L^2\)</span> would be the same as <span class="process-math">\(L L\text{,}\)</span> and <span class="process-math">\(L^3\)</span> would be the same as <span class="process-math">\(L L L = L^2 L = L L^2\text{,}\)</span> and so on. Using this convention, we have <span class="process-math">\(L^0 = \{\epsilon\}\)</span> and <span class="process-math">\(L^1 = L\)</span> for all languages <span class="process-math">\(L\text{.}\)</span>
 </div></dd>
-<dt id="li-126">Star</dt>
-<dd><div class="para logical" id="p-222">
+<dt id="li-127">Star</dt>
+<dd><div class="para logical" id="p-226">
 <div class="para">The star operator represents the set of words formed from zero or more concatenations of the language to which it is applied. For example, <span class="process-math">\(\aster{L}\)</span> denotes the set of strings obtaining by pasting zero or more strings from <span class="process-math">\(L\)</span> together. Another way to say it is:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -325,52 +334,135 @@ window.MathJax = {
 </dl></div></figure><article class="example example-like" id="ex-kleene-star"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-223">Example 3.1 in HMU is worth consulting. For a given language <span class="process-math">\(L\text{,}\)</span> it is not always so obvious what <span class="process-math">\(\aster{L}\)</span> is.</div></article><div class="para" id="p-224">In the algebra of regular expressions, we use the same operators to combine simpler expressions. Each regular expression has a language that it <dfn class="terminology">represents</dfn>. The language of a regular expression <span class="process-math">\(E\)</span> is denoted <span class="process-math">\(L(E)\text{,}\)</span> just like for automata.</div>
+<div class="para" id="p-227">Example 3.1 in HMU is worth consulting. For a given language <span class="process-math">\(L\text{,}\)</span> it is not always so obvious what <span class="process-math">\(\aster{L}\)</span> is.</div></article><div class="para" id="p-228">In the algebra of regular expressions, we use the same operators to combine simpler expressions. Each regular expression has a language that it <dfn class="terminology">represents</dfn>. The language of a regular expression <span class="process-math">\(E\)</span> is denoted <span class="process-math">\(L(E)\text{,}\)</span> just like for automata.</div>
 <article class="definition definition-like" id="def-regex"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-225">The definition is inductive. Let the alphabet of symbols be some set <span class="process-math">\(\Sigma\text{.}\)</span> Then</div> <ol class="decimal">
-<li id="li-127"><div class="para" id="p-226">The constants <span class="process-math">\(\varepsilon\)</span> and <span class="process-math">\(\varnothing\)</span> are regular expressions. We define <span class="process-math">\(L(\varepsilon) = \{\varepsilon\}\)</span> and <span class="process-math">\(L(\varnothing) = \varnothing\text{.}\)</span>
+<div class="para logical" id="p-229">
+<div class="para">The definition is inductive. Let the alphabet of symbols be some set <span class="process-math">\(\Sigma\text{.}\)</span> Then</div>
+<ol class="decimal">
+<li id="li-128"><div class="para" id="p-230">The constants <span class="process-math">\(\varepsilon\)</span> and <span class="process-math">\(\varnothing\)</span> are regular expressions. We define <span class="process-math">\(L(\varepsilon) = \{\varepsilon\}\)</span> and <span class="process-math">\(L(\varnothing) = \varnothing\text{.}\)</span>
 </div></li>
-<li id="li-128"><div class="para" id="p-227">If <span class="process-math">\(a \in \Sigma\text{,}\)</span> then <span class="process-math">\(a\)</span> is a regular expression and <span class="process-math">\(L(a) = \{a\}\text{.}\)</span>
+<li id="li-129"><div class="para" id="p-231">If <span class="process-math">\(a \in \Sigma\text{,}\)</span> then <span class="process-math">\(a\)</span> is a regular expression and <span class="process-math">\(L(a) = \{a\}\text{.}\)</span>
 </div></li>
-<li id="li-129"><div class="para" id="p-228">A variable, usually capitalized like <span class="process-math">\(B\text{,}\)</span> is a regular expression. Such a variable represents a whole language.</div></li>
-<li id="li-130"><div class="para" id="p-229">If <span class="process-math">\(E\)</span> and <span class="process-math">\(F\)</span> are regular expressions, then so is their union <span class="process-math">\(E + F\text{.}\)</span> The language it represents is <span class="process-math">\(L(E) + L(F)\text{.}\)</span>
+<li id="li-130"><div class="para" id="p-232">A variable, usually capitalized like <span class="process-math">\(B\text{,}\)</span> is a regular expression. Such a variable represents a whole language.</div></li>
+<li id="li-131"><div class="para" id="p-233">If <span class="process-math">\(E\)</span> and <span class="process-math">\(F\)</span> are regular expressions, then so is their union <span class="process-math">\(E + F\text{.}\)</span> The language it represents is <span class="process-math">\(L(E) + L(F)\text{.}\)</span>
 </div></li>
-<li id="li-131"><div class="para" id="p-230">If <span class="process-math">\(E\)</span> and <span class="process-math">\(F\)</span> are regular expressions, then so is their concatenation <span class="process-math">\(E F\text{.}\)</span> The language it represents is <span class="process-math">\(L(E) L(F)\text{.}\)</span>
+<li id="li-132"><div class="para" id="p-234">If <span class="process-math">\(E\)</span> and <span class="process-math">\(F\)</span> are regular expressions, then so is their concatenation <span class="process-math">\(E F\text{.}\)</span> The language it represents is <span class="process-math">\(L(E) L(F)\text{.}\)</span>
 </div></li>
-<li id="li-132"><div class="para" id="p-231">If <span class="process-math">\(E\)</span> is a regular expression, then so is its star <span class="process-math">\(\aster{E}\text{.}\)</span> The language it represents is <span class="process-math">\(\aster{L(E)}\text{.}\)</span>
+<li id="li-133"><div class="para" id="p-235">If <span class="process-math">\(E\)</span> is a regular expression, then so is its star <span class="process-math">\(\aster{E}\text{.}\)</span> The language it represents is <span class="process-math">\(\aster{L(E)}\text{.}\)</span>
 </div></li>
-<li id="li-133"><div class="para" id="p-232">Finally, if <span class="process-math">\(E\)</span> is a regular expression, then so is its parenthesization <span class="process-math">\((E)\text{.}\)</span> The language it represents is <span class="process-math">\(L(E)\text{.}\)</span>
+<li id="li-134"><div class="para" id="p-236">Finally, if <span class="process-math">\(E\)</span> is a regular expression, then so is its parenthesization <span class="process-math">\((E)\text{.}\)</span> The language it represents is <span class="process-math">\(L(E)\text{.}\)</span>
 </div></li>
-</ol> <div class="para" id="p-233">It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define <span class="process-math">\(L^+\)</span> to be <span class="process-math">\(LL^*\text{.}\)</span> This is the set of strings that can be formed by concatenating one or more strings from <span class="process-math">\(L\)</span> (not zero or more).</div> <div class="para" id="p-234">Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.</div></article><div class="para prelude" id="p-235">Write regular expressions for each language.</div>
+</ol>
+</div> <div class="para" id="p-237">It is typical to also include the unary plus operator for regular expressions, but it is not necessary. We define <span class="process-math">\(L^+\)</span> to be <span class="process-math">\(LL^*\text{.}\)</span> This is the set of strings that can be formed by concatenating one or more strings from <span class="process-math">\(L\)</span> (not zero or more).</div> <div class="para" id="p-238">Note that it is very common to conflate a regular expression with the language it represents, especially when speaking. We should try to be clear and keep them separate at first.</div></article><div class="para prelude" id="p-239">Write regular expressions for each language.</div>
 <article class="activity project-like" id="activity-29"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span>
 </h4>
 <article class="task exercise-like" id="task-10"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="p-236">The set of strings over <span class="process-math">\(\{a, b, c}\)</span> containing at least one <span class="process-math">\(a\)</span> and one <span class="process-math">\(b\)</span>
+<div class="para" id="p-240">The set of strings over <span class="process-math">\(\{a, b, c\}\)</span> containing at least one <span class="process-math">\(a\)</span> and one <span class="process-math">\(b\)</span>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like">One that works is<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><div class="para logical" id="p-241">
+<div class="para">One that works is</div>
+<div class="displaymath process-math">
 \begin{equation*}
-(a + b + c)^* a (a + b + c)^* b (a + b + c)^*
-+ (a + b + c)^* b (a + b + c)^* a (a + b + c)^*\text{.}
+\aster{(a + b + c)} a \aster{(a + b + c)} b \aster{(a + b + c)}
++ \aster{(a + b + c)} b \aster{(a + b + c)} a \aster{(a + b + c)}\text{.}
 \end{equation*}
 </div>
-</div></div>
+</div></div></div>
 </div></article><article class="task exercise-like" id="task-11"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="p-237">The set of strings of <span class="process-math">\(0\)</span>s and <span class="process-math">\(1\)</span>s with no consecutive <span class="process-math">\(1\)</span>s.</div>
+<div class="para" id="p-242">The set of strings of <span class="process-math">\(0\)</span>s and <span class="process-math">\(1\)</span>s with no consecutive <span class="process-math">\(1\)</span>s.</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like"><div class="para logical" id="p-238"><div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like"><div class="para logical" id="p-243"><div class="displaymath process-math">
 \begin{equation*}
-(0 + \varepsilon) (0 + 10)^* (0 + \varepsilon)
+\aster{(0 + 10)} (1 + \varepsilon)
 \end{equation*}
 </div></div></div></div>
-</div></article><article class="task exercise-like" id="task-12"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="p-239"></div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-7" id="answer-7"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-7"><div class="answer solution-like"><div class="para" id="p-240"></div></div></div>
-</div></article></article></section></section></div>
+</div></article></article></section><section class="subsection" id="subsec-nfa-and-regex"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="space"> </span><span class="title">NFA and regular expressions</span>
+</h3>
+<article class="activity project-like" id="act-regex-ops-as-nfa"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-244">
+<div class="para">Draw an NFA for each regular expression over the alphabet <span class="process-math">\(\Sigma = \{a, b, c, d\}\text{.}\)</span> Remember that star has the highest precedence (must be evaluated first) and union (<span class="process-math">\(+\)</span>) the lowest. These are not trick questions.</div>
+<ol class="upper-alpha">
+<li id="li-135"><div class="para" id="p-245"><span class="process-math">\(\displaystyle a\)</span></div></li>
+<li id="li-136"><div class="para" id="p-246"><span class="process-math">\(\displaystyle ac\)</span></div></li>
+<li id="li-137"><div class="para" id="p-247"><span class="process-math">\(\displaystyle a \aster{b} c\)</span></div></li>
+<li id="li-138"><div class="para" id="p-248"><span class="process-math">\(\displaystyle a \aster{b} c + d\)</span></div></li>
+</ol>
+</div></article><div class="para" id="p-249">Observe how your answers to <a href="" class="xref" data-knowl="./knowl/act-regex-ops-as-nfa.html" title="Activity 2.4.2">Activity 2.4.2</a> correspond to the operators on regular expressions: star (closure, per HMU), concatenation, and union.</div>
+<article class="activity project-like" id="activity-31"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-250">
+<div class="para">In this exercise, use <span class="process-math">\(\varepsilon\)</span>-transitions as needed, but make sure your NFA have</div>
+<ul class="disc">
+<li id="li-139"><div class="para" id="p-derived-li-139">a single start state with no incoming transitions</div></li>
+<li id="li-140"><div class="para" id="p-derived-li-140">a single accept state with no outgoing transitions.</div></li>
+</ul>
+</div> <div class="para logical" id="p-251"><ol class="upper-alpha">
+<li id="li-141"><div class="para" id="p-252"><span class="process-math">\(\displaystyle 0\aster{1}\)</span></div></li>
+<li id="li-142"><div class="para" id="p-253"><span class="process-math">\(\displaystyle (0 + 1)01\)</span></div></li>
+<li id="li-143"><div class="para" id="p-254"><span class="process-math">\(\displaystyle 00\aster{(0+1)}\)</span></div></li>
+</ol></div></article><article class="activity project-like" id="activity-32"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-255">
+<div class="para">Draw an NFA whose language is the same as the language matched by the regular expression. Don’t try to do it all at once: Instead, proceed inductively, making simple NFA and then combining them as in <a href="" class="xref" data-knowl="./knowl/act-regex-ops-as-nfa.html" title="Activity 2.4.2">Activity 2.4.2</a>.</div>
+<ol class="upper-alpha">
+<li id="li-144"><div class="para" id="p-derived-li-144"><span class="process-math">\(\displaystyle \aster{(00\aster{0} + 11\aster{1})}\)</span></div></li>
+<li id="li-145"><div class="para" id="p-derived-li-145"><span class="process-math">\(\displaystyle (01 + 10)(01 + 10)(01 + 10)\)</span></div></li>
+<li id="li-146"><div class="para" id="p-derived-li-146"><span class="process-math">\(\displaystyle \aster{(0 + 1\aster{(0\aster{1}0)}1)}\)</span></div></li>
+</ol>
+</div></article><article class="activity project-like" id="activity-33"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-256">
+<div class="para">Suppose you are given NFA <span class="process-math">\(M_1\)</span> and <span class="process-math">\(M_2\)</span> each having</div>
+<ol class="decimal">
+<li id="li-147"><div class="para" id="p-derived-li-147">a single start state with no incoming transitions</div></li>
+<li id="li-148"><div class="para" id="p-derived-li-148">a single accept state with no outgoing transitions.</div></li>
+</ol>
+<div class="para">Explain how you would combine these into a new NFA <span class="process-math">\(M\)</span> satisfying <span class="process-math">\(L(M) = L(M_1) + L(M_2)\text{.}\)</span> <span class="process-math">\(M\)</span> should also satisfy conditions 1 and 2 above. You are allowed to use <span class="process-math">\(\varepsilon\)</span>-transitions and to respecify the start and accepting states.</div>
+</div></article><article class="activity project-like" id="activity-34"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-257">
+<div class="para">Suppose you are given NFA <span class="process-math">\(M_1\)</span> and <span class="process-math">\(M_2\)</span> each having</div>
+<ol class="decimal">
+<li id="li-149"><div class="para" id="p-derived-li-149">a single start state with no incoming transitions</div></li>
+<li id="li-150"><div class="para" id="p-derived-li-150">a single accept state with no outgoing transitions.</div></li>
+</ol>
+<div class="para">Explain how you would combine these into a new NFA <span class="process-math">\(M\)</span> satisfying <span class="process-math">\(L(M) = L(M_1) L(M_2)\text{.}\)</span> <span class="process-math">\(M\)</span> should also satisfy conditions 1 and 2 above. You are allowed to use <span class="process-math">\(\varepsilon\)</span>-transitions and to respecify the start and accepting states.</div>
+</div></article><article class="activity project-like" id="activity-35"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-258">
+<div class="para">Suppose you are given an NFA <span class="process-math">\(N\)</span> having</div>
+<ol class="decimal">
+<li id="li-151"><div class="para" id="p-derived-li-151">a single start state with no incoming transitions</div></li>
+<li id="li-152"><div class="para" id="p-derived-li-152">a single accept state with no outgoing transitions.</div></li>
+</ol>
+<div class="para">Explain how you would use <span class="process-math">\(N\)</span> to build a new NFA <span class="process-math">\(N\)</span> satisfying <span class="process-math">\(L(M) = \aster{L(N)}\text{.}\)</span> <span class="process-math">\(M\)</span> should also satisfy conditions 1 and 2 above. You are allowed to use <span class="process-math">\(\varepsilon\)</span>-transitions and to respecify the start and accepting states.</div>
+</div></article><article class="activity project-like" id="activity-36"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.8</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-259"><ol class="upper-alpha">
+<li id="li-153"><div class="para" id="p-260">Suppose we have an NFA with multiple accept states, some of which might have outgoing transitions. Explain how to use an <span class="process-math">\(\varepsilon\)</span>-transition and a new accept state to convert it to an equivalent NFA with a single accept state and no outgoing transitions from the accept state.</div></li>
+<li id="li-154"><div class="para" id="p-261">Suppose we have a pseudo-NFA (multiple start states), some of which might have incoming transitions. Explain how to use an <span class="process-math">\(\varepsilon\)</span>-transition and a new start state to convert it to an equivalent NFA with a single start state and no incoming transitions to the start state.</div></li>
+</ol></div></article><article class="activity project-like" id="activity-37"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.9</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-262">Use your answers to the previous activities to devise a proof that every regular expression can be simulated by an NFA. The definition of regular expression is inductive, so an inductive proof suggests itself.</div></article></section><section class="references" id="references-1"><h3 class="heading hide-type">
+<span class="type">References</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="space"> </span><span class="title">References</span>
+</h3>
+<article class="bib" id="biblio-cox-regex-matching"><div class="bibitem">[1]</div>  <div class="bibentry">Russ Cox, <i>Regular expression matching can be simple and fast (but is slow in Java, Perl, PHP, Python, Ruby, etc.)</i> <a class="external" href="" target="_blank">https://swtch.com/~rsc/regexp/regexp1.html</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 1 </sup></a>
+</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore"></code></div></div>
+</div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="NFA.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-assignments.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

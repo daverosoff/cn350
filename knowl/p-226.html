@@ -12,7 +12,14 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">The constants <span class="process-math">\(\varepsilon\)</span> and <span class="process-math">\(\varnothing\)</span> are regular expressions. We define <span class="process-math">\(L(\varepsilon) = \{\varepsilon\}\)</span> and <span class="process-math">\(L(\varnothing) = \varnothing\text{.}\)</span>
+<div class="para logical">
+<div class="para">The star operator represents the set of words formed from zero or more concatenations of the language to which it is applied. For example, <span class="process-math">\(\aster{L}\)</span> denotes the set of strings obtaining by pasting zero or more strings from <span class="process-math">\(L\)</span> together. Another way to say it is:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\aster{L} = L^0 + L^1 + L^2 + \cdots
+\end{equation*}
+</div>
+<div class="para">where the powers represent self-concatenation.</div>
 </div>
 <span class="incontext"><a href="regex.html#p-226" class="internal">in-context</a></span>
 </body>
