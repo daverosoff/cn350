@@ -22,9 +22,9 @@
           <li>Does the machine accept the string <m>\epsilon</m>?</li>
         </ol>
         <sidebyside>
-          <figure>
+          <figure xml:id="hw1-fig-m1">
             <caption><m>M_1.</m></caption>
-            <image width="30%">
+            <image width="30%" label="hw1-fig-m1">
               <latex-image>
                 \begin{tikzpicture}[on grid, scale=0.5]
                 \node[state, initial, initial where=up] (q1) {$q_1$};
@@ -40,9 +40,9 @@
               </latex-image>
             </image>
           </figure>
-          <figure xml:id="fig-m2">
+          <figure xml:id="hw1-fig-m2">
             <caption><m>M_2</m>.</caption>
-            <image width="30%">
+            <image width="30%" label="hw1-fig-m2">
               <latex-image>
                 \begin{tikzpicture}[on grid, scale=0.5]
                 \node[state, initial, initial where=up, accepting] (q1) {$q_1$};
@@ -67,7 +67,7 @@
     </exercise>
     <exercise>
       <statement>
-        <p>Translate the transition diagram in <xref ref="fig-m2"/> into a formal
+        <p>Translate the transition diagram in <xref ref="hw1-fig-m2"/> into a formal
         specification. Carefully list all of the components (<m>Q</m>, <m>\Sigma</m>, <etc/>).</p>
       </statement>
     </exercise>
