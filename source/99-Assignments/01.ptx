@@ -195,8 +195,39 @@
             w \in B^R \implies \hat{\eta}(w, F) \owns s \quad \text{and} \quad
             w \notin B^R \implies \hat{\eta}(w, F) \not\ni s
           </me>.
-
+          Let us prove a slightly stronger result by induction. Before the statement of the
+          theorem, we pause for a remark.
         </p>
+        <p>It's often the case that it is easier to prove a stronger version of a
+            desired result by induction. This is because you get a stronger induction
+            hypothesis (since it's a specialization of the desired result). Now to the
+            promised theorem.</p>
+        <p>We will prove the following. Let <m>w \in \aster{\Sigma}</m>. Then
+          <me>
+            w \in L(N') \iff w \in B^R
+          </me>. The proof is by induction on <m>\abs{w}</m>.
+          For the base case, we have <m>w = \varepsilon</m>, since <m>k = 0</m>.
+          If <m>\varepsilon \in L(N')</m>, then by definition we must have
+          <m>s \in F</m>, which is merely to say that some start state of <m>N'</m>
+          is an accepting state. Therefore by construction of <m>N'</m> the same is
+          true of <m>N</m>. Hence <m>\varepsilon in B</m> and therefore
+          <m>\varepsilon \in B^R</m> as well. This finishes the base case. For the
+          inductive step, let us suppose that <m>w = ax</m>. Then the definition
+          of <m>\hat{\eta}</m> tells us that <me>
+            \hat{\eta}(F, ax)
+          </me>
+
+          <me>
+            w = a_1 a_2 \cdots a_k
+          </me>,
+          where each <m>a_i \in \Sigma</m> and <m>k = \abs{w}</m>. We may then
+          write
+          <me>
+
+          </me>
+
+
+           The proof is by </p>
       </solution>
     </exercise>
   </exercises>
