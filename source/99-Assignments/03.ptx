@@ -97,6 +97,10 @@
             should return an instance of your <c>NFA</c> class that is equivalent to
             the passed DFA.
           </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Also add a method <c>DFA()</c> to your NFA class. This method will
             perform the subset construction on the passed NFA, and return
@@ -110,6 +114,14 @@
             to the classes you have chosen.
           </p>
         </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            The remaining 3 checks are allocated based on the quality and style
+            of your code.
+          </p>
+        </statement>
       </task>
     </exercise>
   </exercises>
