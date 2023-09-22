@@ -13,101 +13,104 @@
     The assignment is worth 15 checks.
 
   </p>
-  <exercise xml:id="ex-implement-dfa">
-    <introduction>
-      <p>
-
-        Write a single Python file <c>dfa.py</c> that implements the classes
-        specified below with the indicated behavior. You may use any Python
-        features you like, but you may not use any other modules (imports). You
-        are explicitly instructed not to search for a solution to this problem.
-        Obviously it will be very easy to find. Instead, use what you know from
-        class and your existing programming skills. All the code you submit
-        should be your own. Please also refrain from the use of any type of
-        programming assistant (turn off AI gizmos like GitHub Copilot,
-        IntelliSense, <etc/>).
-
-      </p>
-
-      <p>
-
-        Keep the following philosophy in mind as you code. The intuitive,
-        diagram-based idea of a DFA is not something easy to code. However,
-        you also have access to the formal specification and much surrounding
-        apparatus. I would suggest implementing DFA in terms of the formal
-        specification: use it as your inspiration for how the class's fields
-        should look.
-
-      </p>
-    </introduction>
-    <task>
-      <statement>
+  <exercises>
+    <exercise xml:id="ex-implement-dfa">
+      <introduction>
         <p>
-
-          The class <c>DFA</c>. This class should have the following methods:
-          <ol marker="1.">
-            <li>a constructor that returns a usable DFA object</li>
-            <li>a <c>__repr__()</c> method that dumps the current formal
-            specification of the DFA to the output</li>
-            <li>
-              a <c>run()</c> method that simulates the action of the
-              extended transition function <m>\hat{\delta}</m> (see
-              <xref ref="def-deltahat"/>). This method should return
-              a <c>bool</c> whose value indicates acceptance or rejection.
-            </li>
-          </ol>
-          I have not specified the parameters. These are all instance methods
-          of the class, so must take at least the parameter <c>self</c>.
-          The DFA is nothing more than its formal specification, so you
-          can start there.
-        </p>
-      </statement>
-      <hint>
-        <p>
-          Use the data type <c>set</c> for <m>Q</m>, <m>\Sigma</m>, and <m>F</m>. Think
-          about Python's types carefully before you choose how to implement <m>\delta</m>.
-      </p>
-      </hint>
-    </task>
-    <task>
-      <statement>
-        <p>
-          The class <c>NFA</c>. This class should have the following methods.
-          My remarks above about the parameters apply here as well.
-          <ol marker="1.">
-            <li>a constructor that returns a usable NFA object</li>
-            <li>a <c>__repr__()</c> method that dumps the current formal
-            specification of the NFA to the output</li>
-            <li>
-              a helper method <c>do_delta()</c> that simulates the (non-extended)
-              transition function <m>\delta</m>. This method should handle missing
-              transitions gracefully, since it is for an NFA.
-            </li>
-            <li>
-              a <c>run()</c> method that simulates the action of the
-              extended transition function <m>\hat{\delta}</m> (see
-              <xref ref="def-nfa-deltahat"/>). This method should call
-              the <c>do_delta()</c> method. It should return a <c>bool</c>
-              whose value indicates acceptance or rejection.
-            </li>
-          </ol>
-        </p>
-      </statement>
-    </task>
-    <task>
-      <statement>
-        <p>
-          Add another method to your <m>DFA</m> class. The method <c>NFA()</c>
-          takes a DFA as parameter and
-          should return an instance of your <m>NFA</m> class that is equivalent to
-          the passed DFA.
+          Write a single Python file <c>dfa.py</c> that implements the classes
+          specified below with the indicated behavior. You may use any Python
+          features you like, but you may not use any other modules (imports). You
+          are explicitly instructed not to search for a solution to this problem.
+          Obviously it will be very easy to find. Instead, use what you know from
+          class and your existing programming skills. All the code you submit
+          should be your own. Please also refrain from the use of any type of
+          programming assistant (turn off AI gizmos like GitHub Copilot,
+          IntelliSense, <etc/>).
         </p>
         <p>
-          Also add a method <c>DFA()</c> to your NFA class. This method will
-          perform the subset construction on the passed NFA, and return
-          a <c>DFA</c> instance representing the DFA so constructed.
+          Keep the following philosophy in mind as you code. The intuitive,
+          diagram-based idea of a DFA is not something easy to code. However,
+          you also have access to the formal specification and much surrounding
+          apparatus. I would suggest implementing DFA in terms of the formal
+          specification: use it as your inspiration for how the class's fields
+          should look.
         </p>
-      </statement>
-    </task>
-  </exercise>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            The class <c>DFA</c>. This class should have the following methods:
+            <ol marker="1.">
+              <li>a constructor that returns a usable DFA object</li>
+              <li>a <c>__repr__()</c> method that dumps the current formal
+              specification of the DFA to the output</li>
+              <li>
+                a <c>run()</c> method that simulates the action of the
+                extended transition function <m>\hat{\delta}</m> (see
+                <xref ref="def-deltahat"/>). This method should return
+                a <c>bool</c> whose value indicates acceptance or rejection.
+              </li>
+            </ol>
+            I have not specified the parameters. These are all instance methods
+            of the class, so must take at least the parameter <c>self</c>.
+            The DFA is nothing more than its formal specification, so you
+            can start there.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Use the data type <c>set</c> for <m>Q</m>, <m>\Sigma</m>, and <m>F</m>. Think
+            about Python's types carefully before you choose how to implement <m>\delta</m>.
+        </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            The class <c>NFA</c>. This class should have the following methods.
+            My remarks above about the parameters apply here as well.
+            <ol marker="1.">
+              <li>a constructor that returns a usable NFA object</li>
+              <li>a <c>__repr__()</c> method that dumps the current formal
+              specification of the NFA to the output</li>
+              <li>
+                a helper method <c>do_delta()</c> that simulates the (non-extended)
+                transition function <m>\delta</m>. This method should handle missing
+                transitions gracefully, since it is for an NFA.
+              </li>
+              <li>
+                a <c>run()</c> method that simulates the action of the
+                extended transition function <m>\hat{\delta}</m> (see
+                <xref ref="def-nfa-deltahat"/>). This method should call
+                the <c>do_delta()</c> method. It should return a <c>bool</c>
+                whose value indicates acceptance or rejection.
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Add another method to your <c>DFA</c> class. The method <c>NFA()</c>
+            takes a <c>DFA</c> object as parameter and
+            should return an instance of your <c>NFA</c> class that is equivalent to
+            the passed DFA.
+          </p>
+          <p>
+            Also add a method <c>DFA()</c> to your NFA class. This method will
+            perform the subset construction on the passed NFA, and return
+            a <c>DFA</c> instance representing the DFA so constructed.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Obviously, the real difficulty here is the transition function.
+            Be sure you are familiar with the available methods that belong
+            to the classes you have chosen.
+          </p>
+        </hint>
+      </task>
+    </exercise>
+  </exercises>
 </section>

@@ -24,6 +24,23 @@
       typical for the lexing phase of a compiler to be implemented using
       regular expressions.
     </p>
+    <p>
+      The regular expressions that IDEs or editors provide are typically
+      extended in ways that make them strictly more powerful than NFAs.
+      There are also usually quality-of-life extensions, like character
+      classes, that make regular expressions easier to read and write
+      without making them more expressive. Of course, these extended
+      regular expressions cannot be implemented via conversion to DFA
+      as is often suggested. They must be handled in other ways, which
+      are inevitably slower (some of the extensions, while fast in
+      typical use cases, have <m>O(2^n)</m> running time in the worst
+      case).
+    </p>
+    <p>
+      See the article <xref ref="biblio-cox-regex-matching"/> for an excellent and readable
+      comparison of the two approaches and learn how you can earn a one million
+      dollar prize.
+    </p>
   </introduction>
   <subsection xml:id="regex-basics">
     <title>Operators and examples</title>
@@ -406,4 +423,9 @@
       </statement>
     </activity>
   </subsection>
+  <references>
+    <biblio type="raw" xml:id="biblio-cox-regex-matching" url="https://swtch.com/~rsc/regexp/regexp1.html">Russ Cox,
+      <title>Regular expression matching can be simple and fast (but is slow in
+        Java, Perl, PHP, Python, Ruby, etc.)</title> <url>https://swtch.com/~rsc/regexp/regexp1.html</url></biblio>
+  </references>
 </section>
