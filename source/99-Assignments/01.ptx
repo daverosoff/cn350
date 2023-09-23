@@ -202,20 +202,47 @@
             desired result by induction. This is because you get a stronger induction
             hypothesis (since it's a specialization of the desired result). Now to the
             promised theorem.</p>
-        <p>We will prove the following. Let <m>w \in \aster{\Sigma}</m>. Then
-          <me>
-            w \in L(N') \iff w \in B^R
-          </me>. The proof is by induction on <m>\abs{w}</m>.
+        <p>We will prove the following. Let <m>w \in \aster{\Sigma}</m>. Then, for
+          each state <m>q \in Q</m> and each state <m>r \in Q</m>, we have
+          <men xml:id="eq-main-sol1">
+            \hat{\delta}(q, w) \ni r \iff \hat{\eta}(r, w^R) \ni q
+          </men>. The proof is by induction on <m>\abs{w}</m>. Observe first, before
+          we begin the proof, that our main claim follows at once from the above.
+        </p>
+        <p>
           For the base case, we have <m>w = \varepsilon</m>, since <m>k = 0</m>.
-          If <m>\varepsilon \in L(N')</m>, then by definition we must have
-          <m>s \in F</m>, which is merely to say that some start state of <m>N'</m>
-          is an accepting state. Therefore by construction of <m>N'</m> the same is
-          true of <m>N</m>. Hence <m>\varepsilon in B</m> and therefore
-          <m>\varepsilon \in B^R</m> as well. This finishes the base case. For the
-          inductive step, let us suppose that <m>w = ax</m>. Then the definition
-          of <m>\hat{\eta}</m> tells us that <me>
-            \hat{\eta}(F, ax)
-          </me>
+          Then, for each <m>q</m> and <m>r</m> we will have <md>
+            <mrow>
+              \hat{\delta}(q, \varepsilon) \amp = \{q\} \text{ and }
+            </mrow>
+            <mrow>
+              \hat{\eta}(r, \varepsilon) \amp = \{r\}</mrow>
+          </md>. In this case <xref ref="eq-main-sol1"/> holds, because each side
+          is true exactly when <m>r = q</m>. This is the definition of truth for
+          biconditional statements like <m>P \implies Q</m>. Now we can proceed
+          to the inductive step.
+        </p>
+        <p>
+          Let us suppose that <m>w = xa</m> and that
+          <xref ref="eq-main-sol1"/> holds for <m>x</m>. That is, suppose
+          for all <m>u</m> and all <m>t</m>,
+          <me>
+            \hat{\delta}(u, x) \ni t \implies \hat{\eta}(t, x^R) \ni u
+          </me>.
+          Now choose <m>q</m> and <m>r</m>. Suppose first that
+          <m>r \in \hat{\delta}(q, xa)</m>. We wish to deduce that
+          <m>q \in \hat{\eta}(r, ax^R)</m>. By <xref ref="def-deltahat"/>,
+          we then have
+          <me>
+            r \in \delta(\hat{\delta}(q, x), a)
+          </me>. This means there is a transition labeled <m>a</m>
+          from some state <m>t \in \hat{\delta}(q, x)</m> to <m>r</m>
+          in <m>M</m>. By the construction of <m>N</m>, there is a
+          transition labeled <m>a</m> from <m>r</m> to <m>t</m> in <m>N</m>.
+          By hypothesis, we know that the state <m>r</m> is an element of
+          <m>\hat{\eta}(t, x^R)</m>. Since there is a transition from <m>r</m>
+          to <m>t</m> in <m>N</m> labeled <m>a</m>, it
+
 
           <me>
             w = a_1 a_2 \cdots a_k
