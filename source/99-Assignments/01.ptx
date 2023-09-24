@@ -231,21 +231,20 @@
           </me>.
           Now choose <m>q</m> and <m>r</m>. Suppose first that
           <m>r \in \hat{\delta}(q, xa)</m>. We wish to deduce that
-          <m>q \in \hat{\eta}(r, ax^R)</m>. By <xref ref="def-deltahat"/>,
+          <m>q \in \hat{\eta}(r, ax^R)</m>. By <xref ref="def-nfa-deltahat"/>,
           we then have
           <me>
-            r \in \delta(\hat{\delta}(q, x), a)
+            r \in \bigcup_{p_i \in \hat{\delta}(q, x)} \delta(p_i, a)
           </me>. This means there is a transition labeled <m>a</m>
-          from some state <m>t \in \hat{\delta}(q, x)</m> to <m>r</m>
+          from some state <m>p \in \hat{\delta}(q, x)</m> to <m>r</m>
           in <m>M</m>. By the construction of <m>N</m>, there is a
-          transition labeled <m>a</m> from <m>r</m> to <m>t</m> in <m>N</m>.
+          transition labeled <m>a</m> from <m>r</m> to <m>p</m> in <m>N</m>.
           By hypothesis, we know that the state <m>r</m> is an element of
-          <m>\hat{\eta}(t, x^R)</m>. Since there is a transition from <m>r</m>
-          to <m>t</m> in <m>N</m> labeled <m>a</m>, it
-
-
+          <m>\hat{\eta}(p, x^R)</m>. Since there is a transition from <m>r</m>
+          to <m>p</m> in <m>N</m> labeled <m>a</m>, it follows again from
+          <xref ref="def-nfa-deltahat"/> that
           <me>
-            w = a_1 a_2 \cdots a_k
+            \delta(\hat{\delta}(q, x))
           </me>,
           where each <m>a_i \in \Sigma</m> and <m>k = \abs{w}</m>. We may then
           write
