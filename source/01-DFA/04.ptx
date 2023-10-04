@@ -424,8 +424,8 @@
     </activity>
   </subsection>
   <references>
-    <biblio type="raw" xml:id="biblio-cox-regex-matching" url="https://swtch.com/~rsc/regexp/regexp1.html">Russ Cox,
+    <biblio type="raw" xml:id="biblio-cox-regex-matching">Russ Cox,
       <title>Regular expression matching can be simple and fast (but is slow in
-        Java, Perl, PHP, Python, Ruby, etc.)</title> <url>https://swtch.com/~rsc/regexp/regexp1.html</url></biblio>
+        Java, Perl, PHP, Python, Ruby, etc.)</title> <url href="https://swtch.com/~rsc/regexp/regexp1.html"/></biblio>
   </references>
 </section>
