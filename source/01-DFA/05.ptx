@@ -20,24 +20,24 @@
     </introduction>
     <subsection xml:id="subsec-pumping-lemma-regular-activities">
         <title>Class activities</title>
+        <p>
+            Suppose that <m>L</m> is a language we wish to prove
+            is not regular, using the Pumping Lemma. The proof begins
+            like this: <q>If <m>L</m> is regular, then the Pumping
+            Lemma says it must have a pumping constant <m>p</m></q>.
+            The Pumping Lemma says that every word of length at least
+            <m>p</m> can be split into three parts, <m>xyz</m>, where
+            <m>|xy| \leq p</m> and <m>|y| \geq 1</m>, such that
+            <m>xy^kz \in L</m> for all <m>k \geq 0</m>. We sometimes
+            call <m>y</m> a <term>pumpable substring</term> or even
+            just a <term>pump</term>. The proof generally proceeds by
+            finding a word <m>w</m> that is in <m>L</m> and that has
+            no pumpable substring. This is a contradiction of the
+            Pumping Lemma, and shows our assumption (that <m>L</m> was
+            regular) must be false.
+        </p>
         <activity>
             <statement>
-                <p>
-                    Suppose that <m>L</m> is a language we wish to prove
-                    is not regular, using the Pumping Lemma. The proof begins
-                    like this: <q>If <m>L</m> is regular, then the Pumping
-                    Lemma says it must have a pumping constant <m>p</m></q>.
-                    The Pumping Lemma says that every word of length at least
-                    <m>p</m> can be split into three parts, <m>xyz</m>, where
-                    <m>|xy| \leq p</m> and <m>|y| \geq 1</m>, such that
-                    <m>xy^kz \in L</m> for all <m>k \geq 0</m>. We sometimes
-                    call <m>y</m> a <term>pumpable substring</term> or even
-                    just a <term>pump</term>. The proof generally proceeds by
-                    finding a word <m>w</m> that is in <m>L</m> and that has
-                    no pumpable substring. This is a contradiction of the
-                    Pumping Lemma, and shows our assumption (that <m>L</m> was
-                    regular) must be false.
-                </p>
                 <p>
                     Which of the following are true?
                     <ol marker="A.">
@@ -73,18 +73,87 @@
             </solution>
         </activity>
         <activity>
-            <statement>
+            <introduction>
                 <p>
                     What is a good choice of <m>w</m> for proving that each of
                     the following languages is not regular?
-                    <ol marker="A.">
-                        <li><m>\setof{a^nb^n}{n \geq 0}</m></li>
-                        <li><m>\setof{x \in \aster{\{a, b\}}}{x \text{ has equally
-                            many $a$s and $b$s}}</m></li>
-                        <li><m>\setof{a^nb^nc^nd^n}{n \geq 0}</m></li>
-                    </ol>
                 </p>
-
+            </introduction>
+            <task>
+                <statement>
+                    <p><m>\setof{a^nb^n}{n \geq 0}</m></p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p><m>\setof{a^{2n}b^n}{n \geq 0}</m></p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p><m>\setof{x \in \aster{\{a, b\}}}{x \text{ has equally
+                        many $a$ and $b$}}</m></p>
+                </statement>
+            </task>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    A string of left brackets <c>(</c> and right brackets
+                    <c>)</c> is <term>balanced</term> if every left bracket
+                    has a matching right bracket. For example,
+                    <c>()</c>, <c>(())</c>, and <c>(())()</c> are balanced,
+                    but <c>)(</c>, <c>()))</c>, and <c>()((())</c> are not.
+                    What is a good choice of <m>w</m> for proving that
+                    <m>\setof{x \in \aster{\{\mathtt{(}, \mathtt{)}\}}}{x \text{ is balanced}}</m>
+                    is not regular?
+                </p>
+            </statement>
+        </activity>
+        <p>
+            The balanced bracket languages play an important role in the structure
+            theory of the Chomsky hierarchy, as we'll see later on. They are also
+            connected to an interesting numerical sequence, the <em>Catalan numbers</em>.
+            You can learn more about the Catalan numbers at <url href="https://en.wikipedia.org/wiki/Catalan_number" visual="Wikipedia"/>. There are many diagrams there
+            which I expect you will find entertaining.
+        </p>
+        <activity>
+            <statement>
+                <p>
+                    Here are the first 8 languages proved non-regular in
+                    <url href="https://youtu.be/x2J5kaf6gjg" visual="Two hours of examples">this video</url>.
+                    <ol marker="1.">
+                        <li>
+                            <m>\{ 0^n 1^n \}</m>
+                        </li>
+                        <li>
+                            <m>\{ \text{ equal $0$s and $1$s } \}</m>
+                        </li>
+                        <li>
+                            <m>\{ \text{ more $1$s than $0$s } \}</m>
+                        </li>
+                        <li>
+                            <m>\{ 0^{2n} 1^n \}</m>
+                        </li>
+                        <li>
+                            <m>\{ 0^n 1 0^n \}</m>
+                        </li>
+                        <li>
+                            <m>\{ 0^m 1^n 0^{m+n} \}</m>
+                        </li>
+                        <li>
+                            <m>\{ 0^m 1^n 0^{mn} \}</m>
+                        </li>
+                        <li>
+                            <m>\setof{0^n 1^m}{n! \neq m}</m>
+                        </li>
+                    </ol>
+                    Watch the video segment for the language of your choice.
+                    Then try to reproduce the proof without looking back.
+                    It's annoying to write proofs during class, but try.
+                    Work in groups of 4 or more (so I can be sure to see
+                    everyone's proof).
+                </p>
             </statement>
         </activity>
     </subsection>
