@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="sec-pumping-lemma-regular" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Using the Pumping Lemma</title>
+    <introduction>
+        <list xml:id="list-key-resources-pumping-lemma-regular">
+            <title>Key Resources for the Pumping Lemma</title>
+            <ul>
+                <li>
+                    <url href="https://youtu.be/A5FiVgd0QyQ" visual="24 min, Easy Theory">Full proof</url>
+                </li>
+                <li>
+                    <url href="https://youtu.be/Ow-gfFkXPZw" visual="4 min, Easy Theory">Quick proof</url>
+                </li>
+                <li>
+                    <url href="https://youtu.be/x2J5kaf6gjg" visual="Easy Theory">Two hours of examples</url>
+                </li>
+            </ul>
+
+        </list>
+    </introduction>
+    <subsection xml:id="subsec-pumping-lemma-regular-activities">
+        <title>Class activities</title>
+        <activity>
+            <statement>
+                <p>
+                    Suppose that <m>L</m> is a language we wish to prove
+                    is not regular, using the Pumping Lemma. The proof begins
+                    like this: <q>If <m>L</m> is regular, then the Pumping
+                    Lemma says it must have a pumping constant <m>p</m></q>.
+                    The Pumping Lemma says that every word of length at least
+                    <m>p</m> can be split into three parts, <m>xyz</m>, where
+                    <m>|xy| \leq p</m> and <m>|y| \geq 1</m>, such that
+                    <m>xy^kz \in L</m> for all <m>k \geq 0</m>. We sometimes
+                    call <m>y</m> a <term>pumpable substring</term> or even
+                    just a <term>pump</term>. The proof generally proceeds by
+                    finding a word <m>w</m> that is in <m>L</m> and that has
+                    no pumpable substring. This is a contradiction of the
+                    Pumping Lemma, and shows our assumption (that <m>L</m> was
+                    regular) must be false.
+                </p>
+                <p>
+                    Which of the following are true?
+                    <ol marker="A.">
+                        <li>We get to choose a value for <m>p</m>.</li>
+                        <li xml:id="uufaf-true">We get to choose a candidate word <m>w</m> of length
+                        at least <m>p</m>.</li>
+                        <li>We get to choose the parts (that is, <m>x</m>,
+                            <m>y</m>, and <m>z</m>) in the
+                            decomposition <m>w = xyz</m>.</li>
+                        <li xml:id="uasdf-true">We get to choose a value for <m>k</m>.</li>
+                    </ol>
+                </p>
+            </statement>
+            <answer>
+                <p>
+                    Only <xref ref="uufaf-true"/> and <xref ref="uasdf-true"/> are
+                    true.
+                </p>
+            </answer>
+            <solution>
+                <p>
+                    The pumping lemma does not relate the value of <m>p</m> to
+                    the language <m>L</m>. It only states that <m>p</m> exists
+                    and has the specified properties. Given the length <m>p</m>,
+                    we can choose any convenient word
+                    <m>w</m> as long as <m>\abs{w} \geq p</m>. However, we have
+                    to examine all the decompositions, so we don't get to choose
+                    <m>x</m>, <m>y</m>, or <m>z</m>. We only have to show that
+                    (for every choice of <m>x</m>, <m>y</m>, <m>z</m>)
+                    there is <em>some</em> value of <m>k</m> such that
+                    <m>xy^kz \notin L</m>, so we get to choose <m>k</m>.
+                </p>
+            </solution>
+        </activity>
+        <activity>
+            <statement>
+                <p>
+                    What is a good choice of <m>w</m> for proving that each of
+                    the following languages is not regular?
+                    <ol marker="A.">
+                        <li><m>\setof{a^nb^n}{n \geq 0}</m></li>
+                        <li><m>\setof{x \in \aster{\{a, b\}}}{x \text{ has equally
+                            many $a$s and $b$s}}</m></li>
+                        <li><m>\setof{a^nb^nc^nd^n}{n \geq 0}</m></li>
+                    </ol>
+                </p>
+
+            </statement>
+        </activity>
+    </subsection>
+
+</section>
