@@ -151,7 +151,6 @@
             <cline>        result.add(frozenset(ith_subset))</cline>
             <cline>    return result</cline>
           </cd>
-        </p>
           <p>
             Finally, it is convenient to have access to the product function
             to form the Cartesian product <m>Q \times \Sigma</m>. The
