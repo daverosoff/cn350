@@ -109,10 +109,68 @@
         </statement>
         <hint>
           <p>
-            Obviously, the real difficulty here is the transition function.
+            This part is difficult to get working for all NFA.
+            Obviously, the first difficulty here is the transition function.
             Be sure you are familiar with the available methods that belong
-            to the classes you have chosen.
+            to the classes you have chosen. You may need to use Python's
+            <c>frozenset</c> type, which behaves like a <c>set</c> but is
+            immutable. If you need to build a frozenset element by element,
+            start with a normal set, and then convert when you are done.
           </p>
+          <p>
+            Another difficulty is constructing the power set. I recommend
+            an iterative approach, although you can use recursion too. My
+            preferred method is to use the natural correspondence between
+            the elements of the power set and the binary representations
+            of the integers from 0 to <m>2^{|Q|}</m>. Imagine that the
+            states of <m>Q</m> are numbered from <m>0</m> to <m>n-1</m>.
+            Then the
+            <m>i</m>-th element of the power set <m>2^Q</m> is the set of states
+            whose binary representation has a 1 in the <m>i</m>-th position.
+          </p>
+          <cd>
+            <cline>def powerset(elems):</cline>
+            <cline>    """Returns a set representing the power set of `elems`.</cline>
+            <cline>    Note that this can be very expensive (time and space)</cline>
+            <cline>    since the size of the power set is exponential in the</cline>
+            <cline>    size of `elems`."""</cline>
+            <cline></cline>
+            <cline>    elems_list = list(elems) # need to use indexing</cline>
+            <cline>    n = len(elems)</cline>
+            <cline>    powerset_size = 2**n</cline>
+            <cline>    result = set()</cline>
+            <cline>    for i in range(powerset_size):</cline>
+            <cline>        # item j from elems is in the ith element</cline>
+            <cline>        # of the powerset if the binary rep of i</cline>
+            <cline>        # has a 1 in position j</cline>
+            <cline>        ith_subset = set()</cline>
+            <cline>        for j in range(n):</cline>
+            <cline>            if (i &amp; (1 &lt;&lt; j) &gt; 0):</cline>
+            <cline>                ith_subset.add(elems_list[j])</cline>
+            <cline>        result.add(frozenset(ith_subset))</cline>
+            <cline>    return result</cline>
+          </cd>
+          <p>
+            Finally, it is convenient to have access to the product function
+            to form the Cartesian product <m>Q \times \Sigma</m>. The
+            function <c>itertools.product</c> is available for this purpose.
+            Try the following code in the Python console:
+          </p>
+          <console>
+            <input prompt="&gt;&gt;&gt; ">import itertools</input>
+            <input prompt="&gt;&gt;&gt; ">Q = {1, 2, 3}</input>
+            <input prompt="&gt;&gt;&gt; ">Sigma = {'a', 'b'}</input>
+            <input prompt="&gt;&gt;&gt; ">for q, a in itertools.product(Q, Sigma):</input>
+            <input prompt="...     ">
+                  print(q, a)</input>
+            <output>1 a
+1 b
+2 a
+2 b
+3 a
+3 b
+            </output>
+          </console>
         </hint>
       </task>
       <task>
