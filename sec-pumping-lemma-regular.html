@@ -360,7 +360,7 @@ many $a$ and $b$}}\)</span></div></article></article><article class="activity pr
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
 </h4>
 <div class="para" id="p-271">A string of left brackets <code class="code-inline tex2jax_ignore">(</code> and right brackets <code class="code-inline tex2jax_ignore">)</code> is <dfn class="terminology">balanced</dfn> if every left bracket has a matching right bracket. For example, <code class="code-inline tex2jax_ignore">()</code>, <code class="code-inline tex2jax_ignore">(())</code>, and <code class="code-inline tex2jax_ignore">(())()</code> are balanced, but <code class="code-inline tex2jax_ignore">)(</code>, <code class="code-inline tex2jax_ignore">()))</code>, and <code class="code-inline tex2jax_ignore">()((())</code> are not. What is a good choice of <span class="process-math">\(w\)</span> for proving that <span class="process-math">\(\setof{x \in \aster{\{\mathtt{(}, \mathtt{)}\}}}{x \text{ is balanced}}\)</span> is not regular?</div></article><div class="para" id="p-272">The balanced bracket languages play an important role in the structure theory of the Chomsky hierarchy, as we’ll see later on. They are also connected to an interesting numerical sequence, the <em class="emphasis">Catalan numbers</em>. You can learn more about the Catalan numbers at <a class="external" href="https://en.wikipedia.org/wiki/Catalan_number" target="_blank"><code class="code-inline tex2jax_ignore">Wikipedia</code></a>. There are many diagrams there which I expect you will find entertaining.</div>
-<article class="activity project-like" id="activity-41"><h4 class="heading">
+<article class="activity project-like" id="act-pumping-lemma-first8"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
 </h4>
 <div class="para logical" id="p-273">
@@ -373,9 +373,37 @@ many $a$ and $b$}}\)</span></div></article></article><article class="activity pr
 <li id="li-166"><div class="para" id="p-derived-li-166"><span class="process-math">\(\displaystyle \{ 0^n 1 0^n \}\)</span></div></li>
 <li id="li-167"><div class="para" id="p-derived-li-167"><span class="process-math">\(\displaystyle \{ 0^m 1^n 0^{m+n} \}\)</span></div></li>
 <li id="li-168"><div class="para" id="p-derived-li-168"><span class="process-math">\(\displaystyle \{ 0^m 1^n 0^{mn} \}\)</span></div></li>
-<li id="li-169"><div class="para" id="p-derived-li-169"><span class="process-math">\(\displaystyle \setof{0^n 1^m}{n! \neq m}\)</span></div></li>
+<li id="li-169"><div class="para" id="p-derived-li-169"><span class="process-math">\(\displaystyle \setof{0^n 1^m}{n \neq m}\)</span></div></li>
 </ol>
 <div class="para">Watch the video segment for the language of your choice. Then try to reproduce the proof without looking back. It’s annoying to write proofs during class, but try. Work in groups of 4 or more (so I can be sure to see everyone’s proof).</div>
+</div></article><div class="para" id="p-274">The last exercise in the <a href="" class="xref" data-knowl="./knowl/act-pumping-lemma-first8.html" title="Activity 2.5.4">Activity 2.5.4</a> needs a special trick. The reason is that even filling <span class="process-math">\(xy\)</span> with 0s doesn’t help. One trick that works is the so-called  “<span class="process-math">\(p\)</span>-factorial trick”.</div>
+<div class="para" id="p-275">We choose <span class="process-math">\(w = 0^p1^{p+p!}\)</span> (still looking at the language <span class="process-math">\(L = \setof{0^n 1^m}{n \neq m}\)</span>). Then as usual, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are all 0s. But notice that we must have <span class="process-math">\(1 \leq y \leq p\text{.}\)</span> It follows that <span class="process-math">\(\abs{y}\)</span> divides <span class="process-math">\(p!\text{.}\)</span> So if we choose <span class="process-math">\(k = p!/y\text{,}\)</span> then <span class="process-math">\(ky = p!\text{.}\)</span> Then <span class="process-math">\(xy^kz = 0^{p+p!} 1^{p+p!} \notin L\text{.}\)</span> This completes the proof that <span class="process-math">\(L\)</span> is not regular.</div>
+<div class="para" id="p-276">The <span class="process-math">\(p!\)</span> trick can be helpful when, as in the previous example, we find it harder to get out of the language than to stay in.</div>
+<article class="example example-like" id="example-5"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-277">Use the pumping lemma to show that <span class="process-math">\(L = \setof{0^n}{\text{$n$ is prime}}\)</span> is not regular.</div> <div class="para" id="p-278">Here, we have to be quite sneaky. The first problem is that the pumping constant probably isn’t prime, but even if it is we have no way of knowing that. So we have to rely on the fact that the set of primes is unbounded: there is a prime greater than any given number. So we can choose <span class="process-math">\(q\)</span> to be the smallest prime greater than <span class="process-math">\(p\)</span> and then choose <span class="process-math">\(w = 0^{q+2}\text{.}\)</span> The reason for the <span class="process-math">\(2\)</span> will be clear soon.</div> <div class="para logical" id="p-279">
+<div class="para">Now <span class="process-math">\(xy\)</span> is all zeroes, since <span class="process-math">\(w\)</span> is all zeroes. So <span class="process-math">\(y\)</span> is all zeroes. We need a value of <span class="process-math">\(k\)</span> such that <span class="process-math">\(\abs{xy^kz} = \abs{xz} + k \abs{y}\)</span> is not prime. We cleverly let <span class="process-math">\(k = \abs{xz}\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="md-5">
+\begin{align*}
+\abs{xy^kz} \amp = \abs{xz} + k \abs{y}\\
+\amp = \abs{xz} + \abs{xz} \abs{y}\\
+\amp = \abs{xz} (1 + \abs{y})\text{.}
+\end{align*}
+</div>
+<div class="para">Now, because <span class="process-math">\(\abs{y} \geq 1\text{,}\)</span> we have <span class="process-math">\(1 + \abs{y} \geq 2\text{.}\)</span> If <span class="process-math">\(\abs{xz} \geq 2\)</span> , the proof is complete, because we have a factorization of <span class="process-math">\(\abs{xy^kz}\)</span> into two numbers greater than 1. So we just have to show that <span class="process-math">\(\abs{xz} \geq 2\text{.}\)</span> This is where the <span class="process-math">\(2\)</span> in <span class="process-math">\(w = 0^{q+2}\)</span> comes in. We have <span class="process-math">\(\abs{xyz} \geq p + 2\text{,}\)</span> which is to say</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{xy} + \abs{z} \geq p + 2\text{.}
+\end{equation*}
+</div>
+<div class="para">We have to be careful with inequalities. But if we subtract <span class="process-math">\(\abs{xy}\)</span> from the left, we know we have reduced the left by at most <span class="process-math">\(p\)</span> (possibly less), so we may subtract <span class="process-math">\(p\)</span> from the right and the inequality will still hold. So we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{z} \geq 2\text{,}
+\end{equation*}
+</div>
+<div class="para">as required.</div>
 </div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">24 min, Easy Theory</code></div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn"><code class="code-inline tex2jax_ignore">4 min, Easy Theory</code></div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn"><code class="code-inline tex2jax_ignore">Easy Theory</code></div></div>

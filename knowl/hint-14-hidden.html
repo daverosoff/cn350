@@ -10,5 +10,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="hint solution-like"><div class="para">Obviously, the real difficulty here is the transition function. Be sure you are familiar with the available methods that belong to the classes you have chosen.</div></div></body>
+<body class="ignore-math"><div class="hint solution-like">
+<div class="para">This part is difficult to get working for all NFA. Obviously, the first difficulty here is the transition function. Be sure you are familiar with the available methods that belong to the classes you have chosen. You may need to use Python’s <code class="code-inline tex2jax_ignore">frozenset</code> type, which behaves like a <code class="code-inline tex2jax_ignore">set</code> but is immutable. If you need to build a frozenset element by element, start with a normal set, and then convert when you are done.</div> <div class="para">Another difficulty is constructing the power set. I recommend an iterative approach, although you can use recursion too. My preferred method is to use the natural correspondence between the elements of the power set and the binary representations of the integers from 0 to <span class="process-math">\(2^{|Q|}\text{.}\)</span> Imagine that the states of <span class="process-math">\(Q\)</span> are numbered from <span class="process-math">\(0\)</span> to <span class="process-math">\(n-1\text{.}\)</span> Then the <span class="process-math">\(i\)</span>-th element of the power set <span class="process-math">\(2^Q\)</span> is the set of states whose binary representation has a 1 in the <span class="process-math">\(i\)</span>-th position.</div>
+<pre class="code-display tex2jax_ignore">def powerset(elems):
+    """Returns a set representing the power set of `elems`.
+    Note that this can be very expensive (time and space)
+    since the size of the power set is exponential in the
+    size of `elems`."""
+
+    elems_list = list(elems) # need to use indexing
+    n = len(elems)
+    powerset_size = 2**n
+    result = set()
+    for i in range(powerset_size):
+        # item j from elems is in the ith element
+        # of the powerset if the binary rep of i
+        # has a 1 in position j
+        ith_subset = set()
+        for j in range(n):
+            if (i &amp; (1 &lt;&lt; j) &gt; 0):
+                ith_subset.add(elems_list[j])
+        result.add(frozenset(ith_subset))
+    return result
+</pre>
+<div class="para">Finally, it is convenient to have access to the product function to form the Cartesian product <span class="process-math">\(Q \times \Sigma\text{.}\)</span> The function <code class="code-inline tex2jax_ignore">itertools.product</code> is available for this purpose. Try the following code in the Python console:</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="console"><span class="prompt unselectable">&gt;&gt;&gt; </span><b>import itertools
+</b><span class="prompt unselectable">&gt;&gt;&gt; </span><b>Q = {1, 2, 3}
+</b><span class="prompt unselectable">&gt;&gt;&gt; </span><b>Sigma = {'a', 'b'}
+</b><span class="prompt unselectable">&gt;&gt;&gt; </span><b>for q, a in itertools.product(Q, Sigma):
+</b><span class="prompt unselectable">...     </span><b>print(q, a)
+</b>1 a
+1 b
+2 a
+2 b
+3 a
+3 b
+</pre></div>
+</div></body>
 </html>

@@ -12,8 +12,20 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Each of the languages below is the <dfn class="terminology">concatenation</dfn> of two simpler languages. The concatenation of languages <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> is the language <span class="process-math">\(BC = \{xy : x \in B \text{ and } y \in C\}\text{.}\)</span> For each language, give a single <span class="process-math">\(\varepsilon\)</span>-NFA that accepts it. The language is always <span class="process-math">\(\Sigma = \{a, b\}\text{.}\)</span>
+<div class="para logical">
+<div class="para">For any word <span class="process-math">\(w = a_1 a_2 \ldots a_n\text{,}\)</span> its <dfn class="terminology">reverse</dfn> <span class="process-math">\(w^R\)</span> is defined to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w^R = a_n \ldots a_2 a_1\text{,}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-hw2.html#p-289" class="internal">in-context</a></span>
+<div class="para">so the symbols appear in the reverse order. Recall that a language is <dfn class="terminology">regular</dfn> if it is accepted by some DFA. Show that if <span class="process-math">\(B\)</span> is a regular language, so is the language <span class="process-math">\(B^R\text{,}\)</span> where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B^R = \{ w^R : w \in B \}\text{.}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="sec-hw1.html#p-289" class="internal">in-context</a></span>
 </body>
 </html>

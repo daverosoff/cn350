@@ -12,7 +12,15 @@
 </head>
 <body class="ignore-math">
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<div class="para">The remaining 3 checks are allocated based on the quality and style of your code.</div>
+<div class="para logical">
+<div class="para">The class <code class="code-inline tex2jax_ignore">DFA</code>. This class should have the following methods:</div>
+<ol class="decimal">
+<li><div class="para">a constructor that returns a usable DFA object</div></li>
+<li><div class="para">a <code class="code-inline tex2jax_ignore">__repr__()</code> method that dumps the current formal specification of the DFA to the output</div></li>
+<li><div class="para">a <code class="code-inline tex2jax_ignore">run()</code> method that simulates the action of the extended transition function <span class="process-math">\(\hat{\delta}\)</span> (see <a href="" class="xref" data-knowl="./knowl/def-deltahat.html" title="Definition 2.2.2">Definition 2.2.2</a>). This method should return a <code class="code-inline tex2jax_ignore">bool</code> whose value indicates acceptance or rejection.</div></li>
+</ol>
+<div class="para">I have not specified the parameters. These are all instance methods of the class, so must take at least the parameter <code class="code-inline tex2jax_ignore">self</code>. The DFA is nothing more than its formal specification, so you can start there.</div>
+</div>
 <span class="incontext"><a href="sec-hw3.html#p-304" class="internal">in-context</a></span>
 </body>
 </html>
