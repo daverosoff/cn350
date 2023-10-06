@@ -117,7 +117,7 @@
             You can learn more about the Catalan numbers at <url href="https://en.wikipedia.org/wiki/Catalan_number" visual="Wikipedia"/>. There are many diagrams there
             which I expect you will find entertaining.
         </p>
-        <activity>
+        <activity xml:id="act-pumping-lemma-first8">
             <statement>
                 <p>
                     Here are the first 8 languages proved non-regular in
@@ -145,7 +145,7 @@
                             <m>\{ 0^m 1^n 0^{mn} \}</m>
                         </li>
                         <li>
-                            <m>\setof{0^n 1^m}{n! \neq m}</m>
+                            <m>\setof{0^n 1^m}{n \neq m}</m>
                         </li>
                     </ol>
                     Watch the video segment for the language of your choice.
@@ -156,6 +156,71 @@
                 </p>
             </statement>
         </activity>
+        <p>
+            The last exercise in the <xref ref="act-pumping-lemma-first8"/>
+            needs a special trick. The reason is that even filling <m>xy</m>
+            with 0s doesn't help. One trick that works is the so-called<nbsp/>
+            <q><m>p</m>-factorial trick</q>.
+        </p>
+        <p>
+            We choose <m>w = 0^p1^{p+p!}</m> (still looking at the
+            language <m>L = \setof{0^n 1^m}{n \neq m}</m>). Then as usual,
+            <m>x</m> and <m>y</m> are all 0s. But notice that we must have
+            <m>1 \leq y \leq p</m>. It follows that <m>\abs{y}</m> divides
+            <m>p!</m>. So if we choose <m>k = p!/y</m>, then <m>ky = p!</m>.
+            Then <m>xy^kz = 0^{p+p!} 1^{p+p!} \notin L</m>. This completes
+            the proof that <m>L</m> is not regular.
+        </p>
+        <p>
+            The <m>p!</m> trick can be helpful when, as in the previous example,
+            we find it harder to get out of the language than to stay in.
+        </p>
+        <example>
+            <p>
+                Use the pumping lemma to show that
+                <m>L = \setof{0^n}{\text{$n$ is prime}}</m>
+                is not regular.
+            </p>
+            <p>
+                Here, we have to be quite sneaky. The first problem
+                is that the pumping constant probably isn't prime,
+                but even if it is we have no way of knowing that. So
+                we have to rely on the fact that the set of primes is
+                unbounded: there is a prime greater than any given
+                number. So we can choose <m>q</m> to be the smallest
+                prime greater than <m>p</m> and then choose
+                <m>w = 0^{q+2}</m>. The reason for the <m>2</m> will
+                be clear soon.
+            </p>
+            <p>
+                Now <m>xy</m> is all zeroes, since <m>w</m> is all zeroes.
+                So <m>y</m> is all zeroes. We need a value of <m>k</m>
+                such that <m>\abs{xy^kz} = \abs{xz} + k \abs{y}</m> is
+                not prime. We cleverly let <m>k = \abs{xz}</m>. Then
+                <md>
+                    <mrow>\abs{xy^kz} \amp = \abs{xz} + k \abs{y}</mrow>
+                    <mrow>\amp = \abs{xz} + \abs{xz} \abs{y}</mrow>
+                    <mrow>\amp = \abs{xz} (1 + \abs{y})</mrow>
+                </md>.
+                Now, because <m>\abs{y} \geq 1</m>, we have <m>1 + \abs{y} \geq 2</m>.
+                If <m>\abs{xz} \geq 2</m> , the proof is complete, because we
+                have a factorization of <m>\abs{xy^kz}</m> into two numbers
+                greater than 1. So we just have to show that <m>\abs{xz} \geq 2</m>.
+                This is where the <m>2</m> in <m>w = 0^{q+2}</m> comes in. We
+                have <m>\abs{xyz} \geq p + 2</m>,
+                which is to say
+                <me>
+                    \abs{xy} + \abs{z} \geq p + 2
+                </me>.
+                We have to be careful with inequalities. But if we subtract
+                <m>\abs{xy}</m> from the left, we know we have reduced the
+                left by at most <m>p</m> (possibly less), so we may subtract <m>p</m> from
+                the right and the inequality will still hold. So we have
+                <me>
+                    \abs{z} \geq 2
+                </me>, as required.
+            </p>
+        </example>
     </subsection>
 
 </section>
