@@ -126,7 +126,7 @@
             states of <m>Q</m> are numbered from <m>0</m> to <m>n-1</m>.
             Then the
             <m>i</m>th element of the power set <m>2^Q</m> contains the
-            <m>j</m>th element of <m>Q</m> if and only if the 
+            <m>j</m>th element of <m>Q</m> if and only if the
             binary representation of <m>j</m> has a 1 in the <m>i</m>-th position.
           </p>
           <cd>
@@ -151,6 +151,7 @@
             <cline>        result.add(frozenset(ith_subset))</cline>
             <cline>    return result</cline>
           </cd>
+        </p>
           <p>
             Finally, it is convenient to have access to the product function
             to form the Cartesian product <m>Q \times \Sigma</m>. The
