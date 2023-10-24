@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-hw4" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Homework 04</title>
+  <p>This assignment covers 5.1 and 5.2 in HMU. Each problem will be worth 3 checks. Your answers
+    should be like little essays, made only of complete sentences. Formulas should never stand
+    on their own, but should be parts of otherwise complete sentences. You should be able to read
+    your answer aloud from beginning to end and have it sound sensible. If your solution is
+    more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.
+  </p>
+  <exercises xml:id="exercises-hw4">
+    <exercise>
+        <statement>
+            <p>
+                Let <m>T = \{ 0, 1, (, ), +, \emptyset, e \}</m>. We may
+                think of <m>T</m> as the set of symbols used by regular
+                expressions over alphabet <m>\{0, 1\}</m>. The only difference
+                is that we use <m>e</m> for symbol <m>\varepsilon</m>, to avoid
+                potential confusion in what follows. Design a CFG with set
+                of terminals <m>T</m> that generates exactly the regular
+                expressions with alphabet <m>\{0, 1\}</m>.
+            </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>
+                Describe, in general terms, a method to convert a regular expression to an
+                equivalent context-free grammar.
+            </p>
+        </statement>
+        <hint>
+            <p>
+                Use the recursive definition of a regular expression and make your construction
+                recursive. That is, explain how to handle the base cases directly
+                and give a general explanation of how to handle the recursive cases.
+                <q>General</q> here does not mean <q>vague</q>, but rather that your
+                explanation is not tied to a specific example. You must be general and
+                precise at once. It should be quite clear how to add the productions
+                to the grammar based on the form of the regular expression.
+            </p>
+        </hint>
+    </exercise>
+    <exercise>
+        <introduction>
+            <p>
+                Each part of this problem is worth 3 checks.
+            </p>
+            <p>
+                A context-free grammar is said to be <term>right-linear</term>
+                if each production body has at most one variable, and that
+                variable is at the right end. That is, all productions of
+                a right-linear grammar are of the form <m>A \to wB</m> or
+                <m>A \to w</m>, where <m>A</m> and <m>B</m> are variables
+                and <m>w</m> a string of zero or more terminals.
+            </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>
+                    Show that every right-linear grammar generates a
+                    regular language.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    Construct an <m>\varepsilon</m>-NFA that simulates
+                    leftmost derivations, using its state to represent
+                    the lone variable in the current left-sentential
+                    form.
+                </p>
+            </hint>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    Show that every regular language has a right-linear
+                    grammar.
+                </p>
+            </statement>
+            <hint>
+                <p>
+                    Start with a DFA and let the variables of the grammar
+                    represent states.
+                </p>
+            </hint>
+        </task>
+    </exercise>
+  </exercises>
+</section>
