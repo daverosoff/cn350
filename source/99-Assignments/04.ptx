@@ -1,13 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="sec-hw4" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Homework 04</title>
-  <p>This assignment covers 5.1 and 5.2 in HMU. Each problem will be worth 3 checks. Your answers
-    should be like little essays, made only of complete sentences. Formulas should never stand
-    on their own, but should be parts of otherwise complete sentences. You should be able to read
-    your answer aloud from beginning to end and have it sound sensible. If your solution is
-    more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.
+  <p>
+    This assignment covers 5.1 and 5.2 in HMU. Each problem will be worth 3
+    checks. Your answers should be like little essays, made only of complete
+    sentences. Formulas should never stand on their own, but should be parts of
+    otherwise complete sentences. You should be able to read your answer aloud
+    from beginning to end and have it sound sensible. If your solution is more
+    like a pile of equations, with little or no connecting narration, you'll
+    max out at 2 checks.
   </p>
   <exercises xml:id="exercises-hw4">
+    <exercise>
+        <introduction>
+            <p>
+                <xref first="hw04-p1-task1" last="hw04-p1-task3" text="local">Parts</xref>
+                are worth 3 checks each.
+                Complete <xref ref="hw04-p1-task4" text="local">Part</xref>
+                for an additional 3 bonus checks.
+            </p>
+            <p>
+                Consider the following grammar: <mdn>
+                    <mrow xml:id="hw04-S-rule">S \amp \to aB \mid Ba</mrow>
+                    <mrow xml:id="hw04-A-rule">A \amp \to aS \mid bAA \mid a</mrow>
+                    <mrow xml:id="hw04-B-rule">B \amp \to bS \mid aBB \mid b</mrow>
+                </mdn>.
+            </p>
+        </introduction>
+        <task xml:id="hw04-p1-task1">
+            <statement>
+                <p>
+                    Write down a recursive inference table giving at least four
+                    strings of length at least <m>4</m> that are in the language
+                    of <m>A</m>.
+                </p>
+            </statement>
+        </task>
+        <task xml:id="hw04-p1-task2">
+            <statement>
+                <p>
+                    Write down either leftmost or rightmost derivations giving
+                    at least four strings of length at least <m>4</m> that are
+                    in the language of <m>B</m>.
+                </p>
+            </statement>
+        </task>
+        <task xml:id="hw04-p1-task3">
+            <statement>
+                <p>
+                    Use either leftmost derivations or recursive inference
+                    to find at least four strings of length at least <m>4</m>
+                    that are in <m>L(S)</m>, and make a conjecture about
+                    which strings are in the language of the above grammar.
+                </p>
+            </statement>
+        </task>
+        <task xml:id="hw04-p1-task4">
+            <statement>
+                <p>
+
+                    Prove that your conjecture from
+                    <xref ref="hw04-p1-task3" text="local">Part</xref>
+                    is correct.
+
+                </p>
+            </statement>
+        </task>
+    </exercise>
     <exercise>
         <statement>
             <p>
@@ -21,22 +80,33 @@
             </p>
         </statement>
     </exercise>
-    <exercise>
+    <exercise xml:id="hw04-exer-regex-to-cfg">
         <statement>
             <p>
-                Describe, in general terms, a method to convert a regular expression to an
-                equivalent context-free grammar.
+
+                Describe, in general terms, a recursive method to convert a
+                regular expression to an equivalent context-free grammar.
+                You do <em>not</em> need to prove that your method is correct.
+
+            </p>
+            <p>
+
+                <q>General</q> here does not mean <q>vague</q>, but rather that
+                your explanation is not tied to a specific example. You must be
+                general and precise at once. It should be quite clear how to
+                add the productions to the grammar based on the form of the
+                regular expression.
+
             </p>
         </statement>
         <hint>
             <p>
-                Use the recursive definition of a regular expression and make your construction
-                recursive. That is, explain how to handle the base cases directly
-                and give a general explanation of how to handle the recursive cases.
-                <q>General</q> here does not mean <q>vague</q>, but rather that your
-                explanation is not tied to a specific example. You must be general and
-                precise at once. It should be quite clear how to add the productions
-                to the grammar based on the form of the regular expression.
+
+                Use the recursive definition of a regular expression. That is,
+                explain how to handle the base cases directly and give a
+                general explanation of how to handle the recursive cases.
+
+
             </p>
         </hint>
     </exercise>
@@ -57,8 +127,11 @@
         <task>
             <statement>
                 <p>
-                    Show that every right-linear grammar generates a
-                    regular language.
+                    In the same sense as <xref ref="hw04-exer-regex-to-cfg"/>,
+                    give a general method to convert a right-linear grammar
+                    to an <m>\varepsilon</m>-NFA. This shows that right-linear
+                    grammars are at least as powerful as
+                    <m>\varepsilon</m>-NFAs (equivalently, DFAs, regular expressions, etc.)
                 </p>
             </statement>
             <hint>
@@ -73,8 +146,10 @@
         <task>
             <statement>
                 <p>
-                    Show that every regular language has a right-linear
-                    grammar.
+                    Give a general method for converting a DFA into a right-linear
+                    grammar. Combined with the previous part, this shows
+                    that right-linear grammars recognize exactly the regular
+                    languages.
                 </p>
             </statement>
             <hint>
