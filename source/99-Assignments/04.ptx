@@ -160,5 +160,13 @@
             </hint>
         </task>
     </exercise>
+    <exercise>
+        <statement>
+            <p>
+                Use the grammar in HMU Example 5.1.2 to g
+                give parse trees for each of the strings in that example.
+            </p>
+        </statement>
+    </exercise>
   </exercises>
 </section>
