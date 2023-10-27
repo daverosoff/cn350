@@ -93,7 +93,7 @@
 
                 <q>General</q> here does not mean <q>vague</q>, but rather that
                 your explanation is not tied to a specific example. You must be
-                general and precise at once. It should be quite clear how to
+                general and precise at once. The reader should understand how to
                 add the productions to the grammar based on the form of the
                 regular expression.
 
