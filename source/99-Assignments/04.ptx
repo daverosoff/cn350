@@ -2,13 +2,15 @@
 <section xml:id="sec-hw4" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Homework 04</title>
   <p>
+    
     This assignment covers 5.1 and 5.2 in HMU. Each problem will be worth 3
-    checks. Your answers should be like little essays, made only of complete
-    sentences. Formulas should never stand on their own, but should be parts of
-    otherwise complete sentences. You should be able to read your answer aloud
-    from beginning to end and have it sound sensible. If your solution is more
-    like a pile of equations, with little or no connecting narration, you'll
-    max out at 2 checks.
+    checks (unless otherwise noted). Your answers should be like little essays,
+    made only of complete sentences. Formulas should never stand on their own,
+    but should be parts of otherwise complete sentences. You should be able to
+    read your answer aloud from beginning to end and have it sound sensible. If
+    your solution is more like a pile of equations, with little or no
+    connecting narration, you'll max out at 2 checks.
+
   </p>
   <exercises xml:id="exercises-hw4">
     <exercise>
@@ -21,7 +23,7 @@
             </p>
             <p>
                 Consider the following grammar: <mdn>
-                    <mrow xml:id="hw04-S-rule">S \amp \to aB \mid Ba</mrow>
+                    <mrow xml:id="hw04-S-rule">S \amp \to aB \mid bA</mrow>
                     <mrow xml:id="hw04-A-rule">A \amp \to aS \mid bAA \mid a</mrow>
                     <mrow xml:id="hw04-B-rule">B \amp \to bS \mid aBB \mid b</mrow>
                 </mdn>.
@@ -74,7 +76,8 @@
                 think of <m>T</m> as the set of symbols used by regular
                 expressions over alphabet <m>\{0, 1\}</m>. The only difference
                 is that we use <m>e</m> for symbol <m>\varepsilon</m>, to avoid
-                potential confusion in what follows. Design a CFG with set
+                potential confusion with the actual <m>\varepsilon</m> that may
+                appear in your grammar productions. Design a CFG with set
                 of terminals <m>T</m> that generates exactly the regular
                 expressions with alphabet <m>\{0, 1\}</m>.
             </p>
@@ -92,10 +95,10 @@
             <p>
 
                 <q>General</q> here does not mean <q>vague</q>, but rather that
-                your explanation is not tied to a specific example. You must be
+                your explanation is not tied to a specific example. Try to be
                 general and precise at once. The reader should understand how to
-                add the productions to the grammar based on the form of the
-                regular expression.
+                write down productions for the grammar based on your solution
+                and the form of the regular expression.
 
             </p>
         </statement>
