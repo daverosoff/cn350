@@ -6,5 +6,67 @@
       <li>Learn stuff</li>
     </ol>
   </objectives>
-
+  <p>
+    This example should really go in the next file.
+  </p>
+  <table>
+    <title>Recursive inference for <m>(((P \vee Q) \wedge R) \vee (Q \wedge (!P)))</m></title>
+    <tabular>
+      <row header="yes">
+        <cell></cell>
+        <cell>String</cell>
+        <cell>Variable</cell>
+        <cell>PRoduction</cell>
+        <cell>Strings used</cell>
+      </row>
+      <row>
+        <cell>1</cell>
+        <cell><m>P</m></cell>
+        <cell><m>V</m></cell>
+        <cell><m>V \to P</m></cell>
+        <cell><mdash/></cell>
+      </row>
+      <row>
+        <cell>2</cell>
+        <cell>
+          <m>Q</m>
+        </cell>
+        <cell>
+          <m>V</m>
+        </cell>
+        <cell>
+          <m>V \to Q</m>
+        </cell>
+        <cell>
+          <mdash/>
+        </cell>
+      </row>
+      <row>
+        <cell>3</cell>
+        <cell>
+          <m>V</m>
+        </cell>
+        <cell>
+          <m>E</m>
+        </cell>
+        <cell>
+          <m>E \to V</m>
+        </cell>
+        <cell><mdash/></cell>
+      </row>
+      <row>
+        <cell>4</cell>
+        <cell>
+          <m>P</m>
+        </cell>
+        <cell>
+          <m>E</m>
+        </cell>
+        <cell>
+          <m>E \to V</m>
+        </cell>
+        <cell>1</cell>
+      </row>
+    </tabular>
+  </table>
 </section>
