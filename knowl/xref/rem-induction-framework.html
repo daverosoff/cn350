@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="remark remark-like"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">We usually apply the induction theorem in a highly implicit way. It is only invoked by name in introductory texts like this one. We have a sequence of theorems we wish to prove by induction. Usually we are too lazy to speak this way and we say we are proving one theorem, but about every natural number instead of a specific one (or about trees of arbitrary height instead of trees of height <span class="process-math">\(n\)</span>). Each theorem in our sequence has a hypothesis <span class="process-math">\(P_n\)</span> and a conclusion <span class="process-math">\(Q_n\text{.}\)</span> Often all of the <span class="process-math">\(P_n\)</span> are the same, but it doesn’t hurt anything to let them be different. It happens even more often that all of the <span class="process-math">\(Q_n\)</span> are specializations of a statement about integers to a specific integer. What we do when we write a proof by induction is to apply the induction theorem to the set <span class="process-math">\(S\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S = \{ n \in \N : P_n \implies Q_n \}\text{,}
+\end{equation*}
+</div>
+<div class="para">that is, the set of natural numbers (or e.g. tree heights) for which our theorem holds. If we can show the hypotheses of the induction theorem apply to the set <span class="process-math">\(S\text{,}\)</span> our proof is complete, because the conclusion of the induction theorem then entails that <span class="process-math">\(S = \N\text{.}\)</span>
+</div>
+</div> <div class="para">This is what I meant in class when I spoke of an “argument machine”. As stated above, none of this framework is ever explicitly mentioned in practice. In undergraduate books, it is considered enough to mention induction, prove a “base case” and an “induction step” or “inductive case” (two phrases for the same thing), and voilà! The proof is complete.</div> <div class="para">Thus, the “induction framework” consists of arranging your argument so that the sequences <span class="process-math">\(P_n\)</span> and <span class="process-math">\(Q_n\)</span> are clear. We call the theorem “<span class="process-math">\(P_0 \implies Q_0\)</span>” the “base case”. This theorem could also be stated as “<span class="process-math">\(0 \in S\)</span>”.</div></article><span class="incontext"><a class="internal" href="sec-induction.html#rem-induction-framework">in-context</a></span>
+</body>
+</html>

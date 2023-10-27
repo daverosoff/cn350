@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Homework 04</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Foundations of computation">
+<meta property="book:author" content="David W. Rosoff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.32/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.32/pretext_search.js"></script><link href="https://pretextbook.org/css/0.82/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.32</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.32/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.32/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.32/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.82/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/colors_blue_green.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="dwr-cn-350.html"><span class="title">Foundations of computation:</span> <span class="subtitle">DRAFT EDITION</span></a></h1>
+<p class="byline">David W. Rosoff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-hw3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-assignments.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\aster}[1]{#1^{\ast}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\lsim}{\mathord{\sim}}
+\let\epsilon\varepsilon
+\newcommand{\setof}[2]{\{#1 : #2\}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chapter-00-title.html" class="internal"><span class="codenumber">1</span> <span class="title">About proofs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-proofs.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Proofs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-proofs.html#subsection-1" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Class Activities</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Induction</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-induction.html#subsec-induction-activities" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Class activities</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="dwr-fa.html" class="internal"><span class="codenumber">2</span> <span class="title">Finite automata</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="DFA-intro.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Examples of finite state automata</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="DFA-intro.html#subsec-bank-store-customer" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The bank—store—customer model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="DFA-intro.html#subsec-marble-toy" class="internal"><span class="codenumber">2.1.2</span> <span class="title">The marble-rolling toy</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="DFA.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Deterministic finite automata</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="DFA.html#subsection-5" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Class Activities</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="NFA.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Nondeterministic finite automata</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="NFA.html#subsec-nfa-intro" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="NFA.html#subsec-subset-const" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The subset construction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="NFA.html#subsec-nfa-multiple-start" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Pseudo-NFA</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="NFA.html#subsection-9" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Class Activities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="NFA.html#sec-nfa-eps-trans" class="internal"><span class="codenumber">2.3.5</span> <span class="title">NFA with <span class="process-math">\(\varepsilon\)</span>-transitions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="regex.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Regular expressions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="regex.html#regex-basics" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Operators and examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="regex.html#subsec-nfa-and-regex" class="internal"><span class="codenumber">2.4.2</span> <span class="title">NFA and regular expressions</span></a></div></li>
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="regex.html#references-1" class="internal"><span class="codenumber">2.4.3</span> <span class="title">References</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-pumping-lemma-regular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Using the Pumping Lemma</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-pumping-lemma-regular.html#subsec-pumping-lemma-regular-activities" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Class activities</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="dwr-cfl.html" class="internal"><span class="codenumber">3</span> <span class="title">Context-free languages</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="CFL-intro.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Examples of context-free grammars</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-assignments.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hw1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Homework 01</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hw1.html#exercises-1" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hw2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Homework 02</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hw2.html#exercises-2" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hw3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Homework 03</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hw3.html#exercises-3" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-hw4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Homework 04</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hw4.html#exercises-hw4" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-hw4"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.4</span><span class="space"> </span><span class="title">Homework 04</span>
+</h2>
+<div class="para" id="p-313">This assignment covers 5.1 and 5.2 in HMU. Each problem will be worth 3 checks (unless otherwise noted). Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible. If your solution is more like a pile of equations, with little or no connecting narration, you’ll max out at 2 checks.</div>
+<section class="exercises" id="exercises-hw4"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-12"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-9">
+<div class="para" id="p-314">
+<a href="" class="xref" data-knowl="./knowl/xref/hw04-p1-task1.html" title="Task 4.4.1.a">Parts a–c</a> are worth 3 checks each. Complete <a href="" class="xref" data-knowl="./knowl/xref/hw04-p1-task4.html" title="Task 4.4.1.d">Part d</a> for an additional 3 bonus checks.</div> <div class="para logical" id="p-315">
+<div class="para">Consider the following grammar:</div>
+<div class="displaymath process-math" id="mdn-3">
+\begin{align}
+S \amp \to aB \mid bA\tag{4.4.1}\\
+A \amp \to aS \mid bAA \mid a\tag{4.4.2}\\
+B \amp \to bS \mid aBB \mid b\text{.}\tag{4.4.3}
+\end{align}
+</div>
+</div>
+</div>
+<article class="task exercise-like" id="hw04-p1-task1"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-316">Write down a recursive inference table giving at least four strings of length at least <span class="process-math">\(4\)</span> that are in the language of <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="task exercise-like" id="hw04-p1-task2"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-317">Write down either leftmost or rightmost derivations giving at least four strings of length at least <span class="process-math">\(4\)</span> that are in the language of <span class="process-math">\(B\text{.}\)</span>
+</div></article><article class="task exercise-like" id="hw04-p1-task3"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="p-318">Use either leftmost derivations or recursive inference to find at least four strings of length at least <span class="process-math">\(4\)</span> that are in <span class="process-math">\(L(S)\text{,}\)</span> and make a conjecture about which strings are in the language of the above grammar.</div></article><article class="task exercise-like" id="hw04-p1-task4"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="p-319">Prove that your conjecture from <a href="" class="xref" data-knowl="./knowl/xref/hw04-p1-task3.html" title="Task 4.4.1.c">Part c</a> is correct.</div></article></article><article class="exercise exercise-like" id="exercise-13"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-320">Let <span class="process-math">\(T = \{ 0, 1, (, ), +, \emptyset, e \}\text{.}\)</span> We may think of <span class="process-math">\(T\)</span> as the set of symbols used by regular expressions over alphabet <span class="process-math">\(\{0, 1\}\text{.}\)</span> The only difference is that we use <span class="process-math">\(e\)</span> for symbol <span class="process-math">\(\varepsilon\text{,}\)</span> to avoid potential confusion with the actual <span class="process-math">\(\varepsilon\)</span> that may appear in your grammar productions. Design a CFG with set of terminals <span class="process-math">\(T\)</span> that generates exactly the regular expressions with alphabet <span class="process-math">\(\{0, 1\}\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="hw04-exer-regex-to-cfg"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-321">Describe, in general terms, a recursive method to convert a regular expression to an equivalent context-free grammar. You do <em class="emphasis">not</em> need to prove that your method is correct.</div> <div class="para" id="p-322">“General” here does not mean “vague”, but rather that your explanation is not tied to a specific example. Try to be general and precise at once. The reader should understand how to write down productions for the grammar based on your solution and the form of the regular expression.</div>
+<div class="solutions"><details id="hint-15" class="hint solution-like born-hidden-knowl"><summary><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like"><div class="para" id="p-323">Use the recursive definition of a regular expression. That is, explain how to handle the base cases directly and give a general explanation of how to handle the recursive cases.</div></div></details></div></article><article class="exercise exercise-like" id="exercise-15"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-10">
+<div class="para" id="p-324">Each part of this problem is worth 3 checks.</div> <div class="para" id="p-325">A context-free grammar is said to be <dfn class="terminology">right-linear</dfn> if each production body has at most one variable, and that variable is at the right end. That is, all productions of a right-linear grammar are of the form <span class="process-math">\(A \to wB\)</span> or <span class="process-math">\(A \to w\text{,}\)</span> where <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are variables and <span class="process-math">\(w\)</span> a string of zero or more terminals.</div>
+</div>
+<article class="task exercise-like" id="task-24"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-326">In the same sense as <a href="" class="xref" data-knowl="./knowl/xref/hw04-exer-regex-to-cfg.html" title="Exercise 4.4.3">Exercise 4.4.3</a>, give a general method to convert a right-linear grammar to an <span class="process-math">\(\varepsilon\)</span>-NFA. This shows that right-linear grammars are at least as powerful as <span class="process-math">\(\varepsilon\)</span>-NFAs (equivalently, DFAs, regular expressions, etc.)</div>
+<div class="solutions"><details id="hint-16" class="hint solution-like born-hidden-knowl"><summary><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like"><div class="para" id="p-327">Construct an <span class="process-math">\(\varepsilon\)</span>-NFA that simulates leftmost derivations, using its state to represent the lone variable in the current left-sentential form.</div></div></details></div></article><article class="task exercise-like" id="task-25"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-328">Give a general method for converting a DFA into a right-linear grammar. Combined with the previous part, this shows that right-linear grammars recognize exactly the regular languages.</div>
+<div class="solutions"><details id="hint-17" class="hint solution-like born-hidden-knowl"><summary><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like"><div class="para" id="p-329">Start with a DFA and let the variables of the grammar represent states.</div></div></details></div></article></article><article class="exercise exercise-like" id="exercise-16"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para logical" id="p-330">
+<div class="para">For each string below, find a parse tree that shows how it is generated by the grammar.</div>
+<div class="displaymath process-math" id="md-6">
+\begin{align*}
+S \amp \to A1B\\
+A \amp \to 0A \mid \varepsilon\\
+B \amp \to 0B \mid 1B \mid \varepsilon
+\end{align*}
+</div>
+<ol class="lower-alpha">
+<li id="li-197"><div class="para" id="p-derived-li-197"><span class="process-math">\(\displaystyle 00101\)</span></div></li>
+<li id="li-198"><div class="para" id="p-derived-li-198"><span class="process-math">\(\displaystyle 1001\)</span></div></li>
+<li id="li-199"><div class="para" id="p-derived-li-199"><span class="process-math">\(\displaystyle 00011\)</span></div></li>
+</ol>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-hw3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="remark remark-like"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Designing DFA.</span>
+</h4> <div class="para">When designing a DFA or other automaton, it can be helpful to imagine yourself as the DFA and consider your cognition as you read the input word one symbol at a time. What must you remember about the string? How do you perform the DFA’s task? It helps when doing this to remember that the word might be very long, so long you can’t remember it all at once. You also don’t know when the string will end, so you must always be ready with the answer.</div> <div class="para">Suppose that the alphabet is <span class="process-math">\(\Sigma = \{0,1\}\)</span> and we wish to accept all words with an odd number of 1s. If you start going through a long input string of 0s and 1s, one symbol at a time, do you need to see the whole string? Do you need to remember any of it? No, you simply keep track of whether the number of 1s you have seen <em class="emphasis">so far</em> is even or odd.</div> <div class="para">This gives a clue to the design of the DFA. There are two states <span class="process-math">\(q_0\)</span> and <span class="process-math">\(q_1\text{,}\)</span> corresponding to having seen an even or odd number of 1s so far. We begin in state <span class="process-math">\(q_0\text{,}\)</span> since at the beginning, we haven’t “seen” any symbols and in particular have seen no 1s. Now the transitions should be clear: all transitions labeled with <span class="process-math">\(0\)</span> are self-loops, since the number of 1s does not change. Similarly, each transition labeled with <span class="process-math">\(1\)</span> changes state, because whenever we read a 1, the number of 1s seen so far changes parity.</div> <div class="para">There is just one accepting state, state <span class="process-math">\(q_1\text{,}\)</span> because that is the condition for having seen an odd number of 1s so far. If we are in state <span class="process-math">\(q_1\)</span> when the input ends, we win; otherwise, our string must be rejected.</div></article><span class="incontext"><a class="internal" href="DFA.html#par-design-dfa">in-context</a></span>
+</body>
+</html>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45pt" height="88pt" viewBox="0 0 45 88" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46pt" height="89pt" viewBox="0 0 46 89" version="1.1">
 <g id="surface1">
-<path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -0.00191188 -0.00084375 L 42.520675 -0.00084375 M -0.00191188 42.518687 L 42.520675 42.518687 M -0.00191188 85.0265 L 42.520675 85.0265 M -0.00191188 -0.00084375 L -0.00191188 85.042125 M 42.50505 -0.00084375 L 42.50505 85.042125 " transform="matrix(1.00002,0,0,-1,1.095662,86.839)"/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(32.998657%,32.998657%,32.998657%);fill-opacity:1;" d="M 1.09375 82.585938 L 1.09375 48.570312 L 39.363281 48.570312 L 39.363281 82.585938 Z M 1.09375 82.585938 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(66.999817%,66.999817%,66.999817%);fill-opacity:1;" d="M 1.09375 40.066406 L 1.09375 6.050781 L 39.363281 6.050781 L 39.363281 40.066406 Z M 1.09375 40.066406 "/>
+<path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -0.00191188 -0.00084375 L 42.520675 -0.00084375 M -0.00191188 42.518687 L 42.520675 42.518687 M -0.00191188 85.0265 L 42.520675 85.0265 M -0.00191188 -0.00084375 L -0.00191188 85.042125 M 42.50505 -0.00084375 L 42.50505 85.042125 " transform="matrix(1.00002,0,0,-1,2.095662,86.839)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(32.998657%,32.998657%,32.998657%);fill-opacity:1;" d="M 2.09375 82.585938 L 2.09375 48.570312 L 40.363281 48.570312 L 40.363281 82.585938 Z M 2.09375 82.585938 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(66.999817%,66.999817%,66.999817%);fill-opacity:1;" d="M 2.09375 40.066406 L 2.09375 6.050781 L 40.363281 6.050781 L 40.363281 40.066406 Z M 2.09375 40.066406 "/>
 </g>
 </svg>
