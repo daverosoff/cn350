@@ -63,7 +63,7 @@
             <li>Does the toy accept <m>bab</m>?</li>
             <li>
               <p>
-              Find all the words on <m>\{ a,b }</m> of length
+              Find all the words on <m>\{ a,b \}</m> of length
               at most <m>4</m> accepted by the marble-rolling
               toy, assuming that a word is accepted if the last marble exits at D.
           <!-- </p> -->
