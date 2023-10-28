@@ -762,8 +762,8 @@ var ptx_lunr_docs = [
   "url": "CFL-intro.html",
   "type": "Section",
   "number": "3.1",
-  "title": "Examples of context-free grammars",
-  "body": " Examples of context-free grammars    Learn stuff    "
+  "title": "Recursive inference, trees, and derivations",
+  "body": " Recursive inference, trees, and derivations    Learn stuff    In class, we looked at the following example grammar and tried to write down a recursive inference table for the sentence . The table below shows one solution.   Recursive inference for     String  Variable  Production  Strings used    1        2        3        4     1    5     2    6        7     4, 5, 6    8        9     8    10        11     7, 10, 9    12        13     12, 4    14     5, 10, 13    15     6, 14, 11     "
 },
 {
   "id": "objectives-5",
@@ -773,6 +773,15 @@ var ptx_lunr_docs = [
   "number": "3.1",
   "title": "",
   "body": "  Learn stuff   "
+},
+{
+  "id": "table-recursive-inference-kozen",
+  "level": "2",
+  "url": "CFL-intro.html#table-recursive-inference-kozen",
+  "type": "Table",
+  "number": "3.1.1",
+  "title": "Recursive inference for <span class=\"process-math\">\\((((P \\vee Q) \\wedge R) \\vee (Q \\wedge (\\neg P)))\\)<\/span>",
+  "body": " Recursive inference for     String  Variable  Production  Strings used    1        2        3        4     1    5     2    6        7     4, 5, 6    8        9     8    10        11     7, 10, 9    12        13     12, 4    14     5, 10, 13    15     6, 14, 11    "
 },
 {
   "id": "sec-hw1",
