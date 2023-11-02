@@ -225,7 +225,7 @@ window.MathJax = {
 <ol class="decimal"><li id="li-170"><div class="para" id="p-derived-li-170">Learn stuff</div></li></ol></article><div class="para logical" id="p-280">
 <div class="para">In class, we looked at the following example grammar and tried to write down a recursive inference table for the sentence <span class="process-math">\((((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))\text{.}\)</span>
 </div>
-<div class="displaymath process-math" id="md-6">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table-recursive-inference-kozen.html" id="md-6">
 \begin{align*}
 E \amp \to (EBE) \mid (UE) \mid C \mid V\\
 B \amp \to \wedge \mid \vee \mid \; \to \; \mid \; \leftrightarrow\\
@@ -234,120 +234,121 @@ C \amp \to \bot \mid \top\\
 V \amp \to P \mid Q \mid R
 \end{align*}
 </div>
-<div class="para">The table below shows one solution.</div>
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/xref/table-recursive-inference-kozen.html" title="Table 3.1.1: Recursive inference for (((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))">Table 3.1.1</a> shows one solution.</div>
 </div>
-<figure class="table table-like" id="table-recursive-inference-kozen"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.1.1<span class="period">.</span></span><span class="space"> </span>Recursive inference for <span class="process-math">\((((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table-recursive-inference-kozen"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.1.1<span class="period">.</span></span><span class="space"> </span>Recursive inference for <span class="process-math">\((((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))\text{.}\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
-<th scope="col" class="l m b2 r0 l0 t0 lines"></th>
+<th scope="col" class="r m b2 r0 l0 t0 lines"></th>
 <th scope="col" class="l m b2 r0 l0 t0 lines">String</th>
-<th scope="col" class="l m b2 r0 l0 t0 lines">Variable</th>
+<th scope="col" class="c m b2 r0 l0 t0 lines">Variable</th>
 <th scope="col" class="l m b2 r0 l0 t0 lines">Production</th>
-<th scope="col" class="l m b2 r0 l0 t0 lines">Strings used</th>
+<th scope="col" class="c m b2 r0 l0 t0 lines">Strings used</th>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="r m b0 r0 l0 t0 lines">1</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(V\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(V\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(V \to P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">—</td>
+<td class="c m b0 r0 l0 t0 lines">—</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="r m b0 r0 l0 t0 lines">2</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(V\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(V\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(V \to Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">—</td>
+<td class="c m b0 r0 l0 t0 lines">—</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="r m b0 r0 l0 t0 lines">3</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(V\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to V\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">—</td>
+<td class="c m b0 r0 l0 t0 lines">—</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="r m b0 r0 l0 t0 lines">4</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to V\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="r m b0 r0 l0 t0 lines">5</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to V\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="c m b0 r0 l0 t0 lines">2</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="r m b0 r0 l0 t0 lines">6</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vee\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(B\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(B\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(B \to \vee\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">—</td>
+<td class="c m b0 r0 l0 t0 lines">—</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="r m b0 r0 l0 t0 lines">7</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((P \vee Q)\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to (EBE)\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">4, 5, 6</td>
+<td class="c m b0 r0 l0 t0 lines">4, 5, 6</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="r m b0 r0 l0 t0 lines">8</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(R\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(V\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(V\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(V \to R\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">—</td>
+<td class="c m b0 r0 l0 t0 lines">—</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">9</td>
+<td class="r m b0 r0 l0 t0 lines">9</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(R\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to V\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="c m b0 r0 l0 t0 lines">8</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="r m b0 r0 l0 t0 lines">10</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\wedge\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(B\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(B\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(B \to \wedge\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">—</td>
+<td class="c m b0 r0 l0 t0 lines">—</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">11</td>
+<td class="r m b0 r0 l0 t0 lines">11</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(((P \vee Q) \wedge R)\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to (EBE)\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">7, 10, 9</td>
+<td class="c m b0 r0 l0 t0 lines">7, 10, 9</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="r m b0 r0 l0 t0 lines">12</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\neg\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(U\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(U\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(U \to \neg\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">—</td>
+<td class="c m b0 r0 l0 t0 lines">—</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">13</td>
+<td class="r m b0 r0 l0 t0 lines">13</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((\neg P)\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to (UE)\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">12, 4</td>
+<td class="c m b0 r0 l0 t0 lines">12, 4</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">14</td>
+<td class="r m b0 r0 l0 t0 lines">14</td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((Q \wedge (\neg P))\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(E \to (EBE)\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">5, 10, 13</td>
+<td class="c m b0 r0 l0 t0 lines">5, 10, 13</td>
 </tr>
 <tr>
-<td class="l m b2 r0 l0 t0 lines">15</td>
+<td class="r m b2 r0 l0 t0 lines">15</td>
 <td class="l m b2 r0 l0 t0 lines"><span class="process-math">\((((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))\)</span></td>
-<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
+<td class="c m b2 r0 l0 t0 lines"><span class="process-math">\(E\)</span></td>
 <td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(E \to (EBE)\)</span></td>
-<td class="l m b2 r0 l0 t0 lines">6, 14, 11</td>
+<td class="c m b2 r0 l0 t0 lines">6, 14, 11</td>
 </tr>
 </table></div></figure></section></div>
 <div class="ptx-content-footer">
