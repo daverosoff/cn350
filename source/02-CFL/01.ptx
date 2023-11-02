@@ -17,122 +17,122 @@
       <mrow>C \amp \to \bot \mid \top</mrow>
       <mrow>V \amp \to P \mid Q \mid R</mrow>
     </md>
-    The table below shows one solution.
+    <xref ref="table-recursive-inference-kozen"/> shows one solution.
   </p>
   <table xml:id="table-recursive-inference-kozen">
-    <title>Recursive inference for <m>(((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))</m></title>
+    <title>Recursive inference for <m>(((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))</m>.</title>
     <tabular>
       <row header="yes" bottom="medium">
-        <cell></cell>
+        <cell halign="right"></cell>
         <cell>String</cell>
-        <cell>Variable</cell>
+        <cell halign="center">Variable</cell>
         <cell>Production</cell>
-        <cell>Strings used</cell>
+        <cell halign="center">Strings used</cell>
       </row>
       <row>
-        <cell>1</cell>
+        <cell halign="right">1</cell>
         <cell><m>P</m></cell>
-        <cell><m>V</m></cell>
+        <cell halign="center"><m>V</m></cell>
         <cell><m>V \to P</m></cell>
-        <cell><mdash/></cell>
+        <cell halign="center"><mdash/></cell>
       </row>
       <row>
-        <cell>2</cell>
+        <cell halign="right">2</cell>
         <cell><m>Q</m></cell>
-        <cell><m>V</m></cell>
+        <cell halign="center"><m>V</m></cell>
         <cell><m>V \to Q</m></cell>
-        <cell><mdash/></cell>
+        <cell halign="center"><mdash/></cell>
       </row>
       <row>
-        <cell>3</cell>
+        <cell halign="right">3</cell>
         <cell><m>V</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to V</m></cell>
-        <cell><mdash/></cell>
+        <cell halign="center"><mdash/></cell>
       </row>
       <row>
-        <cell>4</cell>
+        <cell halign="right">4</cell>
         <cell><m>P</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to V</m></cell>
-        <cell>1</cell>
+        <cell halign="center">1</cell>
       </row>
       <row>
-        <cell>5</cell>
+        <cell halign="right">5</cell>
         <cell><m>Q</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to V</m></cell>
-        <cell>2</cell>
+        <cell halign="center">2</cell>
       </row>
       <row>
-        <cell>6</cell>
+        <cell halign="right">6</cell>
         <cell><m>\vee</m></cell>
-        <cell><m>B</m></cell>
+        <cell halign="center"><m>B</m></cell>
         <cell><m>B \to \vee</m></cell>
-        <cell><mdash/></cell>
+        <cell halign="center"><mdash/></cell>
       </row>
       <row>
-        <cell>7</cell>
+        <cell halign="right">7</cell>
         <cell><m>(P \vee Q)</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to (EBE)</m></cell>
-        <cell>4, 5, 6</cell>
+        <cell halign="center">4, 5, 6</cell>
       </row>
       <row>
-        <cell>8</cell>
+        <cell halign="right">8</cell>
         <cell><m>R</m></cell>
-        <cell><m>V</m></cell>
+        <cell halign="center"><m>V</m></cell>
         <cell><m>V \to R</m></cell>
-        <cell><mdash/></cell>
+        <cell halign="center"><mdash/></cell>
       </row>
       <row>
-        <cell>9</cell>
+        <cell halign="right">9</cell>
         <cell><m>R</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to V</m></cell>
-        <cell>8</cell>
+        <cell halign="center">8</cell>
       </row>
       <row>
-        <cell>10</cell>
+        <cell halign="right">10</cell>
         <cell><m>\wedge</m></cell>
-        <cell><m>B</m></cell>
+        <cell halign="center"><m>B</m></cell>
         <cell><m>B \to \wedge</m></cell>
-        <cell><mdash/></cell>
+        <cell halign="center"><mdash/></cell>
       </row>
       <row>
-        <cell>11</cell>
+        <cell halign="right">11</cell>
         <cell><m>((P \vee Q) \wedge R)</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to (EBE)</m></cell>
-        <cell>7, 10, 9</cell>
+        <cell halign="center">7, 10, 9</cell>
       </row>
       <row>
-        <cell>12</cell>
+        <cell halign="right">12</cell>
         <cell><m>\neg</m></cell>
-        <cell><m>U</m></cell>
+        <cell halign="center"><m>U</m></cell>
         <cell><m>U \to \neg</m></cell>
-        <cell><mdash/></cell>
+        <cell halign="center"><mdash/></cell>
       </row>
       <row>
-        <cell>13</cell>
+        <cell halign="right">13</cell>
         <cell><m>(\neg P)</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to (UE)</m></cell>
-        <cell>12, 4</cell>
+        <cell halign="center">12, 4</cell>
       </row>
       <row>
-        <cell>14</cell>
+        <cell halign="right">14</cell>
         <cell><m>(Q \wedge (\neg P))</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to (EBE)</m></cell>
-        <cell>5, 10, 13</cell>
+        <cell halign="center">5, 10, 13</cell>
       </row>
       <row bottom="medium">
-        <cell>15</cell>
+        <cell halign="right">15</cell>
         <cell><m>(((P \vee Q) \wedge R) \vee (Q \wedge (\neg P)))</m></cell>
-        <cell><m>E</m></cell>
+        <cell halign="center"><m>E</m></cell>
         <cell><m>E \to (EBE)</m></cell>
-        <cell>6, 14, 11</cell>
+        <cell halign="center">6, 14, 11</cell>
       </row>
     </tabular>
   </table>
