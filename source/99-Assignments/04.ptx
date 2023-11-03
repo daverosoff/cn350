@@ -2,7 +2,7 @@
 <section xml:id="sec-hw4" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Homework 04</title>
   <p>
-    
+
     This assignment covers 5.1 and 5.2 in HMU. Each problem will be worth 3
     checks (unless otherwise noted). Your answers should be like little essays,
     made only of complete sentences. Formulas should never stand on their own,
@@ -72,7 +72,7 @@
     <exercise>
         <statement>
             <p>
-                Let <m>T = \{ 0, 1, (, ), +, \emptyset, e \}</m>. We may
+                Let <m>T = \{ 0, 1, (, ), \ast, +, \emptyset, e \}</m>. We may
                 think of <m>T</m> as the set of symbols used by regular
                 expressions over alphabet <m>\{0, 1\}</m>. The only difference
                 is that we use <m>e</m> for symbol <m>\varepsilon</m>, to avoid
@@ -80,6 +80,12 @@
                 appear in your grammar productions. Design a CFG with set
                 of terminals <m>T</m> that generates exactly the regular
                 expressions with alphabet <m>\{0, 1\}</m>.
+            </p>
+            <p>
+                This problem originally left out the <m>\ast</m> symbol. Both
+                the <m>\ast</m> and <m>+</m> should be there, but the <m>+</m>
+                is binary operator for regular expression union, not the unary
+                operator denoting <q>one or more</q>.
             </p>
         </statement>
     </exercise>
