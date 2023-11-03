@@ -784,6 +784,51 @@ var ptx_lunr_docs = [
   "body": " Recursive inference for .     String  Variable  Production  Strings used    1        2        3        4     1    5     2    6        7     4, 5, 6    8        9     8    10        11     7, 10, 9    12        13     12, 4    14     5, 10, 13    15     6, 14, 11    "
 },
 {
+  "id": "PDA-intro",
+  "level": "1",
+  "url": "PDA-intro.html",
+  "type": "Section",
+  "number": "3.2",
+  "title": "Intro to pushdown automata",
+  "body": " Intro to pushdown automata    Learn stuff     Informal definition  We imagine a pushdown automaton or PDA as being like an -NFA with a stack attached. We still use transitions to move from one state to another. Like -NFA, PDA are nondeterministic and can spontaneously transition without consuming input. This is not a big new idea.  On the other hand, the transition function for a PDA uses both the input word and the stack as part of the input. That is, the transitions that are available are determined in part by the contents of the stack as well as the remaining part of the input word.  Both -transitions and normal transitions have the chance to alter the stack on their way to the new state. A transition may:  Pop the top symbol off the stack (it vanishes forever)  Push one or more symbols onto the top of the stack  Both these alterations are optional, but if both occur, the pop is always first.  In the formal specification given in , you will see that the set of stack symbols is allowed to be different from the alphabet . In fact, it always is different, because we need a special start symbol that has no job but being the bottom of the stack.  Acceptance for PDA is somewhat like acceptance for NFA. PDA have a set of states designated as accepting states, and if there is a branch of the nondeterministic computation that lands in an accepting state when the input word is consumed, the word is said to be in the accepting-state language of the PDA. As the phrasing suggests, there is a second definition of acceptance that is postponed until HMU section 6.2. This is called empty-stack acceptance, and we will see it is quite natural.   For any particular PDA , the accepting-state language and the empty-stack language are typically different.      Formal specification  The formal specification of a PDA looks like this: . Here   is the set of states   is the alphabet (the input symbols)   is the set of stack symbols   is the transition function, explained in more detail below   is the initial state (we assume )   is the bottom stack symbol (we assume that )   is the set of accepting states (we assume that )  We usually don't give tables for the transition function, instead preferring lengthy verbal descriptions. The reason is that the domain is the product of three sets, namely and thus instead of a 2-d table of input values we have a 3-d cube of them.  Here are some useful figures. I'll add more explanation later.   (for accessibility)    (for accessibility    (for accessibility)     (This is Exercise 6.1.1 from HMU.) Suppose that is a PDA, and that is described by the following rules.    . This means that if in state , we read a and there is on the top of the stack, we can (and must) remain in state , consume the , do not pop, and push an on the stack. The pair represents the new state and the new stack top (read from top to bottom as we go left to right, so the is still there and the is on top of it).                                   Show all the reachable instantaneous descriptions when the input is:          "
+},
+{
+  "id": "objectives-6",
+  "level": "2",
+  "url": "PDA-intro.html#objectives-6",
+  "type": "Objectives",
+  "number": "3.2",
+  "title": "",
+  "body": "  Learn stuff   "
+},
+{
+  "id": "p-281",
+  "level": "2",
+  "url": "PDA-intro.html#p-281",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "pushdown automaton stack "
+},
+{
+  "id": "warning-1",
+  "level": "2",
+  "url": "PDA-intro.html#warning-1",
+  "type": "Warning",
+  "number": "3.2.1",
+  "title": "",
+  "body": " For any particular PDA , the accepting-state language and the empty-stack language are typically different.  "
+},
+{
+  "id": "activity-42",
+  "level": "2",
+  "url": "PDA-intro.html#activity-42",
+  "type": "Activity",
+  "number": "3.2.1",
+  "title": "",
+  "body": "  (This is Exercise 6.1.1 from HMU.) Suppose that is a PDA, and that is described by the following rules.    . This means that if in state , we read a and there is on the top of the stack, we can (and must) remain in state , consume the , do not pop, and push an on the stack. The pair represents the new state and the new stack top (read from top to bottom as we go left to right, so the is still there and the is on top of it).                                   Show all the reachable instantaneous descriptions when the input is:        "
+},
+{
   "id": "sec-hw1",
   "level": "1",
   "url": "sec-hw1.html",

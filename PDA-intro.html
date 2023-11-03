@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Homework 03</title>
+<title>Intro to pushdown automata</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -124,7 +124,7 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-hw2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-assignments.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-hw4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="CFL-intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="dwr-cfl.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-assignments.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
 \newcommand{\abs}[1]{\lvert #1 \rvert}
 \newcommand{\aster}[1]{#1^{\ast}}
@@ -192,11 +192,11 @@ window.MathJax = {
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="dwr-cfl.html" class="internal"><span class="codenumber">3</span> <span class="title">Context-free languages</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="CFL-intro.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Recursive inference, trees, and derivations</span></a></div></li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="PDA-intro.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Intro to pushdown automata</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PDA-intro.html#subsec-informal-definition" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Informal definition</span></a></div></li>
@@ -205,9 +205,9 @@ window.MathJax = {
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter contains-active">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-assignments.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-hw1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Homework 01</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hw1.html#exercises-1" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
@@ -216,7 +216,7 @@ window.MathJax = {
 <div class="toc-title-box"><a href="sec-hw2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Homework 02</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hw2.html#exercises-2" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-hw3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Homework 03</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hw3.html#exercises-3" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
@@ -227,80 +227,92 @@ window.MathJax = {
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-hw3"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Homework 03</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="PDA-intro"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.2</span><span class="space"> </span><span class="title">Intro to pushdown automata</span>
 </h2>
-<div class="para" id="p-318">This assignment covers sections 2.5 through 3.2 in HMU. Each problem will be worth 3 checks. Your code should be like floating little poems. Use comments wisely: don’t explain the routine things, but the clever ones. Make your code transparent so that it is easy to read and understand.</div>
-<div class="para" id="p-319">The assignment is worth 15 checks.</div>
-<section class="exercises" id="exercises-3"><h3 class="heading hide-type">
-<span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
+<article class="objectives goal-like" id="objectives-6"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal"><li id="li-171"><div class="para" id="p-derived-li-171">Learn stuff</div></li></ol></article><section class="subsection" id="subsec-informal-definition"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="space"> </span><span class="title">Informal definition</span>
 </h3>
-<article class="exercise exercise-like" id="ex-implement-dfa"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-8">
-<div class="para" id="p-320">Write a single Python file <code class="code-inline tex2jax_ignore">dfa.py</code> that implements the classes specified below with the indicated behavior. You may use any Python features you like, but you may not use any other modules (imports). You are explicitly instructed not to search for a solution to this problem. Obviously it will be very easy to find. Instead, use what you know from class and your existing programming skills. All the code you submit should be your own. Please also refrain from the use of any type of programming assistant (turn off AI gizmos like GitHub Copilot, IntelliSense, etc.).</div> <div class="para" id="p-321">Keep the following philosophy in mind as you code. The intuitive, diagram-based idea of a DFA is not something easy to code. However, you also have access to the formal specification and much surrounding apparatus. I would suggest implementing DFA in terms of the formal specification: use it as your inspiration for how the class’s fields should look.</div>
-</div>
-<article class="task exercise-like" id="task-15"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-322">
-<div class="para">The class <code class="code-inline tex2jax_ignore">DFA</code>. This class should have the following methods:</div>
+<div class="para" id="p-281">We imagine a <dfn class="terminology">pushdown automaton</dfn> or PDA as being like an <span class="process-math">\(\varepsilon\)</span>-NFA with a <dfn class="terminology">stack</dfn> attached. We still use transitions to move from one state to another. Like <span class="process-math">\(\varepsilon\)</span>-NFA, PDA are nondeterministic and can “spontaneously” transition without consuming input. This is not a big new idea.</div>
+<div class="para" id="p-282">On the other hand, the transition function for a PDA uses both the input word and the stack as part of the input. That is, the transitions that are available are determined in part by the contents of the stack as well as the remaining part of the input word.</div>
+<div class="para logical" id="p-283">
+<div class="para">Both <span class="process-math">\(\varepsilon\)</span>-transitions and normal transitions have the chance to alter the stack on their way to the new state. A transition may:</div>
 <ol class="decimal">
-<li id="li-210"><div class="para" id="p-derived-li-210">a constructor that returns a usable DFA object</div></li>
-<li id="li-211"><div class="para" id="p-derived-li-211">a <code class="code-inline tex2jax_ignore">__repr__()</code> method that dumps the current formal specification of the DFA to the output</div></li>
-<li id="li-212"><div class="para" id="p-derived-li-212">a <code class="code-inline tex2jax_ignore">run()</code> method that simulates the action of the extended transition function <span class="process-math">\(\hat{\delta}\)</span> (see <a href="" class="xref" data-knowl="./knowl/xref/def-deltahat.html" title="Definition 2.2.2">Definition 2.2.2</a>). This method should return a <code class="code-inline tex2jax_ignore">bool</code> whose value indicates acceptance or rejection.</div></li>
+<li id="li-172"><div class="para" id="p-derived-li-172">Pop the top symbol off the stack (it vanishes forever)</div></li>
+<li id="li-173"><div class="para" id="p-derived-li-173">Push one or more symbols onto the top of the stack</div></li>
 </ol>
-<div class="para">I have not specified the parameters. These are all instance methods of the class, so must take at least the parameter <code class="code-inline tex2jax_ignore">self</code>. The DFA is nothing more than its formal specification, so you can start there.</div>
+<div class="para">Both these alterations are optional, but if both occur, the pop is always first.</div>
 </div>
-<div class="solutions"><details id="hint-13" class="hint solution-like born-hidden-knowl"><summary><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like"><div class="para" id="p-323">Use the data type <code class="code-inline tex2jax_ignore">set</code> for <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(\Sigma\text{,}\)</span> and <span class="process-math">\(F\text{.}\)</span> Think about Python’s types carefully before you choose how to implement <span class="process-math">\(\delta\text{.}\)</span>
-</div></div></details></div></article><article class="task exercise-like" id="task-16"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-324">
-<div class="para">The class <code class="code-inline tex2jax_ignore">NFA</code>. This class should have the following methods. My remarks above about the parameters apply here as well.</div>
+<div class="para" id="p-284">In the formal specification given in <a href="PDA-intro.html#subsec-formal-specification" class="internal" title="Subsection 3.2.2: Formal specification">Subsection 3.2.2</a>, you will see that the set of stack symbols is allowed to be different from the alphabet <span class="process-math">\(\Sigma\text{.}\)</span> In fact, it always is different, because we need a special start symbol that has no job but being the bottom of the stack.</div>
+<div class="para" id="p-285">Acceptance for PDA is somewhat like acceptance for NFA. PDA have a set of states designated as accepting states, and if there is a “branch” of the nondeterministic computation that lands in an accepting state when the input word is consumed, the word is said to be in the accepting-state language of the PDA. As the phrasing suggests, there is a second definition of acceptance that is postponed until HMU section 6.2. This is called empty-stack acceptance, and we will see it is quite natural.</div>
+<article class="warning remark-like" id="warning-1"><h4 class="heading">
+<span class="type">Warning</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-286">For any particular PDA <span class="process-math">\(A\text{,}\)</span> the accepting-state language <span class="process-math">\(L(A)\)</span> and the empty-stack language <span class="process-math">\(N(A)\)</span> are typically different.</div></article></section><section class="subsection" id="subsec-formal-specification"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="space"> </span><span class="title">Formal specification</span>
+</h3>
+<div class="para logical" id="p-287">
+<div class="para">The formal specification of a PDA looks like this:</div>
+<div class="displaymath process-math" id="eqn-formal-spec-npda">
+\begin{equation}
+P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)\text{.}\tag{3.2.1}
+\end{equation}
+</div>
+<div class="para">Here</div>
+<ul class="disc">
+<li id="li-174"><div class="para" id="p-derived-li-174">
+<span class="process-math">\(Q\)</span> is the set of states</div></li>
+<li id="li-175"><div class="para" id="p-derived-li-175">
+<span class="process-math">\(\Sigma\)</span> is the alphabet (the input symbols)</div></li>
+<li id="li-176"><div class="para" id="p-derived-li-176">
+<span class="process-math">\(\Gamma\)</span> is the set of stack symbols</div></li>
+<li id="li-177"><div class="para" id="p-derived-li-177">
+<span class="process-math">\(\delta\)</span> is the transition function, explained in more detail below</div></li>
+<li id="li-178"><div class="para" id="p-derived-li-178">
+<span class="process-math">\(q_0\)</span> is the initial state (we assume <span class="process-math">\(q_0 \in Q\)</span>)</div></li>
+<li id="li-179"><div class="para" id="p-derived-li-179">
+<span class="process-math">\(Z_0\)</span> is the bottom stack symbol (we assume that <span class="process-math">\(Z_0 \in \Gamma\)</span>)</div></li>
+<li id="li-180"><div class="para" id="p-derived-li-180">
+<span class="process-math">\(F\)</span> is the set of accepting states (we assume that <span class="process-math">\(F \subseteq Q\)</span>)</div></li>
+</ul>
+<div class="para">We usually don’t give tables for the transition function, instead preferring lengthy verbal descriptions. The reason is that the domain is the product of three sets, namely <span class="process-math">\(Q \times \Sigma \times \Gamma\)</span> and thus instead of a 2-d table of input values we have a 3-d cube of them.</div>
+</div>
+<div class="para" id="p-288">Here are some useful figures. I’ll add more explanation later.</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/pda-trans-diagram.png" class="contained" alt="(for accessibility)"></div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/pda-ids-explanation.png" class="contained" alt="(for accessibility"></div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/pda-ids-diagram.png" class="contained" alt="(for accessibility)"></div>
+<article class="activity project-like" id="activity-42"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-289">
+<div class="para">(This is Exercise 6.1.1 from HMU.) Suppose that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = (\{q, p\}, \{0, 1\}, \{Z_0, X\}, \delta, q, Z_0, \{p\})
+\end{equation*}
+</div>
+<div class="para">is a PDA, and that <span class="process-math">\(\delta\)</span> is described by the following rules.</div>
 <ol class="decimal">
-<li id="li-213"><div class="para" id="p-derived-li-213">a constructor that returns a usable NFA object</div></li>
-<li id="li-214"><div class="para" id="p-derived-li-214">a <code class="code-inline tex2jax_ignore">__repr__()</code> method that dumps the current formal specification of the NFA to the output</div></li>
-<li id="li-215"><div class="para" id="p-derived-li-215">a helper method <code class="code-inline tex2jax_ignore">do_delta()</code> that simulates the (non-extended) transition function <span class="process-math">\(\delta\text{.}\)</span> This method should handle missing transitions gracefully, since it is for an NFA.</div></li>
-<li id="li-216"><div class="para" id="p-derived-li-216">a <code class="code-inline tex2jax_ignore">run()</code> method that simulates the action of the extended transition function <span class="process-math">\(\hat{\delta}\)</span> (see <a href="" class="xref" data-knowl="./knowl/xref/def-nfa-deltahat.html" title="Definition 2.3.2">Definition 2.3.2</a>). This method should call the <code class="code-inline tex2jax_ignore">do_delta()</code> method. It should return a <code class="code-inline tex2jax_ignore">bool</code> whose value indicates acceptance or rejection.</div></li>
+<li id="li-181"><div class="para" id="p-290">
+<span class="process-math">\(\delta(q, 0, Z_0) = \{(q, XZ_0)\}\text{.}\)</span> This means that if in state <span class="process-math">\(q\text{,}\)</span> we read a <span class="process-math">\(0\)</span> and there is <span class="process-math">\(Z_0\)</span> on the top of the stack, we can (and must) remain in state <span class="process-math">\(q\text{,}\)</span> consume the <span class="process-math">\(0\text{,}\)</span> do not pop, and push an <span class="process-math">\(X\)</span> on the stack. The pair <span class="process-math">\((q, XZ_0)\)</span> represents the new state and the new stack top (read from top to bottom as we go left to right, so the <span class="process-math">\(Z_0\)</span> is still there and the <span class="process-math">\(X\)</span> is on top of it).</div></li>
+<li id="li-182"><div class="para" id="p-291"><span class="process-math">\(\displaystyle \delta(q, 0, X) = \{ (q, XX) \}\)</span></div></li>
+<li id="li-183"><div class="para" id="p-292"><span class="process-math">\(\displaystyle \delta(q, 1, X) = \{ (q, X) \}\)</span></div></li>
+<li id="li-184"><div class="para" id="p-293"><span class="process-math">\(\displaystyle \delta(q, \varepsilon, X) = \{ (p, \varepsilon) \}\)</span></div></li>
+<li id="li-185"><div class="para" id="p-294"><span class="process-math">\(\displaystyle \delta(p, \varepsilon, X) = \{ (p, \varepsilon) \}\)</span></div></li>
+<li id="li-186"><div class="para" id="p-295"><span class="process-math">\(\displaystyle \delta(p, 1, X) = \{ (p, XX) \}\)</span></div></li>
+<li id="li-187"><div class="para" id="p-296"><span class="process-math">\(\displaystyle \delta(p, 1, Z_0) = \{ (p, \varepsilon) \}\)</span></div></li>
 </ol>
-</div></article><article class="task exercise-like" id="task-17"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="p-325">Add another method to your <code class="code-inline tex2jax_ignore">DFA</code> class. The method <code class="code-inline tex2jax_ignore">NFA()</code> takes a <code class="code-inline tex2jax_ignore">DFA</code> object as parameter and should return an instance of your <code class="code-inline tex2jax_ignore">NFA</code> class that is equivalent to the passed DFA.</div></article><article class="task exercise-like" id="task-18"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para" id="p-326">Also add a method <code class="code-inline tex2jax_ignore">DFA()</code> to your NFA class. This method will perform the subset construction on the passed NFA, and return a <code class="code-inline tex2jax_ignore">DFA</code> instance representing the DFA so constructed.</div>
-<div class="solutions"><details id="hint-14" class="hint solution-like born-hidden-knowl"><summary><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like">
-<div class="para" id="p-327">This part is difficult to get working for all NFA. Obviously, the first difficulty here is the transition function. Be sure you are familiar with the available methods that belong to the classes you have chosen. You may need to use Python’s <code class="code-inline tex2jax_ignore">frozenset</code> type, which behaves like a <code class="code-inline tex2jax_ignore">set</code> but is immutable. If you need to build a frozenset element by element, start with a normal set, and then convert when you are done.</div> <div class="para" id="p-328">Another difficulty is constructing the power set. I recommend an iterative approach, although you can use recursion too. My preferred method is to use the natural correspondence between the elements of the power set and the binary representations of the integers from 0 to <span class="process-math">\(2^{|Q|}\text{.}\)</span> Imagine that the states of <span class="process-math">\(Q\)</span> are numbered from <span class="process-math">\(0\)</span> to <span class="process-math">\(n-1\text{.}\)</span> Then the <span class="process-math">\(i\)</span>th element of the power set <span class="process-math">\(2^Q\)</span> contains the <span class="process-math">\(j\)</span>th element of <span class="process-math">\(Q\)</span> if and only if the binary representation of <span class="process-math">\(j\)</span> has a 1 in the <span class="process-math">\(i\)</span>-th position.</div>
-<pre class="code-display tex2jax_ignore">def powerset(elems):
-    """Returns a set representing the power set of `elems`.
-    Note that this can be very expensive (time and space)
-    since the size of the power set is exponential in the
-    size of `elems`."""
-
-    elems_list = list(elems) # need to use indexing
-    n = len(elems)
-    powerset_size = 2**n
-    result = set()
-    for i in range(powerset_size):
-        # item j from elems is in the ith element
-        # of the powerset if the binary rep of i
-        # has a 1 in position j
-        ith_subset = set()
-        for j in range(n):
-            if (i &amp; (1 &lt;&lt; j) &gt; 0):
-                ith_subset.add(elems_list[j])
-        result.add(frozenset(ith_subset))
-    return result
-</pre>
-<div class="para" id="p-329">Finally, it is convenient to have access to the product function to form the Cartesian product <span class="process-math">\(Q \times \Sigma\text{.}\)</span> The function <code class="code-inline tex2jax_ignore">itertools.product</code> is available for this purpose. Try the following code in the Python console:</div> <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="console"><span class="prompt unselectable">&gt;&gt;&gt; </span><b>import itertools
-</b><span class="prompt unselectable">&gt;&gt;&gt; </span><b>Q = {1, 2, 3}
-</b><span class="prompt unselectable">&gt;&gt;&gt; </span><b>Sigma = {'a', 'b'}
-</b><span class="prompt unselectable">&gt;&gt;&gt; </span><b>for q, a in itertools.product(Q, Sigma):
-</b><span class="prompt unselectable">...     </span><b>print(q, a)
-</b>1 a
-1 b
-2 a
-2 b
-3 a
-3 b
-</pre></div>
-</div></details></div></article><article class="task exercise-like" id="task-19"><h5 class="heading"><span class="codenumber">(e)</span></h5>
-<div class="para" id="p-330">The remaining 3 checks are allocated based on the quality and style of your code.</div></article></article></section></section></div>
+</div> <div class="para logical" id="p-297">
+<div class="para">Show all the reachable instantaneous descriptions when the input <span class="process-math">\(w\)</span> is:</div>
+<ol class="upper-alpha">
+<li id="li-188"><div class="para" id="p-derived-li-188"><span class="process-math">\(\displaystyle 01\)</span></div></li>
+<li id="li-189"><div class="para" id="p-derived-li-189"><span class="process-math">\(\displaystyle 0011\)</span></div></li>
+<li id="li-190"><div class="para" id="p-derived-li-190"><span class="process-math">\(\displaystyle 010\)</span></div></li>
+</ol>
+</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-hw2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-hw4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="CFL-intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-assignments.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
