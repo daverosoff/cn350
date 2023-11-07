@@ -145,13 +145,13 @@
             Here are some useful figures. I'll add more explanation later.
         </p>
         <image source="pda-trans-diagram.png" width="100%">
-            <description>(for accessibility)</description>
+            <shortdescription>(for accessibility)</shortdescription>
         </image>
         <image source="pda-ids-explanation.png" width="100%">
-            <description>(for accessibility</description>
+            <shortdescription>(for accessibility)</shortdescription>
         </image>
         <image source="pda-ids-diagram.png" width="100%">
-            <description>(for accessibility)</description>
+            <shortdescription>(for accessibility)</shortdescription>
         </image>
         <activity>
             <statement>
