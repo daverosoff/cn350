@@ -474,7 +474,7 @@
                 It will then follow (not at all obviously) that
                 <me>
                     [qXp] \aster{\Rightarrow} w \text{ if and only if }
-                    (q, \w, X) \aster{\vdash} (p, \varepsilon, \varepsilon)
+                    (q, w, X) \aster{\vdash} (p, \varepsilon, \varepsilon)
                 </me>.
                 This is not easy to understand without an example.
             </p>
@@ -543,6 +543,24 @@
                     </me>.
                 </p>
             </example>
+            <activity>
+                <statement>
+                    <p>
+                        Now consider the PDA that accepts valid if-else
+                        chains, with two states <m>q_0 = q</m> and <m>r</m>,
+                        and
+                        <md>
+                            <mrow>\delta(q, e, X) \amp = \{(q, e)\}</mrow>
+                            <mrow>\delta(q, i, X) \amp = \{(q, XX)\}</mrow>
+                            <mrow>\delta(q, i, Z) \amp = \{(q, XZ)\}</mrow>
+                            <mrow>\delta(q, \varepsilon, Z)
+                                \amp = \{(q, \varepsilon)\}</mrow>
+                        </md>.
+                        Here <m>Z</m> is the start symbol. Convert this
+                        to an equivalent context-free grammar.
+                    </p>
+                </statement>
+            </activity>
         </subsubsection>
     </subsection>
 </section>
