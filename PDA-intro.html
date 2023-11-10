@@ -494,7 +494,7 @@ G = (V, \Sigma, R, S)\text{,}
 <div class="displaymath process-math">
 \begin{equation*}
 [qXp] \aster{\Rightarrow} w \text{ if and only if }
-(q, \w, X) \aster{\vdash} (p, \varepsilon, \varepsilon)\text{.}
+(q, w, X) \aster{\vdash} (p, \varepsilon, \varepsilon)\text{.}
 \end{equation*}
 </div>
 <div class="para">This is not easy to understand without an example.</div>
@@ -555,6 +555,21 @@ A \amp \to iAA \mid e\text{.}
 S \to iSS \mid e\text{.}
 \end{equation*}
 </div>
+</div></article><article class="activity project-like" id="activity-44"><h5 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="p-330">
+<div class="para">Now consider the PDA that accepts valid if-else chains, with two states <span class="process-math">\(q_0 = q\)</span> and <span class="process-math">\(r\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="md-13">
+\begin{align*}
+\delta(q, e, X) \amp = \{(q, e)\}\\
+\delta(q, i, X) \amp = \{(q, XX)\}\\
+\delta(q, i, Z) \amp = \{(q, XZ)\}\\
+\delta(q, \varepsilon, Z)
+\amp = \{(q, \varepsilon)\}\text{.}
+\end{align*}
+</div>
+<div class="para">Here <span class="process-math">\(Z\)</span> is the start symbol. Convert this to an equivalent context-free grammar.</div>
 </div></article></section></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="CFL-intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-assignments.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
