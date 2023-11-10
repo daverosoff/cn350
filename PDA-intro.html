@@ -201,6 +201,13 @@ window.MathJax = {
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PDA-intro.html#subsec-informal-definition" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Informal definition</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PDA-intro.html#subsec-formal-specification" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Formal specification</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="PDA-intro.html#subsec-converting-pda-cfg" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Converting PDA to CFG</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="PDA-intro.html#subsec-cfg-to-pda" class="internal"><span class="codenumber">3.2.3.1</span> <span class="title">CFG to PDA</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="PDA-intro.html#subsec-pda-to-cfg" class="internal"><span class="codenumber">3.2.3.2</span> <span class="title">PDA to CFG</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -280,7 +287,7 @@ P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)\text{.}\tag{3.2.1}
 </div>
 <div class="para" id="p-288">Here are some useful figures. I’ll add more explanation later.</div>
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/pda-trans-diagram.png" class="contained" alt="(for accessibility)"></div>
-<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/pda-ids-explanation.png" class="contained" alt="(for accessibility"></div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/pda-ids-explanation.png" class="contained" alt="(for accessibility)"></div>
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/pda-ids-diagram.png" class="contained" alt="(for accessibility)"></div>
 <article class="activity project-like" id="activity-42"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
@@ -310,7 +317,245 @@ P = (\{q, p\}, \{0, 1\}, \{Z_0, X\}, \delta, q, Z_0, \{p\})
 <li id="li-189"><div class="para" id="p-derived-li-189"><span class="process-math">\(\displaystyle 0011\)</span></div></li>
 <li id="li-190"><div class="para" id="p-derived-li-190"><span class="process-math">\(\displaystyle 010\)</span></div></li>
 </ol>
-</div></article></section></section></div>
+</div></article></section><section class="subsection" id="subsec-converting-pda-cfg"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="space"> </span><span class="title">Converting PDA to CFG</span>
+</h3>
+<section class="introduction" id="introduction-8"><div class="para" id="p-298">In this section we outline the constructions of a CFG from a PDA and vice versa. The constructions are abstract, and we only give sketches of the proofs, which are necessarily also quite abstract. They are the most difficult we will encounter in the course. However, the constructions are easily understood through examples, and they make it intuitively clear that the generality is complete. That is to say, there is no restriction on which PDA and CFG may be so converted.</div></section><section class="subsubsection" id="subsec-cfg-to-pda"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space"> </span><span class="codenumber">3.2.3.1</span><span class="space"> </span><span class="title">CFG to PDA</span>
+</h4>
+<div class="para logical" id="p-299">
+<div class="para">Let the grammar <span class="process-math">\(G\)</span> be specified as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G = (V, T, Q, S)\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(Q\)</span> is the set of productions since we will use <span class="process-math">\(P\)</span> for the PDA that is equivalent to <span class="process-math">\(G\text{.}\)</span> Recall that each production in <span class="process-math">\(Q\)</span> has the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A \to \beta\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(A \in V\)</span> and <span class="process-math">\(\beta \in \aster{T \cup V}\text{,}\)</span> that is, <span class="process-math">\(\beta\)</span> is a string of stack symbols.</div>
+</div>
+<div class="para logical" id="p-300">
+<div class="para">The formal specification of the empty-stack PDA <span class="process-math">\(P\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = (\{q\}, T, V \cup T, \delta, q, S)\text{.}
+\end{equation*}
+</div>
+<div class="para">This says:</div>
+<ul class="disc">
+<li id="li-191"><div class="para" id="p-301">
+<span class="process-math">\(P\)</span> has only one state, <span class="process-math">\(q\)</span>
+</div></li>
+<li id="li-192"><div class="para" id="p-302">The terminals of <span class="process-math">\(G\)</span> are the input alphabet of <span class="process-math">\(P\)</span>
+</div></li>
+<li id="li-193"><div class="para" id="p-303">The terminals and variables of <span class="process-math">\(G\)</span> are the stack alphabet of <span class="process-math">\(P\)</span>
+</div></li>
+<li id="li-194"><div class="para" id="p-304">The transition function <span class="process-math">\(\delta\)</span> is described below</div></li>
+<li id="li-195"><div class="para" id="p-305">The start state of <span class="process-math">\(P\)</span> is <span class="process-math">\(q\)</span>
+</div></li>
+<li id="li-196"><div class="para" id="p-306">The start symbol of <span class="process-math">\(P\)</span> is <span class="process-math">\(S\text{,}\)</span> the start symbol fo <span class="process-math">\(G\)</span> (<em class="emphasis">not</em> <span class="process-math">\(Z_0\text{!}\)</span>)</div></li>
+<li id="li-197"><div class="para" id="p-307">We don’t specify any final states, since they are irrelevant (this machine will accept by empty stack)</div></li>
+</ul>
+</div>
+<div class="para logical" id="p-308">
+<div class="para">We now describe the transitions of <span class="process-math">\(P\text{.}\)</span> This isn’t as bad as you think!</div>
+<ul class="disc">
+<li id="li-198"><div class="para logical" id="p-309">
+<div class="para">For each variable <span class="process-math">\(A\)</span> of <span class="process-math">\(G\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta(q, \varepsilon, A) = \{
+(q, \beta) : A \to \beta \text{ is
+a production of $G$}
+\}
+\end{equation*}
+</div>
+</div></li>
+<li id="li-199"><div class="para logical" id="p-310">
+<div class="para">For each terminal <span class="process-math">\(a\)</span> of <span class="process-math">\(G\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta(q, \varepsilon, a) = \{(q, \varepsilon)\}
+\end{equation*}
+</div>
+</div></li>
+</ul>
+</div>
+<div class="para" id="p-311">That’s it! To see how it works, let’s look at the example from HMU Example 6.12.</div>
+<article class="example example-like" id="example-cfg-to-pda"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="p-312">
+<div class="displaymath process-math" id="md-7">
+\begin{align*}
+E \amp \to I \mid E+E \mid E*E \mid (E)\\
+I \amp \to a \mid b \mid Ia \mid Ib \mid I0 \mid I1
+\end{align*}
+</div>
+<div class="para">Evidently the input alphabet is <span class="process-math">\(\{a, b, 0, 1, (, ), +, \ast\}\)</span> and the stack alphabet is those symbols together with <span class="process-math">\(E\)</span> and <span class="process-math">\(I\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-313">
+<div class="para">Observe that the string <span class="process-math">\(a \ast (b0 + a)\)</span> has a leftmost derivation</div>
+<div class="displaymath process-math" id="md-8">
+\begin{align*}
+E \amp \Rightarrow E \ast E \Rightarrow I \ast E \Rightarrow a \ast E
+\Rightarrow a \ast (E) \Rightarrow a \ast (E + E) \Rightarrow
+a \ast (I + E)\\
+\amp \Rightarrow a \ast (I0 + E) \Rightarrow a \ast (b0 + E)
+\Rightarrow a \ast (b0 + I) \Rightarrow a \ast (b0 + a)\text{.}
+\end{align*}
+</div>
+<div class="para">Let us use the PDA <span class="process-math">\(P\)</span> to recognize this string. The starting ID is <span class="process-math">\((q, a \ast (b0+a), E)\text{.}\)</span> We use the transition suggested by the leftmost derivation, <span class="process-math">\(E \to E \ast E\text{.}\)</span> The resulting ID is <span class="process-math">\((q, a \ast (b0+a), E \ast E)\text{,}\)</span> because we consume <span class="process-math">\(\varepsilon\)</span> and replace <span class="process-math">\(E\)</span> at the top of the stack with <span class="process-math">\(E \ast E\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-314">
+<div class="para">Next, we still have <span class="process-math">\(E\)</span> on the top of the stack, which is good, because the next step in our leftmost derivation is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E \ast E \Rightarrow I \ast E\text{,}
+\end{equation*}
+</div>
+<div class="para">which uses the transition <span class="process-math">\(E \to I\text{.}\)</span> Applying this transition, we see that the next ID is <span class="process-math">\((q, a \ast (b0 + a), I \ast E)\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-315">The next step in the derivation is <span class="process-math">\(I \ast E \to a \ast E\text{,}\)</span> coming from the transition <span class="process-math">\(I \to a\text{.}\)</span> Applying it, we find the next ID is <span class="process-math">\((q, a \ast (b0 + a), a \ast E)\text{.}\)</span> Now something interesting can happen. We see that the only available transition is specified by <span class="process-math">\(\delta(q, a, a) = \{(q, \varepsilon)\}\text{.}\)</span> This means we consume the <span class="process-math">\(a\)</span> from the left end of the input and pop the matching <span class="process-math">\(a\)</span> off the stack, replacing it with nothing. The next ID is thus <span class="process-math">\((q, \ast (b0 + a), \ast E)\text{.}\)</span>
+</div></article><div class="para" id="p-316">The mechanism should now be clear, as should the paragraphs of HMU that precede example 6.12 about how the IDs of the computation on the PDA side simulate left–sentential forms on the CFG side.</div>
+<div class="para" id="p-317">The leftmost derivation is thus exactly simulated. At each step, we pop off any matching string of terminals at the left side of the remaining input. Then we apply the transition suggested by the next step of the derivation. This will remove the leftmost variable and replace it by the right-hand side of the transition. We repeat until we have popped the entire input off the stack (since it will have been placed there one piece at a time by our transitions) and then can accept the word.</div>
+<article class="activity project-like" id="activity-43"><h5 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="p-318">
+<div class="para">Finish the chain of IDs for <a href="" class="xref" data-knowl="./knowl/xref/example-cfg-to-pda.html" title="Example 3.2.2">Example 3.2.2</a> that begins</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-cfg-to-pda.html" id="md-9">
+\begin{align*}
+(q, a \ast (b0 + a), E) \amp \vdash
+(q, a \ast (b0 + a), E \ast E) \amp \vdash
+(q, a \ast (b0 + a), I \ast E)\\
+\amp \vdash
+(q, a \ast (b0 + a), a \ast E) \amp \vdash
+(q, \ast (b0 + a), \ast E)\text{.}
+\end{align*}
+</div>
+<div class="para">Since we began with a legal expression (it is generated by a <span class="process-math">\(G\)</span>-leftmost derivation), your chain of IDs should end with <span class="process-math">\((q, \varepsilon, \varepsilon)\text{.}\)</span>
+</div>
+</div></article></section><section class="subsubsection" id="subsec-pda-to-cfg"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space"> </span><span class="codenumber">3.2.3.2</span><span class="space"> </span><span class="title">PDA to CFG</span>
+</h4>
+<div class="para logical" id="p-319">
+<div class="para">Here we begin with an empty-stack PDA <span class="process-math">\(P\text{.}\)</span> Since <span class="process-math">\(P\)</span> must empty its stack to accept, we can simplify our thinking about the chain of IDs it goes through by only thinking about when each symbol is popped. As HMU say, if a sequence</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y_1, Y_2, \ldots, Y_k
+\end{equation*}
+</div>
+<div class="para">is on the stack, <span class="process-math">\(P\)</span> may undergo many transitions before <span class="process-math">\(Y_1\)</span> is eventually popped (as it must be, since <span class="process-math">\(P\)</span> accepts by empty stack). Let us denote by <span class="process-math">\(x_1\)</span> the part of the input that is consumed during these transitions. It is irrelevant what other stack symbols may be pushed and popped by all these transitions, because by the time <span class="process-math">\(x_1\)</span> is fully consumed, <span class="process-math">\(Y_1\)</span> is popped, which means that everything above it was also popped by consumption of <span class="process-math">\(x_1\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="p-320">
+<div class="para">In the same manner, let us denote by <span class="process-math">\(p_0\)</span> and <span class="process-math">\(p_1\)</span> the state in which <span class="process-math">\(P\)</span> finds itself at the beginning and end of <span class="process-math">\(x_1\text{,}\)</span> respectively. Thus we have a chain of IDs that (shortened) looks like this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(p_0, x_1 w, Y_1 Y_2 \cdots Y_k) \aster{\vdash}
+(p_1, w, Y_2 \cdots Y_k)\text{.}
+\end{equation*}
+</div>
+<div class="para">Chains like this form the fundamental “events” of our computation and the form our grammar <span class="process-math">\(G\)</span> will take.</div>
+</div>
+<div class="para logical" id="p-321">
+<div class="para">Indeed, if <span class="process-math">\(P\)</span> has the formal specification <span class="process-math">\((Q, \Sigma, \Gamma, \delta, q_0, Z_0)\)</span> (again we may omit the final states), then let <span class="process-math">\(G\)</span> be specified by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G = (V, \Sigma, R, S)\text{,}
+\end{equation*}
+</div>
+<div class="para">where the variables <span class="process-math">\(V\)</span> consists of</div>
+<ul class="disc">
+<li id="li-200"><div class="para" id="p-derived-li-200">The special grammar symbol <span class="process-math">\(S\text{,}\)</span> the start symbol</div></li>
+<li id="li-201"><div class="para" id="p-derived-li-201">All symbols of the form <span class="process-math">\([pXq]\text{,}\)</span> where <span class="process-math">\(p \in Q\text{,}\)</span> <span class="process-math">\(q \in Q\text{,}\)</span> and <span class="process-math">\(X \in \Gamma\text{.}\)</span>
+</div></li>
+</ul>
+</div>
+<div class="para" id="p-322">Recall now that <span class="process-math">\(\delta(q, a, X)\)</span> is the set of targets of available transitions with <span class="process-math">\(a\)</span> consumed and <span class="process-math">\(X\)</span> on the stack in state <span class="process-math">\(q\text{.}\)</span> Such a target is a pair <span class="process-math">\((r, \beta)\)</span> where <span class="process-math">\(r\)</span> is the new state and <span class="process-math">\(\beta\)</span> replaces <span class="process-math">\(X\)</span> on the top of the stack.</div>
+<div class="para logical" id="p-323">
+<div class="para">The productions <span class="process-math">\(R\)</span> of <span class="process-math">\(G\)</span> are as follows:</div>
+<ol class="decimal">
+<li id="li-202"><div class="para" id="p-derived-li-202">For each state <span class="process-math">\(p\text{,}\)</span> a production <span class="process-math">\(S \to [q_0 Z_0 p]\)</span>
+</div></li>
+<li id="li-203"><div class="para" id="p-derived-li-203">A production<div class="displaymath process-math">
+\begin{equation*}
+[qXr_k] \to a[rY_1r_1][r_1 Y_2 r_2] \cdots [r_{k-1}Y_k r_k]
+\end{equation*}
+</div>for every tuple <span class="process-math">\((r_1, \ldots, r_k)\text{,}\)</span> whenever <span class="process-math">\(\delta(q, a, X)\)</span> contains <span class="process-math">\((r, Y_1 \cdots Y_k)\text{.}\)</span>
+</div></li>
+</ol>
+<div class="para">It will then follow (not at all obviously) that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[qXp] \aster{\Rightarrow} w \text{ if and only if }
+(q, \w, X) \aster{\vdash} (p, \varepsilon, \varepsilon)\text{.}
+\end{equation*}
+</div>
+<div class="para">This is not easy to understand without an example.</div>
+</div>
+<article class="example example-like" id="example-7"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="p-324">
+<div class="para">As in HMU example 6.15, let’s convert the PDA that detects invalid if-else chains to a CFG. The PDA is the empty-stack machine given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = (\{q\}, \{i, e\}, \{Z\}, \delta, q, Z)\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\delta\)</span> is given by</div>
+<div class="displaymath process-math" id="md-10">
+\begin{align*}
+\delta(q, i, Z) \amp = \{(q, ZZ)\}\\
+\delta(q, e, Z) \amp = \{(q, \varepsilon)\}\text{.}
+\end{align*}
+</div>
+<div class="para">This machine rejects as soon as the first impossible <code class="code-inline tex2jax_ignore">else</code> is detected.</div>
+</div> <div class="para" id="p-325">Then according to the description above, we have two variables in <span class="process-math">\(G\text{,}\)</span> namely <span class="process-math">\(S\)</span> and <span class="process-math">\([qZq]\)</span> (since there is only one state and one stack symbol).</div> <div class="para" id="p-326">The only <span class="process-math">\(S\)</span>-production is <span class="process-math">\(S \to [qZq]\text{,}\)</span> as required by item 1 above. If there were more states, we would have more productions of this type.</div> <div class="para logical" id="p-327">
+<div class="para">Because <span class="process-math">\(\delta(q, i, Z)\)</span> contains <span class="process-math">\((q, ZZ)\text{,}\)</span> we need a production of the form 2 above with <span class="process-math">\(k = 2\text{,}\)</span> <span class="process-math">\(Y_1 = Y_2 = Z\text{,}\)</span> and <span class="process-math">\(r_1 = r_2 = q\text{.}\)</span> That is,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[qZq] \to i[qZq][qZq]\text{.}
+\end{equation*}
+</div>
+<div class="para">If there were <span class="process-math">\(n\)</span> states, this step would produce <span class="process-math">\(n\)</span> productions, since the middle two <span class="process-math">\(q\)</span>s above could be replaced by any other state.</div>
+</div> <div class="para logical" id="p-328">
+<div class="para">Finally, because <span class="process-math">\(\delta(q, e, Z)\)</span> contains <span class="process-math">\((q, \varepsilon)\text{,}\)</span> we have a production</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[qZq] \to e\text{.}
+\end{equation*}
+</div>
+<div class="para">The lack of variables here is because this is coming from a transition that pops the stack.</div>
+</div> <div class="para logical" id="p-329">
+<div class="para">The grammar <span class="process-math">\(G\)</span> then looks like this:</div>
+<div class="displaymath process-math" id="md-11">
+\begin{align*}
+S \amp \to [qZq]\\
+[qZq] \amp \to i [qZq][qZq]\\
+[qZq] \amp \to e\text{.}
+\end{align*}
+</div>
+<div class="para">As HMU point out, it hurts nothing to relabel the variables, so we can state this grammar also as</div>
+<div class="displaymath process-math" id="md-12">
+\begin{align*}
+S \amp \to A\\
+A \amp \to iAA \mid e\text{.}
+\end{align*}
+</div>
+<div class="para">One can even notice that the variable <span class="process-math">\(A\)</span> is not really needed and compress it further to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S \to iSS \mid e\text{.}
+\end{equation*}
+</div>
+</div></article></section></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="CFL-intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-assignments.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

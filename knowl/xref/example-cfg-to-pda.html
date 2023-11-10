@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h5>
+<div class="para logical">
+<div class="displaymath process-math">
+\begin{align*}
+E \amp \to I \mid E+E \mid E*E \mid (E)\\
+I \amp \to a \mid b \mid Ia \mid Ib \mid I0 \mid I1
+\end{align*}
+</div>
+<div class="para">Evidently the input alphabet is <span class="process-math">\(\{a, b, 0, 1, (, ), +, \ast\}\)</span> and the stack alphabet is those symbols together with <span class="process-math">\(E\)</span> and <span class="process-math">\(I\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Observe that the string <span class="process-math">\(a \ast (b0 + a)\)</span> has a leftmost derivation</div>
+<div class="displaymath process-math">
+\begin{align*}
+E \amp \Rightarrow E \ast E \Rightarrow I \ast E \Rightarrow a \ast E
+\Rightarrow a \ast (E) \Rightarrow a \ast (E + E) \Rightarrow
+a \ast (I + E)\\
+\amp \Rightarrow a \ast (I0 + E) \Rightarrow a \ast (b0 + E)
+\Rightarrow a \ast (b0 + I) \Rightarrow a \ast (b0 + a)\text{.}
+\end{align*}
+</div>
+<div class="para">Let us use the PDA <span class="process-math">\(P\)</span> to recognize this string. The starting ID is <span class="process-math">\((q, a \ast (b0+a), E)\text{.}\)</span> We use the transition suggested by the leftmost derivation, <span class="process-math">\(E \to E \ast E\text{.}\)</span> The resulting ID is <span class="process-math">\((q, a \ast (b0+a), E \ast E)\text{,}\)</span> because we consume <span class="process-math">\(\varepsilon\)</span> and replace <span class="process-math">\(E\)</span> at the top of the stack with <span class="process-math">\(E \ast E\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Next, we still have <span class="process-math">\(E\)</span> on the top of the stack, which is good, because the next step in our leftmost derivation is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E \ast E \Rightarrow I \ast E\text{,}
+\end{equation*}
+</div>
+<div class="para">which uses the transition <span class="process-math">\(E \to I\text{.}\)</span> Applying this transition, we see that the next ID is <span class="process-math">\((q, a \ast (b0 + a), I \ast E)\text{.}\)</span>
+</div>
+</div> <div class="para">The next step in the derivation is <span class="process-math">\(I \ast E \to a \ast E\text{,}\)</span> coming from the transition <span class="process-math">\(I \to a\text{.}\)</span> Applying it, we find the next ID is <span class="process-math">\((q, a \ast (b0 + a), a \ast E)\text{.}\)</span> Now something interesting can happen. We see that the only available transition is specified by <span class="process-math">\(\delta(q, a, a) = \{(q, \varepsilon)\}\text{.}\)</span> This means we consume the <span class="process-math">\(a\)</span> from the left end of the input and pop the matching <span class="process-math">\(a\)</span> off the stack, replacing it with nothing. The next ID is thus <span class="process-math">\((q, \ast (b0 + a), \ast E)\text{.}\)</span>
+</div></article><span class="incontext"><a class="internal" href="PDA-intro.html#example-cfg-to-pda">in-context</a></span>
+</body>
+</html>
