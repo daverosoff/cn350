@@ -219,4 +219,330 @@
             </statement>
         </activity>
     </subsection>
+    <subsection xml:id="subsec-converting-pda-cfg">
+        <title>Converting PDA to CFG</title>
+        <introduction>
+            <p>
+                In this section we outline the constructions of a CFG from a PDA and vice versa.
+                The constructions are abstract, and we only give sketches of the proofs, which are
+                necessarily also quite abstract. They are the most difficult we will encounter
+                in the course. However, the constructions are easily understood through examples,
+                and they make it intuitively clear that the generality is complete. That is to say,
+                there is no restriction on which PDA and CFG may be so converted.
+            </p>
+        </introduction>
+        <subsubsection xml:id="subsec-cfg-to-pda">
+            <title>CFG to PDA</title>
+            <p>
+                Let the grammar <m>G</m> be specified as
+                <me>
+                    G = (V, T, Q, S)
+                </me>,
+                where <m>Q</m> is the set of productions since we will use <m>P</m>
+                for the PDA that is equivalent to <m>G</m>. Recall that each
+                production in <m>Q</m> has the form
+                <me>
+                    A \to \beta
+                </me>,
+                where <m>A \in V</m> and <m>\beta \in \aster{T \cup V}</m>,
+                that is, <m>\beta</m> is a string of stack symbols.
+            </p>
+            <p>
+                The formal specification of the empty-stack PDA <m>P</m>
+                is
+                <me>
+                    P = (\{q\}, T, V \cup T, \delta, q, S)
+                </me>.
+                This says:
+                <ul>
+                    <li>
+                        <p>
+                            <m>P</m> has only one state, <m>q</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The terminals of <m>G</m> are the input alphabet of <m>P</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The terminals and variables of <m>G</m> are the
+                            stack alphabet of <m>P</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The transition function <m>\delta</m> is described
+                            below
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The start state of <m>P</m> is <m>q</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The start symbol of <m>P</m> is <m>S</m>,
+                            the start symbol fo <m>G</m> (<em>not</em> <m>Z_0</m>!)
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We don't specify any final states, since they are
+                            irrelevant (this machine will accept by empty stack)
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                We now describe the transitions of <m>P</m>. This isn't as bad as
+                you think!
+                <ul>
+                    <li>
+                        <p>
+                            For each variable <m>A</m> of <m>G</m>, we have
+                            <me>
+                                \delta(q, \varepsilon, A) = \{
+                                    (q, \beta) : A \to \beta \text{ is
+                                    a production of $G$}
+                                \}
+                            </me>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            For each terminal <m>a</m> of <m>G</m>, we have
+                            <me>
+                                \delta(q, \varepsilon, a) = \{(q, \varepsilon)\}
+                            </me>
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                That's it! To see how it works, let's look at the example
+                from HMU Example 6.12.
+            </p>
+            <example xml:id="example-cfg-to-pda">
+                <p>
+                    <md>
+                        <mrow>E \amp \to I \mid E+E \mid E*E \mid (E)</mrow>
+                        <mrow>I \amp \to a \mid b \mid Ia \mid Ib \mid I0 \mid I1</mrow>
+                    </md>
+                    Evidently the input alphabet is <m>\{a, b, 0, 1, (, ), +, \ast\}</m>
+                    and the stack alphabet is those symbols together with <m>E</m> and <m>I</m>.
+                </p>
+                <p>
+                    Observe that the string <m>a \ast (b0 + a)</m> has a leftmost derivation
+                    <md>
+                        <mrow>E \amp \Rightarrow E \ast E \Rightarrow I \ast E \Rightarrow a \ast E
+                        \Rightarrow a \ast (E) \Rightarrow a \ast (E + E) \Rightarrow
+                        a \ast (I + E)</mrow>
+                        <mrow>\amp \Rightarrow a \ast (I0 + E) \Rightarrow a \ast (b0 + E)
+                        \Rightarrow a \ast (b0 + I) \Rightarrow a \ast (b0 + a)</mrow>
+                    </md>.
+                    Let us use the PDA <m>P</m> to recognize this string. The starting
+                    ID is <m>(q, a \ast (b0+a), E)</m>. We use the transition suggested
+                    by the leftmost derivation, <m>E \to E \ast E</m>. The resulting
+                    ID is <m>(q, a \ast (b0+a), E \ast E)</m>, because we consume <m>\varepsilon</m>
+                    and replace <m>E</m> at the top of the stack with <m>E \ast E</m>.
+                </p>
+                <p>
+                    Next, we still have <m>E</m> on the top of the stack, which is good,
+                    because the next step in our leftmost derivation is
+                    <me>
+                        E \ast E \Rightarrow I \ast E
+                    </me>,
+                    which uses the transition <m>E \to I</m>. Applying this transition,
+                    we see that the next ID is <m>(q, a \ast (b0 + a), I \ast E)</m>.
+                </p>
+                <p>
+                    The next step in the derivation is <m>I \ast E \to a \ast E</m>,
+                    coming from the transition <m>I \to a</m>. Applying it, we find the
+                    next ID is <m>(q, a \ast (b0 + a), a \ast E)</m>. Now something
+                    interesting can happen. We see that the only available transition
+                    is specified by <m>\delta(q, a, a) = \{(q, \varepsilon)\}</m>.
+                    This means we consume the <m>a</m> from the left end of the input
+                    and pop the matching <m>a</m> off the stack, replacing it with
+                    nothing. The next ID is thus <m>(q, \ast (b0 + a), \ast E)</m>.
+                </p>
+            </example>
+            <p>
+                The mechanism should now be clear, as should the paragraphs of
+                HMU that precede example 6.12 about how the IDs of the computation
+                on the PDA side simulate left<ndash/>sentential forms on the CFG
+                side.
+            </p>
+            <p>
+                The leftmost derivation is thus exactly simulated. At each
+                step, we pop off any matching string of terminals at the left side
+                of the remaining input. Then we apply the transition suggested
+                by the next step of the derivation. This will remove the leftmost
+                variable and replace it by the right-hand side of the transition.
+                We repeat until we have popped the entire input off the stack
+                (since it will have been placed there one piece at a time by
+                our transitions) and then can accept the word.
+            </p>
+            <activity>
+                <statement>
+                    <p>
+                        Finish the chain of IDs for <xref ref="example-cfg-to-pda"/>
+                        that begins
+                        <md>
+                            <mrow>(q, a \ast (b0 + a), E) \amp \vdash
+                            (q, a \ast (b0 + a), E \ast E) \amp \vdash
+                            (q, a \ast (b0 + a), I \ast E)</mrow>
+                            <mrow>\amp \vdash
+                            (q, a \ast (b0 + a), a \ast E) \amp \vdash
+                            (q, \ast (b0 + a), \ast E)</mrow>
+                        </md>.
+                        Since we began with a legal expression (it is generated
+                        by a <m>G</m>-leftmost derivation), your chain of
+                        IDs should end with <m>(q, \varepsilon, \varepsilon)</m>.
+                    </p>
+                </statement>
+            </activity>
+        </subsubsection>
+        <subsubsection xml:id="subsec-pda-to-cfg">
+            <title>PDA to CFG</title>
+            <p>
+                Here we begin with an empty-stack PDA <m>P</m>. Since <m>P</m>
+                must empty its stack to accept, we can simplify our thinking
+                about the chain of IDs it goes through by only thinking about
+                when each symbol is popped. As HMU say, if a sequence
+                <me>
+                    Y_1, Y_2, \ldots, Y_k
+                </me>
+                is on the stack, <m>P</m> may undergo many transitions
+                before <m>Y_1</m> is eventually popped (as it must be, since
+                <m>P</m> accepts by empty stack). Let us denote by <m>x_1</m>
+                the part of the input that is consumed during these transitions.
+                It is irrelevant what other stack symbols may be pushed and
+                popped by all these transitions, because by the time <m>x_1</m>
+                is fully consumed, <m>Y_1</m> is popped, which means that everything
+                above it was also popped by consumption of <m>x_1</m>.
+            </p>
+            <p>
+                In the same manner, let us denote by <m>p_0</m> and <m>p_1</m>
+                the state in which <m>P</m> finds itself at the beginning and
+                end of <m>x_1</m>, respectively. Thus we have a chain of IDs
+                that (shortened) looks like this:
+                <me>
+                    (p_0, x_1 w, Y_1 Y_2 \cdots Y_k) \aster{\vdash}
+                    (p_1, w, Y_2 \cdots Y_k)
+                </me>.
+                Chains like this form the fundamental <q>events</q> of our
+                computation and the form our grammar <m>G</m> will take.
+            </p>
+            <p>
+                Indeed, if <m>P</m> has the formal specification
+                <m>(Q, \Sigma, \Gamma, \delta, q_0, Z_0)</m> (again
+                we may omit the final states), then let <m>G</m> be
+                specified by
+                <me>
+                    G = (V, \Sigma, R, S)
+                </me>,
+                where the variables <m>V</m> consists of
+                <ul>
+                    <li>The special grammar symbol <m>S</m>, the start symbol</li>
+                    <li>All symbols of the form <m>[pXq]</m>, where
+                        <m>p \in Q</m>, <m>q \in Q</m>, and <m>X \in \Gamma</m>.</li>
+                </ul>
+            </p>
+            <p>
+                Recall now that <m>\delta(q, a, X)</m> is the set of targets
+                of available transitions with <m>a</m> consumed and <m>X</m>
+                on the stack in state <m>q</m>. Such a target is a pair
+                <m>(r, \beta)</m> where <m>r</m> is the new state and
+                <m>\beta</m> replaces <m>X</m> on the top of the stack.
+            </p>
+            <p>
+                The productions <m>R</m> of <m>G</m> are as follows:
+                <ol>
+                    <li>For each state <m>p</m>, a production
+                    <m>S \to [q_0 Z_0 p]</m></li>
+                    <li>A production
+                        <me>
+                            [qXr_k] \to a[rY_1r_1][r_1 Y_2 r_2] \cdots [r_{k-1}Y_k r_k]
+                        </me>
+                        for every tuple <m>(r_1, \ldots, r_k)</m>, whenever
+                        <m>\delta(q, a, X)</m> contains <m>(r, Y_1 \cdots Y_k)</m>.
+                    </li>
+                </ol>
+                It will then follow (not at all obviously) that
+                <me>
+                    [qXp] \aster{\Rightarrow} w \text{ if and only if }
+                    (q, \w, X) \aster{\vdash} (p, \varepsilon, \varepsilon)
+                </me>.
+                This is not easy to understand without an example.
+            </p>
+            <example>
+                <p>
+                    As in HMU example 6.15, let's convert the PDA that
+                    detects invalid if-else chains to a CFG. The PDA is the empty-stack
+                    machine given by
+                    <me>
+                        P = (\{q\}, \{i, e\}, \{Z\}, \delta, q, Z)
+                    </me>,
+                    where <m>\delta</m> is given by
+                    <md>
+                        <mrow>\delta(q, i, Z) \amp = \{(q, ZZ)\}</mrow>
+                        <mrow>\delta(q, e, Z) \amp = \{(q, \varepsilon)\}</mrow>
+                    </md>. This machine rejects as soon as the first impossible
+                    <c>else</c> is detected.
+                </p>
+                <p>
+                    Then according to the description above, we have two variables
+                    in <m>G</m>, namely <m>S</m> and <m>[qZq]</m> (since there is
+                    only one state and one stack symbol).
+                </p>
+                <p>
+                    The only <m>S</m>-production is <m>S \to [qZq]</m>, as required
+                    by item 1 above. If there were more states, we would have more
+                    productions of this type.
+                </p>
+                <p>
+                    Because <m>\delta(q, i, Z)</m> contains <m>(q, ZZ)</m>, we
+                    need a production of the form 2 above with <m>k = 2</m>,
+                    <m>Y_1 = Y_2 = Z</m>, and <m>r_1 = r_2 = q</m>. That is,
+                    <me>
+                        [qZq] \to i[qZq][qZq]
+                    </me>.
+                    If there were <m>n</m> states, this step would produce
+                    <m>n</m> productions, since the middle two <m>q</m>s
+                    above could be replaced by any other state.
+                </p>
+                <p>
+                    Finally, because <m>\delta(q, e, Z)</m> contains
+                    <m>(q, \varepsilon)</m>, we have a production
+                    <me>
+                        [qZq] \to e
+                    </me>.
+                    The lack of variables here is because this is coming
+                    from a transition that pops the stack.
+                </p>
+                <p>
+                    The grammar <m>G</m> then looks like this:
+                    <md>
+                        <mrow>S \amp \to [qZq]</mrow>
+                        <mrow>[qZq] \amp \to i [qZq][qZq]</mrow>
+                        <mrow>[qZq] \amp \to e</mrow>
+                    </md>. As HMU point out, it hurts nothing to
+                    relabel the variables, so we can state this grammar
+                    also as
+                    <md>
+                        <mrow>S \amp \to A</mrow>
+                        <mrow>A \amp \to iAA \mid e</mrow>
+                    </md>.
+                    One can even notice that the variable <m>A</m> is not
+                    really needed and compress it further to
+                    <me>
+                        S \to iSS \mid e
+                    </me>.
+                </p>
+            </example>
+        </subsubsection>
+    </subsection>
 </section>
