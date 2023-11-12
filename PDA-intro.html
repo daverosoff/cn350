@@ -379,7 +379,7 @@ a production of $G$}
 <div class="para">For each terminal <span class="process-math">\(a\)</span> of <span class="process-math">\(G\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\delta(q, \varepsilon, a) = \{(q, \varepsilon)\}
+\delta(q, a, a) = \{(q, \varepsilon)\}
 \end{equation*}
 </div>
 </div></li>
@@ -431,10 +431,10 @@ E \ast E \Rightarrow I \ast E\text{,}
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-cfg-to-pda.html" id="md-9">
 \begin{align*}
 (q, a \ast (b0 + a), E) \amp \vdash
-(q, a \ast (b0 + a), E \ast E) \amp \vdash
+(q, a \ast (b0 + a), E \ast E) \vdash
 (q, a \ast (b0 + a), I \ast E)\\
 \amp \vdash
-(q, a \ast (b0 + a), a \ast E) \amp \vdash
+(q, a \ast (b0 + a), a \ast E) \vdash
 (q, \ast (b0 + a), \ast E)\text{.}
 \end{align*}
 </div>
@@ -516,7 +516,7 @@ P = (\{q\}, \{i, e\}, \{Z\}, \delta, q, Z)\text{,}
 \delta(q, e, Z) \amp = \{(q, \varepsilon)\}\text{.}
 \end{align*}
 </div>
-<div class="para">This machine rejects as soon as the first impossible <code class="code-inline tex2jax_ignore">else</code> is detected.</div>
+<div class="para">This machine accepts as soon as the first impossible <code class="code-inline tex2jax_ignore">else</code> is detected.</div>
 </div> <div class="para" id="p-325">Then according to the description above, we have two variables in <span class="process-math">\(G\text{,}\)</span> namely <span class="process-math">\(S\)</span> and <span class="process-math">\([qZq]\)</span> (since there is only one state and one stack symbol).</div> <div class="para" id="p-326">The only <span class="process-math">\(S\)</span>-production is <span class="process-math">\(S \to [qZq]\text{,}\)</span> as required by item 1 above. If there were more states, we would have more productions of this type.</div> <div class="para logical" id="p-327">
 <div class="para">Because <span class="process-math">\(\delta(q, i, Z)\)</span> contains <span class="process-math">\((q, ZZ)\text{,}\)</span> we need a production of the form 2 above with <span class="process-math">\(k = 2\text{,}\)</span> <span class="process-math">\(Y_1 = Y_2 = Z\text{,}\)</span> and <span class="process-math">\(r_1 = r_2 = q\text{.}\)</span> That is,</div>
 <div class="displaymath process-math">
@@ -562,11 +562,11 @@ S \to iSS \mid e\text{.}
 <div class="para">Now consider the PDA that accepts valid if-else chains, with two states <span class="process-math">\(q_0 = q\)</span> and <span class="process-math">\(r\text{,}\)</span> and</div>
 <div class="displaymath process-math" id="md-13">
 \begin{align*}
-\delta(q, e, X) \amp = \{(q, e)\}\\
+\delta(q, e, X) \amp = \{(q, \varepsilon)\}\\
 \delta(q, i, X) \amp = \{(q, XX)\}\\
 \delta(q, i, Z) \amp = \{(q, XZ)\}\\
 \delta(q, \varepsilon, Z)
-\amp = \{(q, \varepsilon)\}\text{.}
+\amp = \{(r, \varepsilon)\}\text{.}
 \end{align*}
 </div>
 <div class="para">Here <span class="process-math">\(Z\)</span> is the start symbol. Convert this to an equivalent context-free grammar.</div>
