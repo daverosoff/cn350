@@ -315,7 +315,7 @@
                         <p>
                             For each terminal <m>a</m> of <m>G</m>, we have
                             <me>
-                                \delta(q, \varepsilon, a) = \{(q, \varepsilon)\}
+                                \delta(q, a, a) = \{(q, \varepsilon)\}
                             </me>
                         </p>
                     </li>
@@ -392,10 +392,10 @@
                         that begins
                         <md>
                             <mrow>(q, a \ast (b0 + a), E) \amp \vdash
-                            (q, a \ast (b0 + a), E \ast E) \amp \vdash
+                            (q, a \ast (b0 + a), E \ast E) \vdash
                             (q, a \ast (b0 + a), I \ast E)</mrow>
                             <mrow>\amp \vdash
-                            (q, a \ast (b0 + a), a \ast E) \amp \vdash
+                            (q, a \ast (b0 + a), a \ast E) \vdash
                             (q, \ast (b0 + a), \ast E)</mrow>
                         </md>.
                         Since we began with a legal expression (it is generated
@@ -490,7 +490,7 @@
                     <md>
                         <mrow>\delta(q, i, Z) \amp = \{(q, ZZ)\}</mrow>
                         <mrow>\delta(q, e, Z) \amp = \{(q, \varepsilon)\}</mrow>
-                    </md>. This machine rejects as soon as the first impossible
+                    </md>. This machine accepts as soon as the first impossible
                     <c>else</c> is detected.
                 </p>
                 <p>
@@ -550,11 +550,11 @@
                         chains, with two states <m>q_0 = q</m> and <m>r</m>,
                         and
                         <md>
-                            <mrow>\delta(q, e, X) \amp = \{(q, e)\}</mrow>
+                            <mrow>\delta(q, e, X) \amp = \{(q, \varepsilon)\}</mrow>
                             <mrow>\delta(q, i, X) \amp = \{(q, XX)\}</mrow>
                             <mrow>\delta(q, i, Z) \amp = \{(q, XZ)\}</mrow>
                             <mrow>\delta(q, \varepsilon, Z)
-                                \amp = \{(q, \varepsilon)\}</mrow>
+                                \amp = \{(r, \varepsilon)\}</mrow>
                         </md>.
                         Here <m>Z</m> is the start symbol. Convert this
                         to an equivalent context-free grammar.
