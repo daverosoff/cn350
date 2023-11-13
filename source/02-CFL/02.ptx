@@ -546,20 +546,179 @@
             <activity>
                 <statement>
                     <p>
-                        Now consider the PDA that accepts valid if-else
-                        chains, with two states <m>q_0 = q</m> and <m>r</m>,
+                        Now consider the empty-stack PDA that accepts valid if-else
+                        chains, with two states <m>q_0 = p</m> and <m>q</m>,
                         and
                         <md>
-                            <mrow>\delta(q, e, X) \amp = \{(q, \varepsilon)\}</mrow>
-                            <mrow>\delta(q, i, X) \amp = \{(q, XX)\}</mrow>
-                            <mrow>\delta(q, i, Z) \amp = \{(q, XZ)\}</mrow>
+                            <mrow>\delta(p, e, X) \amp = \{(p, \varepsilon)\}</mrow>
+                            <mrow>\delta(p, i, X) \amp = \{(p, XX)\}</mrow>
+                            <mrow>\delta(p, i, Z) \amp = \{(p, XZ)\}</mrow>
+                            <mrow>\delta(p, \varepsilon, X)
+                                \amp = \{(q, \varepsilon)\}</mrow>
+                            <mrow>\delta(p, \varepsilon, Z)
+                                \amp = \{(q, \varepsilon)\}</mrow>
+                            <mrow>\delta(q, \varepsilon, X)
+                                \amp = \{(q, \varepsilon)\}</mrow>
                             <mrow>\delta(q, \varepsilon, Z)
-                                \amp = \{(r, \varepsilon)\}</mrow>
+                                \amp = \{(q, \varepsilon)\}</mrow>
                         </md>.
                         Here <m>Z</m> is the start symbol. Convert this
                         to an equivalent context-free grammar.
                     </p>
                 </statement>
+                <hint>
+                    <p>
+                        The procedure in the text should give you 9 grammar
+                        symbols (<m>9 = 1 + 2 \cdot 2 \cdot 2</m>). There
+                        will be a total of 14 productions (individually
+                        listed, that is, without any <m>\mid</m> symbols).
+                    </p>
+                </hint>
+                <solution>
+                    <p>
+                        We have grammar variables
+                        <me>
+                            S, [pXp], [pXq], [qXp], [qXq], \\
+                            [pZp], [pZq], [qZp], [qZq]
+                        </me>.
+                        According to the first part of the procedure,
+                        and because <m>p</m> is the start state
+                        and <m>Z</m> the starting stack symbol, we must
+                        have productions
+                        <me>
+                            S \to [pZp] \mid [pZq]
+                        </me>.
+                        The rest of the productions come from the second
+                        part of the procedure. We only have the cases
+                        <m>k = 0</m> and <m>k = 2</m>. That is, the
+                        <q>new stack tops</q> are only of length <m>0</m>
+                        or length <m>2</m>.
+                    </p>
+                    <p>
+                        The <m>k = 0</m> transitions are
+                        <md>
+                            <mrow>\delta(p, e, X) \amp = \{ (p, \varepsilon) \}</mrow>
+                            <mrow>\delta(p, \varepsilon, X) \amp = \{( q, \varepsilon)\}</mrow>
+                            <mrow>\delta(p, \varepsilon, Z) \amp = \{( q, \varepsilon)\}</mrow>
+                            <mrow>\delta(q, \varepsilon, X) \amp = \{( q, \varepsilon)\}</mrow>
+                            <mrow>\delta(q, \varepsilon, Z) \amp = \{( q, \varepsilon)\}</mrow>
+                        </md>.
+                        These give rise to grammar rules
+                        <md>
+                            <mrow>[pXp] \amp \to e</mrow>
+                            <mrow>[pXq] \amp \to \varepsilon</mrow>
+                            <mrow>[pZp] \amp \to \varepsilon</mrow>
+                            <mrow>[pZq] \amp \to \varepsilon</mrow>
+                            <mrow>[qXq] \amp \to \varepsilon</mrow>
+                            <mrow>[qZq] \amp \to \varepsilon</mrow>
+                        </md>.
+                    </p>
+                    <p>
+                        The <m>k = 2</m> transitions are
+                        <md>
+                            <mrow>\delta(p, i, X) \amp = \{( p, XX )\}</mrow>
+                            <mrow>\delta(p, i, Z) \amp = \{( p, XZ )\}</mrow>
+                        </md>.
+                        Here it helps to be quite meticulous with details. Since
+                        <m>k = 2</m>, we obtain a production of the form
+                        <me>
+                            [pAr_2] \to i[p Y_1 r_1][r_1 Y_2 r_2]
+                        </me>
+                        where <m>A = X</m> or <m>A = Z</m>, <m>Y_1 = X</m>,
+                        <m>Y_2 = X</m> or <m>Y_2 = Z</m>, <m>r_1 = p</m>
+                        or <m>r_1 = q</m>, and <m>r_2 = p</m> or <m>r_2 = q</m>.
+                        However, we must observe that not all of the combinations
+                        occur, because if <m>A = X</m> we must also have
+                        <m>Y_2 = X</m> and similarly if <m>A = Z</m>.
+                    </p>
+                    <p>
+                        Thus, we obtain productions
+                        <md>
+                            <mrow>[pXp] \amp \to i [pXp][pXp]</mrow>
+                            <mrow>[pXq] \amp \to i [pXp][pXq]</mrow>
+                            <mrow>[pXp] \amp \to i [pXq][qXp]</mrow>
+                            <mrow>[pXq] \amp \to i [pXq][qXq]</mrow>
+                            <mrow>[pZp] \amp \to i [pXp][pZp]</mrow>
+                            <mrow>[pZq] \amp \to i [pXp][pZq]</mrow>
+                            <mrow>[pZp] \amp \to i [pXq][qZp]</mrow>
+                            <mrow>[pZq] \amp \to i [pXq][qZq]</mrow>
+                        </md>.
+                        Observe that there are no productions with
+                        left-hand side <m>[qXp]</m> or <m>[qZp]</m>.
+                        This reflects the lack of transitions from
+                        state <m>q</m> to state <m>p</m> in the PDA.
+                    </p>
+                    <p>
+                        Listing transitions with the same left-hand side
+                        together, we obtain
+                        <md>
+                            <mrow>S \amp \to [pZp] \mid [pZq]</mrow>
+                            <mrow>[pXp] \amp \to i [pXp][pXp]
+                                \mid i [pXq][qXp] \mid e</mrow>
+                            <mrow>[pXq] \amp \to i [pXp][pXq]
+                                \mid i [pXq][qXq] \mid \varepsilon</mrow>
+                            <mrow>[qXq] \amp \to \varepsilon</mrow>
+                            <mrow>[pZp] \amp \to i [pXp][pZp]
+                                \mid i [pXq][qZp] \mid \varepsilon</mrow>
+                            <mrow>[pZq] \amp \to i [pXp][pXq]
+                                \mid i [pXq][qZq] \mid \varepsilon</mrow>
+                            <mrow>[qZq] \amp \to \varepsilon</mrow>
+                        </md>.
+                    </p>
+                    <p>
+                        Observe now that some productions never lead to
+                        a derivation. These are the ones whose right-hand
+                        sides contain the variables <m>[qXp]</m> and
+                        <m>[qZp]</m>, which as we noted previously cannot
+                        be further produced. We omit these productions from
+                        further mention, since no strings are derived from them.
+                    </p>
+                    <p>
+
+                        Let us now relabel the symbols so the grammar is easier
+                        to read. We let
+                        <md>
+                            <mrow>A \amp = [pXp]</mrow>
+                            <mrow>B \amp = [pXq]</mrow>
+                            <mrow>C \amp = [qXq]</mrow>
+                            <mrow>D \amp = [pZp]</mrow>
+                            <mrow>E \amp = [pZq]</mrow>
+                            <mrow>F \amp = [qZq]</mrow>
+                        </md>, and the grammar now appears as
+                        <md>
+                            <mrow>S \amp \to D \mid E</mrow>
+                            <mrow>D \amp \to iAD \mid \varepsilon</mrow>
+                            <mrow>E \amp \to iAE \mid iBF \mid \varepsilon</mrow>
+                            <mrow>A \amp \to iAA \mid e</mrow>
+                            <mrow>B \amp \to iAB \mid iBC \mid \varepsilon</mrow>
+                            <mrow>C \amp \to \varepsilon</mrow>
+                            <mrow>F \amp \to \varepsilon</mrow>
+                        </md>.
+                    </p>
+                    <p>
+                        Here we have omitted the productions that cannot
+                        yield a derivation as described above. Finally,
+                        we note that variables <m>C</m> and <m>F</m>
+                        derive only the empty string, so that they may
+                        be contracted out of the grammar.
+                        <md>
+                            <mrow>S \amp \to D \mid E</mrow>
+                            <mrow>D \amp \to iAD \mid \varepsilon</mrow>
+                            <mrow>E \amp \to iAE \mid iB \mid \varepsilon</mrow>
+                            <mrow>A \amp \to iAA \mid e</mrow>
+                            <mrow>B \amp \to iAB \mid iB \mid \varepsilon</mrow>
+                        </md>
+                        Further
+                        optimizations may be found, but we do not pursue
+                        them here. This is the final form of the grammar.
+                    </p>
+                    <p>
+                        The lesson of the example is that it is quite
+                        easy to come up with the empty-stack PDA for this
+                        language, but rather harder to see how one would invent
+                        the grammar out of nothing.
+                    </p>
+                </solution>
             </activity>
         </subsubsection>
     </subsection>
