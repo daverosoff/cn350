@@ -559,17 +559,150 @@ S \to iSS \mid e\text{.}
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
 </h5>
 <div class="para logical" id="p-330">
-<div class="para">Now consider the PDA that accepts valid if-else chains, with two states <span class="process-math">\(q_0 = q\)</span> and <span class="process-math">\(r\text{,}\)</span> and</div>
+<div class="para">Now consider the empty-stack PDA that accepts valid if-else chains, with two states <span class="process-math">\(q_0 = p\)</span> and <span class="process-math">\(q\text{,}\)</span> and</div>
 <div class="displaymath process-math" id="md-13">
 \begin{align*}
-\delta(q, e, X) \amp = \{(q, \varepsilon)\}\\
-\delta(q, i, X) \amp = \{(q, XX)\}\\
-\delta(q, i, Z) \amp = \{(q, XZ)\}\\
+\delta(p, e, X) \amp = \{(p, \varepsilon)\}\\
+\delta(p, i, X) \amp = \{(p, XX)\}\\
+\delta(p, i, Z) \amp = \{(p, XZ)\}\\
+\delta(p, \varepsilon, X)
+\amp = \{(q, \varepsilon)\}\\
+\delta(p, \varepsilon, Z)
+\amp = \{(q, \varepsilon)\}\\
+\delta(q, \varepsilon, X)
+\amp = \{(q, \varepsilon)\}\\
 \delta(q, \varepsilon, Z)
-\amp = \{(r, \varepsilon)\}\text{.}
+\amp = \{(q, \varepsilon)\}\text{.}
 \end{align*}
 </div>
 <div class="para">Here <span class="process-math">\(Z\)</span> is the start symbol. Convert this to an equivalent context-free grammar.</div>
+</div>
+<div class="solutions">
+<details id="hint-9" class="hint solution-like born-hidden-knowl"><summary><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like"><div class="para" id="p-331">The procedure in the text should give you 9 grammar symbols (<span class="process-math">\(9 = 1 + 2 \cdot 2 \cdot 2\)</span>). There will be a total of 14 productions (individually listed, that is, without any <span class="process-math">\(\mid\)</span> symbols).</div></div></details><details id="solution-11" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para logical" id="p-332">
+<div class="para">We have grammar variables</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S, [pXp], [pXq], [qXp], [qXq], \\
+[pZp], [pZq], [qZp], [qZq]\text{.}
+\end{equation*}
+</div>
+<div class="para">According to the first part of the procedure, and because <span class="process-math">\(p\)</span> is the start state and <span class="process-math">\(Z\)</span> the starting stack symbol, we must have productions</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S \to [pZp] \mid [pZq]\text{.}
+\end{equation*}
+</div>
+<div class="para">The rest of the productions come from the second part of the procedure. We only have the cases <span class="process-math">\(k = 0\)</span> and <span class="process-math">\(k = 2\text{.}\)</span> That is, the “new stack tops” are only of length <span class="process-math">\(0\)</span> or length <span class="process-math">\(2\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-333">
+<div class="para">The <span class="process-math">\(k = 0\)</span> transitions are</div>
+<div class="displaymath process-math" id="md-14">
+\begin{align*}
+\delta(p, e, X) \amp = \{ (p, \varepsilon) \}\\
+\delta(p, \varepsilon, X) \amp = \{( q, \varepsilon)\}\\
+\delta(p, \varepsilon, Z) \amp = \{( q, \varepsilon)\}\\
+\delta(q, \varepsilon, X) \amp = \{( q, \varepsilon)\}\\
+\delta(q, \varepsilon, Z) \amp = \{( q, \varepsilon)\}\text{.}
+\end{align*}
+</div>
+<div class="para">These give rise to grammar rules</div>
+<div class="displaymath process-math" id="md-15">
+\begin{align*}
+[pXp] \amp \to e\\
+[pXq] \amp \to \varepsilon\\
+[pZp] \amp \to \varepsilon\\
+[pZq] \amp \to \varepsilon\\
+[qXq] \amp \to \varepsilon\\
+[qZq] \amp \to \varepsilon\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-334">
+<div class="para">The <span class="process-math">\(k = 2\)</span> transitions are</div>
+<div class="displaymath process-math" id="md-16">
+\begin{align*}
+\delta(p, i, X) \amp = \{( p, XX )\}\\
+\delta(p, i, Z) \amp = \{( p, XZ )\}\text{.}
+\end{align*}
+</div>
+<div class="para">Here it helps to be quite meticulous with details. Since <span class="process-math">\(k = 2\text{,}\)</span> we obtain a production of the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[pAr_2] \to i[p Y_1 r_1][r_1 Y_2 r_2]
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(A = X\)</span> or <span class="process-math">\(A = Z\text{,}\)</span> <span class="process-math">\(Y_1 = X\text{,}\)</span> <span class="process-math">\(Y_2 = X\)</span> or <span class="process-math">\(Y_2 = Z\text{,}\)</span> <span class="process-math">\(r_1 = p\)</span> or <span class="process-math">\(r_1 = q\text{,}\)</span> and <span class="process-math">\(r_2 = p\)</span> or <span class="process-math">\(r_2 = q\text{.}\)</span> However, we must observe that not all of the combinations occur, because if <span class="process-math">\(A = X\)</span> we must also have <span class="process-math">\(Y_2 = X\)</span> and similarly if <span class="process-math">\(A = Z\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-335">
+<div class="para">Thus, we obtain productions</div>
+<div class="displaymath process-math" id="md-17">
+\begin{align*}
+[pXp] \amp \to i [pXp][pXp]\\
+[pXq] \amp \to i [pXp][pXq]\\
+[pXp] \amp \to i [pXq][qXp]\\
+[pXq] \amp \to i [pXq][qXq]\\
+[pZp] \amp \to i [pXp][pZp]\\
+[pZq] \amp \to i [pXp][pZq]\\
+[pZp] \amp \to i [pXq][qZp]\\
+[pZq] \amp \to i [pXq][qZq]\text{.}
+\end{align*}
+</div>
+<div class="para">Observe that there are no productions with left-hand side <span class="process-math">\([qXp]\)</span> or <span class="process-math">\([qZp]\text{.}\)</span> This reflects the lack of transitions from state <span class="process-math">\(q\)</span> to state <span class="process-math">\(p\)</span> in the PDA.</div>
+</div> <div class="para logical" id="p-336">
+<div class="para">Listing transitions with the same left-hand side together, we obtain</div>
+<div class="displaymath process-math" id="md-18">
+\begin{align*}
+S \amp \to [pZp] \mid [pZq]\\
+[pXp] \amp \to i [pXp][pXp]
+\mid i [pXq][qXp] \mid e\\
+[pXq] \amp \to i [pXp][pXq]
+\mid i [pXq][qXq] \mid \varepsilon\\
+[qXq] \amp \to \varepsilon\\
+[pZp] \amp \to i [pXp][pZp]
+\mid i [pXq][qZp] \mid \varepsilon\\
+[pZq] \amp \to i [pXp][pXq]
+\mid i [pXq][qZq] \mid \varepsilon\\
+[qZq] \amp \to \varepsilon\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-337">Observe now that some productions never lead to a derivation. These are the ones whose right-hand sides contain the variables <span class="process-math">\([qXp]\)</span> and <span class="process-math">\([qZp]\text{,}\)</span> which as we noted previously cannot be further produced. We omit these productions from further mention, since no strings are derived from them.</div> <div class="para logical" id="p-338">
+<div class="para">Let us now relabel the symbols so the grammar is easier to read. We let</div>
+<div class="displaymath process-math" id="md-19">
+\begin{align*}
+A \amp = [pXp]\\
+B \amp = [pXq]\\
+C \amp = [qXq]\\
+D \amp = [pZp]\\
+E \amp = [pZq]\\
+F \amp = [qZq]\text{,}
+\end{align*}
+</div>
+<div class="para">and the grammar now appears as</div>
+<div class="displaymath process-math" id="md-20">
+\begin{align*}
+S \amp \to D \mid E\\
+D \amp \to iAD \mid \varepsilon\\
+E \amp \to iAE \mid iBF \mid \varepsilon\\
+A \amp \to iAA \mid e\\
+B \amp \to iAB \mid iBC \mid \varepsilon\\
+C \amp \to \varepsilon\\
+F \amp \to \varepsilon\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-339">
+<div class="para">Here we have omitted the productions that cannot yield a derivation as described above. Finally, we note that variables <span class="process-math">\(C\)</span> and <span class="process-math">\(F\)</span> derive only the empty string, so that they may be contracted out of the grammar.</div>
+<div class="displaymath process-math" id="md-21">
+\begin{align*}
+S \amp \to D \mid E\\
+D \amp \to iAD \mid \varepsilon\\
+E \amp \to iAE \mid iB \mid \varepsilon\\
+A \amp \to iAA \mid e\\
+B \amp \to iAB \mid iB \mid \varepsilon
+\end{align*}
+</div>
+<div class="para">Further optimizations may be found, but we do not pursue them here. This is the final form of the grammar.</div>
+</div> <div class="para" id="p-340">The lesson of the example is that it is quite easy to come up with the empty-stack PDA for this language, but rather harder to see how one would invent the grammar out of nothing.</div>
+</div></details>
 </div></article></section></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="CFL-intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-assignments.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
