@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="TM-intro" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to Turing machines</title>
+  <objectives>
+    <ol>
+      <li>Learn stuff</li>
+    </ol>
+  </objectives>
+  <activity>
+    <statement>
+      <p>
+
+        Go to <url href="https://morphett.info/turing/turing.html">the Turing
+        Machine simulator</url> and play around with it. The default program
+        checks whether the string on the tape is a palindrome. Try it out.
+      </p>
+      <p>
+        You can change the default input string by entering a new one in the
+        text box at right and clicking Reset. Use the Step button to step
+        through the program one transition at a time. Play around with a
+        few different inputs and use Step to watch the state change as you
+        jump around the code.
+      </p>
+      <p>
+        Your goal is to understand how the program works as a collection
+        of subroutines. You will need to read the text underneath the code
+        window to understand the encoding of the transitions.
+      </p>
+      <p>
+        When you feel your group understands the program, get the instructor
+        to listen to your explanation.
+      </p>
+    </statement>
+  </activity>
+  <activity>
+    <statement>
+      <p>
+        Plan a revised program to check whether the input string is of
+        the form <m>0^n 1^n</m>. You should be able to use some of the
+        code from the default palindrome program.
+      </p>
+      <p>
+        Get the instructor to listen to your plan. Revise as necessary,
+        then try to implement it.
+      </p>
+    </statement>
+  </activity>
+  <activity>
+    <statement>
+      <p>
+        Repeat the above activity, but this time implement the <q>monus</q>
+        function. This is a function on natural numbers defined by
+        <m>m \ominus n = \max(m-n, 0)</m>. You can assume that the input
+        is of the form <m>0^m10^n</m>, so that the <m>1</m> is like a
+        separator between the two numbers. (This is sometimes called
+        <q>unary</q> notation, since the amount of <m>0</m>s expresses
+        the numbers in base 1.)
+      </p>
+      <p>
+        A correct implemention of monus will leave the tape with
+        <m>0^{m-n}</m> on it when <m>m > n</m>, and completely
+        blank when <m>m \leq n</m>.
+      </p>
+    </statement>
+  </activity>
+</section>

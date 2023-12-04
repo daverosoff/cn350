@@ -44,6 +44,7 @@
     <xi:include href="00-Formal-Proof/main.ptx" />
     <xi:include href="01-DFA/main.ptx" />
     <xi:include href="02-CFL/main.ptx" />
+    <xi:include href="03-TM/main.ptx" />
     <xi:include href="99-Assignments/main.ptx" />
   </book>
 </pretext>

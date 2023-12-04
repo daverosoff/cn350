@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-hw5" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Homework 05</title>
+  <p>
+
+    This assignment covers Chapters 8 and 9 in HMU. You can use without
+    proof the facts from class that the languages
+    <md>
+        <mrow>L_d \amp = \{ w_i : w_i \notin L(M_i) \}</mrow>
+        <mrow>L_u \amp = \{ \langle M, w \rangle : w \in L(M)</mrow>
+    </md>
+    are not recursively enumerable (for <m>L_d</m>) and
+    not recursive (for <m>L_u</m>). Recall that <m>w_i</m> is the
+    <m>i</m>th string in the
+    lexicographic ordering of strings over <m>\{0, 1\}</m>,
+    and <m>M_i</m> is the
+    Turing machine that is encoded by <m>w_i</m>. Finally we agreed that
+    if <m>w_i</m> is not a valid encoding of a Turing machine, then we
+    set <m>L(M_i) = \emptyset</m>.
+
+
+  </p>
+  <p>
+    In <xref first="exercise-undecidable-1" last="exercise-undecidable-3"/> below, you should use reduction to show that the
+    given language is not recursive. Do not use Rice's theorem.
+  </p>
+  <exercises xml:id="exercises-hw5">
+    <exercise>
+        <statement>
+            <p>
+                Show that the language
+                <me>L = \{ \langle M \rangle : M \text{ never moves left on any input}\}</me>
+                is recursive.
+            </p>
+        </statement>
+    </exercise>
+    <exercise xml:id="exercise-undecidable-1">
+        <statement>
+            <p>
+                Show that the halting problem, the problem of determining
+                whether a Turing machine halts on a given input, is undecidable.
+                That is, show that the language
+                <me>L_h = \{ \langle M, w \rangle : M \text{ halts on } w \}</me>
+                is not recursive.
+            </p>
+            <p>
+                The practical implication of this is that there is no
+                general routine by which a compiler can determine with
+                certainty whether
+                a program will halt on a particular input. This is why compilers
+                sometimes give warnings about possible infinite loops.
+                It is also possible that a compiler could decide this question
+                for a smaller subset of programs, or that a human computer
+                scientist could decide this question for a particular program.
+            </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>
+                Show that the problem of determining whether a Turing machine
+                accepts the empty language is undecidable. That is, show
+                that the language
+                <me>L_e = \{ \langle M \rangle : L(M) = \emptyset \}</me>
+                is not recursive. (In fact, it is not even recursively
+                enumerable, but you don't need to show this.)
+            </p>
+        </statement>
+    </exercise>
+    <exercise xml:id="exercise-undecidable-3">
+        <statement>
+            <p>
+                Show that the problem of determining whether a Turing machine
+                accepts a nonempty set is undecidable. That is, show
+                that the language
+                <me>L_n = \{ \langle M \rangle : L(M) \ne \emptyset \}</me>
+                is not recursive. It turns out that it <em>is</em> recursively
+                enumerable, but you don't need to show this.
+            </p>
+        </statement>
+    </exercise>
+
+  </exercises>
+</section>
