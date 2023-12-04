@@ -865,11 +865,56 @@ var ptx_lunr_docs = [
   "body": "  Now consider the empty-stack PDA that accepts valid if-else chains, with two states and , and . Here is the start symbol. Convert this to an equivalent context-free grammar.    The procedure in the text should give you 9 grammar symbols ( ). There will be a total of 14 productions (individually listed, that is, without any symbols).    We have grammar variables . According to the first part of the procedure, and because is the start state and the starting stack symbol, we must have productions . The rest of the productions come from the second part of the procedure. We only have the cases and . That is, the new stack tops are only of length or length .  The transitions are . These give rise to grammar rules .  The transitions are . Here it helps to be quite meticulous with details. Since , we obtain a production of the form where or , , or , or , and or . However, we must observe that not all of the combinations occur, because if we must also have and similarly if .  Thus, we obtain productions . Observe that there are no productions with left-hand side or . This reflects the lack of transitions from state to state in the PDA.  Listing transitions with the same left-hand side together, we obtain .  Observe now that some productions never lead to a derivation. These are the ones whose right-hand sides contain the variables and , which as we noted previously cannot be further produced. We omit these productions from further mention, since no strings are derived from them.  Let us now relabel the symbols so the grammar is easier to read. We let , and the grammar now appears as .  Here we have omitted the productions that cannot yield a derivation as described above. Finally, we note that variables and derive only the empty string, so that they may be contracted out of the grammar. Further optimizations may be found, but we do not pursue them here. This is the final form of the grammar.  The lesson of the example is that it is quite easy to come up with the empty-stack PDA for this language, but rather harder to see how one would invent the grammar out of nothing.   "
 },
 {
+  "id": "TM-intro",
+  "level": "1",
+  "url": "TM-intro.html",
+  "type": "Section",
+  "number": "4.1",
+  "title": "Introduction to Turing machines",
+  "body": " Introduction to Turing machines    Learn stuff      Go to the Turing Machine simulator and play around with it. The default program checks whether the string on the tape is a palindrome. Try it out.  You can change the default input string by entering a new one in the text box at right and clicking Reset. Use the Step button to step through the program one transition at a time. Play around with a few different inputs and use Step to watch the state change as you jump around the code.  Your goal is to understand how the program works as a collection of subroutines. You will need to read the text underneath the code window to understand the encoding of the transitions.  When you feel your group understands the program, get the instructor to listen to your explanation.      Plan a revised program to check whether the input string is of the form . You should be able to use some of the code from the default palindrome program.  Get the instructor to listen to your plan. Revise as necessary, then try to implement it.      Repeat the above activity, but this time implement the monus function. This is a function on natural numbers defined by . You can assume that the input is of the form , so that the is like a separator between the two numbers. (This is sometimes called unary notation, since the amount of s expresses the numbers in base 1.)  A correct implemention of monus will leave the tape with on it when , and completely blank when .    "
+},
+{
+  "id": "objectives-7",
+  "level": "2",
+  "url": "TM-intro.html#objectives-7",
+  "type": "Objectives",
+  "number": "4.1",
+  "title": "",
+  "body": "  Learn stuff   "
+},
+{
+  "id": "activity-45",
+  "level": "2",
+  "url": "TM-intro.html#activity-45",
+  "type": "Activity",
+  "number": "4.1.1",
+  "title": "",
+  "body": "  Go to the Turing Machine simulator and play around with it. The default program checks whether the string on the tape is a palindrome. Try it out.  You can change the default input string by entering a new one in the text box at right and clicking Reset. Use the Step button to step through the program one transition at a time. Play around with a few different inputs and use Step to watch the state change as you jump around the code.  Your goal is to understand how the program works as a collection of subroutines. You will need to read the text underneath the code window to understand the encoding of the transitions.  When you feel your group understands the program, get the instructor to listen to your explanation.   "
+},
+{
+  "id": "activity-46",
+  "level": "2",
+  "url": "TM-intro.html#activity-46",
+  "type": "Activity",
+  "number": "4.1.2",
+  "title": "",
+  "body": "  Plan a revised program to check whether the input string is of the form . You should be able to use some of the code from the default palindrome program.  Get the instructor to listen to your plan. Revise as necessary, then try to implement it.   "
+},
+{
+  "id": "activity-47",
+  "level": "2",
+  "url": "TM-intro.html#activity-47",
+  "type": "Activity",
+  "number": "4.1.3",
+  "title": "",
+  "body": "  Repeat the above activity, but this time implement the monus function. This is a function on natural numbers defined by . You can assume that the input is of the form , so that the is like a separator between the two numbers. (This is sometimes called unary notation, since the amount of s expresses the numbers in base 1.)  A correct implemention of monus will leave the tape with on it when , and completely blank when .   "
+},
+{
   "id": "sec-hw1",
   "level": "1",
   "url": "sec-hw1.html",
   "type": "Section",
-  "number": "4.1",
+  "number": "5.1",
   "title": "Homework 01",
   "body": " Homework 01  This assignment covers 2.1 and 2.2 in HMU. Each problem will be worth 3 checks. Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible. If your solution is more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.    The following are the transition diagrams of two DFA and . Answer the following questions about each one.   What is the start state?  What is the set of accepting states?  What sequence of states does the machine go through on input aabb ?  Does the machine accept the string aabb ?  Does the machine accept the string ?           .         Translate the transition diagram in into a formal specification. Carefully list all of the components ( , , ).    The transition function of a DFA is given by the following table. Use the table to give a transition diagram for this machine.  NOTE. This problem was updated. Make sure you inspect the table carefully.                                      If is a language (a subset of ) then its complement is the language .  Show that if is a DFA that accepts language , then swapping the accept and nonaccept states in yields a DFA that accepts .   Start by supposing (your hypothesis) that a DFA has been given, and it accepts . That is to say, suppose is a DFA such that . Use this assumption and what you have learned about DFA to argue persuasively and in detail that when the states are swapped, the resulting machine accepts all words not in and rejects all words in . Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions.  An earlier version of this Hint said that this isn't an induction proof. That was a little overeager. It is very possible to give a persuasive proof that doesn't use it, but I shouldn't have said you can't . In this particular case, though, I don't think the inductive argument is simpler or more convenient.    For any word , its reverse  is defined to be , so the symbols appear in the reverse order. Recall that a language is regular if it is accepted by some DFA. Show that if is a regular language, so is the language , where .   In the previous problem, a modification to the DFA was suggested: swap the accepting and non-accepting states. In this one, you will need to concoct the modification yourself, and give some of the details of why the resulting thing is a DFA.  Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions. There are two things to prove: first, that contains all words where , and second, that does not contain any word that isn't the reverse of a word in .    "
 },
@@ -878,7 +923,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw1.html#exercise-1",
   "type": "Exercise",
-  "number": "4.1.1",
+  "number": "5.1.1",
   "title": "",
   "body": " The following are the transition diagrams of two DFA and . Answer the following questions about each one.   What is the start state?  What is the set of accepting states?  What sequence of states does the machine go through on input aabb ?  Does the machine accept the string aabb ?  Does the machine accept the string ?           .       "
 },
@@ -887,7 +932,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw1.html#exercise-2",
   "type": "Exercise",
-  "number": "4.1.2",
+  "number": "5.1.2",
   "title": "",
   "body": " Translate the transition diagram in into a formal specification. Carefully list all of the components ( , , ).  "
 },
@@ -896,7 +941,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw1.html#exercise-3",
   "type": "Exercise",
-  "number": "4.1.3",
+  "number": "5.1.3",
   "title": "",
   "body": " The transition function of a DFA is given by the following table. Use the table to give a transition diagram for this machine.  NOTE. This problem was updated. Make sure you inspect the table carefully.                                    "
 },
@@ -905,7 +950,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw1.html#exercise-4",
   "type": "Exercise",
-  "number": "4.1.4",
+  "number": "5.1.4",
   "title": "",
   "body": " If is a language (a subset of ) then its complement is the language .  Show that if is a DFA that accepts language , then swapping the accept and nonaccept states in yields a DFA that accepts .   Start by supposing (your hypothesis) that a DFA has been given, and it accepts . That is to say, suppose is a DFA such that . Use this assumption and what you have learned about DFA to argue persuasively and in detail that when the states are swapped, the resulting machine accepts all words not in and rejects all words in . Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions.  An earlier version of this Hint said that this isn't an induction proof. That was a little overeager. It is very possible to give a persuasive proof that doesn't use it, but I shouldn't have said you can't . In this particular case, though, I don't think the inductive argument is simpler or more convenient.  "
 },
@@ -914,7 +959,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw1.html#exercise-5",
   "type": "Exercise",
-  "number": "4.1.5",
+  "number": "5.1.5",
   "title": "",
   "body": " For any word , its reverse  is defined to be , so the symbols appear in the reverse order. Recall that a language is regular if it is accepted by some DFA. Show that if is a regular language, so is the language , where .   In the previous problem, a modification to the DFA was suggested: swap the accepting and non-accepting states. In this one, you will need to concoct the modification yourself, and give some of the details of why the resulting thing is a DFA.  Since you don't have a transition diagram to fall back on, you'll need to use the formal description of the DFA in terms of sets and functions. There are two things to prove: first, that contains all words where , and second, that does not contain any word that isn't the reverse of a word in .  "
 },
@@ -923,7 +968,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-hw2.html",
   "type": "Section",
-  "number": "4.2",
+  "number": "5.2",
   "title": "Homework 02",
   "body": " Homework 02  This assignment covers sections 2.3 through 2.5 in HMU. Each problem will be worth 3 checks. Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible. If your solution is more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.    Each of the following languages is the complement of a simpler language. In each part, construct an NFA for the simpler language, then use it to give the state diagram of an NFA for the language given. In all parts, .          Refer to for an idea on how to handle the complementation.    Each of the languages below is the concatenation of two simpler languages. The concatenation of languages and is the language . For each language, give a single -NFA that accepts it. The language is always .   Zero or more followed by zero or more  A string of odd length followed by a string ending in  Any string except a single or    Solve two simpler problems first, then use an to connect them.    Use the subset construction to convert the NFA below into a DFA. Give both a transition table including all the states (even the inaccessible ones) and a state diagram showing only the accessible states. The alphabet is .       For each of the following regular expressions, give two strings that match and two that do not match. The alphabet is .          Give NFA that accept the languages that match the regular expressions.        "
 },
@@ -932,7 +977,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw2.html#exercise-6",
   "type": "Exercise",
-  "number": "4.2.1",
+  "number": "5.2.1",
   "title": "",
   "body": " Each of the following languages is the complement of a simpler language. In each part, construct an NFA for the simpler language, then use it to give the state diagram of an NFA for the language given. In all parts, .          Refer to for an idea on how to handle the complementation.  "
 },
@@ -941,7 +986,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw2.html#exercise-7",
   "type": "Exercise",
-  "number": "4.2.2",
+  "number": "5.2.2",
   "title": "",
   "body": " Each of the languages below is the concatenation of two simpler languages. The concatenation of languages and is the language . For each language, give a single -NFA that accepts it. The language is always .   Zero or more followed by zero or more  A string of odd length followed by a string ending in  Any string except a single or    Solve two simpler problems first, then use an to connect them.  "
 },
@@ -950,7 +995,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw2.html#exercise-8",
   "type": "Exercise",
-  "number": "4.2.3",
+  "number": "5.2.3",
   "title": "",
   "body": " Use the subset construction to convert the NFA below into a DFA. Give both a transition table including all the states (even the inaccessible ones) and a state diagram showing only the accessible states. The alphabet is .     "
 },
@@ -959,7 +1004,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw2.html#exercise-9",
   "type": "Exercise",
-  "number": "4.2.4",
+  "number": "5.2.4",
   "title": "",
   "body": " For each of the following regular expressions, give two strings that match and two that do not match. The alphabet is .        "
 },
@@ -968,7 +1013,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw2.html#exercise-10",
   "type": "Exercise",
-  "number": "4.2.5",
+  "number": "5.2.5",
   "title": "",
   "body": " Give NFA that accept the languages that match the regular expressions.      "
 },
@@ -977,7 +1022,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-hw3.html",
   "type": "Section",
-  "number": "4.3",
+  "number": "5.3",
   "title": "Homework 03",
   "body": " Homework 03  This assignment covers sections 2.5 through 3.2 in HMU. Each problem will be worth 3 checks. Your code should be like floating little poems. Use comments wisely: don't explain the routine things, but the clever ones. Make your code transparent so that it is easy to read and understand.  The assignment is worth 15 checks.    Write a single Python file dfa.py that implements the classes specified below with the indicated behavior. You may use any Python features you like, but you may not use any other modules (imports). You are explicitly instructed not to search for a solution to this problem. Obviously it will be very easy to find. Instead, use what you know from class and your existing programming skills. All the code you submit should be your own. Please also refrain from the use of any type of programming assistant (turn off AI gizmos like GitHub Copilot, IntelliSense, ).  Keep the following philosophy in mind as you code. The intuitive, diagram-based idea of a DFA is not something easy to code. However, you also have access to the formal specification and much surrounding apparatus. I would suggest implementing DFA in terms of the formal specification: use it as your inspiration for how the class's fields should look.   The class DFA . This class should have the following methods:  a constructor that returns a usable DFA object  a __repr__() method that dumps the current formal specification of the DFA to the output  a run() method that simulates the action of the extended transition function (see ). This method should return a bool whose value indicates acceptance or rejection.  I have not specified the parameters. These are all instance methods of the class, so must take at least the parameter self . The DFA is nothing more than its formal specification, so you can start there.   Use the data type set for , , and . Think about Python's types carefully before you choose how to implement .   The class NFA . This class should have the following methods. My remarks above about the parameters apply here as well.  a constructor that returns a usable NFA object  a __repr__() method that dumps the current formal specification of the NFA to the output  a helper method do_delta() that simulates the (non-extended) transition function . This method should handle missing transitions gracefully, since it is for an NFA.  a run() method that simulates the action of the extended transition function (see ). This method should call the do_delta() method. It should return a bool whose value indicates acceptance or rejection.     Add another method to your DFA class. The method NFA() takes a DFA object as parameter and should return an instance of your NFA class that is equivalent to the passed DFA.   Also add a method DFA() to your NFA class. This method will perform the subset construction on the passed NFA, and return a DFA instance representing the DFA so constructed.   This part is difficult to get working for all NFA. Obviously, the first difficulty here is the transition function. Be sure you are familiar with the available methods that belong to the classes you have chosen. You may need to use Python's frozenset type, which behaves like a set but is immutable. If you need to build a frozenset element by element, start with a normal set, and then convert when you are done.  Another difficulty is constructing the power set. I recommend an iterative approach, although you can use recursion too. My preferred method is to use the natural correspondence between the elements of the power set and the binary representations of the integers from 0 to . Imagine that the states of are numbered from to . Then the th element of the power set contains the th element of if and only if the binary representation of has a 1 in the -th position.   def powerset(elems):  \"\"\"Returns a set representing the power set of `elems`.  Note that this can be very expensive (time and space)  since the size of the power set is exponential in the  size of `elems`.\"\"\"   elems_list = list(elems) # need to use indexing  n = len(elems)  powerset_size = 2**n  result = set()  for i in range(powerset_size):  # item j from elems is in the ith element  # of the powerset if the binary rep of i  # has a 1 in position j  ith_subset = set()  for j in range(n):  if (i & (1 << j) > 0):  ith_subset.add(elems_list[j])  result.add(frozenset(ith_subset))  return result   Finally, it is convenient to have access to the product function to form the Cartesian product . The function itertools.product is available for this purpose. Try the following code in the Python console:   import itertools  Q = {1, 2, 3}  Sigma = {'a', 'b'}  for q, a in itertools.product(Q, Sigma):  print(q, a)  1 a 1 b 2 a 2 b 3 a 3 b    The remaining 3 checks are allocated based on the quality and style of your code.    "
 },
@@ -986,7 +1031,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw3.html#ex-implement-dfa",
   "type": "Exercise",
-  "number": "4.3.1",
+  "number": "5.3.1",
   "title": "",
   "body": " Write a single Python file dfa.py that implements the classes specified below with the indicated behavior. You may use any Python features you like, but you may not use any other modules (imports). You are explicitly instructed not to search for a solution to this problem. Obviously it will be very easy to find. Instead, use what you know from class and your existing programming skills. All the code you submit should be your own. Please also refrain from the use of any type of programming assistant (turn off AI gizmos like GitHub Copilot, IntelliSense, ).  Keep the following philosophy in mind as you code. The intuitive, diagram-based idea of a DFA is not something easy to code. However, you also have access to the formal specification and much surrounding apparatus. I would suggest implementing DFA in terms of the formal specification: use it as your inspiration for how the class's fields should look.   The class DFA . This class should have the following methods:  a constructor that returns a usable DFA object  a __repr__() method that dumps the current formal specification of the DFA to the output  a run() method that simulates the action of the extended transition function (see ). This method should return a bool whose value indicates acceptance or rejection.  I have not specified the parameters. These are all instance methods of the class, so must take at least the parameter self . The DFA is nothing more than its formal specification, so you can start there.   Use the data type set for , , and . Think about Python's types carefully before you choose how to implement .   The class NFA . This class should have the following methods. My remarks above about the parameters apply here as well.  a constructor that returns a usable NFA object  a __repr__() method that dumps the current formal specification of the NFA to the output  a helper method do_delta() that simulates the (non-extended) transition function . This method should handle missing transitions gracefully, since it is for an NFA.  a run() method that simulates the action of the extended transition function (see ). This method should call the do_delta() method. It should return a bool whose value indicates acceptance or rejection.     Add another method to your DFA class. The method NFA() takes a DFA object as parameter and should return an instance of your NFA class that is equivalent to the passed DFA.   Also add a method DFA() to your NFA class. This method will perform the subset construction on the passed NFA, and return a DFA instance representing the DFA so constructed.   This part is difficult to get working for all NFA. Obviously, the first difficulty here is the transition function. Be sure you are familiar with the available methods that belong to the classes you have chosen. You may need to use Python's frozenset type, which behaves like a set but is immutable. If you need to build a frozenset element by element, start with a normal set, and then convert when you are done.  Another difficulty is constructing the power set. I recommend an iterative approach, although you can use recursion too. My preferred method is to use the natural correspondence between the elements of the power set and the binary representations of the integers from 0 to . Imagine that the states of are numbered from to . Then the th element of the power set contains the th element of if and only if the binary representation of has a 1 in the -th position.   def powerset(elems):  \"\"\"Returns a set representing the power set of `elems`.  Note that this can be very expensive (time and space)  since the size of the power set is exponential in the  size of `elems`.\"\"\"   elems_list = list(elems) # need to use indexing  n = len(elems)  powerset_size = 2**n  result = set()  for i in range(powerset_size):  # item j from elems is in the ith element  # of the powerset if the binary rep of i  # has a 1 in position j  ith_subset = set()  for j in range(n):  if (i & (1 << j) > 0):  ith_subset.add(elems_list[j])  result.add(frozenset(ith_subset))  return result   Finally, it is convenient to have access to the product function to form the Cartesian product . The function itertools.product is available for this purpose. Try the following code in the Python console:   import itertools  Q = {1, 2, 3}  Sigma = {'a', 'b'}  for q, a in itertools.product(Q, Sigma):  print(q, a)  1 a 1 b 2 a 2 b 3 a 3 b    The remaining 3 checks are allocated based on the quality and style of your code.  "
 },
@@ -995,7 +1040,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-hw4.html",
   "type": "Section",
-  "number": "4.4",
+  "number": "5.4",
   "title": "Homework 04",
   "body": " Homework 04  This assignment covers 5.1 and 5.2 in HMU. Each problem will be worth 3 checks (unless otherwise noted). Your answers should be like little essays, made only of complete sentences. Formulas should never stand on their own, but should be parts of otherwise complete sentences. You should be able to read your answer aloud from beginning to end and have it sound sensible. If your solution is more like a pile of equations, with little or no connecting narration, you'll max out at 2 checks.     Parts are worth 3 checks each. Complete Part for an additional 3 bonus checks.  Consider the following grammar: .   Write down a recursive inference table giving at least four strings of length at least that are in the language of .   Write down either leftmost or rightmost derivations giving at least four strings of length at least that are in the language of .   Use either leftmost derivations or recursive inference to find at least four strings of length at least that are in , and make a conjecture about which strings are in the language of the above grammar.   Prove that your conjecture from Part is correct.    Let . We may think of as the set of symbols used by regular expressions over alphabet . The only difference is that we use for symbol , to avoid potential confusion with the actual that may appear in your grammar productions. Design a CFG with set of terminals that generates exactly the regular expressions with alphabet .  This problem originally left out the symbol. Both the and should be there, but the is binary operator for regular expression union, not the unary operator denoting one or more .    Describe, in general terms, a recursive method to convert a regular expression to an equivalent context-free grammar. You do not need to prove that your method is correct.   General here does not mean vague , but rather that your explanation is not tied to a specific example. Try to be general and precise at once. The reader should understand how to write down productions for the grammar based on your solution and the form of the regular expression.   Use the recursive definition of a regular expression. That is, explain how to handle the base cases directly and give a general explanation of how to handle the recursive cases.    Each part of this problem is worth 3 checks.  A context-free grammar is said to be right-linear if each production body has at most one variable, and that variable is at the right end. That is, all productions of a right-linear grammar are of the form or , where and are variables and a string of zero or more terminals.   In the same sense as , give a general method to convert a right-linear grammar to an -NFA. This shows that right-linear grammars are at least as powerful as -NFAs (equivalently, DFAs, regular expressions, etc.)   Construct an -NFA that simulates leftmost derivations, using its state to represent the lone variable in the current left-sentential form.   Give a general method for converting a DFA into a right-linear grammar. Combined with the previous part, this shows that right-linear grammars recognize exactly the regular languages.   Start with a DFA and let the variables of the grammar represent states.    For each string below, find a parse tree that shows how it is generated by the grammar.          "
 },
@@ -1004,7 +1049,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw4.html#exercise-12",
   "type": "Exercise",
-  "number": "4.4.1",
+  "number": "5.4.1",
   "title": "",
   "body": "  Parts are worth 3 checks each. Complete Part for an additional 3 bonus checks.  Consider the following grammar: .   Write down a recursive inference table giving at least four strings of length at least that are in the language of .   Write down either leftmost or rightmost derivations giving at least four strings of length at least that are in the language of .   Use either leftmost derivations or recursive inference to find at least four strings of length at least that are in , and make a conjecture about which strings are in the language of the above grammar.   Prove that your conjecture from Part is correct.  "
 },
@@ -1013,7 +1058,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw4.html#exercise-13",
   "type": "Exercise",
-  "number": "4.4.2",
+  "number": "5.4.2",
   "title": "",
   "body": " Let . We may think of as the set of symbols used by regular expressions over alphabet . The only difference is that we use for symbol , to avoid potential confusion with the actual that may appear in your grammar productions. Design a CFG with set of terminals that generates exactly the regular expressions with alphabet .  This problem originally left out the symbol. Both the and should be there, but the is binary operator for regular expression union, not the unary operator denoting one or more .  "
 },
@@ -1022,7 +1067,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw4.html#hw04-exer-regex-to-cfg",
   "type": "Exercise",
-  "number": "4.4.3",
+  "number": "5.4.3",
   "title": "",
   "body": " Describe, in general terms, a recursive method to convert a regular expression to an equivalent context-free grammar. You do not need to prove that your method is correct.   General here does not mean vague , but rather that your explanation is not tied to a specific example. Try to be general and precise at once. The reader should understand how to write down productions for the grammar based on your solution and the form of the regular expression.   Use the recursive definition of a regular expression. That is, explain how to handle the base cases directly and give a general explanation of how to handle the recursive cases.  "
 },
@@ -1031,7 +1076,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw4.html#exercise-15",
   "type": "Exercise",
-  "number": "4.4.4",
+  "number": "5.4.4",
   "title": "",
   "body": " Each part of this problem is worth 3 checks.  A context-free grammar is said to be right-linear if each production body has at most one variable, and that variable is at the right end. That is, all productions of a right-linear grammar are of the form or , where and are variables and a string of zero or more terminals.   In the same sense as , give a general method to convert a right-linear grammar to an -NFA. This shows that right-linear grammars are at least as powerful as -NFAs (equivalently, DFAs, regular expressions, etc.)   Construct an -NFA that simulates leftmost derivations, using its state to represent the lone variable in the current left-sentential form.   Give a general method for converting a DFA into a right-linear grammar. Combined with the previous part, this shows that right-linear grammars recognize exactly the regular languages.   Start with a DFA and let the variables of the grammar represent states.  "
 },
@@ -1040,9 +1085,54 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hw4.html#exercise-16",
   "type": "Exercise",
-  "number": "4.4.5",
+  "number": "5.4.5",
   "title": "",
   "body": " For each string below, find a parse tree that shows how it is generated by the grammar.        "
+},
+{
+  "id": "sec-hw5",
+  "level": "1",
+  "url": "sec-hw5.html",
+  "type": "Section",
+  "number": "5.5",
+  "title": "Homework 05",
+  "body": " Homework 05  This assignment covers Chapters 8 and 9 in HMU. You can use without proof the facts from class that the languages are not recursively enumerable (for ) and not recursive (for ). Recall that is the th string in the lexicographic ordering of strings over , and is the Turing machine that is encoded by . Finally we agreed that if is not a valid encoding of a Turing machine, then we set .  In below, you should use reduction to show that the given language is not recursive. Do not use Rice's theorem.    Show that the language is recursive.    Show that the halting problem, the problem of determining whether a Turing machine halts on a given input, is undecidable. That is, show that the language is not recursive.  The practical implication of this is that there is no general routine by which a compiler can determine with certainty whether a program will halt on a particular input. This is why compilers sometimes give warnings about possible infinite loops. It is also possible that a compiler could decide this question for a smaller subset of programs, or that a human computer scientist could decide this question for a particular program.    Show that the problem of determining whether a Turing machine accepts the empty language is undecidable. That is, show that the language is not recursive. (In fact, it is not even recursively enumerable, but you don't need to show this.)    Show that the problem of determining whether a Turing machine accepts a nonempty set is undecidable. That is, show that the language is not recursive. It turns out that it is recursively enumerable, but you don't need to show this.    "
+},
+{
+  "id": "exercise-17",
+  "level": "2",
+  "url": "sec-hw5.html#exercise-17",
+  "type": "Exercise",
+  "number": "5.5.1",
+  "title": "",
+  "body": " Show that the language is recursive.  "
+},
+{
+  "id": "exercise-undecidable-1",
+  "level": "2",
+  "url": "sec-hw5.html#exercise-undecidable-1",
+  "type": "Exercise",
+  "number": "5.5.2",
+  "title": "",
+  "body": " Show that the halting problem, the problem of determining whether a Turing machine halts on a given input, is undecidable. That is, show that the language is not recursive.  The practical implication of this is that there is no general routine by which a compiler can determine with certainty whether a program will halt on a particular input. This is why compilers sometimes give warnings about possible infinite loops. It is also possible that a compiler could decide this question for a smaller subset of programs, or that a human computer scientist could decide this question for a particular program.  "
+},
+{
+  "id": "exercise-19",
+  "level": "2",
+  "url": "sec-hw5.html#exercise-19",
+  "type": "Exercise",
+  "number": "5.5.3",
+  "title": "",
+  "body": " Show that the problem of determining whether a Turing machine accepts the empty language is undecidable. That is, show that the language is not recursive. (In fact, it is not even recursively enumerable, but you don't need to show this.)  "
+},
+{
+  "id": "exercise-undecidable-3",
+  "level": "2",
+  "url": "sec-hw5.html#exercise-undecidable-3",
+  "type": "Exercise",
+  "number": "5.5.4",
+  "title": "",
+  "body": " Show that the problem of determining whether a Turing machine accepts a nonempty set is undecidable. That is, show that the language is not recursive. It turns out that it is recursively enumerable, but you don't need to show this.  "
 }
 ]
 
